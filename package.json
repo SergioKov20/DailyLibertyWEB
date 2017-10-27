@@ -19,6 +19,8 @@
   "homepage": "https://github.com/AdriaCarrera/PTI01#readme",
   "dependencies": {
     "ejs": "^2.5.7",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mongoose": "^4.12.4",
+    "passport-local": "^1.0.0"
   }
 }

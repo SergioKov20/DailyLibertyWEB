@@ -8,4 +8,7 @@ module.exports = function(app) {
         res.render('login.ejs');
     });
 
+    app.get('/signup', function(req, res) {
+        res.render('signup.ejs');
+    });
 }
