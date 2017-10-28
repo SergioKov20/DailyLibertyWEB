@@ -7,6 +7,13 @@
 </head>
 <body>
     <h1>Estem al login</h1>
-</div>
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+    <form action="/login" method="POST">
+    	Username:<input type="text" name="username">
+    	Password:<input type="password" name="password">
+    	<button type="submit">LogIn</button>
+    </form>
 </body>
 </html>
