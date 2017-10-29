@@ -32,6 +32,13 @@ module.exports = function(app,passport) {
             user : req.user // get the user out of session and pass to template
         });
 	});
+
+	app.get('/newdocument', isLoggedIn, function(req, res) {
+        res.render('newdocument.ejs');
+    });
+    /*app.post('/newdocument', function(req,res) {
+
+    });*/
 }
 
 function isLoggedIn(req, res, next) {
