@@ -10,10 +10,11 @@ body {
   margin: 0;
   background: white;
   font-family: 'Raleway', sans-serif;
-  overflow-y: hidden;
   height: 100%;
 }
 body .capsaHeader {
+  width: -webkit-fill-available;
+  position: fixed;
   background-color: #3f51b5;
   box-shadow: 6px 4px 15px 1px rgba(63, 81, 181, 0.72);
 }
@@ -45,10 +46,9 @@ body .capsaHeader .barraSuperior .cajaLogo {
 }
 body .capsaHeader .barraSuperior .cajaLogo .logo {
   min-width: 90px;
-  font-size: 40px;
+  font-size: 30px;
   text-decoration: none;
   color: white;
-  padding-bottom: 7px;
   z-index: 10;
 }
 body .capsaHeader .barraSuperior .buscador {
@@ -134,48 +134,70 @@ body .cajas {
   position: absolute;
   z-index: -2;
 }
-body .cajas .cajaI {
-  background-color: #F6F5F5;
+body .cajas .articulo:nth-child(2n) .cajaI {
+  background: #cfd8dc;
+  border-top: 2px solid #eeeeee;
+}
+body .cajas .articulo:nth-child(2n) .cajaI header h1 {
+  color: white;
+}
+body .cajas .articulo:nth-child(-n+5) {
+  margin-top: 30px;
+}
+body .cajas .articulo {
+  text-decoration: none;
+  width: calc(30% - 100px/2);
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+body .cajas .articulo .cajaI {
+  border-top: 2px solid #3F51B5;
+  position: relative;
+  background-color: #eeeeee;
   opacity: 1;
   box-sizing: border-box;
-  padding-top: 25px;
+  padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
   min-width: 100px;
-  width: calc(33% - 40px/2);
   z-index: -2;
-  margin-right: 40px;
-  margin-left: 40px;
   min-height: 250px;
 }
-body .cajas .cajaI section {
+body .cajas .articulo .cajaI header h1 {
+  margin: 0;
+  font-size: 14px;
+  color: #3f51b5;
+}
+body .cajas .articulo .cajaI section {
   max-height: 250px;
   overflow: auto;
 }
-body .cajas .cajaI section small {
-  font-size: 15px;
+body .cajas .articulo .cajaI section h1 {
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0;
+  color: black;
 }
-body .cajas .cajaI h2 {
-  font-size: 17px;
-  margin: 0px;
+body .cajas .articulo .cajaI section h2 {
+  font-weight: normal;
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+  color: black;
 }
-body .cajas .cajaI big {
-  font-size: 15px;
-}
-body .cajas .cajaI big:after {
-  display: block;
-  content: "";
-  width: 40px;
-  height: 2px;
-  background-color: grey;
-  margin-top: 15px;
-  margin-bottom: 15px;
+body .cajas .articulo .cajaI section small {
+  position: absolute;
+  padding-right: 8px;
+  font-size: 13px;
+  font-style: italic;
+  bottom: 12px;
+  right: 4px;
+  color: black;
 }
 body nav {
   background: rgba(159, 168, 218, 0.7);
   box-shadow: 2px -4px 30px 8px rgba(63, 81, 181, 0.3);
-  position: absolute;
+  position: fixed;
   left: -18em;
   height: 100%;
   padding-left: .25em;
@@ -186,6 +208,7 @@ body nav .menu {
   line-height: 42px;
   padding-left: 5px;
   width: 13.5em;
+  margin-top: 5px;
 }
 body nav .menu li {
   box-shadow: 3px 0 rgba(63, 81, 181, 0.3) inset;
@@ -209,6 +232,17 @@ body nav .menu li a:hover {
   transition: all .5s;
 }
 body nav .mostrarDiv {
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transition-duration: 500ms;
+}
+body .mostrarDiv {
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   position: fixed;
