@@ -3,10 +3,14 @@
     <head>
         <meta charset='UTF-8'>
         <meta name='viewport' MinWidth="640" MinHeight="480" content='width=device-width,initial-scale=1,maximum-scale=1'/>
-        <link rel='stylesheet' href='style.css'>
+       
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    </head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='style.css'>
+   </head>
     <body id="prueba" >
         <header  class="capsaHeader">
             <ul class="barraSuperior">
@@ -44,7 +48,19 @@
             <ul class="menu">
                 <li><a href="#">Inici</a></li>
                 <li><a href="#">Tendències</a></li>
-                <li><a href="#">Categories</a></li>
+                <li>
+                    <a data-toggle="collapse" href="#collapse1">Categories</a>
+                </li>
+                    <div id="collapse1" class="collapse">
+                        <div class="panel-body">
+                            <a href="principal.html">Política</a>
+        	                <a href="principal.html">Esports</a>
+        	                <a href="principal.html">Ciència</a>
+        	                <a href="principal.html">Tecnologia</a>
+        	                <a href="principal.html">Altres</a>
+        	                
+                        </div>
+                    </div>   
                 <li><a href="#">Subscripcions</a></li>
             </ul>
         </nav>

@@ -25,6 +25,7 @@ body .capsaHeader .barraSuperior {
   justify-content: space-between;
   height: 30px;
   margin: 0;
+  box-sizing: content-box;
 }
 body .capsaHeader .barraSuperior .imgMenu {
   display: flex;
@@ -52,6 +53,11 @@ body .capsaHeader .barraSuperior .cajaLogo .logo {
   text-decoration: none;
   color: #afa1a1;
   z-index: 10;
+}
+@media (max-width: 500px) {
+  body .capsaHeader .barraSuperior .cajaLogo .logo {
+    display: none;
+  }
 }
 body .capsaHeader .barraSuperior .buscador {
   display: flex;
@@ -132,6 +138,11 @@ body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
 }
 body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   background: #f1f1f1;
+}
+@media (max-width: 1100px) {
+  body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
+    left: -110%;
+  }
 }
 body .cajas {
   background: beige;
@@ -265,6 +276,7 @@ body nav .menu {
   line-height: 42px;
   padding-left: 5px;
   width: 13.5em;
+  margin-top: 14px;
 }
 body nav .menu li {
   box-shadow: 3px 0 rgba(101, 98, 98, 0.5) inset;
@@ -280,12 +292,30 @@ body nav .menu li a {
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+  font-family: 'Roboto Slab', sans-serif;
 }
 body nav .menu li a:hover {
   margin-left: 1em;
   -webkit-transition: all .5s;
   -o-transition: all .5s;
   transition: all .5s;
+}
+body nav .menu div div {
+  padding-top: 2px;
+  padding-bottom: 8px;
+}
+body nav .menu div div a {
+  width: 148px;
+  box-shadow: 3px 0 rgba(101, 98, 98, 0.5) inset;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding-left: 20px;
+}
+body nav .menu div div a:hover {
+  box-shadow: 15em 0 rgba(101, 98, 98, 0.5) inset;
 }
 body nav .mostrarDiv {
   background: rgba(0, 0, 0, 0.2);
