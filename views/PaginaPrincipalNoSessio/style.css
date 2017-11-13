@@ -173,7 +173,7 @@ html body .cajas .articulo:nth-child(-n+5) {
 html body .cajas .articulo {
   display: block;
   text-decoration: none;
-  width: calc(40% - 220px/2);
+  width: calc(40% - 310px/2);
   margin-bottom: 30px;
   margin-left: 10px;
 }
@@ -219,7 +219,7 @@ html body .cajas .articulo .cajaI section small {
   right: 4px;
   color: black;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   html body .cajas .articulo {
     margin-bottom: 20px;
     min-width: 265px;
