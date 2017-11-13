@@ -23,12 +23,16 @@ app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
 
+app.use('/', express.static('public'));
+
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url); // connect to our database
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
-require('./app/routes.js')(app,passport); // load our routes
+var newspaper = require('./config/newspaper.js');
+
+require('./app/routes.js')(app,passport,newspaper); // load our routes
 
 app.listen(port);
 console.log('Server started on port ' + port);

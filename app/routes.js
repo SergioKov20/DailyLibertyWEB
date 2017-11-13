@@ -1,7 +1,7 @@
-module.exports = function(app,passport) {
+module.exports = function(app,passport,newspaper) {
 
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+        res.render('index.ejs', { articles: newspaper.getArticles() });
     });
 
     app.get('/login', function(req, res) {
@@ -33,12 +33,12 @@ module.exports = function(app,passport) {
         });
 	});
 
-	app.get('/newdocument', isLoggedIn, function(req, res) {
-        res.render('newdocument.ejs');
+	app.get('/newarticle', function(req, res) {
+        res.render('newarticle.ejs');
     });
-    /*app.post('/newdocument', function(req,res) {
-
-    });*/
+    app.post('/newarticle', function(req,res) {
+        var result = newspaper.newArticle(req,res);
+    });
 }
 
 function isLoggedIn(req, res, next) {
