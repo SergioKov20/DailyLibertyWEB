@@ -11,10 +11,11 @@
 }
 
 
-
-body {
+html {
+    background-color: beige;
+    body {
     //min-width: 30%;
-    
+    background-color: beige;
     margin: 0;
     background: white;
     font-family: 'Roboto Slab', serif;
@@ -72,6 +73,7 @@ body {
                     //padding-right: 60px;
                     //padding-bottom: 7px;
                     z-index: 10;
+                    padding-right: 10px;
                     //rgba(162, 72, 11, 0.58);
                 }
                 @media (max-width:500px)
@@ -135,6 +137,7 @@ body {
                 min-width:50px;
                 width:~'calc(10% - 30px/4)';
                 //padding-right: 30px;
+                margin-top: 5px;
                 .dropLogin {
                     position:relative;
                     display: inline-block;
@@ -158,8 +161,8 @@ body {
                         cursor: pointer; 
                         background: url(img/user_male2-512.png);
                         background-size: cover;
-                        width: 38px;
-                        height: 38px;
+                        width: 40px;
+                        height: 40px;
                     }
                     .dropContingut {
                         display: none;
@@ -192,6 +195,8 @@ body {
         }
     }
     .cajas {
+            width: 100%;
+            //height: 100%;
             background: beige;
             padding: 80px;
             display:flex;
@@ -225,6 +230,7 @@ body {
             //min-width:~'calc(33% - 100px/2)';
             width:~'calc(40% - 220px/2)';
             //width: 300px;
+            //min-width: 358px;
             margin-bottom: 30px;
             margin-left: 10px;
             .cajaI{
@@ -287,7 +293,20 @@ body {
                 }
             }
           } 
-        
+        @media (max-width:1200px) 
+        {
+            
+            .articulo {
+                //width:~'calc(60% - 300px/3)';
+                margin-bottom: 20px;
+                //width: 300px;
+                min-width:265px;
+                
+                
+            }
+            
+
+        }
         @media (max-width:1000px) // passa a 2
         {
             
@@ -295,7 +314,7 @@ body {
                 //width:~'calc(60% - 300px/3)';
                 margin-bottom: 20px;
                 //width: 300px;
-                width:40%;
+                min-width:323px;
                 
                 
             }
@@ -307,14 +326,14 @@ body {
             }  
 
         }
-        @media (max-width:800px) // passa a 2
+        @media (max-width:843px) // 
         {
             
             .articulo {
                 //width:~'calc(60% - 300px/3)';
                 margin-bottom: 20px;
                 //width: 300px;
-                width:234px;
+                min-width:260px;
                 
                 
             }
@@ -332,9 +351,9 @@ body {
                 //width:~'calc(100% - 120px/3)';
                 margin-bottom: 20px;
                 //width:100%;
-                width:~'calc(100% - 300px/2)';
+                //width:~'calc(100% - 300px/2)';
                 //margin: 40px;
-
+                min-width:350px; 
             }
             .articulo:nth-child(-n+5) {
                 margin-top: 0px;
@@ -358,9 +377,33 @@ body {
                 margin-top: 30px;
             }  
         }
+        @media (max-width:440px)
+        {
+            .articulo {
+                //width:~'calc(100% - 120px/3)';
+                margin-bottom: 20px;
+                min-width:250px;
+                //margin-left:0px;
+
+            }
+            .articulo:nth-child(-n+5) {
+                margin-top: 0px;
+            }  
+            .articulo:nth-child(-n+3) {
+                margin-top: 30px;
+            }  
+        }
 
 
     }
+    @media (max-width:800px)
+        {
+            .cajas {
+                padding-top: 80px;
+                padding-left: 10px;
+                padding-right: 10px;
+             }
+        }
     nav{
         //background: rgba(101,98,98, 0.8);
         //background: rgba(181,152,125, 0.95);
@@ -470,5 +513,7 @@ body {
         
     }
     
+    
+}
     
 }

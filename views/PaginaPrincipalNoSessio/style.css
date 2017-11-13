@@ -6,19 +6,23 @@
   src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(https://fonts.gstatic.com/s/raleway/v12/cbAbzEjxTdN5KKmS-gA0tSEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-body {
+html {
+  background-color: beige;
+}
+html body {
+  background-color: beige;
   margin: 0;
   background: white;
   font-family: 'Roboto Slab', serif;
   height: 100%;
 }
-body .capsaHeader {
+html body .capsaHeader {
   width: -webkit-fill-available;
   position: fixed;
   background-color: #efefef;
   box-shadow: 6px 2px 15px 1px rgba(239, 239, 239, 0.72);
 }
-body .capsaHeader .barraSuperior {
+html body .capsaHeader .barraSuperior {
   padding: 10px 0;
   display: flex;
   flex-wrap: nowrap;
@@ -27,7 +31,7 @@ body .capsaHeader .barraSuperior {
   margin: 0;
   box-sizing: content-box;
 }
-body .capsaHeader .barraSuperior .imgMenu {
+html body .capsaHeader .barraSuperior .imgMenu {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,37 +40,38 @@ body .capsaHeader .barraSuperior .imgMenu {
   z-index: 10;
   margin-bottom: 5px;
 }
-body .capsaHeader .barraSuperior .imgMenu img {
+html body .capsaHeader .barraSuperior .imgMenu img {
   height: 40px;
   cursor: pointer;
 }
-body .capsaHeader .barraSuperior .cajaLogo {
+html body .capsaHeader .barraSuperior .cajaLogo {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 10px;
   margin-bottom: 5px;
 }
-body .capsaHeader .barraSuperior .cajaLogo .logo {
+html body .capsaHeader .barraSuperior .cajaLogo .logo {
   min-width: 90px;
   font-size: 30px;
   text-decoration: none;
   color: #afa1a1;
   z-index: 10;
+  padding-right: 10px;
 }
 @media (max-width: 500px) {
-  body .capsaHeader .barraSuperior .cajaLogo .logo {
+  html body .capsaHeader .barraSuperior .cajaLogo .logo {
     display: none;
   }
 }
-body .capsaHeader .barraSuperior .buscador {
+html body .capsaHeader .barraSuperior .buscador {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 40px;
   width: calc(80% - 30px/4);
 }
-body .capsaHeader .barraSuperior .buscador input {
+html body .capsaHeader .barraSuperior .buscador input {
   height: 40px;
   width: 650px;
   min-width: 50px;
@@ -75,17 +80,17 @@ body .capsaHeader .barraSuperior .buscador input {
   padding-left: 15px;
   border-width: inherit;
 }
-body .capsaHeader .barraSuperior .buscador input:focus {
+html body .capsaHeader .barraSuperior .buscador input:focus {
   border-color: #afa1a1;
   border-width: 1px;
   outline: 0 none;
 }
-body .capsaHeader .barraSuperior .buscador input::-webkit-input-placeholder {
+html body .capsaHeader .barraSuperior .buscador input::-webkit-input-placeholder {
   /* Google Chrome y Safari */
   font-size: 18px;
   color: darkgrey;
 }
-body .capsaHeader .barraSuperior .buscador .botonSearch {
+html body .capsaHeader .barraSuperior .buscador .botonSearch {
   height: 40px;
   width: 80px;
   cursor: pointer;
@@ -93,35 +98,36 @@ body .capsaHeader .barraSuperior .buscador .botonSearch {
   border: 1px solid #E1DCDC;
   background: #F6F5F5;
 }
-body .capsaHeader .barraSuperior .buscador .botonSearch img {
+html body .capsaHeader .barraSuperior .buscador .botonSearch img {
   height: 25px;
   width: 25px;
 }
-body .capsaHeader .barraSuperior .login {
+html body .capsaHeader .barraSuperior .login {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 50px;
   width: calc(10% - 30px/4);
+  margin-top: 5px;
 }
-body .capsaHeader .barraSuperior .login .dropLogin {
+html body .capsaHeader .barraSuperior .login .dropLogin {
   position: relative;
   display: inline-block;
 }
-body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
+html body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
   display: block;
 }
-body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
+html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   color: #afa1a1;
   font-size: 19px;
   border: none;
   cursor: pointer;
   background: url(img/user_male2-512.png);
   background-size: cover;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
 }
-body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -130,21 +136,22 @@ body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   left: -60%;
   z-index: 1;
 }
-body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   background: #f1f1f1;
 }
 @media (max-width: 1100px) {
-  body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
+  html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
     left: -110%;
   }
 }
-body .cajas {
+html body .cajas {
+  width: 100%;
   background: beige;
   padding: 80px;
   display: flex;
@@ -153,24 +160,24 @@ body .cajas {
   position: absolute;
   z-index: -2;
 }
-body .cajas .articulo:nth-child(2n) .cajaI {
+html body .cajas .articulo:nth-child(2n) .cajaI {
   background: rgba(162, 72, 11, 0.49);
   border-top: 2px solid #eeeeee;
 }
-body .cajas .articulo:nth-child(2n) .cajaI header h1 {
+html body .cajas .articulo:nth-child(2n) .cajaI header h1 {
   color: white;
 }
-body .cajas .articulo:nth-child(-n+5) {
+html body .cajas .articulo:nth-child(-n+5) {
   margin-top: 30px;
 }
-body .cajas .articulo {
+html body .cajas .articulo {
   display: block;
   text-decoration: none;
   width: calc(40% - 220px/2);
   margin-bottom: 30px;
   margin-left: 10px;
 }
-body .cajas .articulo .cajaI {
+html body .cajas .articulo .cajaI {
   border-top: 2px solid #A37D5A;
   position: relative;
   background-color: moccasin;
@@ -184,26 +191,26 @@ body .cajas .articulo .cajaI {
   z-index: -2;
   min-height: 250px;
 }
-body .cajas .articulo .cajaI header h1 {
+html body .cajas .articulo .cajaI header h1 {
   margin: 0;
   font-size: 14px;
   color: #A37D5A;
 }
-body .cajas .articulo .cajaI section {
+html body .cajas .articulo .cajaI section {
   max-height: 250px;
   overflow: auto;
 }
-body .cajas .articulo .cajaI section h1 {
+html body .cajas .articulo .cajaI section h1 {
   font-size: 20px;
   margin-bottom: 0;
   color: black;
 }
-body .cajas .articulo .cajaI section h2 {
+html body .cajas .articulo .cajaI section h2 {
   font-weight: normal;
   font-size: 12px;
   color: black;
 }
-body .cajas .articulo .cajaI section small {
+html body .cajas .articulo .cajaI section small {
   position: absolute;
   padding-right: 8px;
   font-size: 13px;
@@ -212,55 +219,80 @@ body .cajas .articulo .cajaI section small {
   right: 4px;
   color: black;
 }
-@media (max-width: 1000px) {
-  body .cajas .articulo {
+@media (max-width: 1200px) {
+  html body .cajas .articulo {
     margin-bottom: 20px;
-    width: 40%;
+    min-width: 265px;
   }
-  body .cajas .articulo:nth-child(-n+5) {
+}
+@media (max-width: 1000px) {
+  html body .cajas .articulo {
+    margin-bottom: 20px;
+    min-width: 323px;
+  }
+  html body .cajas .articulo:nth-child(-n+5) {
     margin-top: 0px;
   }
-  body .cajas .articulo:nth-child(-n+4) {
+  html body .cajas .articulo:nth-child(-n+4) {
     margin-top: 30px;
   }
 }
-@media (max-width: 800px) {
-  body .cajas .articulo {
+@media (max-width: 843px) {
+  html body .cajas .articulo {
     margin-bottom: 20px;
-    width: 234px;
+    min-width: 260px;
   }
-  body .cajas .articulo:nth-child(-n+5) {
+  html body .cajas .articulo:nth-child(-n+5) {
     margin-top: 0px;
   }
-  body .cajas .articulo:nth-child(-n+4) {
+  html body .cajas .articulo:nth-child(-n+4) {
     margin-top: 30px;
   }
 }
 @media (max-width: 710px) {
-  body .cajas .articulo {
+  html body .cajas .articulo {
     margin-bottom: 20px;
-    width: calc(100% - 300px/2);
+    min-width: 350px;
   }
-  body .cajas .articulo:nth-child(-n+5) {
+  html body .cajas .articulo:nth-child(-n+5) {
     margin-top: 0px;
   }
-  body .cajas .articulo:nth-child(-n+3) {
+  html body .cajas .articulo:nth-child(-n+3) {
     margin-top: 30px;
   }
 }
 @media (max-width: 620px) {
-  body .cajas .articulo {
+  html body .cajas .articulo {
     margin-bottom: 20px;
     width: 250px;
   }
-  body .cajas .articulo:nth-child(-n+5) {
+  html body .cajas .articulo:nth-child(-n+5) {
     margin-top: 0px;
   }
-  body .cajas .articulo:nth-child(-n+3) {
+  html body .cajas .articulo:nth-child(-n+3) {
     margin-top: 30px;
   }
 }
-body nav {
+@media (max-width: 440px) {
+  html body .cajas .articulo {
+    margin-bottom: 20px;
+    min-width: 250px;
+  }
+  html body .cajas .articulo:nth-child(-n+5) {
+    margin-top: 0px;
+  }
+  html body .cajas .articulo:nth-child(-n+3) {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 800px) {
+  html body .cajas {
+    padding-top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+html body nav {
   background: rgba(175, 161, 161, 0.95);
   box-shadow: -8px -4px 20px 8px #ababab;
   position: fixed;
@@ -271,22 +303,22 @@ body nav {
   margin-top: -30px;
   transition: all .6s;
 }
-body nav .menu {
+html body nav .menu {
   list-style: none;
   line-height: 42px;
   padding-left: 5px;
   width: 13.5em;
   margin-top: 14px;
 }
-body nav .menu li {
+html body nav .menu li {
   box-shadow: 3px 0 rgba(101, 98, 98, 0.5) inset;
   padding-left: 2em;
   margin-bottom: 8px;
 }
-body nav .menu li:hover {
+html body nav .menu li:hover {
   box-shadow: 15em 0 rgba(101, 98, 98, 0.5) inset;
 }
-body nav .menu li a {
+html body nav .menu li a {
   display: block;
   color: white;
   text-decoration: none;
@@ -294,17 +326,17 @@ body nav .menu li a {
   width: 100%;
   font-family: 'Roboto Slab', sans-serif;
 }
-body nav .menu li a:hover {
+html body nav .menu li a:hover {
   margin-left: 1em;
   -webkit-transition: all .5s;
   -o-transition: all .5s;
   transition: all .5s;
 }
-body nav .menu div div {
+html body nav .menu div div {
   padding-top: 2px;
   padding-bottom: 8px;
 }
-body nav .menu div div a {
+html body nav .menu div div a {
   width: 148px;
   box-shadow: 3px 0 rgba(101, 98, 98, 0.5) inset;
   margin-bottom: 5px;
@@ -314,10 +346,10 @@ body nav .menu div div a {
   color: white;
   padding-left: 20px;
 }
-body nav .menu div div a:hover {
+html body nav .menu div div a:hover {
   box-shadow: 15em 0 rgba(101, 98, 98, 0.5) inset;
 }
-body nav .mostrarDiv {
+html body nav .mostrarDiv {
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   position: fixed;
@@ -328,7 +360,7 @@ body nav .mostrarDiv {
   z-index: -1;
   transition-duration: 500ms;
 }
-body .mostrarDiv {
+html body .mostrarDiv {
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   position: fixed;
@@ -339,6 +371,6 @@ body .mostrarDiv {
   z-index: -1;
   transition-duration: 500ms;
 }
-body .mostrarMenu {
+html body .mostrarMenu {
   left: 0;
 }
