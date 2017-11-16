@@ -30,7 +30,7 @@ mongoose.connect(configDB.url); // connect to our database
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
-var newspaper = require('./config/newspaper.js');
+var newspaper = require('./app/newspaper.js');
 
 require('./app/routes.js')(app,passport,newspaper); // load our routes
 

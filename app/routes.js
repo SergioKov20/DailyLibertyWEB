@@ -1,7 +1,10 @@
 module.exports = function(app,passport,newspaper) {
 
     app.get('/', function(req, res) {
-        res.render('index.ejs', { articles: newspaper.getArticles(), isLoggedIn: req.isAuthenticated() });
+        res.render('index.ejs', { 
+            articles: newspaper.getArticles(), 
+            isLoggedIn: req.isAuthenticated() 
+        });
     });
 
     app.get('/login', function(req, res) {
@@ -29,9 +32,13 @@ module.exports = function(app,passport,newspaper) {
 
 	app.get('/profile', isLoggedIn, function(req,res){
 		res.render('profile.ejs', {
-            user : req.user // get the user out of session and pass to template
+            user : req.user, // get the user out of session and pass to template
         });
 	});
+    app.get('/user', function(req,res){
+        var username = req.param('v');
+        require('./searchUser.js').searchUser(req,res,username);
+    });
 
 	app.get('/newarticle', isLoggedIn, function(req, res) {
         res.render('newarticle.ejs');
@@ -41,7 +48,10 @@ module.exports = function(app,passport,newspaper) {
     });
 
     app.get('/tendencies', function(req, res) {
-        res.render('tendencies.ejs', { tendencies: newspaper.getTendencies(), isLoggedIn: req.isAuthenticated() } );
+        res.render('tendencies.ejs', { 
+            tendencies: newspaper.getTendencies(), 
+            isLoggedIn: req.isAuthenticated() 
+        } );
     });
 }
 

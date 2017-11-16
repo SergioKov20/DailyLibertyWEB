@@ -1,4 +1,4 @@
-var Article = require('../app/models/article');
+var Article = require('./models/article');
 
 exports.getArticles = function () {
 
