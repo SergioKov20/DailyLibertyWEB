@@ -13,8 +13,8 @@ module.exports = function(app,passport,newspaper) {
         failureFlash : true // allow flash messages
     }));
 
-    app.get('/signup', function(req, res) {
-        res.render('signup.ejs', { message: req.flash('signupMessage') });
+    app.get('/register', function(req, res) {
+        res.render('register.ejs', { message: req.flash('signupMessage') });
     });
     app.post('/signup', passport.authenticate('signup', {
         successRedirect : '/profile', // redirect to the secure profile section
@@ -35,6 +35,9 @@ module.exports = function(app,passport,newspaper) {
 
 	app.get('/newarticle', function(req, res) {
         res.render('newarticle.ejs');
+    });
+    app.get('/tendencies', function(req, res) {
+        res.render('tendencies.ejs', { tendencies: newspaper.getTendencies() } );
     });
     app.post('/newarticle', function(req,res) {
         var result = newspaper.newArticle(req,res);
