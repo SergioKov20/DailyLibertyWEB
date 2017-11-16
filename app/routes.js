@@ -1,7 +1,7 @@
 module.exports = function(app,passport,newspaper) {
 
     app.get('/', function(req, res) {
-        res.render('index.ejs', { articles: newspaper.getArticles() });
+        res.render('index.ejs', { articles: newspaper.getArticles(), isLoggedIn: req.isAuthenticated() });
     });
 
     app.get('/login', function(req, res) {
@@ -16,13 +16,13 @@ module.exports = function(app,passport,newspaper) {
     app.get('/register', function(req, res) {
         res.render('register.ejs', { message: req.flash('signupMessage') });
     });
-    app.post('/signup', passport.authenticate('signup', {
+    app.post('/register', passport.authenticate('signup', {
         successRedirect : '/profile', // redirect to the secure profile section
-        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureRedirect : '/register', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
-	app.get('/signout', function(req, res) {
+	app.get('/logout', function(req, res) {
 		req.logout();
 		res.redirect('/');
 	});
@@ -33,14 +33,15 @@ module.exports = function(app,passport,newspaper) {
         });
 	});
 
-	app.get('/newarticle', function(req, res) {
+	app.get('/newarticle', isLoggedIn, function(req, res) {
         res.render('newarticle.ejs');
     });
-    app.get('/tendencies', function(req, res) {
-        res.render('tendencies.ejs', { tendencies: newspaper.getTendencies() } );
-    });
-    app.post('/newarticle', function(req,res) {
+    app.post('/newarticle', isLoggedIn, function(req,res) {
         var result = newspaper.newArticle(req,res);
+    });
+
+    app.get('/tendencies', function(req, res) {
+        res.render('tendencies.ejs', { tendencies: newspaper.getTendencies(), isLoggedIn: req.isAuthenticated() } );
     });
 }
 

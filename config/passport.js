@@ -52,6 +52,8 @@ module.exports = function(passport) {
               if (found) return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
               else {
                 var newUser = new User();
+                newUser.firstName = req.body.firstName;
+                newUser.lastName = req.body.lastName;
                 newUser.username = username;
                 newUser.email    = email;
                 newUser.password = newUser.generateHash(password);

@@ -15,6 +15,7 @@ exports.getArticles = function () {
 					{portada: "/img/ciencia.jpg", category: "ESPORTS", title: t1, subtitle: s1, author: "Edgar Lorenzo"},
 					{portada: "/img/puigdemont.jpg", category: "POLITICA", title: t2, subtitle: s2, author: "Edgar Lorenzo"}];
 	return articles;
+	///multimedia/imatges/laksdjlkaoi2189casd.jpg
 }
 
 exports.getTendencies = function () {

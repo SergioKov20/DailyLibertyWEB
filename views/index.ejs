@@ -28,11 +28,18 @@
                 <li class="login">
                     <div class="dropLogin">
                         <button class="dropBoton"></button>
-                        <div class="dropContingut">
-                            <a href="login.html" >Veure Perfil</a>
-                            <a href="register.html">Escriure Article</a>
-                            <a href="../Pagina-principal/principal.html">Sortir</a>
-                      </div>
+                        <% if (isLoggedIn == true) { %>
+                            <div class="dropContingut">
+                                <a href="/profile" >Veure Perfil</a>
+                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/logout">Log Out</a>
+                            </div>
+                        <%} else {%>
+                            <div class="dropContingut">
+                                <a href="/login" >Sign In</a>
+                                <a href="/register">Register</a>
+                            </div>
+                        <% } %>
                     </div>
                 </li>
             </ul>

@@ -122,7 +122,7 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   font-size: 19px;
   border: none;
   cursor: pointer;
-  background: url(img/user_male2-512.png);
+  background: url(/img/user_male2-512.png);
   background-size: cover;
   width: 40px;
   height: 40px;

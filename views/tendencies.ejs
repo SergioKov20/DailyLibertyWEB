@@ -22,19 +22,24 @@
                 <li id="buscador" class="buscador">
                     <input id="search" type="search" placeholder="Buscar"></input>
                     <button id="botonSearch" class="botonSearch">
-                        <img src="img/lupaBuscador.png"/>
+                        <img src="/img/lupaBuscador.png"/>
                     </button>
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <button class="dropBoton">
-                            
-                        </button>
-                        <div class="dropContingut">
-                            <a href="login.html" >Sign in</a>
-                            <a href="register.html">Register</a>
-                            <a href="about.html">About us</a>
-                      </div>
+                        <button class="dropBoton"></button>
+                        <% if (isLoggedIn == true) { %>
+                            <div class="dropContingut">
+                                <a href="/profile" >Veure Perfil</a>
+                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/logout">Log Out</a>
+                            </div>
+                        <%} else {%>
+                            <div class="dropContingut">
+                                <a href="/login" >Sign In</a>
+                                <a href="/register">Register</a>
+                            </div>
+                        <% } %>
                     </div>
                 </li>
             </ul>
@@ -46,7 +51,7 @@
             
             <ul class="menu">
                 <li><a href="/">Inici</a></li>
-                <li><a href="#">Tendències</a></li>
+                <li><a href="/tendencies">Tendències</a></li>
                 <li>
                     <a data-toggle="collapse" href="#collapse1">Categories</a>
                 </li>
@@ -60,7 +65,7 @@
         	                
                         </div>
                     </div>   
-                <li><a href="#">Subscripcions</a></li>
+                <li><a href="/profile">Subscripcions</a></li>
             </ul>
         </nav>
         <% if (tendencies.length > 0) {
