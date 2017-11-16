@@ -18,5 +18,4 @@ exports.searchUser = function (req,res,username) {
         	});
         }
 	});
-	return;
 }

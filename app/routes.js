@@ -37,7 +37,7 @@ module.exports = function(app,passport,newspaper) {
 	});
     app.get('/user', function(req,res){
         var username = req.param('v');
-        require('./searchUser.js').searchUser(req,res,username);
+        require('./search.js').searchUser(req,res,username);
     });
 
 	app.get('/newarticle', isLoggedIn, function(req, res) {
