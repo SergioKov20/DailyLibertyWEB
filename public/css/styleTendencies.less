@@ -1,6 +1,7 @@
 //@import "../../less/style";
 //@mandarina: #3F51B5;  //azul
 @mandarina: #EFEFEF;
+//@mandarina: #F8F8F8;
 
 @font-face {
   font-family: 'Raleway';
@@ -15,10 +16,10 @@ html {
     background-color: mintcream;
     body {
     //min-width: 30%;
-    background-color: beige;
     margin: 0;
     background: white;
     font-family: 'Roboto Slab', serif;
+    font-family: 'Lora',Georgia,serif;
     //overflow-y:hidden;
     height: 100%;
     .capsaHeader{
@@ -27,7 +28,8 @@ html {
         background-color: @mandarina;
         //padding-bottom: 20px;
         box-shadow: 6px 2px 15px 1px rgba(239,239,239, 0.72);//rgba(63,81,181,0.72);
-        
+        //box-shadow:  0 0 8px 2px rgba(0,0,0,.5);
+        //border: 1px solid transparent;
         .barraSuperior {
             padding:10px 0;
             display:flex;
@@ -159,7 +161,7 @@ html {
                         font-size: 19px;
                         border: none;
                         cursor: pointer; 
-                        background: url(img/user_male2-512.png);
+                        background: url(../img/user_male2-512.png);
                         background-size: cover;
                         width: 40px;
                         height: 40px;
@@ -170,7 +172,7 @@ html {
                         background-color: #f9f9f9;
                         min-width: 160px;
                         top:40px;
-                        left: -60%;
+                        //left: -60%;
                         z-index: 1;
                         a {
                             color: black;
@@ -211,10 +213,13 @@ html {
             cursor: pointer;
             margin-top: 35px;
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             width: 100%;
+            min-width: inherit;
             height: 150px;
             margin-left: 30px;
+
+
             div {
                 width: 240px;
                 height: 100%;
@@ -227,25 +232,28 @@ html {
             article {
                 
                 width: 63%;
-                margin-left: 10px;
+                margin-left: 25px;
                 justify-content: center;
-               
-                header {
-                    height: 30%;
-                    h1 {
-                        margin-top:3px;
-                        font-weight: bold;
-                        font-size: 24px;
+                div {
+                    width: 100%;
+                    height: 55%;
+                    header {
+
+                        h1 {
+                            font-family: 'Lora',Georgia,serif;
+                            margin-top:3px;
+                            font-weight: 500;
+                            font-size: 20px;
+                        }
                     }
-                }
-                section {
-                    height: 20%;
-                    h2 {
-                        margin-top:10px;
-                        font-size: 16px;
+                    section {
+                        h2 {
+                            margin-top:10px;
+                            font-size: 14px;
+                        }
+
+
                     }
-                    
-                    
                 }
                 footer {
                 
@@ -274,10 +282,185 @@ html {
                 
                 
             }
+
+            
             
         }
+
         
     }
+    @media (max-width: 925px){
+            .cajas {
+                padding-left: 5px;
+                .divImgArt {
+                margin-left: 15px;
+                 div {
+                    
+                    img {
+                        min-width: 240px;
+                    }
+                }
+                article {
+                    margin-left: 15px;
+                    //min-width: 75%;
+                    div {
+                        min-width: 201px;
+                        header {
+                            h1{
+                                font-size:16px;
+                            }
+                        }
+                        section {
+                            h2 {
+                                font-size: 11px;
+                            }        
+                        }
+                    }
+                }
+            }
+            }
+        }
+        
+        @media (max-width: 490px){
+            .cajas {
+                padding-left: 15px;
+                
+                .divImgArt {
+                margin-left: 0px;
+                    margin-top: 0;
+                 div {
+                    
+                    img {
+                        min-width: 182px;
+                        height: 70%
+                    }
+                }
+                article {
+                    margin-left: 5px;
+                    //min-width: 75%;
+                    div {
+                        min-width: 200px;
+                        header {
+                            h1{
+                                font-size:13px;
+                            }
+                        }
+                        section {
+                            h2 {
+                                font-size: 9px;
+                            }        
+                        }
+                    }
+                    footer {
+                        top:3px;
+                    }
+                }
+            }
+            }
+        }
+        
+        
+            @media (max-width: 403px){
+            .cajas {
+                padding-left: 0px;
+                .divImgArt {
+                margin-left: 0px;
+                 div {
+                    
+                    img {
+                        min-width: 182px;
+                        height: 70%
+                    }
+                }
+                article {
+                    margin-left: 2px;
+                    //min-width: 75%;
+                    div {
+                        min-width: 160px;
+                        header {
+                            h1{
+                                font-size:13px;
+                            }
+                        }
+                        section {
+                            h2 {
+                                font-size: 9px;
+                            }        
+                        }
+                    }
+                    footer {
+                        top:3px;
+                        div {
+                            p {
+                                font-size: 10px;
+                                width: 30%;
+                            }
+                            small {
+                                width:-webkit-fill-available; 
+                            }
+                        }
+                    }
+                }
+            }
+            }
+        }
+        
+        
+        @media (max-width: 360px){
+            .cajas {
+                padding-left: 0px;
+                .divImgArt {
+                margin-left: 0px;
+                    margin-top: 0px;
+                 div {
+                    
+                    img {
+                        min-width: 132px;
+                        height: 60%
+                    }
+                }
+                article {
+                    margin-left: 2px;
+                    //min-width: 75%;
+                    div {
+                        height: 70px;
+                        min-width: 160px;
+                        header {
+                            h1{
+                                font-size:13px;
+                            }
+                        }
+                        section {
+                            h2 {
+                                font-size: 9px;
+                                margin:0;
+                            }        
+                        }
+                    }
+                    footer {
+                        top:0px;
+                        div {
+                            p {
+                                font-size: 10px;
+                                width: 30%;
+                            }
+                            small {
+                                width:-webkit-fill-available; 
+                            }
+                        }
+                    }
+                }
+            }
+            }
+        }
+       /* @media (max-width: 934px) {
+            .cajas {
+                flex-wrap: initial;
+                .divImgArt {
+                    width: 100%;
+                }
+            }
+        }*/
     nav{
         //background: rgba(101,98,98, 0.8);
         //background: rgba(181,152,125, 0.95);

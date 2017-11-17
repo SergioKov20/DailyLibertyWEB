@@ -10,11 +10,19 @@ html {
   background-color: mintcream;
 }
 html body {
-  background-color: beige;
   margin: 0;
   background: white;
   font-family: 'Roboto Slab', serif;
+  font-family: 'Lora', Georgia, serif;
   height: 100%;
+  /* @media (max-width: 934px) {
+            .cajas {
+                flex-wrap: initial;
+                .divImgArt {
+                    width: 100%;
+                }
+            }
+        }*/
 }
 html body .capsaHeader {
   width: -webkit-fill-available;
@@ -122,7 +130,7 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   font-size: 19px;
   border: none;
   cursor: pointer;
-  background: url(/img/user_male2-512.png);
+  background: url(../img/user_male2-512.png);
   background-size: cover;
   width: 40px;
   height: 40px;
@@ -133,7 +141,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   background-color: #f9f9f9;
   min-width: 160px;
   top: 40px;
-  left: -60%;
   z-index: 1;
 }
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
@@ -164,8 +171,9 @@ html body .cajas .divImgArt {
   cursor: pointer;
   margin-top: 35px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
+  min-width: inherit;
   height: 150px;
   margin-left: 30px;
 }
@@ -179,23 +187,22 @@ html body .cajas .divImgArt div img {
 }
 html body .cajas .divImgArt article {
   width: 63%;
-  margin-left: 10px;
+  margin-left: 25px;
   justify-content: center;
 }
-html body .cajas .divImgArt article header {
-  height: 30%;
+html body .cajas .divImgArt article div {
+  width: 100%;
+  height: 55%;
 }
-html body .cajas .divImgArt article header h1 {
+html body .cajas .divImgArt article div header h1 {
+  font-family: 'Lora', Georgia, serif;
   margin-top: 3px;
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 500;
+  font-size: 20px;
 }
-html body .cajas .divImgArt article section {
-  height: 20%;
-}
-html body .cajas .divImgArt article section h2 {
+html body .cajas .divImgArt article div section h2 {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
 html body .cajas .divImgArt article footer {
   position: relative;
@@ -219,6 +226,128 @@ html body .cajas .divImgArt article footer div small {
   text-align: right;
   font-style: italic;
   padding-right: 12px;
+}
+@media (max-width: 925px) {
+  html body .cajas {
+    padding-left: 5px;
+  }
+  html body .cajas .divImgArt {
+    margin-left: 15px;
+  }
+  html body .cajas .divImgArt div img {
+    min-width: 240px;
+  }
+  html body .cajas .divImgArt article {
+    margin-left: 15px;
+  }
+  html body .cajas .divImgArt article div {
+    min-width: 201px;
+  }
+  html body .cajas .divImgArt article div header h1 {
+    font-size: 16px;
+  }
+  html body .cajas .divImgArt article div section h2 {
+    font-size: 11px;
+  }
+}
+@media (max-width: 490px) {
+  html body .cajas {
+    padding-left: 15px;
+  }
+  html body .cajas .divImgArt {
+    margin-left: 0px;
+    margin-top: 0;
+  }
+  html body .cajas .divImgArt div img {
+    min-width: 182px;
+    height: 70%;
+  }
+  html body .cajas .divImgArt article {
+    margin-left: 5px;
+  }
+  html body .cajas .divImgArt article div {
+    min-width: 200px;
+  }
+  html body .cajas .divImgArt article div header h1 {
+    font-size: 13px;
+  }
+  html body .cajas .divImgArt article div section h2 {
+    font-size: 9px;
+  }
+  html body .cajas .divImgArt article footer {
+    top: 3px;
+  }
+}
+@media (max-width: 403px) {
+  html body .cajas {
+    padding-left: 0px;
+  }
+  html body .cajas .divImgArt {
+    margin-left: 0px;
+  }
+  html body .cajas .divImgArt div img {
+    min-width: 182px;
+    height: 70%;
+  }
+  html body .cajas .divImgArt article {
+    margin-left: 2px;
+  }
+  html body .cajas .divImgArt article div {
+    min-width: 160px;
+  }
+  html body .cajas .divImgArt article div header h1 {
+    font-size: 13px;
+  }
+  html body .cajas .divImgArt article div section h2 {
+    font-size: 9px;
+  }
+  html body .cajas .divImgArt article footer {
+    top: 3px;
+  }
+  html body .cajas .divImgArt article footer div p {
+    font-size: 10px;
+    width: 30%;
+  }
+  html body .cajas .divImgArt article footer div small {
+    width: -webkit-fill-available;
+  }
+}
+@media (max-width: 360px) {
+  html body .cajas {
+    padding-left: 0px;
+  }
+  html body .cajas .divImgArt {
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  html body .cajas .divImgArt div img {
+    min-width: 132px;
+    height: 60%;
+  }
+  html body .cajas .divImgArt article {
+    margin-left: 2px;
+  }
+  html body .cajas .divImgArt article div {
+    height: 70px;
+    min-width: 160px;
+  }
+  html body .cajas .divImgArt article div header h1 {
+    font-size: 13px;
+  }
+  html body .cajas .divImgArt article div section h2 {
+    font-size: 9px;
+    margin: 0;
+  }
+  html body .cajas .divImgArt article footer {
+    top: 0px;
+  }
+  html body .cajas .divImgArt article footer div p {
+    font-size: 10px;
+    width: 30%;
+  }
+  html body .cajas .divImgArt article footer div small {
+    width: -webkit-fill-available;
+  }
 }
 html body nav {
   background: rgba(175, 161, 161, 0.95);

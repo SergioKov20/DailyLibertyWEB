@@ -7,13 +7,13 @@
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
 html {
-  background-color: beige;
+  background-color: mintcream;
 }
 html body {
-  background-color: beige;
   margin: 0;
   background: white;
   font-family: 'Roboto Slab', serif;
+  font-family: 'Lora', Georgia, serif;
   height: 100%;
 }
 html body .capsaHeader {
@@ -122,7 +122,7 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   font-size: 19px;
   border: none;
   cursor: pointer;
-  background: url(/img/user_male2-512.png);
+  background: url(../img/user_male2-512.png);
   background-size: cover;
   width: 40px;
   height: 40px;
@@ -133,7 +133,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   background-color: #f9f9f9;
   min-width: 160px;
   top: 40px;
-  left: -140%;
   z-index: 1;
 }
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
@@ -152,7 +151,7 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
 }
 html body .cajas {
   width: 100%;
-  background: beige;
+  background: mintcream;
   padding: 80px;
   display: flex;
   flex-wrap: wrap;
@@ -161,11 +160,10 @@ html body .cajas {
   z-index: -2;
 }
 html body .cajas .articulo:nth-child(2n) .cajaI {
-  background: rgba(162, 72, 11, 0.49);
-  border-top: 2px solid #eeeeee;
+  background: #F1F1F1;
 }
-html body .cajas .articulo:nth-child(2n) .cajaI header h1 {
-  color: white;
+html body .cajas .articulo:nth-child(2n) .cajaI section div p {
+  color: orange;
 }
 html body .cajas .articulo:nth-child(-n+5) {
   margin-top: 30px;
@@ -173,50 +171,68 @@ html body .cajas .articulo:nth-child(-n+5) {
 html body .cajas .articulo {
   display: block;
   text-decoration: none;
-  width: calc(40% - 310px/2);
+  width: calc(40% - 350px/2);
   margin-bottom: 30px;
   margin-left: 10px;
+  z-index: -2;
 }
 html body .cajas .articulo .cajaI {
-  border-top: 2px solid #A37D5A;
   position: relative;
-  background-color: moccasin;
+  background-color: white;
   opacity: 1;
   box-sizing: border-box;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
   padding-bottom: 20px;
   min-width: 100px;
   z-index: -2;
   min-height: 250px;
 }
-html body .cajas .articulo .cajaI header h1 {
-  margin: 0;
-  font-size: 14px;
-  color: #A37D5A;
+html body .cajas .articulo .cajaI img {
+  width: 100%;
+  height: 120px;
 }
 html body .cajas .articulo .cajaI section {
   max-height: 250px;
-  overflow: auto;
 }
 html body .cajas .articulo .cajaI section h1 {
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
   margin-bottom: 0;
+  margin-top: 7px;
   color: black;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 html body .cajas .articulo .cajaI section h2 {
   font-weight: normal;
-  font-size: 12px;
-  color: black;
+  font-size: 10.5px;
+  line-height: inherit;
+  color: dimgrey;
+  margin-top: 10px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
-html body .cajas .articulo .cajaI section small {
+html body .cajas .articulo .cajaI section div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   position: absolute;
+  bottom: 8px;
+}
+html body .cajas .articulo .cajaI section div p {
+  width: 50%;
+  margin: 0;
+  font-size: 12px;
+  color: #A37D5A;
+  padding-left: 8px;
+}
+html body .cajas .articulo .cajaI section div small {
+  width: 50%;
+  text-align: right;
   padding-right: 8px;
   font-size: 13px;
   font-style: italic;
-  bottom: 12px;
-  right: 4px;
   color: black;
 }
 @media (max-width: 1300px) {
@@ -325,6 +341,7 @@ html body nav .menu li a {
   text-transform: uppercase;
   width: 100%;
   font-family: 'Roboto Slab', sans-serif;
+  font-family: 'Lora', Georgia, serif;
 }
 html body nav .menu li a:hover {
   margin-left: 1em;

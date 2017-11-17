@@ -10,10 +10,10 @@ html {
   background-color: mintcream;
 }
 html body {
-  background-color: beige;
   margin: 0;
   background: white;
   font-family: 'Roboto Slab', serif;
+  font-family: 'Lora', Georgia, serif;
   height: 100%;
 }
 html body .capsaHeader {
@@ -122,7 +122,7 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   font-size: 19px;
   border: none;
   cursor: pointer;
-  background: url(img/user_male2-512.png);
+  background: url(../img/user_male2-512.png);
   background-size: cover;
   width: 40px;
   height: 40px;
@@ -133,7 +133,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   background-color: #f9f9f9;
   min-width: 160px;
   top: 40px;
-  left: -60%;
   z-index: 1;
 }
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
@@ -153,160 +152,62 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
 html body .cajas {
   width: 100%;
   background: mintcream;
-  padding: 80px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: absolute;
   z-index: -2;
 }
-html body .cajas .articulo:nth-child(2n) .cajaI {
-  background: #F1F1F1;
+html body .cajas .articuloCompleto {
+  width: 70%;
+  margin-top: 110px;
+  text-align: center;
 }
-html body .cajas .articulo:nth-child(2n) .cajaI section div p {
+html body .cajas .articuloCompleto article {
+  justify-content: center;
+}
+html body .cajas .articuloCompleto article header p {
   color: orange;
 }
-html body .cajas .articulo:nth-child(-n+5) {
-  margin-top: 30px;
+html body .cajas .articuloCompleto article header h1 {
+  font-size: 40px;
 }
-html body .cajas .articulo {
-  display: block;
+html body .cajas .articuloCompleto article header h2:after {
+  margin-top: 40px;
+  display: inline-block;
+  content: "";
+  width: 400px;
+  height: 2px;
+  background-color: grey;
+  vertical-align: super;
+}
+html body .cajas .articuloCompleto article header h2 {
+  font-size: 20px;
+}
+html body .cajas .articuloCompleto article section {
+  width: 100%;
+  padding: 150px;
+  padding-top: 40px;
+}
+html body .cajas .articuloCompleto article section div {
+  text-align: left;
+  margin-bottom: 10px;
+}
+html body .cajas .articuloCompleto article section div a {
   text-decoration: none;
-  width: calc(40% - 350px/2);
-  margin-bottom: 30px;
-  margin-left: 10px;
-  z-index: -2;
+  color: brown;
+  cursor: pointer;
 }
-html body .cajas .articulo .cajaI {
-  position: relative;
-  background-color: white;
-  opacity: 1;
-  box-sizing: border-box;
-  padding-bottom: 20px;
-  min-width: 100px;
-  z-index: -2;
-  min-height: 250px;
+html body .cajas .articuloCompleto article section div a:hover {
+  color: red;
 }
-html body .cajas .articulo .cajaI img {
+html body .cajas .articuloCompleto article section img {
   width: 100%;
-  height: 120px;
 }
-html body .cajas .articulo .cajaI section {
-  max-height: 250px;
-}
-html body .cajas .articulo .cajaI section h1 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 0;
-  margin-top: 7px;
-  color: black;
-  padding-left: 6px;
-  padding-right: 6px;
-}
-html body .cajas .articulo .cajaI section h2 {
-  font-weight: normal;
-  font-size: 10px;
-  color: black;
-  margin-top: 10px;
-  padding-left: 6px;
-  padding-right: 6px;
-}
-html body .cajas .articulo .cajaI section div {
+html body .cajas .articuloCompleto article section p {
+  margin-top: 45px;
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 8px;
-}
-html body .cajas .articulo .cajaI section div p {
-  width: 50%;
-  margin: 0;
-  font-size: 12px;
-  color: #A37D5A;
-  padding-left: 8px;
-}
-html body .cajas .articulo .cajaI section div small {
-  width: 50%;
-  text-align: right;
-  padding-right: 8px;
-  font-size: 13px;
-  font-style: italic;
-  color: black;
-}
-@media (max-width: 1300px) {
-  html body .cajas .articulo {
-    margin-bottom: 20px;
-    min-width: 265px;
-  }
-}
-@media (max-width: 1000px) {
-  html body .cajas .articulo {
-    margin-bottom: 20px;
-    min-width: 323px;
-  }
-  html body .cajas .articulo:nth-child(-n+5) {
-    margin-top: 0px;
-  }
-  html body .cajas .articulo:nth-child(-n+4) {
-    margin-top: 30px;
-  }
-}
-@media (max-width: 843px) {
-  html body .cajas .articulo {
-    margin-bottom: 20px;
-    min-width: 260px;
-  }
-  html body .cajas .articulo:nth-child(-n+5) {
-    margin-top: 0px;
-  }
-  html body .cajas .articulo:nth-child(-n+4) {
-    margin-top: 30px;
-  }
-}
-@media (max-width: 710px) {
-  html body .cajas .articulo {
-    margin-bottom: 20px;
-    min-width: 350px;
-  }
-  html body .cajas .articulo:nth-child(-n+5) {
-    margin-top: 0px;
-  }
-  html body .cajas .articulo:nth-child(-n+3) {
-    margin-top: 30px;
-  }
-}
-@media (max-width: 620px) {
-  html body .cajas .articulo {
-    margin-bottom: 20px;
-    width: 250px;
-  }
-  html body .cajas .articulo:nth-child(-n+5) {
-    margin-top: 0px;
-  }
-  html body .cajas .articulo:nth-child(-n+3) {
-    margin-top: 30px;
-  }
-}
-@media (max-width: 440px) {
-  html body .cajas .articulo {
-    margin-bottom: 20px;
-    min-width: 250px;
-  }
-  html body .cajas .articulo:nth-child(-n+5) {
-    margin-top: 0px;
-  }
-  html body .cajas .articulo:nth-child(-n+3) {
-    margin-top: 30px;
-  }
-}
-@media (max-width: 800px) {
-  html body .cajas {
-    padding-top: 80px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+  text-align: justify;
 }
 html body nav {
   background: rgba(175, 161, 161, 0.95);
@@ -320,6 +221,7 @@ html body nav {
   transition: all .6s;
 }
 html body nav .menu {
+  padding-top: 80px;
   list-style: none;
   line-height: 42px;
   padding-left: 5px;
@@ -341,6 +243,7 @@ html body nav .menu li a {
   text-transform: uppercase;
   width: 100%;
   font-family: 'Roboto Slab', sans-serif;
+  font-family: 'Lora', Georgia, serif;
 }
 html body nav .menu li a:hover {
   margin-left: 1em;

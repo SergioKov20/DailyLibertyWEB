@@ -29,13 +29,13 @@
                     <div class="dropLogin">
                         <button class="dropBoton"></button>
                         <% if (isLoggedIn == true) { %>
-                            <div class="dropContingut">
+                            <div style="left: -190%" class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
                                 <a href="/logout">Log Out</a>
                             </div>
                         <%} else {%>
-                            <div class="dropContingut">
+                            <div style="left: -60%" class="dropContingut">
                                 <a href="/login" >Sign In</a>
                                 <a href="/register">Register</a>
                             </div>
@@ -73,19 +73,21 @@
                     <div onclick="location.href = '/index'" class="divImgArt">
                         <div><img src="<%=tendencies[i].portada%>"/></div>
                         <article class="cajaArticle">
-                            <header>
-                                <h1><%=tendencies[i].title%></h1>
-                            </header>
-                            <section>
-                                <h2><%=tendencies[i].subtitle%></h2>
-                            </section>
+							<div>
+								<header>
+									<h1><%=tendencies[i].title%></h1>
+								</header>
+								<section>
+									<h2><%=tendencies[i].subtitle%></h2>
+								</section>
+							</div>
                             <footer>
                                 <div>
                                     <p><%=tendencies[i].category%></p>
                                     <small><%=tendencies[i].author%></small>
                                 </div>
                             </footer>
-                        </article></a>
+                        </article>
                     </div>
             <%} }%>
         </section> 
