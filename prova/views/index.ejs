@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' MinWidth="640" MinHeight="480" content='width=device-width,initial-scale=1,maximum-scale=1'/>
+       
+        <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='css/index.css'>
+   </head>
+    <body id="prueba" >
+        <header  class="capsaHeader">
+            <ul class="barraSuperior">
+                <li id="btnMostrarNav" class="imgMenu">
+                    <img src="img/menuBlanco.png"/>
+                </li>
+                <li class="cajaLogo">
+                    <a class="logo" href="principal.html">DailyLiberty</a>
+                </li>
+                <li id="buscador" class="buscador">
+                    <input id="search" type="search" placeholder="Buscar"></input>
+                    <button id="botonSearch" class="botonSearch">
+                        <img src="img/lupaBuscador.png"/>
+                    </button>
+                </li>
+                <li class="login">
+                    <div class="dropLogin">
+                        <button class="dropBoton"></button>
+                        <div class="dropContingut">
+                            <a href="login.html" >Veure Perfil</a>
+                            <a href="register.html">Escriure Article</a>
+                            <a href="../Pagina-principal/principal.html">Sortir</a>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+        </header>
+        <section id ="cajasArticulos" class="cajas">
+        <div id="divFondo"></div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Inici</a></li>
+                <li><a href="#">Tendències</a></li>
+                <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
+                <div id="collapse1" class="collapse">
+                    <div class="panel-body">
+                        <a href="principal.html">Política</a>
+                        <a href="principal.html">Esports</a>
+                        <a href="principal.html">Ciència</a>
+        	            <a href="principal.html">Tecnologia</a>
+        	            <a href="principal.html">Altres</a>   
+                    </div>
+                </div>   
+                <li><a href="#">Subscripcions</a></li>
+            </ul>
+        </nav>
+        <% if (articles.length > 0) {
+        	for (var i = 0; i < articles.length; i++){%>
+        		<a class="articulo" href="principal.html"><article class="cajaI">
+        			<header>
+                        <h1><%=articles[i].category %></h1>
+                    </header>
+                    <section>
+                        <h1><%=articles[i].title %></h1>   
+                        <h2><%=articles[i].subtitle %></h2>
+                        <small><%=articles[i].author %></small>
+                    </section>
+                </article></a>
+        	<%}
+        }%>
+        </section> 
+        <script src="js/mostrarNav.js"></script>
+        
+    </body>
+</html>
+
+
