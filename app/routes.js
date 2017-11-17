@@ -36,15 +36,16 @@ module.exports = function(app,passport,newspaper) {
         });
 	});
     app.get('/user', function(req,res){
-        var username = req.param('v');
-        require('./search.js').searchUser(req,res,username);
+        require('./search.js').getUser(req,res,username);
     });
 
-	app.get('/newarticle', isLoggedIn, function(req, res) {
-        res.render('newarticle.ejs');
+	app.get('/article', isLoggedIn, function(req, res) {
+        var articleID = req.param('e');
+        if (articleID == null) res.render('./article.ejs', { article: null });
+        else  require('./search.js').getArticle(req,res);
     });
-    app.post('/newarticle', isLoggedIn, function(req,res) {
-        var result = newspaper.newArticle(req,res);
+    app.post('/article', isLoggedIn, function(req,res) {
+        newspaper.newArticle(req,res);
     });
 
     app.get('/tendencies', function(req, res) {
@@ -53,6 +54,10 @@ module.exports = function(app,passport,newspaper) {
             isLoggedIn: req.isAuthenticated() 
         } );
     });
+
+    app.get('/results', function(req,res) {
+        //Elastic search
+    })
 }
 
 function isLoggedIn(req, res, next) {

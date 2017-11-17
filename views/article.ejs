@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DailyLiberty  |  Edit your article</title>
+  <link rel=StyleSheet href="/css/article.css" type="text/css" media=screen>
+</head>
+<body>
+  <%
+    var title = ""; 
+    var subtitle = ""; 
+    var content = ""; 
+    var category = "";
+    if ( article ) { 
+      title = article.title;
+      subtitle = article.subtitle;
+      content = article.content;
+      category = article.category;
+    }%>
+  <div class="box">
+    <p class="subt"><u><b>Edit your article</b></u></p>
+    <p class="subtitle"><b>Fill in the empty fields:</b></p>
+    <form class="form" action="article" method="POST">
+      <span>
+        <label class="tamany"><b>Title*</b></label><br>
+        <textarea class="textarea1" name="title" required><%=title%></textarea>
+        <br><br><label class="tamany"><b>Subtitle*</b></label><br>
+        <textarea class="textarea2" name="subtitle" required><%=subtitle%></textarea>
+      </span>
+
+      <span>
+        <br><br><label class="tamany"><b>Content*</b></label><br>
+        <textarea class="textarea3" name="content" required><%=content%></textarea>
+      </span>
+
+      <label class="tamany"><b>Category*</b></label><br>
+      <textarea class="textarea1" name="category" required><%=category%></textarea>
+
+      <span>
+        <br><br><label class="tamany"><b>Insert an image</b></label><br><br>
+        <button type="button" onclick="">Click here</button>
+      </span><br><br><br><br>
+
+      <button class="but" type="submit" name="button">Cancel</button>
+      <button class="but" type="submit" name="button">Save Changes</button><br><br>
+     
+     <p class="asterisco">*required fields</p> 
+    </form>
+  </div>
+</body>
+</html>

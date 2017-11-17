@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 
 // define the schema for our user model
 var articleSchema = mongoose.Schema({
+	_id			: String,
     category    : String,
     title		: String,
     subtitle	: String,
-    text		: String,
+    content		: String,
     author	: String
 });
 

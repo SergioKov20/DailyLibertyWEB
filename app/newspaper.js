@@ -38,16 +38,16 @@ exports.getTendencies = function () {
 exports.newArticle = function(req,res) {
 
 	var newArticle = new Article();
+	newArticle._id 		= require("randomstring").generate(7);
+	newArticle.category = req.body.category;
+	newArticle.title    = req.body.title;
+	newArticle.subtitle = req.body.subtitle;
+	newArticle.content	= req.body.content;
+	newArticle.author 	= req.user.username;
 
-		newArticle.category = req.body.category;
-		newArticle.title    = req.body.title;
-		newArticle.subtitle = req.body.subtitle;
-		newArticle.text		= req.body.text;
-		newArticle.author 	= req.body.author;
-
-		//use schema.create to insert data into the db
-		Article.create(newArticle, function (err) {
-			if (err) { return next(err); } 
-			else { return res.redirect('/')  }
-		});
+	//use schema.create to insert data into the db
+	Article.create(newArticle, function (err) {
+		if (err) { return next(err); } 
+		else { return res.redirect('/')  }
+	});
 }
