@@ -296,6 +296,8 @@ textarea {
 }
 .container.perso{
 	width: 900px;
+  margin-left: 200px;
+  height: 100vh;
 }
 .mb25{
 	margin-top: 25px;
@@ -348,4 +350,3 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   background: #f1f1f1;
 }
-
