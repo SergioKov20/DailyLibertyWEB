@@ -279,11 +279,18 @@ html body .mostrarMenu {
 .user {
   font-weight: normal;
 }
-.savechanges {
+.cancelchanges {
   background-color: #00719c;
   color: white;
   width: 120px;
   height: 35px;
+}
+.savechanges {
+  background-color: green;
+  color: white;
+  width: 120px;
+  height: 35px;
+  float: right;
 }
 textarea {
   font-family: arial;
