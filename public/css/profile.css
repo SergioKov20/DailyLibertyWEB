@@ -6,73 +6,92 @@
   src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(https://fonts.gstatic.com/s/raleway/v12/cbAbzEjxTdN5KKmS-gA0tSEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-body {
+html {
+  background-color: mintcream;
+}
+html body {
+  background-color: beige;
   margin: 0;
   background: white;
-  font-family: 'Raleway', sans-serif;
-  overflow-y: hidden;
+  font-family: 'Roboto Slab', serif;
   height: 100%;
 }
-body .capsaHeader {
-  background-color: #3f51b5;
-  box-shadow: 6px 4px 15px 1px rgba(63, 81, 181, 0.72);
+html body .capsaHeader {
+  width: -webkit-fill-available;
+  position: fixed;
+  background-color: #efefef;
+  box-shadow: 6px 2px 15px 1px rgba(239, 239, 239, 0.72);
+  width: 100%;
 }
-body .capsaHeader .barraSuperior {
+html body .capsaHeader .barraSuperior {
   padding: 10px 0;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  height: 35px;
-  max-height: 250px;
+  height: 30px;
   margin: 0;
+  box-sizing: content-box;
 }
-body .capsaHeader .barraSuperior .imgMenu {
+html body .capsaHeader .barraSuperior .imgMenu {
   display: flex;
   align-items: center;
   justify-content: center;
   width: calc(5% - 30px/4);
   min-width: 45px;
   z-index: 10;
+  margin-bottom: 5px;
 }
-body .capsaHeader .barraSuperior .imgMenu img {
+html body .capsaHeader .barraSuperior .imgMenu img {
   height: 40px;
   cursor: pointer;
 }
-body .capsaHeader .barraSuperior .cajaLogo {
+html body .capsaHeader .barraSuperior .cajaLogo {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 10px;
+  margin-bottom: 5px;
 }
-body .capsaHeader .barraSuperior .cajaLogo .logo {
+html body .capsaHeader .barraSuperior .cajaLogo .logo {
   min-width: 90px;
-  font-size: 40px;
+  font-size: 30px;
   text-decoration: none;
-  color: white;
-  padding-bottom: 7px;
+  color: #afa1a1;
   z-index: 10;
+  padding-right: 10px;
 }
-body .capsaHeader .barraSuperior .buscador {
+@media (max-width: 500px) {
+  html body .capsaHeader .barraSuperior .cajaLogo .logo {
+    display: none;
+  }
+}
+html body .capsaHeader .barraSuperior .buscador {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 40px;
-  width: calc(70% - 30px/4);
+  width: calc(80% - 30px/4);
 }
-body .capsaHeader .barraSuperior .buscador input {
+html body .capsaHeader .barraSuperior .buscador input {
   height: 40px;
   width: 650px;
   min-width: 50px;
   border-radius: 5px 0 0 5px;
   font-size: 19px;
   padding-left: 15px;
-  border-right-width: inherit;
+  border-width: inherit;
 }
-body .capsaHeader .barraSuperior .buscador input::-webkit-input-placeholder {
+html body .capsaHeader .barraSuperior .buscador input:focus {
+  border-color: #afa1a1;
+  border-width: 1px;
+  outline: 0 none;
+}
+html body .capsaHeader .barraSuperior .buscador input::-webkit-input-placeholder {
   /* Google Chrome y Safari */
   font-size: 18px;
   color: darkgrey;
 }
-body .capsaHeader .barraSuperior .buscador .botonSearch {
+html body .capsaHeader .barraSuperior .buscador .botonSearch {
   height: 40px;
   width: 80px;
   cursor: pointer;
@@ -80,135 +99,122 @@ body .capsaHeader .barraSuperior .buscador .botonSearch {
   border: 1px solid #E1DCDC;
   background: #F6F5F5;
 }
-body .capsaHeader .barraSuperior .buscador .botonSearch img {
+html body .capsaHeader .barraSuperior .buscador .botonSearch img {
   height: 25px;
   width: 25px;
 }
-body .capsaHeader .barraSuperior .login {
+html body .capsaHeader .barraSuperior .login {
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 50px;
-  width: calc(14% - 30px/4);
+  width: calc(10% - 30px/4);
+  margin-top: 5px;
 }
-body .capsaHeader .barraSuperior .login .dropLogin {
+html body .capsaHeader .barraSuperior .login .dropLogin {
   position: relative;
   display: inline-block;
 }
-body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
+html body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
   display: block;
 }
-body .capsaHeader .barraSuperior .login .dropLogin:hover .dropBoton {
-  background: none;
-}
-body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
-  background: none;
-  color: white;
+html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
+  color: #afa1a1;
   font-size: 19px;
   border: none;
   cursor: pointer;
+  background: url(img/user_male2-512.png);
+  background-size: cover;
+  width: 40px;
+  height: 40px;
 }
-body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  top: 22px;
-  left: -60%;
+  top: 40px;
+  left: -140%;
   z-index: 1;
 }
-body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   background: #f1f1f1;
 }
-body .cajas {
-  padding: 60px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: absolute;
+@media (max-width: 1100px) {
+  html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
+    left: -110%;
+  }
+}
+html body .cajas {
+  width: 100%;
+  background: mintcream;
+  padding: 80px;
   z-index: -2;
 }
-body .cajas .cajaI {
-  background-color: #F6F5F5;
-  opacity: 1;
-  box-sizing: border-box;
-  padding-top: 25px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 20px;
-  min-width: 100px;
-  width: calc(33% - 40px/2);
-  z-index: -2;
-  margin-right: 40px;
-  margin-left: 40px;
-  min-height: 250px;
-}
-body .cajas .cajaI section {
-  max-height: 250px;
-  overflow: auto;
-}
-body .cajas .cajaI section small {
-  font-size: 15px;
-}
-body .cajas .cajaI h2 {
-  font-size: 17px;
-  margin: 0px;
-}
-body .cajas .cajaI big {
-  font-size: 15px;
-}
-body .cajas .cajaI big:after {
-  display: block;
-  content: "";
-  width: 40px;
-  height: 2px;
-  background-color: grey;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-body nav {
-  background: rgba(159, 168, 218, 0.7);
-  box-shadow: 2px -4px 30px 8px rgba(63, 81, 181, 0.3);
-  position: absolute;
+html body nav {
+  background: rgba(175, 161, 161, 0.95);
+  box-shadow: -8px -4px 20px 8px #ababab;
+  position: fixed;
   left: -18em;
   height: 100%;
   padding-left: .25em;
+  padding-top: 5px;
+  margin-top: -30px;
   transition: all .6s;
 }
-body nav .menu {
+html body nav .menu {
   list-style: none;
   line-height: 42px;
   padding-left: 5px;
   width: 13.5em;
+  margin-top: 14px;
 }
-body nav .menu li {
-  box-shadow: 3px 0 rgba(63, 81, 181, 0.3) inset;
+html body nav .menu li {
+  box-shadow: 3px 0 rgba(101, 98, 98, 0.5) inset;
   padding-left: 2em;
   margin-bottom: 8px;
 }
-body nav .menu li:hover {
-  box-shadow: 15em 0 rgba(63, 81, 181, 0.3) inset;
+html body nav .menu li:hover {
+  box-shadow: 15em 0 rgba(101, 98, 98, 0.5) inset;
 }
-body nav .menu li a {
+html body nav .menu li a {
   display: block;
   color: white;
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+  font-family: 'Roboto Slab', sans-serif;
 }
-body nav .menu li a:hover {
+html body nav .menu li a:hover {
   margin-left: 1em;
   -webkit-transition: all .5s;
   -o-transition: all .5s;
   transition: all .5s;
 }
-body nav .mostrarDiv {
+html body nav .menu div div {
+  padding-top: 2px;
+  padding-bottom: 8px;
+}
+html body nav .menu div div a {
+  width: 148px;
+  box-shadow: 3px 0 rgba(101, 98, 98, 0.5) inset;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding-left: 20px;
+}
+html body nav .menu div div a:hover {
+  box-shadow: 15em 0 rgba(101, 98, 98, 0.5) inset;
+}
+html body nav .mostrarDiv {
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   position: fixed;
@@ -219,7 +225,18 @@ body nav .mostrarDiv {
   z-index: -1;
   transition-duration: 500ms;
 }
-body .mostrarMenu {
+html body .mostrarDiv {
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transition-duration: 500ms;
+}
+html body .mostrarMenu {
   left: 0;
 }
 #wrapper {
@@ -227,6 +244,8 @@ body .mostrarMenu {
   width: 700px;
 }
 .perfil {
+  margin-left: 200px;
+  margin-top: 50px;
   size: 300px, 300px;
   display: inline-grid;
 }
@@ -241,18 +260,10 @@ body .mostrarMenu {
   height: 150px;
 }
 .t1 {
-  float: left;
   color: black;
   font-family: arial;
-  margin-left: 2em;
+  /*margin-left: 2em;*/
   margin-top: 2em;
-  margin-bottom: 1px;
-}
-.lapiz {
-  position: relative;
-  cursor: pointer;
-  margin-left: 15px;
-  margin-top: 70px;
   margin-bottom: 1px;
 }
 .editprofile {
@@ -265,6 +276,81 @@ body .mostrarMenu {
   vertical-align: top;
   text-align: left;
 }
+.user {
+  font-weight: normal;
+}
+.savechanges {
+  background-color: #00719c;
+  color: white;
+  width: 120px;
+  height: 35px;
+}
+textarea {
+  font-family: arial;
+}
+/*test*/
+@media (max-width: 1100px) {
+	.container.perso{
+		width: auto !important;
+	}
+}
+.container.perso{
+	width: 900px;
+  margin-left: 150px;
+  height: 100vh;
+}
+.mb25{
+	margin-top: 25px;
+}
+.form-control.h35{
+	height: 35px;
+}
+
+/*Boton barra*/
+
+html body .capsaHeader .barraSuperior .login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  width: calc(10% - 30px/4);
+  margin-top: 5px;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin {
+  position: relative;
+  display: inline-block;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
+  display: block;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
+  color: #afa1a1;
+  font-size: 19px;
+  border: none;
+  cursor: pointer;
+  background: url(../img/user_male2-512.png);
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  top: 40px;
+  z-index: 1;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
+  background: #f1f1f1;
+}
+
 .contenido {
   font-weight: normal;
 }
