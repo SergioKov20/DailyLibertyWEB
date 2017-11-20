@@ -154,7 +154,8 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
 html body .cajas {
   width: 100%;
   background: mintcream;
-  padding: 80px;
+  padding-left: 80px;
+  padding-right: 80px;
   z-index: -2;
   position: absolute;
 }
@@ -165,7 +166,7 @@ html body nav {
   left: -18em;
   height: 100%;
   padding-left: .25em;
-  padding-top: 5px;
+  padding-top: 80px;
   margin-top: -30px;
   transition: all .6s;
 }
