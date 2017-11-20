@@ -67,9 +67,10 @@
         </nav>
             <% if (articles.length > 0) {
                 for (var i = 0; i < articles.length; i++){%>
-                    <a class="articulo" href="principal.html"><article class="cajaI">
+                    <a class="articulo" href="/read?a=<%=articles[i]._id%>"><article class="cajaI">
                         <header>
-                            <img src="<%=articles[i].portada%>"/>
+                            <!--<img src="<%=articles[i].portada%>"/>-->
+                            <img src="/img/ciencia.jpg">
                         </header>
                         <section>
                             <h1><%=articles[i].title %></h1>   

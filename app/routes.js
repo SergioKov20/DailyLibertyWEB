@@ -1,9 +1,14 @@
 module.exports = function(app,passport,newspaper) {
 
     app.get('/', function(req, res) {
-        res.render('index.ejs', { 
-            articles: newspaper.getArticles(), 
-            isLoggedIn: req.isAuthenticated() 
+        require('./models/article').find({}, function(err, articles) {
+            if(err) console.log(err);
+            else {
+                res.render('index.ejs', { 
+                    articles: articles, 
+                    isLoggedIn: req.isAuthenticated() 
+                });
+            }
         });
     });
 
@@ -36,22 +41,20 @@ module.exports = function(app,passport,newspaper) {
         });
 	});
     app.get('/user', function(req,res){
-        require('./search.js').getUser(req,res,username);
+        require('./search.js').getUser(req,res);
     });
 
 	app.get('/article', isLoggedIn, function(req, res) {
         var articleID = req.param('e');
         if (articleID == null) res.render('./article.ejs', { article: null });
-        else  require('./search.js').getArticle(req,res);
+        else  require('./search.js').editArticle(req,res);
     });
     app.post('/article', isLoggedIn, function(req,res) {
         newspaper.newArticle(req,res);
     });
 
     app.get('/read', function(req,res){
-        res.render('read.ejs', { 
-            isLoggedIn: req.isAuthenticated() 
-        })
+        require('./search.js').getArticle(req,res);
     });
 
     app.get('/tendencies', function(req, res) {

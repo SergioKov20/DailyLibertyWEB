@@ -20,7 +20,7 @@ exports.getUser = function (req,res) {
 	});
 }
 
-exports.getArticle = function (req,res) {
+exports.editArticle = function (req,res) {
 
 	var articleID = req.param('e');
 	var Article = require('./models/article');
@@ -39,6 +39,26 @@ exports.getArticle = function (req,res) {
 	        	});
 	        }
 	        else res.render('error/forbidden.ejs');
+        }
+	});
+}
+
+exports.getArticle = function (req,res) {
+
+	var articleID = req.param('a');
+	var Article = require('./models/article');
+	Article.findOne({ '_id' :  articleID }, function(err, article) {
+		if (err) {
+			res.render('error/500.ejs');
+		}
+        if (!article){
+        	res.render('error/wrongArticle.ejs');
+        }
+        if (article){
+	        res.render('read.ejs', {
+		            article : article,
+		            isLoggedIn : req.isAuthenticated()
+	        });
         }
 	});
 }
