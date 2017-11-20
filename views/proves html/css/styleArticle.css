@@ -236,7 +236,15 @@ html body .cajas .articuloCompleto article section div pre {
   background: none;
   word-break: break-word;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+  html body .cajas .articuloCompleto article section .divImg {
+    width: 75%;
+  }
+  html body .cajas .articuloCompleto article section div pre {
+    width: 75%;
+  }
+}
+@media (max-width: 520px) {
   html body .cajas .articuloCompleto article section .divImg {
     width: 80%;
   }
