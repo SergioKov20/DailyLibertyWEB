@@ -156,6 +156,7 @@ html body .cajas {
   background: mintcream;
   padding: 80px;
   z-index: -2;
+  position: absolute;
 }
 html body nav {
   background: rgba(175, 161, 161, 0.95);
@@ -298,6 +299,7 @@ textarea {
 	width: 900px;
   margin-left: 150px;
   height: 100vh;
+  position: absolute;
 }
 .mb25{
 	margin-top: 25px;
