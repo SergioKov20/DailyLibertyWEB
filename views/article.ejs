@@ -1,53 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>DailyLiberty  |  Edit your article</title>
-  <link rel=StyleSheet href="/css/article.css" type="text/css" media=screen>
-</head>
-<body>
-  <%
-    var title = ""; 
-    var subtitle = ""; 
-    var content = ""; 
-    var category = "";
-    if ( article ) { 
-      title = article.title;
-      subtitle = article.subtitle;
-      content = article.content;
-      category = article.category;
-    }%>
-  <div class="box">
-    <p class="subt"><u><b>Edit your article</b></u></p>
-    <p class="subtitle"><b>Fill in the empty fields:</b></p>
-    <form class="form" action="article" method="POST">
-      <span>
-        <label class="tamany"><b>Title*</b></label><br>
-        <textarea class="textarea1" name="title" required><%=title%></textarea>
-        <br><br><label class="tamany"><b>Subtitle*</b></label><br>
-        <textarea class="textarea2" name="subtitle" required><%=subtitle%></textarea>
-      </span>
+<html>
 
-      <span>
-        <br><br><label class="tamany"><b>Content*</b></label><br>
-        <textarea class="textarea3" name="content" required><%=content%></textarea>
-      </span>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Article</title>
+        <meta name="description" content="Crear un article">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-      <label class="tamany"><b>Category*</b></label><br>
-      <textarea class="textarea1" name="category" required><%=category%></textarea>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-      <span>
-        <br><br><label class="tamany"><b>Insert an image</b></label><br><br>
-        <button type="button" onclick="">Click here</button>
-      </span><br><br><br><br>
 
-      <button class="but" type="submit" name="button">Cancel</button>
-      <button class="but" type="submit" name="button">Save Changes</button><br><br>
-     
-     <p class="asterisco">*required fields</p> 
-    </form>
-  </div>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type=text/css href="/css/article.css">
+    </head>
+    <body id="prueba" >
+      <%
+      var title = ""; 
+      var subtitle = ""; 
+      var content = ""; 
+      var category = "";
+      if ( article ) { 
+        title = article.title;
+        subtitle = article.subtitle;
+        content = article.content;
+        category = article.category;
+      }%>
+        <header  class="capsaHeader">
+            <ul class="barraSuperior">
+                <li id="btnMostrarNav" class="imgMenu">
+                    <img src="/img/menuBlanco.png"/>
+                </li>
+                <li class="cajaLogo">
+                    <a class="logo" href="indexSessio.html">DailyLiberty</a>
+                </li>
+                <li id="buscador" class="buscador">
+                    <input id="search" type="search" placeholder="Buscar">
+                    <button id="botonSearch" class="botonSearch">
+                        <img src="/img/lupaBuscador.png"/>
+                    </button>
+                </li>
+                <li class="login">
+                    <div class="dropLogin">
+                        <button class="dropBoton"></button>
+                        <div class="dropContingut">
+                            <a href="login.html" >Veure Perfil</a>
+                            <a href="register.html">Escriure Article</a>
+                            <a href="../Pagina-principal/principal.html">Sortir</a>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+        </header>
+        <section id ="cajasArticulos" class="cajas">
+          <div id="divFondo"></div>
+          <nav>
+              <ul class="menu">
+                  <li><a href="#">Inici</a></li>
+                  <li><a href="tendencies.html">Tendències</a></li>
+                  <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
+                  <div id="collapse1" class="collapse">
+                      <div class="panel-body">
+                          <a href="principal.html">Política</a>
+                          <a href="principal.html">Esports</a>
+                          <a href="principal.html">Ciència</a>
+                        <a href="principal.html">Tecnologia</a>
+                        <a href="principal.html">Altres</a>
+                      </div>
+                  </div>
+                  <li><a href="#">Subscripcions</a></li>
+              </ul>
+          </nav>
+            </section>
+       
+        <section id="contact" class="content-section text-center">
+        <div class="contact-section">
+            <div class="container">
+              <h2>DailyLiberty</h2>
+              <p>Edit your articles here </p>
+              <div class="row">
+                <div class="col-md-12 col-md-offset-2">
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <textarea  class="form-control" rows="1" placeholder="Pick up a title" required><%=title%></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="subtitle">Subtitle</label>
+                       <textarea  class="form-control" rows="2" placeholder="Pick up a subtitle" required><%=subtitle%></textarea>
+                    </div>
+                      
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                     <textarea  class="form-control" rows="15" placeholder="Describe your article" required><%=content%></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="category">Category</label>
+                     <textarea  class="form-control" rows="1" placeholder="ex. Sports,Culture,etc." required><%=category%></textarea><br>
+
+                    </div>
+
+                      <div>
+                        <label for="image">Image</label><br>
+                     <button type="button" class="btn btn-default">Click here</button><br><br><br>
+
+                    </div>
+                      <button type="submit" class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-default">Save Changes</button>
+                      <button type="button" class="btn btn-default">Preview</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+             
+      <script src="/js/mostrarNav.js"></script>
+    </body>
 </html>

@@ -48,6 +48,12 @@ module.exports = function(app,passport,newspaper) {
         newspaper.newArticle(req,res);
     });
 
+    app.get('/read', function(req,res){
+        res.render('read.ejs', { 
+            isLoggedIn: req.isAuthenticated() 
+        })
+    });
+
     app.get('/tendencies', function(req, res) {
         res.render('tendencies.ejs', { 
             tendencies: newspaper.getTendencies(), 
