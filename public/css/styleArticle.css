@@ -202,15 +202,20 @@ html body .cajas .articuloCompleto article section .divImg {
 html body .cajas .articuloCompleto article section .divImg div {
   width: 100%;
   text-align: left;
-  margin-bottom: 10px;
 }
 html body .cajas .articuloCompleto article section .divImg div a {
   text-decoration: none;
   color: brown;
   cursor: pointer;
+  font-weight: bold;
 }
 html body .cajas .articuloCompleto article section .divImg div a:hover {
   color: red;
+}
+html body .cajas .articuloCompleto article section .divImg p {
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 12px;
 }
 html body .cajas .articuloCompleto article section .divImg img {
   width: 100%;
