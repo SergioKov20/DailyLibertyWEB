@@ -307,6 +307,7 @@ textarea {
   margin-left: 150px;
   height: 100vh;
   position: absolute;
+  z-index: -2;
 }
 .mb25{
 	margin-top: 25px;
