@@ -204,55 +204,96 @@ html {
             position: absolute;
             z-index: -2;
             .articuloCompleto {
-                width: 70%;
+                width: 90%;
                 margin-top: 110px;
                 text-align: center;
                 article {
-                    justify-content: center;
+                    //justify-content: center;
                     header {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
                         p {
                             color: orange;
+                            width: 100%;
                         }
                         h1 {
                             font-size: 40px;
+                            width: 100%;
+                        }
+
+                        h2 {
+                            //width: 100%;
+                            font-size: 20px;
+                            text-align: -webkit-center;
+                            
                         }
                         h2:after{
                             margin-top: 40px;
-                            display: inline-block;
+                            display: block;
                             content:"";
-                            width: 400px;
+                            width: 60% !important;
                             height:2px;
-                            background-color: grey;
+                            background-color: orange;
                             vertical-align: super;
-                        }
-                        h2 {
-                            font-size: 20px;
                         }
                     }
                     section {
                         width:100%;
-                        padding: 150px;
+                        //padding: 150px;
                         padding-top: 40px;
-                        //justify-content: center;
-                        div {
-                            text-align: left;
-                            margin-bottom: 10px;
-                                a {
-                                text-decoration: none;
-                                color: brown;
-                                cursor: pointer;
-                                &:hover {
-                                    color: red;
+                        justify-content: center;
+                        display: flex;
+                        flex-wrap: wrap;
+                        
+                        .divImg {
+                            width: 60%;
+                            div {
+                                width: 100%;
+                                text-align: left;
+                                margin-bottom: 10px;
+                                    a {
+                                    text-decoration: none;
+                                    color: brown;
+                                    cursor: pointer;
+                                    &:hover {
+                                        color: red;
+                                    }
                                 }
                             }
+                            img {
+                                width:100%; 
+                            }
                         }
-                        img {
-                            width:100%; 
+                                                
+                        div {
+                            text-align: -webkit-center;
+                            pre {
+                                padding: 0px;
+                                border-top: none;
+                                border-bottom: none;
+                                border: none;
+                                margin-top:45px;
+                                width: 60%;
+                                text-align: justify;
+                                word-wrap: break-word;
+                                white-space: pre-wrap;
+                                background: none;
+                                word-break: break-word;
+                                }
                         }
-                        p {
-                            margin-top:45px;
-                            width: 100%;
-                            text-align: justify;
+                    }
+                    @media (max-width:1000px)
+                    {
+                        section {
+                            .divImg {
+                                width: 80%;
+                            }
+                            div {
+                                pre {
+                                    width: 80%;
+                                }
+                            }
                         }
                     }
                 }
