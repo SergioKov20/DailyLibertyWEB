@@ -248,27 +248,81 @@ html {
                         
                         .divImg {
                             width: 60%;
-                            div {
-                                width: 100%;
-                                text-align: left;
-                                //margin-bottom: 10px;
+                            text-align: left;
+                            
+                            .preImagen {
+                                display: flex;
+                                flex-wrap: wrap;
+                                padding-top: 6px;
+                                padding-bottom: 6px;
+                                border-top: solid 1px #D8D8D8;
+                                border-bottom: solid 1px #d8d8d8;
+                                .autor {
+                                    //padding-top: 6px;
+                                    //padding-bottom: 6px;
+                                    width: 50%;
+                                    text-align: left;
+                                    //margin-bottom: 10px;
                                     a {
-                                    text-decoration: none;
-                                    color: brown;
-                                    cursor: pointer;
-                                    font-weight: bold;
-                                    &:hover {
-                                        color: red;
+                                        text-decoration: none;
+                                        color: brown;
+                                        cursor: pointer;
+                                        font-weight: bold;
+                                        &:hover {
+                                            color: red;
+                                        }
+                                    }
+                                    p {
+                                    text-align: left;
+                                    margin-bottom: 0px;
+                                    font-size: 12px;
+                                    //border-bottom: solid 1px #D8D8D8;
+                                    //padding-bottom: 6px;
+                                }
+
+                                }
+                                .likesDislikes {
+                                    width:50%;
+                                    //border-top: solid 1px #d8d8d8;
+      
+                                    position:relative;
+                                    .intLike {
+                                        transform: translateY(10%);
+                                        float: right;
+                                        padding-right: 15px;
+                                        .like {
+                                            background: url(../img/likeIcon.jpg);
+                                            background-size: cover;
+                                            width: 20px;
+                                            height: 20px;
+                                            border:none;
+                                            transform: translate(-5px, 4px);
+                                        }
+                                        .dislike {
+                                            background: url(../img/dislikeIcon.jpg);
+                                            background-size: cover;
+                                            width: 20px;
+                                            height: 20px;
+                                            border:none;
+                                            transform: translate(6px, 10px);
+                                        }
+                                        .dislikes {
+                                            display: inline-block;
+                                            transform: translateX(10px);
+                                        }
+
+                                    }
+                                }
+                                @media (max-width: 368) {
+                                    .likesDislikes {
+                                        height: 71px;
+
                                     }
                                 }
                             }
-                            p {
-                                text-align: left;
-                                margin-bottom: 10px;
-                                font-size: 12px;
-                            }
                             img {
                                 width:100%; 
+                                margin-top: 5px;
                             }
                         }
                                                 
@@ -412,6 +466,7 @@ html {
             transition-duration: 500ms;
         }
     }
+        
     .mostrarDiv {
             background: rgba(0, 0, 0, 0.2);
             opacity: 1;

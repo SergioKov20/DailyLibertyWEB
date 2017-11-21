@@ -198,27 +198,71 @@ html body .cajas .articuloCompleto article section {
 }
 html body .cajas .articuloCompleto article section .divImg {
   width: 60%;
-}
-html body .cajas .articuloCompleto article section .divImg div {
-  width: 100%;
   text-align: left;
 }
-html body .cajas .articuloCompleto article section .divImg div a {
+html body .cajas .articuloCompleto article section .divImg .preImagen {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-top: solid 1px #D8D8D8;
+  border-bottom: solid 1px #d8d8d8;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .autor {
+  width: 50%;
+  text-align: left;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .autor a {
   text-decoration: none;
   color: brown;
   cursor: pointer;
   font-weight: bold;
 }
-html body .cajas .articuloCompleto article section .divImg div a:hover {
+html body .cajas .articuloCompleto article section .divImg .preImagen .autor a:hover {
   color: red;
 }
-html body .cajas .articuloCompleto article section .divImg p {
+html body .cajas .articuloCompleto article section .divImg .preImagen .autor p {
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 12px;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes {
+  width: 50%;
+  position: relative;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike {
+  transform: translateY(10%);
+  float: right;
+  padding-right: 15px;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .like {
+  background: url(../img/likeIcon.jpg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: none;
+  transform: translate(-5px, 4px);
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislike {
+  background: url(../img/dislikeIcon.jpg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: none;
+  transform: translate(6px, 10px);
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislikes {
+  display: inline-block;
+  transform: translateX(10px);
+}
+@media (max-width: 368) {
+  html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes {
+    height: 71px;
+  }
 }
 html body .cajas .articuloCompleto article section .divImg img {
   width: 100%;
+  margin-top: 5px;
 }
 html body .cajas .articuloCompleto article section div {
   text-align: -webkit-center;

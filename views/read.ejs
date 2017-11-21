@@ -9,6 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href='/css/read.css'>
+		<script src="/js/likes.js"></script>
    </head> 
    <%
       var title = ""; 
@@ -87,13 +88,24 @@
                 <section>
                     
                     <div class="divImg">
-                        <div><small>per </small><a><%=author%></a></div>
-                        <p>20/11/2017</p>
+					
+						<div class="preImagen"><div class="autor">
+                            <small>per </small>
+                            <a><%=author%></a>
+                            <p>20/11/2017</p>
+                        </div>
+                        <div class="likesDislikes" id="rating">
+                            <div class="intLike">
+                                <button class="like"></button>
+                                <span class="likes">12</span>
+                                <button class="dislike"></button>
+                                <span class="dislikes">2</span>
+                            </div>
+                        </div></div>
                         <img src="/img/puigdemont.jpg"/>
                     </div>
                     <div>
                     <pre><%=content%></pre>
-
                 </div>
                 </section>
                 <footer></footer>
@@ -103,7 +115,18 @@
 
         </section> 
         <script src="/js/mostrarNav.js"></script>
-        
+        <script type="text/javascript">
+        $('#rating').likeDislike({
+            initialValue: 0,
+            click: function (value, l, d, event) {
+                var likes = $(this.element).find('.likes');
+                var dislikes = $(this.element).find('.dislikes');
+
+                likes.text(parseInt(likes.text()) + l);
+                dislikes.text(parseInt(dislikes.text()) + d);
+            }
+        });
+		</script>
     </body>
 </html>
 

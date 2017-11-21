@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel='stylesheet' href='css/viewarticle.css'>
+        <link rel='stylesheet' href='css/read.css'>
+        <script src="js/likes.js"></script>
    </head>
     <body id="prueba" >
         <header  class="capsaHeader">
@@ -67,8 +68,20 @@
                 <section>
                     
                     <div class="divImg">
-                        <div><small>per </small><a>Edgar Lorenzo</a></div>
-                        <p>20/11/2017</p>
+                        <div class="preImagen"><div class="autor">
+                            <small>per </small>
+                            <a>Edgar Lorenzo</a>
+                            <p>20/11/2017</p>
+                        </div>
+                        <div class="likesDislikes" id="rating">
+                            <div class="intLike">
+                                <button class="like"></button>
+                                <span class="likes">12</span>
+                                <button class="dislike"></button>
+                                <span class="dislikes">2</span>
+                            </div>
+                        </div></div>
+                        
                         <img src="img/puigdemont.jpg"/>
                     </div>
                     <div>
@@ -88,11 +101,22 @@ Passades les vuit de la tarda, l'advocat belga Paul Bekaert ha difós a mitjans 
                 <footer></footer>
             </article>
         </div>
-        
+     
 
         </section> 
         <script src="js/mostrarNav.js"></script>
-        
+        <script type="text/javascript">
+        $('#rating').likeDislike({
+            initialValue: 0,
+            click: function (value, l, d, event) {
+                var likes = $(this.element).find('.likes');
+                var dislikes = $(this.element).find('.dislikes');
+
+                likes.text(parseInt(likes.text()) + l);
+                dislikes.text(parseInt(dislikes.text()) + d);
+            }
+        });
+    </script>
     </body>
 </html>
 
