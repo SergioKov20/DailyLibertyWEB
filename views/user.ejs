@@ -66,52 +66,78 @@
 
           <!-- Sergio bootstrap -->
           <div class="container perso">
-               <div class="row">
-                   <div class="col-lg-12">
-                       <h1 class="t1"><%=user.username %>'s profile:</h1>
-                   </div>
-               </div>
               <div class="row mb25">
-               <div class="col-lg-6">
-                 <div class="form-group">
+                <div class="col-lg-12" style="margin-bottom: 12px">
+                    <h1 class="t1"><b><%=user.username %>'s profile:</b></h1>
+                </div>
+                <div id="cajafoto" class="col-lg-3">
+                  <div class="form-group ft">
+                    <img width="150px" height="150px" style="border-radius: 100px" src="https://www.drupal.org/files/profile_default.jpg" alt="pic">
+                  </div>
+                  <div class="form-group ft">
+                    <button id="seguir" class="follow" onclick="follow()">Follow</button>
+                  </div>
+                </div>
+               <div id="cajaperfil" class="col-lg-7">
+                 <div class="form-group perf">
                    <p><b>· Username: </b> <%=user.username %></p>
-                 </div>
-                 <div class="form-group">
+                 </div><hr style="border-color: lightgrey">
+                 <div class="form-group perf">
                    <p><b>· Full name: </b> <%=user.firstName + " " + user.lastName %></p>
-                 </div>
-                 <div class="form-group">
+                 </div><hr style="border-color: lightgrey">
+                 <div class="form-group perf">
                    <p><b>· Email: </b> <%=user.email %></p>
-                 </div>
-                 <div class="form-group">
+                 </div><hr style="border-color: lightgrey">
+                 <div class="form-group perf">
                    <p><b>· Birth date:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· Articles written:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· Average rating:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· Followers:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· About me:</b></p>
-                 </div>
-               </div>
-               <div class="col-lg-6">
-                 <div class="form-group">
-                   <label for="mypic">Foto:</label><br>
-                   <img width="150px" height="150px" src="https://www.drupal.org/files/profile_default.jpg" alt="pic">
-                 </div>
-                 <div class="form-group">
-                   <button id="seguir" class="follow" onclick="follow()">Follow</button>
                  </div>
                </div>
              </div>
-           </div>
+               <div class="row kov" style="background: #f1f1f1;">
+                  <button style="padding: 5px;" class="tablinks" onclick="openTab(event, 'Statistics')">Statistics</button>
+                  <button style="padding: 5px;" class="tablinks" onclick="openTab(event, 'Articles')">Articles</button>
+                  <button style="padding: 5px;" class="tablinks" onclick="openTab(event, 'About me')">About me</button>
+               </div>
+
+                <div class="row kov tabcontent" id="Statistics"style="display: none">
+                  <h4><b>Articles written:</b></h4>
+                  <p>This user has written 0 articles.</p>
+                  <h4><b>Average Rating:</b></h4>
+                  <p>This user's average rating is: 0.</p>
+                  <h4><b>Followers:</b></h4>
+                  <p>This user has <a href="#">0 followers.</a></p>
+                </div>
+
+                <div class="row kov tabcontent" id="Articles" class="tabcontent" style="display: none">
+                  <h4><b>Articles written:</b></h4>
+                  <p><i>/*Aquí sortirien els articles que ha escrit.*/</i></p>
+                </div>
+
+                <div class="row kov tabcontent" id="About me" class="tabcontent" style="display: none">
+                  <h4><b>About <%=user.username %>:</b></h4>
+                  <p>I like writting articles in DailyLiberty.</p>
+                  <p>I love dogs.</p>
+                  <p>I want to sacar un puto 10.</p>
+                </div>
+            </div>
          </section>
 
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/follow.js"></script>
+        <script>
+          function openTab(evt, TabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(TabName).style.display = "block";
+            evt.currentTarget.className += " active";
+          }
+        </script>
     </body>
 </html>

@@ -156,8 +156,11 @@ html body .cajas {
   background: mintcream;
   padding-left: 80px;
   padding-right: 80px;
-  z-index: -2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   position: absolute;
+  z-index: -2;
 }
 html body nav {
   background: rgba(175, 161, 161, 0.95);
@@ -166,8 +169,7 @@ html body nav {
   left: -18em;
   height: 100%;
   padding-left: .25em;
-  padding-top: 80px;
-  margin-top: -30px;
+  padding-top: 55px;
   transition: all .6s;
 }
 html body nav .menu {
@@ -265,8 +267,9 @@ html body .mostrarMenu {
   color: black;
   font-family: arial;
   /*margin-left: 2em;*/
-  margin-top: 2em;
   margin-bottom: 1px;
+  display: flex;
+  justify-content: center;
 }
 .editprofile {
   font-family: arial, sans-serif;
@@ -291,23 +294,82 @@ textarea {
   font-family: arial;
 }
 /*test*/
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 	.container.perso{
+		width: auto !important;
+	}
+  .container.segon{
 		width: auto !important;
 	}
 }
 .container.perso{
-	width: 900px;
-  margin-left: 150px;
-  height: 100vh;
-  position: absolute;
+	width: 700px;
+  margin-top: 50px;
+  position: relative;
   z-index: -2;
 }
 .mb25{
 	margin-top: 25px;
+  background: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+}
+.mb25b{
+	margin-top: 25px;
+  background: white;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: darkgrey;
+}
+.ft {
+  display: flex;
+  justify-content: center;
+}
+.kov {
+  padding-left: 20px;
+  background: white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+}
+.tab {
+  margin: 20px;
+}
+.tablinks {
+  background-color: #f1f1f1;
+  border: none;
+  transition: 0.3s;
+}
+.tablinks:hover {
+    background-color: #ddd;
+}
+.tablinks.active {
+    background-color: darkgrey;
 }
 .form-control.h35{
 	height: 35px;
+}
+
+#cajafoto {
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+#cajaperfil {
+  padding-top: 14px;
+}
+.perf {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.tabcontent {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 30px;
 }
 
 /*Boton barra*/
@@ -364,7 +426,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   border-radius: 15px;
   position: relative;
   cursor: pointer;
-  margin-left: 15px;
   width: 120px;
   height: 35px;
 }
