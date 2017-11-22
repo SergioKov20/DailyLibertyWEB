@@ -1,5 +1,5 @@
 body{
- background:mintcream;    
+ background:mintcream;
 }
 .user-profile-2 {
     text-align: center;
@@ -119,7 +119,7 @@ html body .capsaHeader .barraSuperior .cajaLogo .logo {
   html body .capsaHeader .barraSuperior .cajaLogo .logo {
     display: none;
   }
-    
+
 }
 html body .capsaHeader .barraSuperior .buscador {
   display: flex;
@@ -419,4 +419,8 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
 
 .contenido {
   font-weight: normal;
+}
+.snippet {
+  position: absolute;
+  z-index: -2;
 }
