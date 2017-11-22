@@ -27,12 +27,12 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <button class="dropBoton">Login</button>
-                          <div class="dropContingut">
-                            <a href="/profile" >Veure Perfil</a>
-                              <a href="/newarticle">Escriure Article</a>
-                              <a href="/logout">Log Out</a>
-                          </div>
+                        <button class="dropBoton"></button>
+                            <div class="dropContingut">
+                                <a href="/profile" >Veure Perfil</a>
+                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/logout">Log Out</a>
+                            </div>
                     </div>
                 </li>
             </ul>
@@ -42,7 +42,7 @@
           <nav>
               <ul class="menu">
                   <li><a href="#">Inici</a></li>
-                  <li><a href="/tendencies+">Tendències</a></li>
+                  <li><a href="tendencies.html">Tendències</a></li>
                   <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
                   <div id="collapse1" class="collapse">
                       <div class="panel-body">
@@ -59,97 +59,122 @@
 
           <!-- Sergio bootstrap -->
           <div id="perfil" class="container perso">
-               <div class="row">
-                   <div class="col-lg-12">
-                       <h1 class="t1">My profile:
-                         <img style="cursor:pointer" height="25px" width="25px" src="/img/pencil-icon.png" alt="EDIT" onclick="switchtoedit()">
-                       </h1>
-                   </div>
-               </div>
               <div class="row mb25">
-               <div class="col-lg-6">
-                 <div class="form-group">
+                <div class="col-lg-12" style="margin-bottom: 12px">
+                    <h1 class="t1"><b>My profile:</b>
+                      <img style="cursor:pointer; margin-left: 10px" height="33px" width="33px" src="/img/pencil-icon.png" title="Edit Profile" alt="EDIT" onclick="switchtoedit()">
+                    </h1>
+                </div>
+                <div id="cajafoto" class="col-lg-3">
+                  <div class="form-group ft">
+                    <img width="150px" height="150px" style="border-radius: 100px" src="https://www.drupal.org/files/profile_default.jpg" alt="pic">
+                  </div>
+                </div>
+               <div id="cajaperfil" class="col-lg-7">
+                 <div class="form-group perf">
                    <p><b>· Username: </b> <%=user.username %></p>
-                 </div>
-                 <div class="form-group">
+                 </div><hr style="border-color: lightgrey">
+                 <div class="form-group perf">
                    <p><b>· Full name: </b> <%=user.firstName + " " + user.lastName %></p>
-                 </div>
-                 <div class="form-group">
+                 </div><hr style="border-color: lightgrey">
+                 <div class="form-group perf">
                    <p><b>· Email: </b> <%=user.email %></p>
-                 </div>
-                 <div class="form-group">
+                 </div><hr style="border-color: lightgrey">
+                 <div class="form-group perf">
                    <p><b>· Birth date:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· Articles written:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· Average rating:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· Followers:</b></p>
-                 </div>
-                 <div class="form-group">
-                   <p><b>· About me:</b></p>
-                 </div>
-               </div>
-               <div class="col-lg-6">
-                 <div class="form-group">
-                   <label for="mypic">Foto:</label><br>
-                   <img width="150px" height="150px" src="https://www.drupal.org/files/profile_default.jpg" alt="pic">
                  </div>
                </div>
              </div>
-           </div>
+               <div class="row kov" style="background: #f1f1f1;">
+                  <button style="padding: 5px;" class="tablinks" onclick="openTab(event, 'Statistics')">Statistics</button>
+                  <button style="padding: 5px;" class="tablinks" onclick="openTab(event, 'Articles')">Articles</button>
+                  <button style="padding: 5px;" class="tablinks" onclick="openTab(event, 'About me')">About me</button>
+               </div>
 
-          <!--versió cutre-->
-           <div id="editar" class="container perso" style="display: none">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="t1">Edit my profile:</h1>
-                    </div>
+                <div class="row kov tabcontent" id="Statistics"style="display: none">
+                  <h4><b>Articles written:</b></h4>
+                  <p>You've written 0 articles.</p>
+                  <h4><b>Average Rating:</b></h4>
+                  <p>Your average rating is: 0.</p>
+                  <h4><b>Followers:</b></h4>
+                  <p>You have <a href="#">0 followers.</a></p>
                 </div>
-                <div class="row mb25">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="fullname">username:</label>
-                      <textarea style="resize: none; cursor: default" class="form-control h35" id="ta0" name="username" disabled><%=user.username %></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="fullname">Full name:</label>
-                      <textarea class="form-control h35" id="ta1" style="resize: none" name="fullname"><%=user.firstName + " " + user.lastName %></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="mymail">Email:</label>
-                      <textarea class="form-control h35" id="ta2" style="resize: none" name="mymail"><%=user.email %></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="mydate">Birth date:</label>
-                      <textarea class="form-control h35" id="ta3" style="resize: none" name="mybirth"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="myme">About me:</label>
-                      <textarea class="form-control h35" id="ta4" style="resize: none" name="sobremi"></textarea>
-                    </div>
-                    <div class="form-group">
-                       <button class="cancelchanges" onclick="switchtoprofilenoedit()" name="button">Cancel edition</button>
-                       <button class="savechanges" onclick="switchtoprofileedit()" name="button">Save changes</button>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="mypic">Foto:</label><br>
-                      <img width="150px" height="150px" src="https://www.drupal.org/files/profile_default.jpg" alt="pic">
-                    </div>
-                    <div class="form-group">
-                      <input id="fotoselect" type="file" name="pic" accept="image/*">
-                    </div>
-                  </div>
+
+                <div class="row kov tabcontent" id="Articles" class="tabcontent" style="display: none">
+                  <h4><b>Articles written:</b></h4>
+                  <p><i>/*Aquí sortirien els articles que ha escrit.*/</i></p>
+                </div>
+
+                <div class="row kov tabcontent" id="About me" class="tabcontent" style="display: none">
+                  <h4><b>About me:</b></h4>
+                  <p>This is my profile on DailyLiberty!</p>
                 </div>
             </div>
 
+            <!--CONTAINER D'EDICIÓ -->
+            <div id="editar" class="container perso" style="display: none">
+                <div class="row mb25">
+                  <div class="col-lg-12" style="margin-bottom: 12px">
+                      <h1 class="t1"><b>My profile:</b></h1>
+                  </div>
+                  <div id="cajafotoedit" class="col-lg-3">
+                    <div class="form-group ft">
+                      <img id="fotoselect" class="fotoedit" onclick="activarfondofoto()" width="150px" height="150px" src="https://www.drupal.org/files/profile_default.jpg" title="Change avatar" alt="pic"></img>
+                    </div>
+                  </div>
+                 <div id="cajaperfil" class="col-lg-7">
+                   <div class="form-group perf">
+                    <p style="float: left; margin-top: 6px;"><b>· Username:</b></p>
+                    <textarea style="resize: none; cursor: default" class="form-control h35" name="username" disabled><%=user.username %></textarea>
+                  </div><hr style="border-color: lightgrey">
+                   <div class="form-group perf">
+                     <p style="float: left; margin-top: 6px; margin-right: 1px;"><b>· Full name: </b></p>
+                     <textarea id="ta1" style="resize: none;" class="form-control h35" name="fullname"><%=user.firstName + " " + user.lastName %></textarea>
+                   </div><hr style="border-color: lightgrey">
+                   <div class="form-group perf">
+                     <p style="float: left; margin-top: 6px; margin-right: 30px;"><b>· Email: </b></p>
+                     <textarea id="ta2" style="resize: none;" class="form-control h35" name="mail"><%=user.email %></textarea>
+                   </div><hr style="border-color: lightgrey">
+                   <div class="form-group perf">
+                     <p style="float: left; margin-top: 6px; margin-right: 2px;"><b>· Birth date: </b></p>
+                     <textarea id="ta3" style="resize: none;" class="form-control h35" name="birth"></textarea>
+                   </div>
+                 </div>
+               </div>
+                 <div class="row kov" style="background: #f1f1f1;">
+                    <button style="padding: 5px;" class="tablinks2">Statistics</button>
+                    <button style="padding: 5px;" class="tablinks2">Articles</button>
+                    <button style="padding: 5px; background: darkgrey" class="tablinks2">About me</button>
+                 </div>
+
+                  <div class="row kov tabcontent2">
+                    <h4><b>About me:</b></h4>
+                    <textarea id="ta4" style="width: 500px; height: 80px; margin-right: 20px; margin-bottom: 10px; resize: none;" class="form-control h35" name="aboutme">This is my profile on DailyLiberty!</textarea>
+                  </div>
+                  <div class="row kov tabcontent2">
+                    <button class="cancelchanges" onclick="switchtoprofilenoedit()">Cancel edit</button>
+                    <button class="savechanges" onclick="switchtoprofileedit()">Save changes</button>
+                  </div>
+              </div>
+              <!-- FI CONTAINER EDICIÓ -->
 
          </section>
+         <div id="fondofoto" class="fondoopciones" onclick="fueraya()" style="display: none">
+             <div id="opcionesavatar" class="dropdown-content">
+               <div class="row mb25" style="width: 500px">
+                 <div class="col-lg-12 fotoptions" onclick="cambiarfoto()" style="margin-bottom: 12px">
+                     <h4>Change Avatar</h4>
+                     <input type="file" style="opacity: 0.0; position: absolute; top:0; left: 0; bottom: 0; right:0; width: 100%; cursor: pointer;"/>
+                 </div>
+                 <div class="col-lg-12 fotoptions" onclick="ripfoto()" style="margin-bottom: 12px">
+                    <h4>Delete Avatar</h4>
+                </div>
+                <div class="col-lg-12 fotoptions" style="margin-bottom: 12px">
+                   <h4>Cancel</h4>
+               </div>
+             </div>
+
+         </div>
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/profile.js"></script>
     </body>
