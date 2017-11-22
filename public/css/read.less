@@ -207,6 +207,7 @@ html {
                 width: 90%;
                 margin-top: 110px;
                 text-align: center;
+                z-index: -2;
                 article {
                     //justify-content: center;
                     header {
@@ -290,26 +291,60 @@ html {
                                         transform: translateY(10%);
                                         float: right;
                                         padding-right: 15px;
-                                        .like {
+                                        
+                                        .likenogreen {
                                             background: url(../img/likeIcon.jpg);
                                             background-size: cover;
                                             width: 20px;
                                             height: 20px;
                                             border:none;
                                             transform: translate(-5px, 4px);
+                                            outline: none;
                                         }
-                                        .dislike {
+                                        .likegreen {
+                                            background: url(../img/likeIconGreen.jpg);
+                                            background-size: cover;
+                                            width: 20px;
+                                            height: 20px;
+                                            border:none;
+                                            transform: translate(-5px, 4px);
+                                            outline: none;
+                                        }
+                                        .dislikenored {
                                             background: url(../img/dislikeIcon.jpg);
                                             background-size: cover;
                                             width: 20px;
                                             height: 20px;
                                             border:none;
                                             transform: translate(6px, 10px);
+                                            outline: none;
+                                        }
+                                        .dislikered {
+                                            background: url(../img/dislikeIconRed.jpg);
+                                            background-size: cover;
+                                            width: 20px;
+                                            height: 20px;
+                                            border:none;
+                                            transform: translate(6px, 10px);
+                                            outline: none;
                                         }
                                         .dislikes {
                                             display: inline-block;
                                             transform: translateX(10px);
                                         }
+//                                        #mute {
+//                                            .likegreen {
+//                                                display:none;
+//                                            }
+//                                            .playing {
+//                                                .likegreen {
+//                                                    display: block;
+//                                                }
+//                                                .like {
+//                                                    display:none;
+//                                                }
+//                                            }
+//                                        }
 
                                     }
                                 }
@@ -390,8 +425,9 @@ html {
         padding-top: 5px;
         margin-top: -30px;
         transition: all .6s;
+        bottom:0;
         .menu {
-                padding-top: 80px;
+                padding-top: 55px;
                 list-style: none;
                 line-height: 42px;
                 //margin: 2em auto;

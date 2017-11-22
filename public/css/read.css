@@ -162,6 +162,7 @@ html body .cajas .articuloCompleto {
   width: 90%;
   margin-top: 110px;
   text-align: center;
+  z-index: -2;
 }
 html body .cajas .articuloCompleto article header {
   display: flex;
@@ -235,21 +236,41 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .likesDisl
   float: right;
   padding-right: 15px;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .like {
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .likenogreen {
   background: url(../img/likeIcon.jpg);
   background-size: cover;
   width: 20px;
   height: 20px;
   border: none;
   transform: translate(-5px, 4px);
+  outline: none;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislike {
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .likegreen {
+  background: url(../img/likeIconGreen.jpg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: none;
+  transform: translate(-5px, 4px);
+  outline: none;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislikenored {
   background: url(../img/dislikeIcon.jpg);
   background-size: cover;
   width: 20px;
   height: 20px;
   border: none;
   transform: translate(6px, 10px);
+  outline: none;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislikered {
+  background: url(../img/dislikeIconRed.jpg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: none;
+  transform: translate(6px, 10px);
+  outline: none;
 }
 html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislikes {
   display: inline-block;
@@ -306,9 +327,10 @@ html body nav {
   padding-top: 5px;
   margin-top: -30px;
   transition: all .6s;
+  bottom: 0;
 }
 html body nav .menu {
-  padding-top: 80px;
+  padding-top: 55px;
   list-style: none;
   line-height: 42px;
   padding-left: 5px;
