@@ -52,6 +52,9 @@ function fueraya() {
 
 //CAMBIOS DE FOTO:
 function ripfoto() {
+  if(document.getElementById("document-file").value != ""){
+    document.getElementById("document-file").value = "";
+  }
   document.getElementById("fotoselect").src = "https://www.drupal.org/files/profile_default.jpg"
 }
 function cambiarfoto() {
