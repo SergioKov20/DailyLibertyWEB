@@ -61,27 +61,27 @@
           <div id="perfil" class="container perso">
               <div class="row mb25">
                 <div class="col-lg-12" style="margin-bottom: 12px">
-                    <h1 class="t1"><b>My profile:</b>
+                    <h1 class="t1"><b>My profile</b>
                       <img style="cursor:pointer; margin-left: 10px" height="33px" width="33px" src="/img/pencil-icon.png" title="Edit Profile" alt="EDIT" onclick="switchtoedit()">
                     </h1>
                 </div>
                 <div id="cajafoto" class="col-lg-3">
                   <div class="form-group ft">
-                    <img width="150px" height="150px" style="border-radius: 100px" src="https://www.drupal.org/files/profile_default.jpg" alt="pic">
+                    <img id="fotovista" width="150px" height="150px" style="border-radius: 100px" src="/img/user_male2-512.png" alt="pic">
                   </div>
                 </div>
                <div id="cajaperfil" class="col-lg-7">
                  <div class="form-group perf">
-                   <p><b>· Username: </b> <%=user.username %></p>
+                   <p><b>Username: </b> <%=user.username %></p>
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
-                   <p><b>· Full name: </b> <%=user.firstName + " " + user.lastName %></p>
+                   <p><b>Full name: </b> <%=user.firstName + " " + user.lastName %></p>
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
-                   <p><b>· Email: </b> <%=user.email %></p>
+                   <p><b>Email: </b> <%=user.email %></p>
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
-                   <p><b>· Birth date:</b></p>
+                   <p><b>Birth date:</b></p>
                  </div>
                </div>
              </div>
@@ -92,7 +92,7 @@
                </div>
 
                 <div class="row kov tabcontent" id="Statistics"style="display: none">
-                  <h4><b>Articles written:</b></h4>
+                  <h4><b>Total of articles:</b></h4>
                   <p>You've written 0 articles.</p>
                   <h4><b>Average Rating:</b></h4>
                   <p>Your average rating is: 0.</p>
@@ -115,28 +115,28 @@
             <div id="editar" class="container perso" style="display: none">
                 <div class="row mb25">
                   <div class="col-lg-12" style="margin-bottom: 12px">
-                      <h1 class="t1"><b>My profile:</b></h1>
+                      <h1 class="t1"><b>My profile</b></h1>
                   </div>
                   <div id="cajafotoedit" class="col-lg-3">
                     <div class="form-group ft">
-                      <img id="fotoselect" class="fotoedit" onclick="activarfondofoto()" width="150px" height="150px" src="https://www.drupal.org/files/profile_default.jpg" title="Change avatar" alt="pic"></img>
+                      <img id="fotoselect" class="fotoedit" onclick="activarfondofoto()" width="150px" height="150px" src="/img/user_male2-512.png" title="Change avatar" alt="pic"></img>
                     </div>
                   </div>
                  <div id="cajaperfil" class="col-lg-7">
                    <div class="form-group perf">
-                    <p style="float: left; margin-top: 6px;"><b>· Username:</b></p>
+                    <p style="float: left; margin-top: 6px;"><b>Username:</b></p>
                     <textarea style="resize: none; cursor: default" class="form-control h35" name="username" disabled><%=user.username %></textarea>
                   </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
-                     <p style="float: left; margin-top: 6px; margin-right: 1px;"><b>· Full name: </b></p>
+                     <p style="float: left; margin-top: 6px; margin-right: 1px;"><b>Full name: </b></p>
                      <textarea id="ta1" style="resize: none;" class="form-control h35" name="fullname"><%=user.firstName + " " + user.lastName %></textarea>
                    </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
-                     <p style="float: left; margin-top: 6px; margin-right: 30px;"><b>· Email: </b></p>
+                     <p style="float: left; margin-top: 6px; margin-right: 30px;"><b>Email: </b></p>
                      <textarea id="ta2" style="resize: none;" class="form-control h35" name="mail"><%=user.email %></textarea>
                    </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
-                     <p style="float: left; margin-top: 6px; margin-right: 2px;"><b>· Birth date: </b></p>
+                     <p style="float: left; margin-top: 6px; margin-right: 2px;"><b>Birth date: </b></p>
                      <textarea id="ta3" style="resize: none;" class="form-control h35" name="birth"></textarea>
                    </div>
                  </div>
@@ -164,7 +164,7 @@
                <div class="row mb25" style="width: 500px">
                  <div class="col-lg-12 fotoptions" onclick="cambiarfoto()" style="margin-bottom: 12px">
                      <h4>Change Avatar</h4>
-                     <input id="document-file" type="file" style="opacity: 0.0; position: absolute; top:0; left: 0; bottom: 0; right:0; width: 100%; cursor: pointer;"/>
+                     <input id="document-file" type="file"  onchange="cambiarfoto(this)" style="opacity: 0.0; position: absolute; top:0; left: 0; bottom: 0; right:0; width: 100%; cursor: pointer;"/>
                  </div>
                  <div class="col-lg-12 fotoptions" onclick="ripfoto()" style="margin-bottom: 12px">
                     <h4>Delete Avatar</h4>

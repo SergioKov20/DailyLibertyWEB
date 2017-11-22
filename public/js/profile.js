@@ -10,7 +10,7 @@ function switchtoprofilenoedit() {
   document.getElementById('ta2').value = '<%=user.email %>';
   document.getElementById('ta3').value = "";
   document.getElementById('ta4').value = "This is my profile on DailyLiberty!";
-  document.getElementById("fotoselect").value = "";
+  document.getElementById("fotoselect").src = oldsrc;
   //AFEGIR DESPRÉS QUAN HI HAGI MÉS INFO A LA BD
 }
 function switchtoprofileedit() {
@@ -24,7 +24,8 @@ function switchtoprofileedit() {
   document.getElementById('ta2').value = '<%=user.email %>';
   document.getElementById('ta3').value = "";
   document.getElementById('ta4').value = "This is my profile on DailyLiberty!";
-  document.getElementById("fotoselect").value = "";
+  oldsrc = document.getElementById("fotoselect").src;
+  document.getElementById("fotovista").src = document.getElementById("fotoselect").src;
 }
 
 //Funcion para cambiar de pestañas
@@ -55,8 +56,19 @@ function ripfoto() {
   if(document.getElementById("document-file").value != ""){
     document.getElementById("document-file").value = "";
   }
-  document.getElementById("fotoselect").src = "https://www.drupal.org/files/profile_default.jpg"
+  document.getElementById("fotoselect").src = "/img/user_male2-512.png";
 }
-function cambiarfoto() {
+function cambiarfoto(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function (e) {
+            $('#fotoselect')
+                .attr('src', e.target.result)
+        };
+
+        reader.readAsDataURL(input.files[0]);
+
+    }
 }
+var oldsrc = document.getElementById("fotoselect").src;

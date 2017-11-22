@@ -308,8 +308,8 @@ html body .mostrarMenu {
   border-width: 3px;
 }
 .fotoedit:hover {
-  background-color: blue;
-  border-width: 4px;
+  border-color: #b3cde0;
+  border-width: 5px;
 }
 .form-control.h35{
   display: inline;
@@ -333,6 +333,7 @@ textarea {
 .container.perso{
 	width: 700px;
   margin-top: 50px;
+  margin-bottom: 30px;
   position: relative;
   z-index: -2;
 }
