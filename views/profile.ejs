@@ -41,16 +41,16 @@
           <div id="divFondo"></div>
           <nav>
               <ul class="menu">
-                  <li><a href="#">Inici</a></li>
-                  <li><a href="tendencies.html">Tendències</a></li>
+                  <li><a href="/index">Inici</a></li>
+                  <li><a href="/tendencies">Tendències</a></li>
                   <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
                   <div id="collapse1" class="collapse">
                       <div class="panel-body">
-                          <a href="principal.html">Política</a>
-                          <a href="principal.html">Esports</a>
-                          <a href="principal.html">Ciència</a>
-                        <a href="principal.html">Tecnologia</a>
-                        <a href="principal.html">Altres</a>
+                          <a href="/index">Política</a>
+                          <a href="/index">Esports</a>
+                          <a href="/index">Ciència</a>
+                        <a href="/index">Tecnologia</a>
+                        <a href="/index">Altres</a>
                       </div>
                   </div>
                   <li><a href="#">Subscripcions</a></li>
@@ -72,16 +72,29 @@
                 </div>
                <div id="cajaperfil" class="col-lg-7">
                  <div class="form-group perf">
-                   <p><b>Username: </b> <%=user.username %></p>
+                   <span>
+                     <p style="float:left; margin-right: 6px;"><b>Username: </b></p>
+                     <p><%=user.username %></p>
+                   </span>
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
-                   <p><b>Full name: </b> <%=user.firstName + " " + user.lastName %></p>
+                   <span>
+                     <p style="float:left; margin-right: 6px;"><b>Full name: </b></p>
+                     <p style="float:left; margin-right: 3px" id="oldta1"><%=user.firstName%></p>
+                     <p id=oldta1.2><%=user.lastName %></p>
+                   </span>
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
-                   <p><b>Email: </b> <%=user.email %></p>
+                   <span>
+                     <p style="float:left; margin-right: 6px;"><b>Email: </b></p>
+                     <p id="oldta2"><%=user.email %></p>
+                   </span>
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
-                   <p><b>Birth date:</b></p>
+                   <span>
+                     <p style="float:left; margin-right: 6px;"><b>Birth date: </b></p>
+                     <p id="oldta3"></p>
+                   </span>
                  </div>
                </div>
              </div>
@@ -97,7 +110,7 @@
                   <h4><b>Average Rating:</b></h4>
                   <p>Your average rating is: 0.</p>
                   <h4><b>Followers:</b></h4>
-                  <p>You have <a href="#">0 followers.</a></p>
+                  <p>You have <a href="/followers">0 followers.</a></p>
                 </div>
 
                 <div class="row kov tabcontent" id="Articles" class="tabcontent" style="display: none">
@@ -107,7 +120,7 @@
 
                 <div class="row kov tabcontent" id="About me" class="tabcontent" style="display: none">
                   <h4><b>About me:</b></h4>
-                  <p>This is my profile on DailyLiberty!</p>
+                  <p id="oldta4">This is my profile on DailyLiberty!</p>
                 </div>
             </div>
 
@@ -129,7 +142,10 @@
                   </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
                      <p style="float: left; margin-top: 6px; margin-right: 1px;"><b>Full name: </b></p>
-                     <textarea id="ta1" style="resize: none;" class="form-control h35" name="fullname"><%=user.firstName + " " + user.lastName %></textarea>
+                     <textarea id="ta1" style="resize: none; width: 100px"
+                           class="form-control h35" name="fullname1"><%=user.firstName %></textarea>
+                     <textarea id="ta1.2" style="resize: none; width: 170px"
+                           class="form-control h35" name="fullname2"><%=user.lastName %></textarea>
                    </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
                      <p style="float: left; margin-top: 6px; margin-right: 30px;"><b>Email: </b></p>
@@ -177,5 +193,42 @@
          </div>
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/profile.js"></script>
+
+        <!--Aquest script ha de ser aquí per a què es detectin coses de NODEJS -->
+        <script>
+          var oldsrc = document.getElementById("fotoselect").src;
+          function switchtoedit() {
+            document.getElementById('perfil').style.display = 'none';
+            document.getElementById('editar').style.display = 'block';
+          }
+          function switchtoprofilenoedit() {
+            document.getElementById('perfil').style.display = 'block';
+            document.getElementById('editar').style.display = 'none';
+
+            document.getElementById('ta1').value = '<%=user.firstName %>';
+            document.getElementById('ta1.2').value = '<%=user.lastName %>';
+            document.getElementById('ta2').value = '<%=user.email %>';
+            document.getElementById('ta3').value = "";
+            document.getElementById('ta4').value = "This is my profile on DailyLiberty!";
+            document.getElementById("fotoselect").src = oldsrc;
+            //AFEGIR DESPRÉS QUAN HI HAGI MÉS INFO A LA BD
+          }
+          function switchtoprofileedit() {
+            document.getElementById('perfil').style.display = 'block';
+            document.getElementById('editar').style.display = 'none';
+
+            /*TO DO: codi per actualitzar les dades a la Base de Dades */
+
+            /* Un cop s'ha actualitzat la BD, cal tornar a refrescar els camps si es vol editar de nou... */
+            document.getElementById('oldta1').innerHTML = document.getElementById('ta1').value;
+            document.getElementById('oldta1.2').innerHTML = document.getElementById('ta1.2').value;
+            document.getElementById('oldta2').innerHTML = document.getElementById('ta2').value;
+            document.getElementById('oldta3').innerHTML = document.getElementById('ta3').value;
+            document.getElementById('oldta4').innerHTML = document.getElementById('ta4').value;
+            oldsrc = document.getElementById("fotoselect").src;
+            document.getElementById("fotovista").src = document.getElementById("fotoselect").src;
+          }
+        </script>
+
     </body>
 </html>
