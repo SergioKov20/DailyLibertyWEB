@@ -4,16 +4,16 @@ module.exports = function(app,passport,newspaper) {
         require('./models/article').find({}, function(err, articles) {
             if(err) console.log(err);
             else {
-                res.render('index.ejs', { 
-                    articles: articles, 
-                    isLoggedIn: req.isAuthenticated() 
+                res.render('index.ejs', {
+                    articles: articles,
+                    isLoggedIn: req.isAuthenticated()
                 });
             }
         });
     });
 
     app.get('/login', function(req, res) {
-        res.render('login.ejs', { message: req.flash('loginMessage') }); 
+        res.render('login.ejs', { message: req.flash('loginMessage') });
     });
     app.post('/login', passport.authenticate('login', {
         successRedirect : '/profile', // redirect to the secure profile section
@@ -40,9 +40,31 @@ module.exports = function(app,passport,newspaper) {
             user : req.user, // get the user out of session and pass to template
         });
 	});
-    app.get('/user', function(req,res){
-        require('./search.js').getUser(req,res);
-    });
+
+  app.post('/profile', isLoggedIn, function(req, res) {
+      var username = req.body.username;
+      var name = req.body.fullname1;
+      var surname = req.body.fullname2;
+      var mail = req.body.mail;
+      var birth = req.body.birth;
+      var about = req.body.aboutme;
+
+      var User = require('./models/user');
+      User.findOne({ 'username' :  username }, function(err, user) {
+        user.firstName = name;
+        user.lastName = surname;
+        user.email = mail;
+        user.save(function(err) {
+            if (err)
+                throw err;
+            else res.redirect('/profile');
+        });
+      });
+  });
+
+  app.get('/user', function(req,res){
+      require('./search.js').getUser(req,res);
+  });
 
 	app.get('/article', isLoggedIn, function(req, res) {
         var articleID = req.param('e');
@@ -58,9 +80,9 @@ module.exports = function(app,passport,newspaper) {
     });
 
     app.get('/tendencies', function(req, res) {
-        res.render('tendencies.ejs', { 
-            tendencies: newspaper.getTendencies(), 
-            isLoggedIn: req.isAuthenticated() 
+        res.render('tendencies.ejs', {
+            tendencies: newspaper.getTendencies(),
+            isLoggedIn: req.isAuthenticated()
         } );
     });
 

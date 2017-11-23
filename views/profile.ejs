@@ -125,7 +125,7 @@
             </div>
 
             <!--CONTAINER D'EDICIÓ -->
-            <div id="editar" class="container perso" style="display: none">
+            <form id="editar" class="container perso" style="display: none" action="/profile" method="POST">
                 <div class="row mb25">
                   <div class="col-lg-12" style="margin-bottom: 12px">
                       <h1 class="t1"><b>My profile</b></h1>
@@ -138,40 +138,40 @@
                  <div id="cajaperfil" class="col-lg-7">
                    <div class="form-group perf">
                     <p style="float: left; margin-top: 6px;"><b>Username:</b></p>
-                    <textarea style="resize: none; cursor: default" class="form-control h35" name="username" disabled><%=user.username %></textarea>
+                    <textarea style="resize: none; cursor:  not-allowed" class="form-control h35" name="username" readonly><%=user.username %></textarea>
                   </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
                      <p style="float: left; margin-top: 6px; margin-right: 1px;"><b>Full name: </b></p>
                      <textarea id="ta1" style="resize: none; width: 100px"
-                           class="form-control h35" name="fullname1"><%=user.firstName %></textarea>
+                           class="form-control h35" name="fullname1" required><%=user.firstName %></textarea>
                      <textarea id="ta1.2" style="resize: none; width: 170px"
-                           class="form-control h35" name="fullname2"><%=user.lastName %></textarea>
+                           class="form-control h35" name="fullname2" required><%=user.lastName %></textarea>
                    </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
                      <p style="float: left; margin-top: 6px; margin-right: 30px;"><b>Email: </b></p>
-                     <textarea id="ta2" style="resize: none;" class="form-control h35" name="mail"><%=user.email %></textarea>
+                     <textarea id="ta2" style="resize: none;" class="form-control h35" name="mail" required><%=user.email %></textarea>
                    </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
                      <p style="float: left; margin-top: 6px; margin-right: 2px;"><b>Birth date: </b></p>
-                     <textarea id="ta3" style="resize: none;" class="form-control h35" name="birth"></textarea>
+                     <textarea id="ta3" style="resize: none;" class="form-control h35" name="birth" required></textarea>
                    </div>
                  </div>
                </div>
                  <div class="row kov" style="background: #f1f1f1;">
-                    <button style="padding: 5px;" class="tablinks2">Statistics</button>
-                    <button style="padding: 5px;" class="tablinks2">Articles</button>
-                    <button style="padding: 5px; background: darkgrey" class="tablinks2">About me</button>
+                    <button style="padding: 5px;" class="tablinks2" disabled>Statistics</button>
+                    <button style="padding: 5px;" class="tablinks2" disabled>Articles</button>
+                    <button style="padding: 5px; background: darkgrey" class="tablinks2" disabled>About me</button>
                  </div>
 
                   <div class="row kov tabcontent2">
                     <h4><b>About me:</b></h4>
-                    <textarea id="ta4" style="width: 500px; height: 80px; margin-right: 20px; margin-bottom: 10px; resize: none;" class="form-control h35" name="aboutme">This is my profile on DailyLiberty!</textarea>
+                    <textarea id="ta4" style="width: 500px; height: 80px; margin-right: 20px; margin-bottom: 10px; resize: none;" class="form-control h35" name="aboutme" required>This is my profile on DailyLiberty!</textarea>
                   </div>
                   <div class="row kov tabcontent2">
                     <button class="cancelchanges" onclick="switchtoprofilenoedit()">Cancel edit</button>
-                    <button class="savechanges" onclick="switchtoprofileedit()">Save changes</button>
+                    <button type="submit" class="savechanges">Save changes</button>
                   </div>
-              </div>
+              </form>
               <!-- FI CONTAINER EDICIÓ -->
 
          </section>
