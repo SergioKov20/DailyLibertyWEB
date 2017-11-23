@@ -221,14 +221,49 @@ html body .cajas .articulo .cajaI section div {
   bottom: 8px;
 }
 html body .cajas .articulo .cajaI section div p {
-  width: 50%;
+  width: 30%;
   margin: 0;
   font-size: 12px;
   color: #A37D5A;
   padding-left: 8px;
 }
+html body .cajas .articulo .cajaI section div .intLike {
+  width: 25%;
+  left: 35%;
+  bottom: 0px;
+}
+html body .cajas .articulo .cajaI section div .intLike .likegreen {
+  background: url(../img/positivo.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  border: none;
+  transform: translate(-5px, 7px);
+  outline: none;
+}
+html body .cajas .articulo .cajaI section div .intLike .likes {
+  color: green;
+  padding-top: 4px;
+  padding-right: 10px;
+}
+html body .cajas .articulo .cajaI section div .intLike .dislikered {
+  background: url(../img/negativo.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  border: none;
+  transform: translate(-3px, 7px);
+  outline: none;
+}
+html body .cajas .articulo .cajaI section div .intLike .dislikes {
+  color: brown;
+  padding-top: 4px;
+  padding-right: 15px;
+}
 html body .cajas .articulo .cajaI section div small {
-  width: 50%;
+  width: 40%;
   text-align: right;
   padding-right: 8px;
   font-size: 13px;
