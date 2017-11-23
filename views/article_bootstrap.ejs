@@ -8,9 +8,21 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel='stylesheet' href='/css/article_bootstrap.css'>
+        <script src="/js/article.js"></script>
+        <link rel='stylesheet' href='/article_bootstrap.css'>
    </head>
     <body id="prueba" >
+        <%
+      var title = ""; 
+      var subtitle = ""; 
+      var content = ""; 
+      var category = "";
+      if ( article ) { 
+        title = article.title;
+        subtitle = article.subtitle;
+        content = article.content;
+        category = article.category;
+      }%>
         <header  class="capsaHeader">
             <ul class="barraSuperior">
                 <li id="btnMostrarNav" class="imgMenu">
@@ -69,31 +81,31 @@
                   <form class="form-horizontal">
                     <div class="form-group">
                       <label for="title">Title</label>
-                        <pre><textarea id="texte" class="form-control" rows="1" placeholder="Pick up a title" required></textarea></pre>
+                        <pre><textarea id="texte" class="form-control" rows="1" placeholder="Pick up a title" required><%=title%></textarea></pre>
                     </div>
                     <div class="form-group">
                       <label for="subtitle">Subtitle</label>
-                       <pre><textarea  class="form-control" rows="2" placeholder="Pick up a subtitle" required></textarea></pre>
+                       <pre><textarea  class="form-control" rows="2" placeholder="Pick up a subtitle" required><%=subtitle%></textarea></pre>
                     </div>
                       
                     <div class="form-group">
                       <label for="description">Description</label>
-                        <pre><textarea  class="form-control" rows="15" placeholder="Describe your article" required></textarea></pre>
+                        <pre><textarea  class="form-control" rows="15" placeholder="Describe your article" required><%=content%></textarea></pre>
                       </div>
                       <div class="form-group">
                         <label for="category">Category</label>
-                     <pre><textarea  class="form-control" rows="1" placeholder="ex. Sports,Culture,etc." required></textarea></pre><br>
+                     <pre><textarea  class="form-control" rows="1" placeholder="ex. Sports,Culture,etc." required><%=category%></textarea></pre><br>
 
                     </div>
 
                       <div>
                         <label for="image">Image</label><br>
-                     <button type="button" class="btn btn-default">Click here</button><br><br><br>
+                     <button type="button" class="btn btn-default" onclick="cambiarfoto(this)">Click here</button><br><br><br>
 
                     </div>
-                      <button type="submit" class="btn btn-default">Cancel</button>
+                      <button type="button" class="btn btn-default" onclick="cancel()">Cancel</button>
                     <button type="submit" class="btn btn-default">Save Changes</button>
-                      <button type="button" class="btn btn-default">Preview</button>
+                    <button type="button" class="btn btn-default" onclick="myFunction()" target="_blank"> Preview</button>
                   </form>
                 </div>
               </div>
@@ -101,6 +113,8 @@
         </div>
       </section>
              </section>
+        
+       
         <script src="/js/mostrarNav.js"></script>
         
     </body>
