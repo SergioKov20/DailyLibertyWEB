@@ -176,6 +176,7 @@ html body .cajas .divImgArt {
   min-width: inherit;
   height: 150px;
   margin-left: 30px;
+  z-index: -2;
 }
 html body .cajas .divImgArt div {
   width: 240px;
@@ -212,17 +213,52 @@ html body .cajas .divImgArt article footer div {
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
   align-items: flex-end;
   height: 40%;
 }
-html body .cajas .divImgArt article footer div p {
-  width: 50%;
+html body .cajas .divImgArt article footer div .intLike {
+  left: 35%;
+  bottom: 0px;
+}
+html body .cajas .divImgArt article footer div .intLike .likegreen {
+  background: url(../img/likeIconGreen.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  border: none;
+  outline: none;
+}
+html body .cajas .divImgArt article footer div .intLike .likes {
+  color: green;
+  padding-top: 4px;
+  padding-right: 10px;
+}
+html body .cajas .divImgArt article footer div .intLike .dislikered {
+  background: url(../img/dislikeIconRed.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  border: none;
+  outline: none;
+}
+html body .cajas .divImgArt article footer div .intLike .dislikes {
+  color: brown;
+  padding-top: 4px;
+  padding-right: 5px;
+}
+html body .cajas .divImgArt article footer div .intLike p {
   color: orange;
   margin-bottom: 0px;
 }
+html body .cajas .divImgArt article footer div .pHidden {
+  color: orange;
+  margin-bottom: 0px;
+  display: none;
+}
 html body .cajas .divImgArt article footer div small {
-  width: 50%;
+  width: 100%;
   text-align: right;
   font-style: italic;
   padding-right: 12px;
@@ -240,9 +276,6 @@ html body .cajas .divImgArt article footer div small {
   html body .cajas .divImgArt article {
     margin-left: 15px;
   }
-  html body .cajas .divImgArt article div {
-    min-width: 201px;
-  }
   html body .cajas .divImgArt article div header h1 {
     font-size: 16px;
   }
@@ -250,7 +283,33 @@ html body .cajas .divImgArt article footer div small {
     font-size: 11px;
   }
 }
-@media (max-width: 490px) {
+@media (max-width: 635px) {
+  html body .cajas {
+    padding-left: 5px;
+  }
+  html body .cajas .divImgArt {
+    margin-left: 15px;
+  }
+  html body .cajas .divImgArt div img {
+    min-width: 240px;
+  }
+  html body .cajas .divImgArt article {
+    margin-left: 15px;
+  }
+  html body .cajas .divImgArt article div header h1 {
+    font-size: 16px;
+  }
+  html body .cajas .divImgArt article div section h2 {
+    font-size: 11px;
+  }
+  html body .cajas .divImgArt article footer div div {
+    display: none;
+  }
+  html body .cajas .divImgArt article footer div .pHidden {
+    display: block;
+  }
+}
+@media (max-width: 550px) {
   html body .cajas {
     padding-left: 15px;
   }

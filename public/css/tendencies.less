@@ -9,7 +9,7 @@
   font-weight: 200;
   src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(https://fonts.gstatic.com/s/raleway/v12/cbAbzEjxTdN5KKmS-gA0tSEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
+} 
 
 
 html {
@@ -218,7 +218,7 @@ html {
             min-width: inherit;
             height: 150px;
             margin-left: 30px;
-
+            z-index: -2;
 
             div {
                 width: 240px;
@@ -263,16 +263,57 @@ html {
                         width: 100%;
                         display: flex;
                         flex-wrap: nowrap;
-                        justify-content: space-between;
+                        //justify-content: space-between;
                         align-items: flex-end;
                         height: 40%;
-                        p {
-                            width: 50%;
+                        .intLike {
+                            
+                            left: 35%;
+                            bottom: 0px;
+                                .likegreen {
+                                        background: url(../img/likeIconGreen.jpg);
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                        width: 15px;
+                                        height: 15px;
+                                        border:none;
+                                        //transform: translate(-5px, 7px);
+                                        outline: none;
+                                        }
+                                .likes {
+                                        color: green;
+                                        padding-top: 4px;
+                                        padding-right: 10px;
+                                }
+                                .dislikered {
+                                        background: url(../img/dislikeIconRed.jpg);
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                        width: 15px;
+                                        height: 15px;
+                                        border:none;
+                                        //transform: translate(-3px, 7px);
+                                        outline: none;
+                                }
+                                .dislikes {
+                                        color: brown;
+                                        padding-top: 4px;
+                                        padding-right: 5px;
+                                }
+                            p {
+                            //width: 40%;
                             color: orange;
                             margin-bottom: 0px;
                         }
+                        } 
+                        
+                        .pHidden {
+                                color: orange;
+                                margin-bottom: 0px;
+                                display: none;
+                            }
                         small {
-                            width: 50%;
+                            width: 100%;
                             text-align: right;
                             font-style: italic;
                             padding-right: 12px;
@@ -304,7 +345,7 @@ html {
                     margin-left: 15px;
                     //min-width: 75%;
                     div {
-                        min-width: 201px;
+                        //min-width: 201px;
                         header {
                             h1{
                                 font-size:16px;
@@ -321,7 +362,51 @@ html {
             }
         }
         
-        @media (max-width: 490px){
+        @media (max-width: 635px){
+            .cajas {
+                padding-left: 5px;
+                .divImgArt {
+                margin-left: 15px;
+                 div {
+                    
+                    img {
+                        min-width: 240px;
+                    }
+                }
+                article {
+                    margin-left: 15px;
+                    //min-width: 75%;
+                    div {
+                        //min-width: 201px;
+                        header {
+                            h1{
+                                font-size:16px;
+                            }
+                        }
+                        section {
+                            h2 {
+                                font-size: 11px;
+                            }        
+                        }
+                    }
+                    footer {
+                        div {
+                            div {
+                                display: none;
+                            }
+                            .pHidden {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            }
+        }
+        
+        
+        
+        @media (max-width: 550px){
             .cajas {
                 padding-left: 15px;
                 

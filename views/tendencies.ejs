@@ -83,8 +83,19 @@
 							</div>
                             <footer>
                                 <div>
-                                    <p><%=tendencies[i].category%></p>
-                                    <small><%=tendencies[i].author%></small>
+									<div class="intLike">
+										<span id="muteGreen" class="like" >
+											<button id="nogreen" class="likegreen"></button>
+										</span>
+										<span class="likes">12</span>
+										<span id="muteRed" class="dislike" >
+											<button id="nored" class="dislikered"></button>
+										</span>
+										<span class="dislikes">2</span>
+										<p><%=tendencies[i].category%></p>
+									</div>
+									<p class="pHidden" ><%=tendencies[i].category%></p>
+									<small><%=tendencies[i].author%></small>
                                 </div>
                             </footer>
                         </article>
