@@ -14,7 +14,7 @@ module.exports = function(passport) {
 
   passport.use('login', new LocalStrategy({
     usernameField : 'username',
-    passwordField : 'password', 
+    passwordField : 'password',
     passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, username, password, done) {
@@ -23,10 +23,10 @@ module.exports = function(passport) {
         // if there are any errors, return the error before anything else
         if (err) return done(err);
         // if no user is found, return the message
-        if (!user) return done(null, false, req.flash('loginMessage', 'No user found.')); 
+        if (!user) return done(null, false, req.flash('loginMessage', 'No user found.'));
         // if the user is found but the password is wrong
         if (!user.validPassword(password))
-            return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); 
+            return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
         // all is well, return successful user
         return done(null, user);
       });
@@ -56,6 +56,8 @@ module.exports = function(passport) {
                 newUser.lastName = req.body.lastName;
                 newUser.username = username;
                 newUser.email    = email;
+                newUser.birthdate    = "01/01/1990";
+                newUser.aboutme    = "Welcome to my profile on DailyLiberty!";
                 newUser.password = newUser.generateHash(password);
                 // save the user
                 newUser.save(function(err) {
@@ -66,7 +68,7 @@ module.exports = function(passport) {
               }
             });
           }
-        });    
+        });
       });
     }
   ));

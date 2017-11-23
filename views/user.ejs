@@ -89,7 +89,7 @@
                    <p><b>Email: </b> <%=user.email %></p>
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
-                   <p><b>Birth date:</b></p>
+                   <p><b>Birth date:</b><%=user.birthdate %></p>
                  </div>
                </div>
              </div>
@@ -115,9 +115,7 @@
 
                 <div class="row kov tabcontent" id="About me" class="tabcontent" style="display: none">
                   <h4><b>About <%=user.username %>:</b></h4>
-                  <p>I like writting articles in DailyLiberty.</p>
-                  <p>I love dogs.</p>
-                  <p>I want to sacar un puto 10.</p>
+                  <p><%=user.email %></p>
                 </div>
             </div>
          </section>

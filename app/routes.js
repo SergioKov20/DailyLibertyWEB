@@ -54,6 +54,8 @@ module.exports = function(app,passport,newspaper) {
         user.firstName = name;
         user.lastName = surname;
         user.email = mail;
+        user.birthdate = birth;
+        user.aboutme = about;
         user.save(function(err) {
             if (err)
                 throw err;

@@ -93,7 +93,7 @@
                  <div class="form-group perf">
                    <span>
                      <p style="float:left; margin-right: 6px;"><b>Birth date: </b></p>
-                     <p id="oldta3"></p>
+                     <p id="oldta3"><%=user.birthdate %></p>
                    </span>
                  </div>
                </div>
@@ -120,7 +120,7 @@
 
                 <div class="row kov tabcontent" id="About me" class="tabcontent" style="display: none">
                   <h4><b>About me:</b></h4>
-                  <p id="oldta4">This is my profile on DailyLiberty!</p>
+                  <p id="oldta4"><%=user.aboutme %></p>
                 </div>
             </div>
 
@@ -153,7 +153,7 @@
                    </div><hr style="border-color: lightgrey">
                    <div class="form-group perf">
                      <p style="float: left; margin-top: 6px; margin-right: 2px;"><b>Birth date: </b></p>
-                     <textarea id="ta3" style="resize: none;" class="form-control h35" name="birth" required></textarea>
+                     <textarea id="ta3" style="resize: none;" class="form-control h35" name="birth" required><%=user.birthdate %></textarea>
                    </div>
                  </div>
                </div>
@@ -165,7 +165,7 @@
 
                   <div class="row kov tabcontent2">
                     <h4><b>About me:</b></h4>
-                    <textarea id="ta4" style="width: 500px; height: 80px; margin-right: 20px; margin-bottom: 10px; resize: none;" class="form-control h35" name="aboutme" required>This is my profile on DailyLiberty!</textarea>
+                    <textarea id="ta4" style="width: 500px; height: 80px; margin-right: 20px; margin-bottom: 10px; resize: none;" class="form-control h35" name="aboutme" required><%=user.aboutme %></textarea>
                   </div>
                   <div class="row kov tabcontent2">
                     <button class="cancelchanges" onclick="switchtoprofilenoedit()">Cancel edit</button>
@@ -208,8 +208,8 @@
             document.getElementById('ta1').value = '<%=user.firstName %>';
             document.getElementById('ta1.2').value = '<%=user.lastName %>';
             document.getElementById('ta2').value = '<%=user.email %>';
-            document.getElementById('ta3').value = "";
-            document.getElementById('ta4').value = "This is my profile on DailyLiberty!";
+            document.getElementById('ta3').value = '<%=user.birthdate %>';
+            document.getElementById('ta4').value = '<%=user.aboutme %>';
             document.getElementById("fotoselect").src = oldsrc;
             //AFEGIR DESPRÉS QUAN HI HAGI MÉS INFO A LA BD
           }
