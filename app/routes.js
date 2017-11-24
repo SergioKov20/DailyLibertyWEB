@@ -77,5 +77,5 @@ module.exports = function(app,passport,newspaper) {
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
-    res.redirect('/');
+    res.redirect('/login');
 }

@@ -2,6 +2,7 @@
 exports.getUser = function (req,res) {
 
 	var username = req.param('v');
+	if (req.isAuthenticated() && username == req.user.username) res.redirect('/profile');
 	var User = require('./models/user');
 	User.findOne({ 'username' :  username }, function(err, user) {
 		if (err) {
