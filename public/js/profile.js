@@ -22,12 +22,6 @@ function fueraya() {
 }
 
 //CAMBIOS DE FOTO:
-function ripfoto() {
-  if(document.getElementById("document-file").value != ""){
-    document.getElementById("document-file").value = "";
-  }
-  document.getElementById("fotoselect").src = "/img/user_male2-512.png";
-}
 function cambiarfoto(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();

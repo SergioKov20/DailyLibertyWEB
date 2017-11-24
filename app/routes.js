@@ -1,4 +1,4 @@
-module.exports = function(app,passport,newspaper) {
+module.exports = function(app,passport,newspaper,editprofile) {
 
     app.get('/', function(req, res) {
         require('./models/article').find({}, function(err, articles) {
@@ -42,26 +42,7 @@ module.exports = function(app,passport,newspaper) {
 	});
 
   app.post('/profile', isLoggedIn, function(req, res) {
-      var username = req.body.username;
-      var name = req.body.fullname1;
-      var surname = req.body.fullname2;
-      var mail = req.body.mail;
-      var birth = req.body.birth;
-      var about = req.body.aboutme;
-
-      var User = require('./models/user');
-      User.findOne({ 'username' :  username }, function(err, user) {
-        user.firstName = name;
-        user.lastName = surname;
-        user.email = mail;
-        user.birthdate = birth;
-        user.aboutme = about;
-        user.save(function(err) {
-            if (err)
-                throw err;
-            else res.redirect('/profile');
-        });
-      });
+      editprofile.editarPerfil(req,res);
   });
 
   app.get('/user', function(req,res){
