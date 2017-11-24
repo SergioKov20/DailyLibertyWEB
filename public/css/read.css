@@ -59,13 +59,8 @@ html body .capsaHeader .barraSuperior .cajaLogo .logo {
   z-index: 10;
   padding-right: 10px;
 }
-@media (max-width: 500px) {
-  html body .capsaHeader .barraSuperior .cajaLogo .logo {
-    display: none;
-  }
-}
 html body .capsaHeader .barraSuperior .buscador {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   min-width: 40px;
@@ -107,8 +102,8 @@ html body .capsaHeader .barraSuperior .login {
   align-items: center;
   justify-content: center;
   min-width: 50px;
-  width: calc(10% - 30px/4);
   margin-top: 5px;
+  margin-right: 20px;
 }
 html body .capsaHeader .barraSuperior .login .dropLogin {
   position: relative;

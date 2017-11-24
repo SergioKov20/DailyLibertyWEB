@@ -79,7 +79,11 @@ html body .capsaHeader .barraSuperior .buscador {
   min-width: 40px;
   width: calc(80% - 30px/4);
 }
-html body .capsaHeader .barraSuperior .buscador input {
+html body .capsaHeader .barraSuperior .buscador form {
+  display: flex;
+  width: calc(80% - 30px/4);
+}
+html body .capsaHeader .barraSuperior .buscador form input {
   height: 40px;
   width: 650px;
   min-width: 50px;
@@ -88,17 +92,17 @@ html body .capsaHeader .barraSuperior .buscador input {
   padding-left: 15px;
   border-width: inherit;
 }
-html body .capsaHeader .barraSuperior .buscador input:focus {
+html body .capsaHeader .barraSuperior .buscador form input:focus {
   border-color: #afa1a1;
   border-width: 1px;
   outline: 0 none;
 }
-html body .capsaHeader .barraSuperior .buscador input::-webkit-input-placeholder {
+html body .capsaHeader .barraSuperior .buscador form input::-webkit-input-placeholder {
   /* Google Chrome y Safari */
   font-size: 18px;
   color: darkgrey;
 }
-html body .capsaHeader .barraSuperior .buscador .botonSearch {
+html body .capsaHeader .barraSuperior .buscador form .botonSearch {
   height: 40px;
   width: 80px;
   cursor: pointer;
@@ -106,7 +110,7 @@ html body .capsaHeader .barraSuperior .buscador .botonSearch {
   border: 1px solid #E1DCDC;
   background: #F6F5F5;
 }
-html body .capsaHeader .barraSuperior .buscador .botonSearch img {
+html body .capsaHeader .barraSuperior .buscador form .botonSearch img {
   height: 25px;
   width: 25px;
 }
