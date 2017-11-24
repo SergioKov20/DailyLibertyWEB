@@ -31,9 +31,8 @@ mongoose.connect(configDB.url); // connect to our database
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 var newspaper = require('./app/newspaper.js');
-var editprofile = require('./app/editprofile.js');
 
-require('./app/routes.js')(app,passport,newspaper,editprofile); // load our routes
+require('./app/routes.js')(app,passport,newspaper); // load our routes
 
 app.listen(port);
 console.log('Server started on port ' + port);

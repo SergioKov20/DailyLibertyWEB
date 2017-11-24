@@ -58,7 +58,7 @@ module.exports = function(passport) {
                 newUser.email    = email;
                 newUser.birthdate    = "01/01/1990";
                 newUser.aboutme    = "Welcome to my profile on DailyLiberty!";
-                newUser.fotourl = "/img/profilepics/default.png"
+                newUser.fotourl = "/multimedia/profilepics/default.png"
                 newUser.password = newUser.generateHash(password);
                 // save the user
                 newUser.save(function(err) {

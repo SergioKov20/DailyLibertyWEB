@@ -1,4 +1,4 @@
-module.exports = function(app,passport,newspaper,editprofile) {
+module.exports = function(app,passport,newspaper) {
 
     app.get('/', function(req, res) {
         require('./models/article').find({}, function(err, articles) {
@@ -41,9 +41,9 @@ module.exports = function(app,passport,newspaper,editprofile) {
         });
 	});
 
-  app.post('/profile', isLoggedIn, function(req, res) {
-      editprofile.editarPerfil(req,res);
-  });
+    app.post('/profile', isLoggedIn, function(req, res) {
+        newspaper.editProfile(req,res);
+    });
 
   app.get('/user', function(req,res){
       require('./search.js').getUser(req,res);

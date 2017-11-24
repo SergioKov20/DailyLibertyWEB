@@ -89,3 +89,38 @@ exports.editArticle = function(req,res) {
 		
 	});
 }
+
+exports.editProfile = function(req,res) {
+
+	var formidable = require('formidable');
+	var fs = require('fs');
+	var form = new formidable.IncomingForm();
+
+	form.parse(req, function (err, fields, files) {
+		var User = require('./models/user');
+        User.findOne({ 'username' :  req.user.username }, function(err, user) {
+        	user.firstName = fields.fullname1;
+        	user.lastName = fields.fullname2;
+        	//user.email = fields.mail; // DE MOMENT NO: COMPROVAR QUE SIGUI UNIC
+          	//user.birthdate = fields.birth; //COMPROVAR DATA VALID
+          	//user.aboutme = fields.aboutme; COMPROVAR LENGTH
+          	if (fields.calborrar == "1"){
+          		user.fotourl = "/multimedia/profilepics/default.png";
+          	}
+          	else if (files.filetoupload.size != 0){
+          		var oldpath = files.filetoupload.path;
+          		var extension = ".jpg";
+          		if (files.filetoupload.type == 'image/png') extension = ".png";
+          		var newpath = './public/multimedia/profilepics/' + fields.username + extension;
+          		fs.rename(oldpath, newpath, function (err) {
+	            	if (err) res.render('error/500.ejs');
+            	});
+            	user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
+          	}
+          	user.save(function(err) {
+				if (err) res.render('error/500.ejs');
+		        else res.redirect('/profile');
+	        });
+        });
+    });
+}
