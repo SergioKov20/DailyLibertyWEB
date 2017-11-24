@@ -13,12 +13,14 @@
         <link rel='stylesheet' href='/css/article.css'>
    </head>
     <body id="prueba" >
-        <%
+      <%
+      var id = "0";
       var title = ""; 
       var subtitle = ""; 
       var content = ""; 
       var category = "";
-      if ( article ) { 
+      if ( article ) {
+        id = article.id; 
         title = article.title;
         subtitle = article.subtitle;
         content = article.content;
@@ -79,23 +81,23 @@
               <p>Edit your articles here </p>
               <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" method="POST" action="article?e=<%=id%>">
                     <div class="form-group">
                       <label for="title">Title</label>
-                        <pre><textarea id="texte" class="form-control" rows="1" placeholder="Pick up a title" required><%=title%></textarea></pre>
+                        <pre><textarea name="title" id="texte" class="form-control" rows="1" placeholder="Pick up a title" required><%=title%></textarea></pre>
                     </div>
                     <div class="form-group">
                       <label for="subtitle">Subtitle</label>
-                       <pre><textarea  class="form-control" rows="2" placeholder="Pick up a subtitle" required><%=subtitle%></textarea></pre>
+                       <pre><textarea  name="subtitle" class="form-control" rows="2" placeholder="Pick up a subtitle" required><%=subtitle%></textarea></pre>
                     </div>
                       
                     <div class="form-group">
                       <label for="description">Description</label>
-                        <pre><textarea  class="form-control" rows="15" placeholder="Describe your article" required><%=content%></textarea></pre>
+                        <pre><textarea  name="content" class="form-control" rows="15" placeholder="Describe your article" required><%=content%></textarea></pre>
                       </div>
                       <div class="form-group">
                         <label for="category">Category</label>
-                     <pre><textarea  class="form-control" rows="1" placeholder="ex. Sports,Culture,etc." required><%=category%></textarea></pre><br>
+                     <pre><textarea  name="category" class="form-control" rows="1" placeholder="ex. Sports,Culture,etc." required><%=category%></textarea></pre><br>
 
                     </div>
 

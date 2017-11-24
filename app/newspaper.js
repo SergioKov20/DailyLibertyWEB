@@ -65,3 +65,27 @@ exports.newArticle = function(req,res) {
 		else { return res.redirect('/')  }
 	});
 }
+
+exports.editArticle = function(req,res) {
+	var articleID = req.param('e');
+	Article.findById(articleID, function(err,article) {
+		if (err) res.render('error/500.ejs');
+		else if (!article) res.render('error/wrongArticle.ejs');
+		if (article) {
+			if (article.author != req.user.username) res.render('error/forbidden.ejs');
+			else {
+				article.category = req.body.category;
+				article.title    = req.body.title;
+				article.subtitle = req.body.subtitle;
+				article.content	= req.body.content;
+				article.author 	= req.user.username;
+
+				article.save(function (err, updatedArticle) {
+			    	if (err) res.render('error/500.ejs');
+			    	else res.redirect('/profile');
+		  		});
+		}
+		}
+		
+	});
+}

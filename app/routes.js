@@ -55,7 +55,8 @@ module.exports = function(app,passport,newspaper,editprofile) {
         else  require('./search.js').editArticle(req,res);
     });
     app.post('/article', isLoggedIn, function(req,res) {
-        newspaper.newArticle(req,res);
+        if (req.param('e') == "0") newspaper.newArticle(req,res);
+        else newspaper.editArticle(req,res);
     });
 
     app.get('/read', function(req,res){
