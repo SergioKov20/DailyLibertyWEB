@@ -85,8 +85,10 @@ exports.editProfile = function(req,res) {
           	}
           	else if (files.filetoupload.size != 0){
           		var oldpath = files.filetoupload.path;
-          		var extension = ".jpg";
+          		var extension = "";
           		if (files.filetoupload.type == 'image/png') extension = ".png";
+          		else if(files.filetoupload.type == 'image/png') extension = ".jpg";
+          		else { res.render('error/wrongFileExt.ejs'); return; }
           		var newpath = './public/multimedia/profilepics/' + fields.username + extension;
           		fs.rename(oldpath, newpath, function (err) {
 	            	if (err) res.render('error/500.ejs');
