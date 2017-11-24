@@ -22,7 +22,7 @@ html {
     //overflow-y:hidden;
     height: 100%;
     .capsaHeader{
-        width: -webkit-fill-available;
+        width: 100%;
         position: fixed;
         background-color: @mandarina;
         //padding-bottom: 20px;
@@ -80,54 +80,56 @@ html {
                         {
                             .logo {
                                 //background-color: black;
-                                //display: none;
-                                //margin-right: 150px;
+                                display: none;
                         }
                     }
             }
             .buscador{
-                display: none;
+                display:flex;
                 align-items:center;
                 justify-content:center;
                 min-width:40px;
                 //width:70%;
                 width:~'calc(80% - 30px/4)';
-                input {
-                    height: 40px;
-                    width: 650px;
-                    min-width: 50px;
-                    border-radius: 5px 0 0 5px;
-                    font-size:19px;
-                    padding-left: 15px;
-                    //border-right-width: inherit;
-                    border-width: inherit;
-                    &:focus {
-                       /// border-color: dimgrey;
-                        //background-color: brown;
-                        border-color: rgb(175, 161, 161);
-                        border-width: 1px;
-                        outline: 0 none;
+                form {
+                    display:flex;
+                    width:~'calc(80% - 30px/4)';
+                    input {
+                        height: 40px;
+                        width: 650px;
+                        min-width: 50px;
+                        border-radius: 5px 0 0 5px;
+                        font-size:19px;
+                        padding-left: 15px;
+                        //border-right-width: inherit;
+                        border-width: inherit;
+                        &:focus {
+                           /// border-color: dimgrey;
+                            //background-color: brown;
+                            border-color: rgb(175, 161, 161);
+                            border-width: 1px;
+                            outline: 0 none;
+                        }
+                        &::-webkit-input-placeholder {
+                            /* Google Chrome y Safari */
+                            font-size: 18px;
+                            color: darkgrey;
+                        }
                     }
-                    &::-webkit-input-placeholder {
-                        /* Google Chrome y Safari */
-                        font-size: 18px;
-                        color: darkgrey;
-                    }
-                }
-                .botonSearch {
-                    height: 40px;
-                    width: 80px;
-    
-                    cursor:pointer;
-                    border-radius: 0 5px 5px 0;
-                    border: 1px solid #E1DCDC;
-                    background: #F6F5F5;
-                    img {
-                        height:25px;
-                        width: 25px;
-                    }
-                }
+                    .botonSearch {
+                        height: 40px;
+                        width: 80px;
 
+                        cursor:pointer;
+                        border-radius: 0 5px 5px 0;
+                        border: 1px solid #E1DCDC;
+                        background: #F6F5F5;
+                        img {
+                            height:25px;
+                            width: 25px;
+                        }
+                    }
+                }
 
 
             }
@@ -136,10 +138,9 @@ html {
                 align-items:center;
                 justify-content:center;
                 min-width:50px;
-                //width:~'calc(10% - 30px/4)';
+                width:~'calc(10% - 30px/4)';
                 //padding-right: 30px;
                 margin-top: 5px;
-                margin-right: 20px;
                 .dropLogin {
                     position:relative;
                     display: inline-block;
@@ -195,6 +196,7 @@ html {
             }
         }
     }
+    
     .cajas {
             width: 100%;
             //height: 100%;
@@ -364,7 +366,9 @@ html {
                         }
                                                 
                         div {
+                            text-align: center;
                             text-align: -webkit-center;
+                            width: 100%;
                             pre {
                                 padding: 0px;
                                 border-top: none;
@@ -523,5 +527,5 @@ html {
     
     
 }
-    
+
 }
