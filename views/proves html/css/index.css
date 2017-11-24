@@ -17,7 +17,7 @@ html body {
   height: 100%;
 }
 html body .capsaHeader {
-  width: -webkit-fill-available;
+  width: 100%;
   position: fixed;
   background-color: #efefef;
   box-shadow: 6px 2px 15px 1px rgba(239, 239, 239, 0.72);
