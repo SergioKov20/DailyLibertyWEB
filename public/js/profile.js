@@ -32,6 +32,7 @@ function cambiarfoto(input) {
         };
 
         reader.readAsDataURL(input.files[0]);
+        document.getElementById("calborrar").value = "0";
 
     }
 }
