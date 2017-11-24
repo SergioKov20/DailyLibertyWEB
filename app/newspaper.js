@@ -75,6 +75,10 @@ exports.editProfile = function(req,res) {
 	form.parse(req, function (err, fields, files) {
 		var User = require('./models/user');
         User.findOne({ 'username' :  req.user.username }, function(err, user) {
+        	if (fields.fullname1.LENGTH < 2 || fields.fullname1.LENGTH > 20  
+        		|| fields.fullname2.LENGTH < 2 || fields.fullname2.LENGTH > 20){ //Invalid field
+        		res.redirect('/profile');
+        	}
         	user.firstName = fields.fullname1;
         	user.lastName = fields.fullname2;
         	//user.email = fields.mail; // DE MOMENT NO: COMPROVAR QUE SIGUI UNIC
