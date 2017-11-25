@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>
-        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/> 
+        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/>
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <title>DailyLiberty  |  Edit your article</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -15,12 +15,12 @@
     <body id="prueba" >
       <%
       var id = "0";
-      var title = ""; 
-      var subtitle = ""; 
-      var content = ""; 
+      var title = "";
+      var subtitle = "";
+      var content = "";
       var category = "";
       if ( article ) {
-        id = article.id; 
+        id = article.id;
         title = article.title;
         subtitle = article.subtitle;
         content = article.content;
@@ -42,19 +42,12 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <button class="dropBoton"></button>
-                        <% if (isLoggedIn == true) { %>
-                            <div style="left: -190%" class="dropContingut">
+                            <button id="dropBoton" class="dropBoton"></button>
+                            <div class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
-                                <a href="#">Escriure Article</a>
+                                <a href="/newarticle">Escriure Article</a>
                                 <a href="/logout">Log Out</a>
                             </div>
-                        <%} else {%>
-                            <div style="left: -60%" class="dropContingut">
-                                <a href="/login" >Sign In</a>
-                                <a href="/register">Register</a>
-                            </div>
-                        <% } %>
                     </div>
                 </li>
             </ul>
@@ -78,9 +71,9 @@
                   <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
-              
-        
-        
+
+
+
         <section id="contact" class="content-section text-center">
         <div class="contact-section">
             <div class="container">
@@ -97,7 +90,7 @@
                       <label for="subtitle">Subtitle</label>
                        <pre><textarea  name="subtitle" class="form-control" rows="2" placeholder="Pick up a subtitle" required><%=subtitle%></textarea></pre>
                     </div>
-                      
+
                     <div class="form-group">
                       <label for="description">Description</label>
                         <pre><textarea  name="content" class="form-control" rows="15" placeholder="Describe your article" required><%=content%></textarea></pre>
@@ -107,19 +100,19 @@
                           <form>
                             <fieldset>
                                 <label class="espacio">
-                                  <input type="radio" name="color" value="politica"> Política   
+                                  <input type="radio" name="color" value="politica"> Política
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="esports"> Esports   
+                                    <input type="radio" name="color" value="esports"> Esports
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="cultura"> Ciència   
+                                    <input type="radio" name="color" value="cultura"> Ciència
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="tecnologia"> Tecnologia   
+                                    <input type="radio" name="color" value="tecnologia"> Tecnologia
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="altres"> Altres   
+                                    <input type="radio" name="color" value="altres"> Altres
                                 </label>
                             </fieldset>
                           </form>
@@ -142,9 +135,14 @@
         </div>
       </section>
              </section>
-        
-       
+
+
         <script src="/js/mostrarNav.js"></script>
-        
+        <script>
+          document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+          document.getElementById("dropBoton").style.backgroundSize = 'cover';
+          document.getElementById("dropBoton").style.borderRadius = '100px';
+        </script>
+
     </body>
 </html>

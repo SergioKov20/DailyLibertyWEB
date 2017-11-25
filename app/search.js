@@ -15,6 +15,7 @@ exports.getUser = function (req,res) {
         if (user){
         	res.render('user.ejs', {
 	            user : user, // get the user out of session and pass to template
+							me: req.user, //para tener mi foto en la barra de arriba
 	            isLoggedIn: req.isAuthenticated()
         	});
         }
@@ -36,6 +37,7 @@ exports.editArticle = function (req,res) {
         if (article){
         	if (article.author == req.user.username){
 	        	res.render('article.ejs', {
+								user : req.user,
 		            article : article, // get the user out of session and pass to template
 	        	});
 	        }
@@ -58,6 +60,7 @@ exports.getArticle = function (req,res) {
         if (article){
 	        res.render('read.ejs', {
 		            article : article,
+								me : req.user,
 		            isLoggedIn : req.isAuthenticated()
 	        });
         }

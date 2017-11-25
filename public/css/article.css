@@ -117,7 +117,7 @@ html body .capsaHeader .barraSuperior .cajaLogo .logo {
   html body .capsaHeader .barraSuperior .cajaLogo .logo {
     display: none;
   }
-    
+
 }
 html body .capsaHeader .barraSuperior .buscador {
   display: flex;
@@ -398,6 +398,14 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   width: 40px;
   height: 40px;
 }
+#dropBoton2 {
+  background: url('../multimedia/profilepics/default.png');
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   display: none;
   position: absolute;
@@ -450,4 +458,3 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   width: 100%;
   height: 100%;
   opacity: 1;
-    

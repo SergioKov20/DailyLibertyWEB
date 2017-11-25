@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>
-        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/> 
+        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/>
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -29,15 +29,16 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <button class="dropBoton"></button>
                         <% if (isLoggedIn == true) { %>
-                            <div style="left: -190%" class="dropContingut">
+                            <button id="dropBoton" class="dropBoton"></button>
+                            <div class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
                                 <a href="/logout">Log Out</a>
                             </div>
                         <%} else {%>
-                            <div style="left: -60%" class="dropContingut">
+                            <button id="dropBoton2" class="dropBoton"></button>
+                            <div class="dropContingut">
                                 <a href="/login" >Sign In</a>
                                 <a href="/register">Register</a>
                             </div>
@@ -59,9 +60,9 @@
                           <a href="/esports">Esports</a>
                           <a href="/ciencia">Ciència</a>
                         <a href="/tecnologies">Tecnologia</a>
-                        <a href="#">Altres</a>  
+                        <a href="#">Altres</a>
                     </div>
-                </div>   
+                </div>
                 <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
@@ -73,19 +74,26 @@
                             <img src="/img/ciencia.jpg">
                         </header>
                         <section>
-                            <h1><%=articles[i].title %></h1>   
+                            <h1><%=articles[i].title %></h1>
                             <h2><%=articles[i].subtitle %></h2>
 
                             <div>
                                 <p><%=articles[i].category %></p>
-								
+
                                 <small><%=articles[i].author %></small>
                             </div>
                         </section>
                     </article></a>
                 <%} }%>
-        </section> 
+        </section>
         <script src="/js/mostrarNav.js"></script>
-        
+        <% if (isLoggedIn == true) { %>
+          <script>
+            document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+            document.getElementById("dropBoton").style.backgroundSize = 'cover';
+            document.getElementById("dropBoton").style.borderRadius = '100px';
+          </script>
+        <% } %>
+
     </body>
 </html>

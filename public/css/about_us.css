@@ -11,7 +11,7 @@
 .titol1{
     text-align: center;
     font-size: 48px;
-    
+
 }
 
 .titol2{
@@ -316,4 +316,13 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
 /*BOOTSTRAP*/
 .col-md-offset-2 {
     margin-left: 0%;
+}
+
+#dropBoton2 {
+  background: url('../multimedia/profilepics/default.png');
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
 }
