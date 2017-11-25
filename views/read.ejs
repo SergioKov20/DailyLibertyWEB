@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>
-        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/> 
+        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/>
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,14 +10,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href='/css/read.css'>
 		<script src="/js/likes.js"></script>
-   </head> 
+   </head>
    <%
-      var title = ""; 
-      var subtitle = ""; 
-      var content = ""; 
+      var title = "";
+      var subtitle = "";
+      var content = "";
       var category = "";
       var author = "";
-      if ( article ) { 
+      if ( article ) {
         title = article.title;
         subtitle = article.subtitle;
         content = article.content;
@@ -43,15 +43,16 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <button class="dropBoton"></button>
                         <% if (isLoggedIn == true) { %>
-                            <div style="left: -190%" class="dropContingut">
+                            <button id="dropBoton" class="dropBoton"></button>
+                             <div style="left: -190%" class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
                                 <a href="/logout">Log Out</a>
                             </div>
                         <%} else {%>
-                            <div style="left: -60%" class="dropContingut">
+                            <button id="dropBoton2" class="dropBoton"></button>
+                             <div style="left: -60%" class="dropContingut">
                                 <a href="/login" >Sign In</a>
                                 <a href="/register">Register</a>
                             </div>
@@ -86,11 +87,11 @@
                     <h1><%=title%></h1>
                     <h2><%=subtitle%></h2>
                 </header>
-                
+
                 <section>
-                    
+
                     <div class="divImg">
-					
+
 						<div class="preImagen"><div class="autor">
                             <small>per </small>
                             <a><%=author%></a>
@@ -106,11 +107,19 @@
 										<span id="muteGreen" class="like" >
 											<button id="nogreen" class="likenogreen"></button>
 
+<<<<<<< HEAD
 										</span>
 										<span class="likes">12</span>
 										<span id="muteRed" class="dislike" >
 											<button id="nored" class="dislikenored"></button>
 										</span>
+=======
+                                <span class="likes">12</span>
+                                <span id="muteRed" class="dislike" >
+                                    <button id="nored" class="dislikenored"></button>
+                                </span>
+
+>>>>>>> 5069237cc3255b2b51782a5287d1e1a89dac5c20
 
 										<span class="dislikes">2</span>
 
@@ -132,9 +141,9 @@
                 <footer></footer>
             </article>
         </div>
-        
 
-        </section> 
+
+        </section>
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/changeColor.js"></script>
         <script type="text/javascript">
@@ -149,6 +158,7 @@
             }
         });
 		</script>
+<<<<<<< HEAD
 		<script>
             function numberto(n){
                 x=(''+n).length;
@@ -159,7 +169,14 @@
             }   
             document.getElementById("views").innerHTML = numberto(document.getElementById("views").innerHTML);
         </script>
+=======
+    <% if (isLoggedIn == true) { %>
+      <script>
+        document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+        document.getElementById("dropBoton").style.backgroundSize = 'cover';
+        document.getElementById("dropBoton").style.borderRadius = '100px';
+      </script>
+    <% } %>
+>>>>>>> 5069237cc3255b2b51782a5287d1e1a89dac5c20
     </body>
 </html>
-
-

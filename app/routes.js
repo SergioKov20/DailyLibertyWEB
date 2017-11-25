@@ -6,6 +6,7 @@ module.exports = function(app,passport,newspaper) {
             else {
                 res.render('index.ejs', {
                     articles: articles,
+                    me : req.user,
                     isLoggedIn: req.isAuthenticated()
                 });
             }
@@ -51,7 +52,10 @@ module.exports = function(app,passport,newspaper) {
 
 	app.get('/article', isLoggedIn, function(req, res) {
         var articleID = req.param('e');
-        if (articleID == null) res.render('./article.ejs', { article: null });
+        if (articleID == null) res.render('./article.ejs', {
+          me: req.user, 
+          article: null
+        });
         else  require('./search.js').editArticle(req,res);
     });
     app.post('/article', isLoggedIn, function(req,res) {
@@ -66,6 +70,7 @@ module.exports = function(app,passport,newspaper) {
     app.get('/tendencies', function(req, res) {
         res.render('tendencies.ejs', {
             tendencies: newspaper.getTendencies(),
+            me : req.user,
             isLoggedIn: req.isAuthenticated()
         } );
     });

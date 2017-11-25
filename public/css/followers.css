@@ -437,3 +437,12 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   position: absolute;
   z-index: -2;
 }
+
+#dropBoton2 {
+  background: url('../multimedia/profilepics/default.png');
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}

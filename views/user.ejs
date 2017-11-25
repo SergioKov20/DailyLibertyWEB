@@ -27,14 +27,15 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <button id="dropBoton" class="dropBoton"></button>
                         <% if (isLoggedIn == true) { %>
+                            <button id="dropBoton" class="dropBoton"></button>
                             <div class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
                                 <a href="/logout">Log Out</a>
                             </div>
                         <%} else {%>
+                            <button id="dropBoton2" class="dropBoton"></button>
                             <div class="dropContingut">
                                 <a href="/login" >Sign In</a>
                                 <a href="/register">Register</a>
@@ -115,7 +116,7 @@
 
                 <div class="row kov tabcontent" id="About me" class="tabcontent" style="display: none">
                   <h4><b>About <%=user.username %>:</b></h4>
-                  <p><%=user.email %></p>
+                  <p><%=user.aboutme %></p>
                 </div>
             </div>
          </section>
@@ -143,5 +144,12 @@
             evt.currentTarget.className += " active";
           }
         </script>
+        <% if (isLoggedIn == true) { %>
+          <script>
+            document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+            document.getElementById("dropBoton").style.backgroundSize = 'cover';
+            document.getElementById("dropBoton").style.borderRadius = '100px';
+          </script>
+        <% } %>
     </body>
 </html>
