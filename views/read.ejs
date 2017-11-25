@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>
-        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/>
+        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/> 
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -10,14 +10,14 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href='/css/read.css'>
 		<script src="/js/likes.js"></script>
-   </head>
+   </head> 
    <%
-      var title = "";
-      var subtitle = "";
-      var content = "";
+      var title = ""; 
+      var subtitle = ""; 
+      var content = ""; 
       var category = "";
       var author = "";
-      if ( article ) {
+      if ( article ) { 
         title = article.title;
         subtitle = article.subtitle;
         content = article.content;
@@ -35,7 +35,7 @@
                 </li>
                 <li id="buscador" class="buscador">
                    <form action="results" method="GET">
-                        <input id="search" type="search" placeholder="Buscar" name="search">
+                        <input id="search" type="search" placeholder="Buscar" name="search"></input>
                         <button id="botonSearch" class="botonSearch">
                             <img src="img/lupaBuscador.png"/>
                         </button>
@@ -43,6 +43,7 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
+
                         <% if (isLoggedIn == true) { %>
                             <button id="dropBoton" class="dropBoton"></button>
                              <div style="left: -190%" class="dropContingut">
@@ -87,11 +88,11 @@
                     <h1><%=title%></h1>
                     <h2><%=subtitle%></h2>
                 </header>
-
+                
                 <section>
-
+                    
                     <div class="divImg">
-
+					
 						<div class="preImagen"><div class="autor">
                             <small>per </small>
                             <a><%=author%></a>
@@ -106,26 +107,12 @@
 									<div class="intLike">
 										<span id="muteGreen" class="like" >
 											<button id="nogreen" class="likenogreen"></button>
-
-<<<<<<< HEAD
 										</span>
 										<span class="likes">12</span>
 										<span id="muteRed" class="dislike" >
 											<button id="nored" class="dislikenored"></button>
 										</span>
-=======
-                                <span class="likes">12</span>
-                                <span id="muteRed" class="dislike" >
-                                    <button id="nored" class="dislikenored"></button>
-                                </span>
-
->>>>>>> 5069237cc3255b2b51782a5287d1e1a89dac5c20
-
 										<span class="dislikes">2</span>
-
-
-
-
 									</div>
 								</div>
 
@@ -141,9 +128,9 @@
                 <footer></footer>
             </article>
         </div>
+        
 
-
-        </section>
+        </section> 
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/changeColor.js"></script>
         <script type="text/javascript">
@@ -158,7 +145,13 @@
             }
         });
 		</script>
-<<<<<<< HEAD
+		<% if (isLoggedIn == true) { %>
+          <script>
+            document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+            document.getElementById("dropBoton").style.backgroundSize = 'cover';
+            document.getElementById("dropBoton").style.borderRadius = '100px';
+          </script>
+        <% } %>
 		<script>
             function numberto(n){
                 x=(''+n).length;
@@ -169,14 +162,7 @@
             }   
             document.getElementById("views").innerHTML = numberto(document.getElementById("views").innerHTML);
         </script>
-=======
-    <% if (isLoggedIn == true) { %>
-      <script>
-        document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
-        document.getElementById("dropBoton").style.backgroundSize = 'cover';
-        document.getElementById("dropBoton").style.borderRadius = '100px';
-      </script>
-    <% } %>
->>>>>>> 5069237cc3255b2b51782a5287d1e1a89dac5c20
     </body>
 </html>
+
+
