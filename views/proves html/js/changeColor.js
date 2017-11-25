@@ -9,3 +9,5 @@ $('#muteRed').click(function() {
     $('#nored').toggleClass('dislikered');
     $('#nogreen').removeClass('likegreen');
 });
+
+

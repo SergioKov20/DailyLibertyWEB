@@ -70,26 +70,35 @@
                 <section>
                     
                     <div class="divImg">
-                        <div class="preImagen"><div class="autor">
-                            <small>per </small>
-                            <a>Edgar Lorenzo</a>
-                            <p>20/11/2017</p>
-                        </div>
-                        <div class="likesDislikes" id="rating">
-                            <div class="intLike">
-                                <span id="muteGreen" class="like" >
-                                    <button id="nogreen" class="likenogreen"></button>
-                                </span>
-                                <span class="likes">12</span>
-                                <span id="muteRed" class="dislike" >
-                                    <button id="nored" class="dislikenored"></button>
-                                </span>
-                                
-                                <span class="dislikes">2</span>
+                        <div class="preImagen">
+                           <div class="autor">
+                                <small>per </small>
+                                <a>Edgar Lorenzo</a>
+                                <p>20/11/2017</p>
                             </div>
-                        </div></div>
+                            <div class="shareLike">
+                                <div class="twitterVisites">
+                                    <img class="imgtwitter"  src="img/twitter.png"/>
+                                    <div id="views" style="color:green" class="visites">14599</div><span>&nbsp;views</span>
+                                </div>
+                                <div class="likesDislikes" id="rating">
+                                <div class="intLike">
+                                    <span id="muteGreen" class="like" >
+                                        <button id="nogreen" class="likenogreen"></button>
+                                    </span>
+                                    <span class="likes">12</span>
+                                    <span id="muteRed" class="dislike" >
+                                        <button id="nored" class="dislikenored"></button>
+                                    </span>
+
+                                    <span class="dislikes">2</span>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
                         
-                        <img src="img/puigdemont.jpg"/>
+                        <img class="imgPrincipal" src="img/puigdemont.jpg"/>
                     </div>
                     <div>
                     <pre>El president de la Generalitat, Carles Puigdemont, ha viatjat a Brussel·les aquest dilluns, segons ha informat El Periódico i han confirmat diverses agències, a partir de fonts governamentals. Puigdemont s'hauria desplaça a la capital comunitària acompanyat de membres del seu Executiu, que podrien comparèixer demà dimarts a la ciutat. El president i els consellers que l'acompanyen són "en un entorn segur i discret", segons ha informat TV3.
@@ -105,6 +114,22 @@ Passades les vuit de la tarda, l'advocat belga Paul Bekaert ha difós a mitjans 
 
                 </div>
                 </section>
+
+                
+                <script>
+                    function MyFunction(){
+                        
+                        window.open("http://twitter.com");
+                    }
+                </script>
+                <div>
+                    <a class="twitter" rel="nofollow" href="" onclick="window.open(
+'http://twitter.com/intent/tweet?text=  Molt interessant la noticia escrita a DailyLiberty via @DailyLiberty',
+'popupwindow',
+'scrollbars=yes,width=800,height=450');
+popUp.focus();
+return false">hola</a>
+                </div>
                 <footer></footer>
             </article>
         </div>
@@ -124,7 +149,17 @@ Passades les vuit de la tarda, l'advocat belga Paul Bekaert ha difós a mitjans 
                 dislikes.text(parseInt(dislikes.text()) + d);
             }
         });
-    </script>
+        </script>
+        <script>
+            function numberto(n){
+                x=(''+n).length;
+                p=Math.pow;
+                d=p(10,true);
+                x-=x%3;
+                return Math.round(n*d/p(10,x))/d+" kMGTPE"[x/3];
+            }   
+            document.getElementById("views").innerHTML = numberto(document.getElementById("views").innerHTML);
+        </script>
     </body>
 </html>
 

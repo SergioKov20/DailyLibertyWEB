@@ -21,7 +21,7 @@
                 </li>
                 <li id="buscador" class="buscador">
                     <form action="results" method="GET">
-                        <input id="search" type="search" placeholder="Buscar" name="search">
+                        <input id="search" type="search" placeholder="Buscar" name="search"></input>
                         <button id="botonSearch" class="botonSearch">
                             <img src="img/lupaBuscador.png"/>
                         </button>
@@ -72,7 +72,7 @@
                     <div onclick="location.href = '/index'" class="divImgArt">
                         <div><img src="<%=tendencies[i].portada%>"/></div>
                         <article class="cajaArticle">
-							<div>
+							<div class="Content">
 								<header>
 									<h1><%=tendencies[i].title%></h1>
 								</header>
@@ -80,9 +80,9 @@
 									<h2><%=tendencies[i].subtitle%></h2>
 								</section>
 							</div>
-                            <footer>
-                                <div>
-									<div class="intLike">
+							<div class="footer">
+								   <div class="intLike">
+									   <p><%=tendencies[i].category%></p>
 										<span id="muteGreen" class="like" >
 											<button id="nogreen" class="likegreen"></button>
 										</span>
@@ -90,13 +90,14 @@
 										<span id="muteRed" class="dislike" >
 											<button id="nored" class="dislikered"></button>
 										</span>
+										
 										<span class="dislikes">2</span>
-										<p><%=tendencies[i].category%></p>
+										
 									</div>
+									
 									<p class="pHidden" ><%=tendencies[i].category%></p>
 									<small><%=tendencies[i].author%></small>
-                                </div>
-                            </footer>
+							</div>
                         </article>
                     </div>
             <%} }%>

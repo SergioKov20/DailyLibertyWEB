@@ -24,6 +24,7 @@ html {
     height: 100%;
     .capsaHeader{
         width: -webkit-fill-available;
+        width: -moz-available;
         position: fixed;
         background-color: @mandarina;
         //padding-bottom: 20px;
@@ -113,6 +114,11 @@ html {
                             outline: 0 none;
                         }
                         &::-webkit-input-placeholder {
+                            /* Google Chrome y Safari */
+                            font-size: 18px;
+                            color: darkgrey;
+                        }
+                        &::-moz-input-placeholder {
                             /* Google Chrome y Safari */
                             font-size: 18px;
                             color: darkgrey;
@@ -220,7 +226,8 @@ html {
             flex-wrap: nowrap;
             width: 100%;
             min-width: inherit;
-            height: 150px;
+            //height: 150px;
+            height: auto;
             margin-left: 30px;
             z-index: -2;
 
@@ -234,13 +241,13 @@ html {
             }
 
             article {
-                
+                position:relative;
                 width: 63%;
                 margin-left: 25px;
                 justify-content: center;
-                div {
+                .Content {
                     width: 100%;
-                    height: 55%;
+                    height: auto;
                     header {
 
                         h1 {
@@ -252,6 +259,8 @@ html {
                     }
                     section {
                         h2 {
+                            word-break: break-word ;
+                            display: block;
                             margin-top:10px;
                             font-size: 14px;
                         }
@@ -259,21 +268,24 @@ html {
 
                     }
                 }
-                footer {
+               
                 
-                    position: relative;
-                    top: 40px;
-                    div{
+                   
+                .footer{
+                        position: absolute;
+                    //top: 40px;
                         width: 100%;
                         display: flex;
                         flex-wrap: nowrap;
                         //justify-content: space-between;
                         align-items: flex-end;
-                        height: 40%;
+                        height: auto;
+                        bottom: 0px;
                         .intLike {
-                            
+                            display: flex;
                             left: 35%;
                             bottom: 0px;
+                            align-items: baseline;
                                 .likegreen {
                                         background: url(../img/likeIconGreen.jpg);
                                         background-size: contain;
@@ -308,6 +320,7 @@ html {
                             //width: 40%;
                             color: orange;
                             margin-bottom: 0px;
+                            margin-right: 15px;
                         }
                         } 
                         
@@ -321,9 +334,10 @@ html {
                             text-align: right;
                             font-style: italic;
                             padding-right: 12px;
+                            padding-bottom: 1px;
                         }
                     }
-                }
+                
                 
                 
             }
@@ -348,7 +362,7 @@ html {
                 article {
                     margin-left: 15px;
                     //min-width: 75%;
-                    div {
+                    .Content {
                         //min-width: 201px;
                         header {
                             h1{
@@ -380,7 +394,7 @@ html {
                 article {
                     margin-left: 15px;
                     //min-width: 75%;
-                    div {
+                    .Content {
                         //min-width: 201px;
                         header {
                             h1{
@@ -393,16 +407,16 @@ html {
                             }        
                         }
                     }
-                    footer {
-                        div {
-                            div {
+                    
+                        .footer {
+                            .intLike {
                                 display: none;
                             }
                             .pHidden {
                                 display: block;
                             }
                         }
-                    }
+                    
                 }
             }
             }
@@ -416,18 +430,19 @@ html {
                 
                 .divImgArt {
                 margin-left: 0px;
-                    margin-top: 0;
+                   // margin-top: 0;
+                    
                  div {
                     
                     img {
                         min-width: 182px;
-                        height: 70%
+                        height: 100%;
                     }
                 }
                 article {
                     margin-left: 5px;
                     //min-width: 75%;
-                    div {
+                    .Content {
                         min-width: 200px;
                         header {
                             h1{
@@ -440,8 +455,9 @@ html {
                             }        
                         }
                     }
-                    footer {
-                        top:3px;
+                    .footer {
+                        //position: inherit;
+                        //top:3px;
                     }
                 }
             }
@@ -458,13 +474,13 @@ html {
                     
                     img {
                         min-width: 182px;
-                        height: 70%
+                        height: 100%;
                     }
                 }
                 article {
                     margin-left: 2px;
                     //min-width: 75%;
-                    div {
+                    .Content {
                         min-width: 160px;
                         header {
                             h1{
@@ -477,9 +493,10 @@ html {
                             }        
                         }
                     }
-                    footer {
-                        top:3px;
-                        div {
+                    
+                        
+                    .footer {
+                            top:3px;
                             p {
                                 font-size: 10px;
                                 width: 30%;
@@ -488,7 +505,7 @@ html {
                                 width:-webkit-fill-available; 
                             }
                         }
-                    }
+                    
                 }
             }
             }
@@ -499,21 +516,23 @@ html {
             .cajas {
                 padding-left: 0px;
                 .divImgArt {
-                margin-left: 0px;
+                    margin-left: 0px;
                     margin-top: 0px;
+                    //height:auto;
+                    margin-bottom: 30px;
                  div {
                     
                     img {
                         min-width: 132px;
-                        height: 60%
+                        height: 100%;
                     }
                 }
                 article {
                     margin-left: 2px;
                     //min-width: 75%;
-                    div {
-                        height: 70px;
-                        min-width: 160px;
+                    .Content {
+                        //height: auto;
+                        min-width: 140px;
                         header {
                             h1{
                                 font-size:13px;
@@ -521,23 +540,27 @@ html {
                         }
                         section {
                             h2 {
+                                display: none;
                                 font-size: 9px;
                                 margin:0;
                             }        
                         }
                     }
-                    footer {
-                        top:0px;
-                        div {
+                    
+                        
+                    .footer {
+                            top: 3px;
                             p {
                                 font-size: 10px;
                                 width: 30%;
                             }
                             small {
-                                width:-webkit-fill-available; 
+                                display: none;
+                                width:-webkit-fill-available;
+                                width:-moz-available;
                             }
                         }
-                    }
+                    
                 }
             }
             }
