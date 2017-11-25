@@ -27,7 +27,7 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <button class="dropBoton">Login</button>
+                        <button id="dropBoton" class="dropBoton"></button>
                         <% if (isLoggedIn == true) { %>
                             <div class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
@@ -124,6 +124,11 @@
         <script src="/js/follow.js"></script>
         <script>
         document.getElementById("fotoperfil").src = '<%=user.fotourl %>';
+
+        document.getElementById("dropBoton").style.background = 'url(<%=user.fotourl %>)';
+        document.getElementById("dropBoton").style.backgroundSize = 'cover';
+        document.getElementById("dropBoton").style.borderRadius = '100px';
+
           function openTab(evt, TabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");

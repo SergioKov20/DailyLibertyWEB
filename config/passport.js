@@ -56,8 +56,8 @@ module.exports = function(passport) {
                 newUser.lastName = req.body.lastName;
                 newUser.username = username;
                 newUser.email    = email;
-                newUser.birthdate    = "01/01/1990";
-                newUser.aboutme    = "Welcome to my profile on DailyLiberty!";
+                newUser.birthdate    = "";
+                newUser.aboutme    = "";
                 newUser.fotourl = "/multimedia/profilepics/default.png"
                 newUser.password = newUser.generateHash(password);
                 // save the user

@@ -37,7 +37,7 @@ exports.newArticle = function(req,res) {
 
 	//use schema.create to insert data into the db
 	Article.create(newArticle, function (err) {
-		if (err) { return next(err); } 
+		if (err) { return next(err); }
 		else { return res.redirect('/')  }
 	});
 }
@@ -62,7 +62,7 @@ exports.editArticle = function(req,res) {
 		  		});
 		}
 		}
-		
+
 	});
 }
 
@@ -73,36 +73,63 @@ exports.editProfile = function(req,res) {
 	var form = new formidable.IncomingForm();
 
 	form.parse(req, function (err, fields, files) {
-		var User = require('./models/user');
-        User.findOne({ 'username' :  req.user.username }, function(err, user) {
-        	if (fields.fullname1.LENGTH < 2 || fields.fullname1.LENGTH > 20  
-        		|| fields.fullname2.LENGTH < 2 || fields.fullname2.LENGTH > 20){ //Invalid field
-        		res.redirect('/profile');
-        	}
-        	user.firstName = fields.fullname1;
-        	user.lastName = fields.fullname2;
-        	//user.email = fields.mail; // DE MOMENT NO: COMPROVAR QUE SIGUI UNIC
-          	//user.birthdate = fields.birth; //COMPROVAR DATA VALID
-          	user.aboutme = fields.aboutme; //COMPROVAR LENGTH
-          	if (fields.calborrar == "1"){
-          		user.fotourl = "/multimedia/profilepics/default.png";
-          	}
-          	else if (files.filetoupload.size != 0){
-          		var oldpath = files.filetoupload.path;
-          		var extension = "";
-          		if (files.filetoupload.type == 'image/png') extension = ".png";
-          		else if(files.filetoupload.type == 'image/png') extension = ".jpg";
-          		else { res.render('error/wrongFileExt.ejs'); return; }
-          		var newpath = './public/multimedia/profilepics/' + fields.username + extension;
-          		fs.rename(oldpath, newpath, function (err) {
-	            	if (err) res.render('error/500.ejs');
-            	});
-            	user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
-          	}
-          	user.save(function(err) {
-				if (err) res.render('error/500.ejs');
-		        else res.redirect('/profile');
-	        });
-        });
+				var User = require('./models/user');
+
+				//COMPROVACIÓ DE CONFLICTE I VALIDESA DE MAILS:
+				var mail = fields.mail.substring(0,35);
+				User.findOne({'email': mail }, function(err,found) {
+					if (found && (found.username != req.user.username)) {
+						return res.redirect('/profile');
+					}
+					else {
+						if (mail.indexOf('@') < 1) {
+							return res.redirect('/profile');
+						}
+		        User.findOne({ 'username' :  req.user.username }, function(err, user) {
+								//COMPROVAR NAME VALID
+								var name = fields.fullname1.substring(0,10);
+								var surname = fields.fullname2.substring(0,24);
+			        	if(name.length > 1) user.firstName = name;
+								else return res.redirect('/profile');
+			        	if(surname.length > 1) user.lastName = surname;
+								else return res.redirect('/profile');
+								user.email = mail;
+		          	//COMPROVAR DATA VALID
+								var data = fields.birth.substring(0,10);
+								var comp = data.split('/');
+								var d = parseInt(comp[0], 10);
+								var m = parseInt(comp[1], 10);
+								var y = parseInt(comp[2], 10);
+								var date = new Date(y,m-1,d);
+								if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
+								    user.birthdate = data;
+								}
+								else return res.redirect('/profile');
+								//COMPROVAR ABOUT
+								var about = fields.aboutme.substring(0,300);
+		          	user.aboutme = about;
+								//COMPROVAR FOTO
+		          	if (fields.calborrar == "1"){
+		          		user.fotourl = "/multimedia/profilepics/default.png";
+		          	}
+		          	else if (files.filetoupload.size != 0){
+		          		var oldpath = files.filetoupload.path;
+		          		var extension = "";
+		          		if (files.filetoupload.type == 'image/png') extension = ".png";
+		          		else if(files.filetoupload.type == 'image/jpeg') extension = ".jpg";
+		          		else { res.render('error/wrongFileExt.ejs'); return; }
+		          		var newpath = './public/multimedia/profilepics/' + fields.username + extension;
+		          		fs.rename(oldpath, newpath, function (err) {
+			            	if (err) res.render('error/500.ejs');
+		            	});
+		            	user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
+		          	}
+		          	user.save(function(err) {
+										if (err) res.render('error/500.ejs');
+				        		else res.redirect('/profile');
+				        });
+        		});
+					}
+				});
     });
 }

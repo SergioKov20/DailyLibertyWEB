@@ -123,7 +123,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   font-size: 19px;
   border: none;
   cursor: pointer;
-  background: url(img/user_male2-512.png);
   background-size: cover;
   width: 40px;
   height: 40px;
@@ -407,6 +406,9 @@ textarea {
   padding-bottom: 10px;
   margin-right: 20px;
   margin-left: 30px;
+  padding-right: 20px;
+  text-align: justify;
+  word-wrap: break-word;
 }
 .tabcontent2 {
   padding-top: 10px;
@@ -431,16 +433,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin {
 }
 html body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
   display: block;
-}
-html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
-  color: #afa1a1;
-  font-size: 19px;
-  border: none;
-  cursor: pointer;
-  background: url(../img/user_male2-512.png);
-  background-size: cover;
-  width: 40px;
-  height: 40px;
 }
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   display: none;
