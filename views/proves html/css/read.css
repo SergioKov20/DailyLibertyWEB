@@ -136,6 +136,14 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   width: 40px;
   height: 40px;
 }
+html body .capsaHeader .barraSuperior .login .dropLogin #dropBoton2 {
+  background: url('../multimedia/profilepics/default.png');
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   display: none;
   position: absolute;

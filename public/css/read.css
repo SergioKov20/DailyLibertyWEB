@@ -94,6 +94,11 @@ html body .capsaHeader .barraSuperior .buscador form input::-webkit-input-placeh
   font-size: 18px;
   color: darkgrey;
 }
+html body .capsaHeader .barraSuperior .buscador form input::-moz-input-placeholder {
+  /* Google Chrome y Safari */
+  font-size: 18px;
+  color: darkgrey;
+}
 html body .capsaHeader .barraSuperior .buscador form .botonSearch {
   height: 40px;
   width: 80px;
@@ -127,6 +132,14 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   border: none;
   cursor: pointer;
   background: url(../img/user_male2-512.png);
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin #dropBoton2 {
+  background: url('../multimedia/profilepics/default.png');
+  border: none;
+  cursor: pointer;
   background-size: cover;
   width: 40px;
   height: 40px;
@@ -184,6 +197,7 @@ html body .cajas .articuloCompleto article header h1 {
 html body .cajas .articuloCompleto article header h2 {
   font-size: 20px;
   text-align: -webkit-center;
+  text-align: -moz-center;
 }
 html body .cajas .articuloCompleto article header h2:after {
   margin-top: 40px;
@@ -212,6 +226,7 @@ html body .cajas .articuloCompleto article section .divImg .preImagen {
   padding-bottom: 6px;
   border-top: solid 1px #D8D8D8;
   border-bottom: solid 1px #d8d8d8;
+  justify-content: space-between;
 }
 html body .cajas .articuloCompleto article section .divImg .preImagen .autor {
   width: 50%;
@@ -231,16 +246,21 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .autor p {
   margin-bottom: 0px;
   font-size: 12px;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes {
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike {
+  display: flex;
+  flex-wrap: wrap;
   width: 50%;
-  position: relative;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike {
-  transform: translateY(10%);
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .likesDislikes {
+  width: 100%;
+  padding-top: 10px;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .likesDislikes .intLike {
+  transform: translate(-15px, -5px);
   float: right;
-  padding-right: 15px;
+  width: auto;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .likenogreen {
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .likesDislikes .intLike .likenogreen {
   background: url(../img/likeIcon.jpg);
   background-size: cover;
   width: 20px;
@@ -249,7 +269,7 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .likesDisl
   transform: translate(-5px, 4px);
   outline: none;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .likegreen {
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .likesDislikes .intLike .likegreen {
   background: url(../img/likeIconGreen.jpg);
   background-size: cover;
   width: 20px;
@@ -258,7 +278,7 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .likesDisl
   transform: translate(-5px, 4px);
   outline: none;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislikenored {
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .likesDislikes .intLike .dislikenored {
   background: url(../img/dislikeIcon.jpg);
   background-size: cover;
   width: 20px;
@@ -267,7 +287,7 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .likesDisl
   transform: translate(6px, 10px);
   outline: none;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislikered {
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .likesDislikes .intLike .dislikered {
   background: url(../img/dislikeIconRed.jpg);
   background-size: cover;
   width: 20px;
@@ -276,22 +296,38 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .likesDisl
   transform: translate(6px, 10px);
   outline: none;
 }
-html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes .intLike .dislikes {
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .likesDislikes .intLike .dislikes {
   display: inline-block;
   transform: translateX(10px);
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .twitterVisites {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .twitterVisites .imgtwitter {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .twitterVisites .visites {
+  width: auto;
+  float: right;
 }
 @media (max-width: 368) {
   html body .cajas .articuloCompleto article section .divImg .preImagen .likesDislikes {
     height: 71px;
   }
 }
-html body .cajas .articuloCompleto article section .divImg img {
+html body .cajas .articuloCompleto article section .divImg .imgPrincipal {
   width: 100%;
   margin-top: 5px;
 }
 html body .cajas .articuloCompleto article section div {
   text-align: center;
   text-align: -webkit-center;
+  text-align: -moz-center;
   width: 100%;
 }
 html body .cajas .articuloCompleto article section div pre {
@@ -407,13 +443,4 @@ html body .mostrarDiv {
 }
 html body .mostrarMenu {
   left: 0;
-}
-
-#dropBoton2 {
-  background: url('../multimedia/profilepics/default.png');
-  border: none;
-  cursor: pointer;
-  background-size: cover;
-  width: 40px;
-  height: 40px;
 }

@@ -27,6 +27,7 @@ html body {
 html body .capsaHeader {
   width: -webkit-fill-available;
   width: -moz-available;
+  width: 100%;
   position: fixed;
   background-color: #efefef;
   box-shadow: 6px 2px 15px 1px rgba(239, 239, 239, 0.72);
@@ -141,6 +142,14 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   border: none;
   cursor: pointer;
   background: url(../img/user_male2-512.png);
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin #dropBoton2 {
+  background: url('../multimedia/profilepics/default.png');
+  border: none;
+  cursor: pointer;
   background-size: cover;
   width: 40px;
   height: 40px;

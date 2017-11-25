@@ -94,6 +94,11 @@ html body .capsaHeader .barraSuperior .buscador form input::-webkit-input-placeh
   font-size: 18px;
   color: darkgrey;
 }
+html body .capsaHeader .barraSuperior .buscador form input::-moz-input-placeholder {
+  /* Google Chrome y Safari */
+  font-size: 18px;
+  color: darkgrey;
+}
 html body .capsaHeader .barraSuperior .buscador form .botonSearch {
   height: 40px;
   width: 80px;
@@ -127,6 +132,14 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   border: none;
   cursor: pointer;
   background: url(../img/user_male2-512.png);
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+}
+html body .capsaHeader .barraSuperior .login .dropLogin #dropBoton2 {
+  background: url('../multimedia/profilepics/default.png');
+  border: none;
+  cursor: pointer;
   background-size: cover;
   width: 40px;
   height: 40px;
@@ -396,13 +409,4 @@ html body .mostrarDiv {
 }
 html body .mostrarMenu {
   left: 0;
-}
-
-#dropBoton2 {
-  background: url('../multimedia/profilepics/default.png');
-  border: none;
-  cursor: pointer;
-  background-size: cover;
-  width: 40px;
-  height: 40px;
 }
