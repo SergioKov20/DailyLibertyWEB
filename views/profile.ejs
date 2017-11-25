@@ -20,7 +20,7 @@
                     <a class="logo" href="/">DailyLiberty</a>
                 </li>
                 <li id="buscador" class="buscador">
-                    <input id="search" type="search" placeholder="Buscar" hidden></input>
+                    <input id="search" type="search" placeholder="Buscar" hidden>
                     <button id="botonSearch" class="botonSearch" hidden>
                         <img src="/img/lupaBuscador.png"/>
                     </button>
@@ -28,11 +28,18 @@
                 <li class="login">
                     <div class="dropLogin">
                         <button class="dropBoton"></button>
-                            <div class="dropContingut">
-                                <a href="/profile" >Veure Perfil</a>
+                            <% if (isLoggedIn == true) { %>
+                            <div style="left: -190%" class="dropContingut">
+                                <a href="#" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
                                 <a href="/logout">Log Out</a>
                             </div>
+                        <%} else {%>
+                            <div style="left: -60%" class="dropContingut">
+                                <a href="/login" >Sign In</a>
+                                <a href="/register">Register</a>
+                            </div>
+                        <% } %>
                     </div>
                 </li>
             </ul>
@@ -53,7 +60,7 @@
                         <a href="/index">Altres</a>
                       </div>
                   </div>
-                  <li><a href="#">Subscripcions</a></li>
+                  <li><a href="/following">Subscripcions</a></li>
               </ul>
           </nav>
 

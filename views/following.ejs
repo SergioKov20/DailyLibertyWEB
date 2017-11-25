@@ -19,7 +19,7 @@
                     <img src="/img/menuBlanco.png"/>
                 </li>
                 <li class="cajaLogo">
-                    <a class="logo" href="principal.html">DailyLiberty</a>
+                    <a class="logo" href="/">DailyLiberty</a>
                 </li>
                 <li id="buscador" class="buscador">
                     <input id="search" type="search" placeholder="Buscar">
@@ -30,11 +30,18 @@
                 <li class="login">
                     <div class="dropLogin">
                         <button class="dropBoton"></button>
-                        <div style="left: -190%" class="dropContingut">
-                            <a href="login.html" >Veure Perfil</a>
-                            <a href="register.html">Escriure Article</a>
-                            <a href="../Pagina-principal/principal.html">Sortir</a>
-                      </div>
+                        <% if (isLoggedIn == true) { %>
+                            <div style="left: -190%" class="dropContingut">
+                                <a href="/profile" >Veure Perfil</a>
+                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/logout">Log Out</a>
+                            </div>
+                        <%} else {%>
+                            <div style="left: -60%" class="dropContingut">
+                                <a href="/login" >Sign In</a>
+                                <a href="/register">Register</a>
+                            </div>
+                        <% } %>
                     </div>
                 </li>
             </ul>
@@ -43,19 +50,19 @@
         <div id="divFondo"></div>
         <nav>
             <ul class="menu">
-                <li><a href="#">Inici</a></li>
-                <li><a href="../Tendencies/tendencies.html">Tendències</a></li>
-                <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
-                <div id="collapse1" class="collapse">
-                    <div class="panel-body">
-                        <a href="principal.html">Política</a>
-                        <a href="principal.html">Esports</a>
-                        <a href="principal.html">Ciència</a>
-        	            <a href="principal.html">Tecnologia</a>
-        	            <a href="principal.html">Altres</a>   
-                    </div>
-                </div>   
-                <li><a href="#">Subscripcions</a></li>
+                <li><a href="/index">Inici</a></li>
+                  <li><a href="/tendencies">Tendències</a></li>
+                  <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
+                  <div id="collapse1" class="collapse">
+                      <div class="panel-body">
+                          <a href="/index">Política</a>
+                          <a href="/index">Esports</a>
+                          <a href="/index">Ciència</a>
+                        <a href="/index">Tecnologia</a>
+                        <a href="/index">Altres</a>
+                      </div>
+                  </div>
+                  <li><a href="#">Subscripcions</a></li>
             </ul>
         </nav>
             <div class="container bootstrap snippet col-md-offset-1">

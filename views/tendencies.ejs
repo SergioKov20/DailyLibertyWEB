@@ -17,11 +17,11 @@
                     <img src="/img/menuBlanco.png"/>
                 </li>
                 <li class="cajaLogo">
-                    <a class="logo" href="tendencies.html">DailyLiberty</a>
+                    <a class="logo" href="/">DailyLiberty</a>
                 </li>
                 <li id="buscador" class="buscador">
                     <form action="results" method="GET">
-                        <input id="search" type="search" placeholder="Buscar" name="search"></input>
+                        <input id="search" type="search" placeholder="Buscar" name="search">
                         <button id="botonSearch" class="botonSearch">
                             <img src="img/lupaBuscador.png"/>
                         </button>
@@ -52,22 +52,19 @@
             <nav>
             
             <ul class="menu">
-                <li><a href="/">Inici</a></li>
-                <li><a href="/tendencies">Tendències</a></li>
-                <li>
-                    <a data-toggle="collapse" href="#collapse1">Categories</a>
-                </li>
-                    <div id="collapse1" class="collapse">
-                        <div class="panel-body">
-                            <a href="principal.html">Política</a>
-        	                <a href="principal.html">Esports</a>
-        	                <a href="principal.html">Ciència</a>
-        	                <a href="principal.html">Tecnologia</a>
-        	                <a href="principal.html">Altres</a>
-        	                
-                        </div>
-                    </div>   
-                <li><a href="/profile">Subscripcions</a></li>
+                <li><a href="/index">Inici</a></li>
+                  <li><a href="#">Tendències</a></li>
+                  <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
+                  <div id="collapse1" class="collapse">
+                      <div class="panel-body">
+                          <a href="/index">Política</a>
+                          <a href="/index">Esports</a>
+                          <a href="/index">Ciència</a>
+                        <a href="/index">Tecnologia</a>
+                        <a href="/index">Altres</a>
+                      </div>
+                  </div>
+                  <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
         <% if (tendencies.length > 0) {
