@@ -181,6 +181,10 @@ html body .cajas .articuloCompleto {
   text-align: center;
   z-index: -2;
 }
+html body .cajas .articuloCompleto article .pencil {
+  width: 35px;
+  height: 35px;
+}
 html body .cajas .articuloCompleto article header {
   display: flex;
   flex-wrap: wrap;
@@ -218,6 +222,11 @@ html body .cajas .articuloCompleto article section {
 html body .cajas .articuloCompleto article section .divImg {
   width: 60%;
   text-align: left;
+}
+html body .cajas .articuloCompleto article section .divImg .pencil {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 10px;
 }
 html body .cajas .articuloCompleto article section .divImg .preImagen {
   display: flex;

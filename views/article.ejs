@@ -42,14 +42,23 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
+                        <% if (isLoggedIn == true) { %>
                             <button id="dropBoton" class="dropBoton"></button>
-                            <div style="left: -190%" class="dropContingut">
+                             <div style="left: -190%" class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="#">Escriure Article</a>
                                 <a href="/logout">Log Out</a>
                             </div>
+                        <%} else {%>
+                            <button id="dropBoton2" class="dropBoton"></button>
+                             <div style="left: -60%" class="dropContingut">
+                                <a href="/login" >Sign In</a>
+                                <a href="/register">Register</a>
+                            </div>
+                        <% } %>
                     </div>
                 </li>
+                                        
             </ul>
         </header>
         <section id ="cajasArticulos" class="cajas">

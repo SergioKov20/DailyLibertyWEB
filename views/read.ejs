@@ -93,6 +93,7 @@
                     
                     <div class="divImg">
 					
+						<img onclick="location.href = '/article'" style="cursor:pointer" class="pencil" src="/img/pencil-icon.png"/>
 						<div class="preImagen"><div class="autor">
                             <small>per </small>
                             <a><%=author%></a>
@@ -100,8 +101,8 @@
                         </div>
 							<div class="shareLike">
                                 <div class="twitterVisites">
-                                    <img class="imgtwitter"  src="img/twitter.png"/>
-                                    <div id="views" style="color:green" class="visites">14599</div><span>&nbsp;views</span>
+                                    <img class="imgtwitter"  src="/img/twitter.png"/>
+                                    <div id="views" style="color:green" class="visites">145</div><span>&nbsp;views</span>
                                 </div>
                                 <div class="likesDislikes" id="rating">
 									<div class="intLike">
@@ -125,6 +126,15 @@
                     <pre><%=content%></pre>
                 </div>
                 </section>
+<!-- proves Twitter
+				<div>
+                    <a class="twitter" rel="nofollow" href="" onclick="window.open(
+'http://twitter.com/intent/tweet?text=  Molt interessant la noticia escrita a DailyLiberty via @DailyLiberty',
+'popupwindow',
+'scrollbars=yes,width=800,height=450');
+popUp.focus();
+return false">hola</a>
+                </div> -->
                 <footer></footer>
             </article>
         </div>

@@ -21,7 +21,7 @@
                 </li>
                 <li id="buscador" class="buscador">
                     <form action="results" method="GET">
-                        <input id="search" type="search" placeholder="Buscar" name="search">
+                        <input id="search" type="search" placeholder="Buscar" name="search"></input>
                         <button id="botonSearch" class="botonSearch">
                             <img src="/img/lupaBuscador.png"/>
                         </button>
@@ -74,19 +74,55 @@
                             <img src="/img/ciencia.jpg">
                         </header>
                         <section>
-                            <h1><%=articles[i].title %></h1>
-                            <h2><%=articles[i].subtitle %></h2>
-
-                            <div>
-                                <p><%=articles[i].category %></p>
-
-                                <small><%=articles[i].author %></small>
-                            </div>
+							<div class="titulos">
+								<h1><%=articles[i].title %></h1>
+								<h2><%=articles[i].subtitle %></h2>
+							</div>
+							<div class="viewsDiv">
+								<div id="views" class="visites">1223</div>
+								<span class="nom">&nbsp;views</span>
+							</div>
+							
+							<div class="footerArticle">
+								<p><%=articles[i].category %></p>
+								<small><%=articles[i].author %></small>
+							</div>
                         </section>
                     </article></a>
                 <%} }%>
         </section>
         <script src="/js/mostrarNav.js"></script>
+		<!--<script>
+            function numberto(n){
+                x=(''+n).length;
+                p=Math.pow;
+                d=p(10,true);
+                x-=x%3;
+                return Math.round(n*d/p(10,x))/d+" kMGTPE"[x/3];
+            }   
+            
+            function intToString (value) {
+                var suffixes = ["", "K", "M", "B","t"];
+                var suffixNum = Math.floor((""+value).length/3);
+                var shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000,suffixNum)) : value).toPrecision(2));
+                if (shortValue % 1 != 0) {
+                    var shortNum = shortValue.toFixed(1);
+                }
+                return shortValue+suffixes[suffixNum];   
+            }
+
+                document.getElementById("views1").innerHTML = numberto(document.getElementById("views1").innerHTML);
+            function oneDot(input) {
+				var value = input.value,
+					value = plainNumber(value);
+				
+				if (value.length > 3) {
+				  value = value.substring(0, value.length - 3) + '.' + value.substring(value.length - 3, value.length);
+				}
+				console.log(value);
+				input.value = value;
+			 }
+        </script>-->
         <% if (isLoggedIn == true) { %>
           <script>
             document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';

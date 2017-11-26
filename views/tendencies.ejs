@@ -82,8 +82,14 @@
 								</section>
 							</div>
 							<div class="footer">
-								   <div class="intLike">
-									   <p><%=tendencies[i].category%></p>
+								<div class="viewsDiv">
+									<div id="views" class="visites">14599</div>
+									<span class="nom">&nbsp;views</span>
+								</div>							
+
+								<div>
+									<div class="intLike">
+										<p><%=tendencies[i].category%></p>
 										<span id="muteGreen" class="like" >
 											<button id="nogreen" class="likegreen"></button>
 										</span>
@@ -95,9 +101,10 @@
 										<span class="dislikes">2</span>
 										
 									</div>
-									
+								
 									<p class="pHidden" ><%=tendencies[i].category%></p>
 									<small><%=tendencies[i].author%></small>
+								</div>
 							</div>
                         </article>
                     </div>

@@ -222,13 +222,8 @@ html {
         .articulo:nth-child(2n) {
 
                 .cajaI{
-                    //background: rgba(162, 72, 11, 0.58);
-                    //background: rgba(162, 72, 11, 0.49); //anterior
                     background: #F1F1F1;
-                    //background: lemonchiffon;
-					//background: rgba(159, 168, 218, 0.6);
-                    //border-top:2px solid #eeeeee;
-                    //box-shadow: 4px -5px 6px -2px rgba(159,168,218,0.62);
+
                     section {
                         div {
                             p {
@@ -246,27 +241,18 @@ html {
         .articulo{
             display: block;
             text-decoration: none;
-            //min-width:~'calc(33% - 100px/2)';
             width:~'calc(40% - 350px/2)';
-            //width: 300px;
-            //min-width: 358px;
             margin-bottom: 30px;
             margin-left: 10px;
             z-index: -2;
             .cajaI{
                 
-                //border-top:2px solid #A37D5A;
+                
                 position: relative;
-                //background-color:#F6F5F5;
-                //background-color: #eeeeee;
-                //background-color: lightyellow;
                 background-color: white;
                 opacity: 1;
                 box-sizing: border-box; //paddings hacia dentro
-                //padding-top:10px;
-                //padding-left:10px;
-                //padding-right:10px;
-                padding-bottom: 20px;
+                //padding-bottom: 20px;
                 min-width: 100px;
                 //width:~'calc(23% - 40px/2)'; 
                 //border:2px solid black;
@@ -276,45 +262,50 @@ html {
                 
                 min-height: 250px;
 				img {
+                        background: url(../img/puigdemont.jpg);
                         width: 100%;
                         height: 120px;
                     }
                 section {
                     max-height: 250px;
+                    //position:relative;
+                    .titulos {
+                        height: 90px;
+                        h1 {
+                            font-size: 16px;
+                            font-weight:500;
+                            //font-family: 'Roboto Slab', serif;
+                            margin-bottom: 0;
+                            margin-top: 7px;
+                            color: black;
+                            padding-left: 6px;
+                            padding-right: 6px;
+                            word-wrap: break-word;
 
-                    h1 {
-                        font-size: 16px;
-                        font-weight:500;
-                        //font-family: 'Roboto Slab', serif;
-                        margin-bottom: 0;
-                        margin-top: 7px;
-                        color: black;
-                        padding-left: 6px;
-                        padding-right: 6px;
-                        word-wrap: break-word;
+                        }
+                        h2 {
+                            font-weight: normal;
+                            font-size: 10.5px;
+                            line-height: inherit;
+                            //font-family: 'Raleway', sans-serif;
+                            color: dimgrey;
+                            margin-top: 10px;
+                            padding-left: 6px;
+                            padding-right: 6px;
+                            word-wrap: break-word;
+                            //height:80px;
 
+                        }
                     }
-                    h2 {
-                        font-weight: normal;
-                        font-size: 10.5px;
-                        line-height: inherit;
-                        //font-family: 'Raleway', sans-serif;
-                        color: dimgrey;
-                        margin-top: 10px;
-                        padding-left: 6px;
-                        padding-right: 6px;
-                        word-wrap: break-word;
-                        //height:80px;
-                    }
-                    div {
+                    .footerArticle {
                         width: 100%;
                         height: auto;
                         display:flex;
                         flex-wrap: nowrap;
                         justify-content: space-between;
-
-                        position:absolute;
-                        bottom: 8px;
+                        padding-bottom: 3px;
+                        //position:absolute;
+                        //bottom: 8px;
                         p{
                             width: 50%;
                             margin:0;
@@ -328,14 +319,32 @@ html {
                             width: 50%;
                             text-align: right;
                             padding-right: 8px;
-                            font-size: 13px;
+                            font-size: 12px;
                             font-style: italic;
                             color:black;
+                            
                         }
 
 
 
                     }
+                    .viewsDiv { 
+                        display: flex;
+                        flex-wrap: nowrap;
+                        justify-content: flex-end;
+                        bottom: auto;
+                        padding-top: 10px;
+                        padding-bottom: 5px;
+                        padding-right: 8px;
+                        font-size: 12px;
+                        color: grey;
+                        .visites {
+                            width: auto;
+                            float: right;
+                        }
+                        
+                    }
+                    
                 }
             }
           } 
@@ -430,7 +439,11 @@ html {
                 margin-bottom: 20px;
                 min-width:250px;
                 //margin-left:0px;
-
+                section {
+                    .titulos {
+                        height:auto !important;
+                    }
+                }
             }
             .articulo:nth-child(-n+5) {
                 margin-top: 0px;
