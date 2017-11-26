@@ -1,16 +1,7 @@
 module.exports = function(app,passport,newspaper) {
 
     app.get('/', function(req, res) {
-        require('./models/article').find({}, function(err, articles) {
-            if(err) console.log(err);
-            else {
-                res.render('index.ejs', {
-                    articles: articles,
-                    me : req.user,
-                    isLoggedIn: req.isAuthenticated()
-                });
-            }
-        });
+        newspaper.getIndex(req,res);
     });
 
     app.get('/login', function(req, res) {
@@ -46,14 +37,14 @@ module.exports = function(app,passport,newspaper) {
         newspaper.editProfile(req,res);
     });
 
-  app.get('/user', function(req,res){
-      require('./search.js').getUser(req,res);
-  });
+    app.get('/user', function(req,res){
+        require('./search.js').getUser(req,res);
+    });
 
 	app.get('/article', isLoggedIn, function(req, res) {
         var articleID = req.param('e');
         if (articleID == null) res.render('./article.ejs', {
-          me: req.user, 
+          user: req.user, 
           article: null
         });
         else  require('./search.js').editArticle(req,res);
@@ -70,14 +61,20 @@ module.exports = function(app,passport,newspaper) {
     app.get('/tendencies', function(req, res) {
         res.render('tendencies.ejs', {
             tendencies: newspaper.getTendencies(),
-            me : req.user,
+            user : req.user,
             isLoggedIn: req.isAuthenticated()
         } );
     });
 
     app.get('/results', function(req,res) {
         //Elastic search
-    })
+    });
+
+    app.get('/category', function(req,res){
+        var category = req.param('c');
+        if (category == null) res.render('error/wrongCategory.ejs');
+        else  newspaper.getCategory(req,res);
+    });
 }
 
 function isLoggedIn(req, res, next) {

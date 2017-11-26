@@ -146,7 +146,7 @@
         </script>
         <% if (isLoggedIn == true) { %>
           <script>
-            document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+            document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";;
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
           </script>

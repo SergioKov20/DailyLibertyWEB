@@ -97,7 +97,6 @@
                       </div>
                       <div class="form-group">
                         <label for="category">Category</label><br><br>
-                          <form>
                             <fieldset>
                                 <label class="espacio">
                                   <input type="radio" name="color" value="politica"> Política
@@ -115,7 +114,6 @@
                                     <input type="radio" name="color" value="altres"> Altres
                                 </label>
                             </fieldset>
-                          </form>
                     </div>
 
                       <div>
@@ -139,7 +137,7 @@
 
         <script src="/js/mostrarNav.js"></script>
         <script>
-          document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+          document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";
           document.getElementById("dropBoton").style.backgroundSize = 'cover';
           document.getElementById("dropBoton").style.borderRadius = '100px';
         </script>

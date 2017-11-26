@@ -1,11 +1,32 @@
 var Article = require('./models/article');
 
-exports.getArticles = function() {
+exports.getIndex = function(req,res) {
 
-  var ret = [];
   Article.find({}, function(err, articles) {
-    return articles;
+    res.render('index.ejs', {
+      user: req.user,
+      articles: articles,
+      isLoggedIn: req.isAuthenticated()
+    });
   });
+}
+
+exports.getCategory = function(req,res) {
+  if (req.param('c') != "politica" &&
+    req.param('c') != "esports" &&
+    req.param('c') != "ciencia" &&
+    req.param('c') != "tecnologia" &&
+    req.param('c') != "altres" 
+  ) res.render('error/wrongCategory.ejs');
+  else {
+    Article.find({category: req.param('c')}, function(err, articles) {
+      res.render('category.ejs', {
+        user: req.user,
+        articles: articles,
+        isLoggedIn: req.isAuthenticated()
+      });
+    });
+  }
 }
 
 exports.getTendencies = function() {
@@ -83,6 +104,7 @@ exports.newArticle = function(req, res) {
   newArticle.subtitle = req.body.subtitle;
   newArticle.content = req.body.content;
   newArticle.author = req.user.username;
+  newArticle.views = 0;
 
   //use schema.create to insert data into the db
   Article.create(newArticle, function(err) {
@@ -107,6 +129,7 @@ exports.editArticle = function(req, res) {
         article.subtitle = req.body.subtitle;
         article.content = req.body.content;
         article.author = req.user.username;
+        article.views = 0;
 
         article.save(function(err, updatedArticle) {
           if (err) res.render('error/500.ejs');
@@ -156,7 +179,7 @@ exports.editProfile = function(req, res) {
 			          var date = new Date(y, m - 1, d);
 			          if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
 			            	user.birthdate = data;
-			          } else return res.redirect('/profile');
+			          } else user.birthdate = "";
 
 			          //COMPROVAR ABOUT
 			          var about = fields.aboutme.substring(0, 300);

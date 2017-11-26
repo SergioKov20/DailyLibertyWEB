@@ -17,12 +17,14 @@
       var content = ""; 
       var category = "";
       var author = "";
+      var views = "";
       if ( article ) { 
         title = article.title;
         subtitle = article.subtitle;
         content = article.content;
         category = article.category;
         author = article.author;
+        views = article.views;
     }%>
     <body id="prueba" >
         <header  class="capsaHeader">
@@ -101,7 +103,7 @@
 							<div class="shareLike">
                                 <div class="twitterVisites">
                                     <img class="imgtwitter"  src="img/twitter.png"/>
-                                    <div id="views" style="color:green" class="visites">14599</div><span>&nbsp;views</span>
+                                    <div id="views" style="color:green" class="visites"><%=views%></div><span>&nbsp;views</span>
                                 </div>
                                 <div class="likesDislikes" id="rating">
 									<div class="intLike">
@@ -147,7 +149,7 @@
 		</script>
 		<% if (isLoggedIn == true) { %>
           <script>
-            document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
+            document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
           </script>

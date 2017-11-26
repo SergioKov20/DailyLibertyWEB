@@ -7,7 +7,8 @@ var articleSchema = mongoose.Schema({
     title		: String,
     subtitle	: String,
     content		: String,
-    author	: String
+    author	: String,
+    views : Number
 });
 
 // create the model for articles and expose it to our app

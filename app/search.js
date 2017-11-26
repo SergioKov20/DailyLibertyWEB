@@ -58,10 +58,17 @@ exports.getArticle = function (req,res) {
         	res.render('error/wrongArticle.ejs');
         }
         if (article){
-	        res.render('read.ejs', {
-		            article : article,
-								me : req.user,
-		            isLoggedIn : req.isAuthenticated()
+        	article.views++;
+
+	        article.save(function(err, updatedArticle) {
+	        	if (err) res.render('error/500.ejs');
+	        	else {
+	          		res.render('read.ejs', {
+		            	article : updatedArticle,
+						user : req.user,
+		            	isLoggedIn : req.isAuthenticated()
+	        		});
+	          	}
 	        });
         }
 	});
