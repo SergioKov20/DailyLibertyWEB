@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>    
+        <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='css/busqueda.css'>
+
+   </head>
+    <body id="prueba" >
+        <header  class="capsaHeader">
+            <ul class="barraSuperior">
+                <li id="btnMostrarNav" class="imgMenu">
+                    <img src="img/menuBlanco.png"/>
+                </li>
+                <li class="cajaLogo">
+                    <a class="logo" href="principal.html">DailyLiberty</a>
+                </li>
+                <li id="buscador" class="buscador">
+                    <form action="results" method="GET">
+                        <input id="search" type="search" placeholder="Buscar" name="search"></input>
+                        <button id="botonSearch" class="botonSearch">
+                            <img src="img/lupaBuscador.png"/>
+                        </button>
+                    </form>
+                </li>
+                <li class="login">
+                    <div class="dropLogin">
+                        <button class="dropBoton"></button>
+                        <div style="left: -60%" class="dropContingut">
+                            <a href="login.html" >Sign in</a>
+                            <a href="register.html">Register</a>
+                            <a href="about.html">About us</a>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+        </header>
+        
+        <section id ="cajasArticulos" class="cajas">
+            <div id="divFondo"></div>
+            <nav>
+            
+            <ul class="menu">
+                <li><a href="#">Inici</a></li>
+                <li><a href="#">Tendències</a></li>
+                <li>
+                    <a data-toggle="collapse" href="#collapse1">Categories</a>
+                </li>
+                    <div id="collapse1" class="collapse">
+                        <div class="panel-body">
+                            <a href="principal.html">Política</a>
+        	                <a href="principal.html">Esports</a>
+        	                <a href="principal.html">Ciència</a>
+        	                <a href="principal.html">Tecnologia</a>
+        	                <a href="principal.html">Altres</a>
+        	                
+                        </div>
+                    </div>   
+                <li><a href="#">Subscripcions</a></li>
+            </ul>
+        </nav>
+        <h1 class="busqueda">
+            Resultats de la cerca
+        </h1>
+            <div onclick="location.href = '#'" class="divImgArt">
+                <div><img src="img/girona.jpg"/></div>
+                <article class="cajaArticle">
+                    <div class="Content">
+                        <header>
+                            <h1>El Girona Futbol Club fa història i guanya fàcilment al tot poderós Reial Madrid</h1>
+                        </header>
+                        <section>
+                            <h2>El Reial Madrid perd tres punts i comença a dir adéu a la lliga</h2>
+                        </section>                       
+                    </div>
+
+                    <div class="footer">
+                        <div class="viewsDiv">
+                            <div id="views" class="visites">14599</div>
+                            <span class="nom">&nbsp;views</span>
+                        </div>
+                        <div>
+                              <div class="intLike">
+                               <p>ESPORTS</p>
+                                <span id="muteGreen" class="like" >
+                                    <button id="nogreen" class="likegreen"></button>
+                                </span>
+                                <span class="likes">12</span>
+                                <span id="muteRed" class="dislike" >
+                                    <button id="nored" class="dislikered"></button>
+                                </span>
+                                
+                                <span class="dislikes">2</span>
+                                
+                            </div>
+                            
+                            <p class="pHidden" >ESPORTS</p>
+                            <small>Edgar Lorenzo</small>
+                            </div>
+                        </div>
+                    
+                </article>
+
+            </div>
+                           <div onclick="location.href = '#'" class="divImgArt">
+                <div><img src="img/puigdemont.jpg"/></div>
+                <article class="cajaArticle">
+                    <div class="Content">
+                        <header>
+                            <h1>Puigdemont i part del seu govern són a Brussel·les</h1>
+                        </header>
+                        <section>
+                            <h2>El president de la Generalitat hi hauria anat per entrevistar-se amb dirigents flamencs</h2>
+                        </section>                          
+                    </div>
+
+                    <div class="footer">
+                        <div class="viewsDiv">
+                            <div id="views" class="visites">14599</div>
+                            <span class="nom">&nbsp;views</span>
+                        </div>
+                        <div>
+                              <div class="intLike">
+                               <p>ESPORTS</p>
+                                <span id="muteGreen" class="like" >
+                                    <button id="nogreen" class="likegreen"></button>
+                                </span>
+                                <span class="likes">12</span>
+                                <span id="muteRed" class="dislike" >
+                                    <button id="nored" class="dislikered"></button>
+                                </span>
+                                
+                                <span class="dislikes">2</span>
+                                
+                            </div>
+                            
+                            <p class="pHidden" >ESPORTS</p>
+                            <small>Edgar Lorenzo</small>
+                            </div>
+                        </div>
+                    
+                </article>
+
+            </div>
+                           <div onclick="location.href = '#'" class="divImgArt">
+                <div><img src="img/girona.jpg"/></div>
+                <article class="cajaArticle">
+                    <div class="Content">
+                        <header>
+                            <h1>El Girona Futbol Club fa història i guanya fàcilment al tot poderós Reial Madrid</h1>
+                        </header>
+                        <section>
+                            <h2>El Reial Madrid perd tres punts i comença a dir adéu a la lliga</h2>
+                        </section>                       
+                    </div>
+
+                    <div class="footer">
+                        <div class="viewsDiv">
+                            <div id="views" class="visites">14599</div>
+                            <span class="nom">&nbsp;views</span>
+                        </div>
+                        <div>
+                              <div class="intLike">
+                               <p>ESPORTS</p>
+                                <span id="muteGreen" class="like" >
+                                    <button id="nogreen" class="likegreen"></button>
+                                </span>
+                                <span class="likes">12</span>
+                                <span id="muteRed" class="dislike" >
+                                    <button id="nored" class="dislikered"></button>
+                                </span>
+                                
+                                <span class="dislikes">2</span>
+                                
+                            </div>
+                            
+                            <p class="pHidden" >ESPORTS</p>
+                            <small>Edgar Lorenzo</small>
+                            </div>
+                        </div>
+                    
+                </article>
+
+            </div>
+       <div onclick="location.href = '#'" class="divImgArt">
+                <div><img src="img/girona.jpg"/></div>
+                <article class="cajaArticle">
+                    <div class="Content">
+                        <header>
+                            <h1>El Girona Futbol Club fa història i guanya fàcilment al tot poderós Reial Madrid</h1>
+                        </header>
+                        <section>
+                            <h2>El Reial Madrid perd tres punts i comença a dir adéu a la lliga</h2>
+                        </section>                       
+                    </div>
+
+                    <div class="footer">
+                        <div class="viewsDiv">
+                            <div id="views" class="visites">14599</div>
+                            <span class="nom">&nbsp;views</span>
+                        </div>
+                        <div>
+                              <div class="intLike">
+                               <p>ESPORTS</p>
+                                <span id="muteGreen" class="like" >
+                                    <button id="nogreen" class="likegreen"></button>
+                                </span>
+                                <span class="likes">12</span>
+                                <span id="muteRed" class="dislike" >
+                                    <button id="nored" class="dislikered"></button>
+                                </span>
+                                
+                                <span class="dislikes">2</span>
+                                
+                            </div>
+                            
+                            <p class="pHidden" >ESPORTS</p>
+                            <small>Edgar Lorenzo</small>
+                            </div>
+                        </div>
+                    
+                </article>
+
+            </div>
+                     <div onclick="location.href = '#'" class="divImgArt">
+                <div><img src="img/girona.jpg"/></div>
+                <article class="cajaArticle">
+                    <div class="Content">
+                        <header>
+                            <h1>El Girona Futbol Club fa història i guanya fàcilment al tot poderós Reial Madrid</h1>
+                        </header>
+                        <section>
+                            <h2>El Reial Madrid perd tres punts i comença a dir adéu a la lliga</h2>
+                        </section>                       
+                    </div>
+
+                    <div class="footer">
+                        <div class="viewsDiv">
+                            <div id="views" class="visites">14599</div>
+                            <span class="nom">&nbsp;views</span>
+                        </div>
+                        <div>
+                              <div class="intLike">
+                               <p>ESPORTS</p>
+                                <span id="muteGreen" class="like" >
+                                    <button id="nogreen" class="likegreen"></button>
+                                </span>
+                                <span class="likes">12</span>
+                                <span id="muteRed" class="dislike" >
+                                    <button id="nored" class="dislikered"></button>
+                                </span>
+                                
+                                <span class="dislikes">2</span>
+                                
+                            </div>
+                            
+                            <p class="pHidden" >ESPORTS</p>
+                            <small>Edgar Lorenzo</small>
+                            </div>
+                        </div>
+                    
+                </article>
+
+            </div>
+                     <div onclick="location.href = '#'" class="divImgArt">
+                <div><img src="img/girona.jpg"/></div>
+                <article class="cajaArticle">
+                    <div class="Content">
+                        <header>
+                            <h1>El Girona Futbol Club fa història i guanya fàcilment al tot poderós Reial Madrid</h1>
+                        </header>
+                        <section>
+                            <h2>El Reial Madrid perd tres punts i comença a dir adéu a la lliga</h2>
+                        </section>                       
+                    </div>
+
+                    <div class="footer">
+                        <div class="viewsDiv">
+                            <div id="views" class="visites">14599</div>
+                            <span class="nom">&nbsp;views</span>
+                        </div>
+                        <div>
+                              <div class="intLike">
+                               <p>ESPORTS</p>
+                                <span id="muteGreen" class="like" >
+                                    <button id="nogreen" class="likegreen"></button>
+                                </span>
+                                <span class="likes">12</span>
+                                <span id="muteRed" class="dislike" >
+                                    <button id="nored" class="dislikered"></button>
+                                </span>
+                                
+                                <span class="dislikes">2</span>
+                                
+                            </div>
+                            
+                            <p class="pHidden" >ESPORTS</p>
+                            <small>Edgar Lorenzo</small>
+                            </div>
+                        </div>
+                    
+                </article>
+
+            </div>
+               
+
+
+
+
+
+
+
+
+                
+
+           
+       
+        </section> 
+        <script src="js/mostrarNav.js"></script>
+        
+    </body>
+</html>
+
+
