@@ -10,6 +10,8 @@ var userSchema = mongoose.Schema({
     email        : String,
 	birthdate    : String,
 	aboutme      : String,
+	rating      : Number,
+	articles      : Number,
     fotourl      : String
 
 });

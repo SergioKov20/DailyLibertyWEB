@@ -58,7 +58,9 @@ module.exports = function(passport) {
                 newUser.email    = email;
                 newUser.birthdate    = "";
                 newUser.aboutme    = "";
-                newUser.fotourl = "/multimedia/profilepics/default.png"
+                newUser.rating    = 0;
+                newUser.articles    = 0;
+                newUser.fotourl = "/multimedia/profilepics/default.png";
                 newUser.password = newUser.generateHash(password);
                 // save the user
                 newUser.save(function(err) {

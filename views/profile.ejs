@@ -106,9 +106,9 @@
 
                 <div class="row kov tabcontent" id="Statistics"style="display: none">
                   <h4><b>Total of articles:</b></h4>
-                  <p>You've written 0 articles.</p>
-                  <h4><b>Average Rating:</b></h4>
-                  <p>Your average rating is: 0.</p>
+                  <p>You've written <%=user.articles %> articles.</p>
+                  <h4><b>Total Rating:</b></h4>
+                  <p>Your total rating is: <%=user.rating %>.</p>
                   <h4><b>Followers:</b></h4>
                   <p>You have <a href="/followers">0 followers.</a></p>
                 </div>
@@ -199,7 +199,7 @@
         <script>
           //Deteccions de fotos (Perfil + miniatura)
           document.getElementById("fotovista").src = '<%=user.fotourl %>';
-          
+
           document.getElementById("dropBoton").style.background = 'url(<%=user.fotourl %>)';
           document.getElementById("dropBoton").style.backgroundSize = 'cover';
           document.getElementById("dropBoton").style.borderRadius = '100px';
