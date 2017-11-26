@@ -458,3 +458,17 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut a:hover {
   width: 100%;
   height: 100%;
   opacity: 1;
+
+}
+
+
+#choose::-webkit-file-upload-button {
+    color: white;
+    border: 1px solid #66a3ff;
+    border-radius: 5px;
+    background: #66a3ff;
+    cursor: pointer;
+}
+
+
+
