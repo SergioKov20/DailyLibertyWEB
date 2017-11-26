@@ -92,7 +92,7 @@
                  </div><hr style="border-color: lightgrey">
                  <div class="form-group perf">
                    <span>
-                     <p style="float:left; margin-right: 6px;"><b>Birth date: </b></p>
+                     <p><b>Birth date: </b></p>
                      <p id="oldta3"><%=user.birthdate %></p>
                    </span>
                  </div>
@@ -110,7 +110,7 @@
                   <h4><b>Total Rating:</b></h4>
                   <p>Your total rating is: <%=user.rating %>.</p>
                   <h4><b>Followers:</b></h4>
-                  <p>You have <a href="/followers">0 followers.</a></p>
+                  <p><a href="/followers?u=<%=user.username %>">Click to check your followers!</a></p>
                 </div>
 
                 <div class="row kov tabcontent" id="Articles" class="tabcontent" style="display: none">
