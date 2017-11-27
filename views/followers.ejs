@@ -71,7 +71,7 @@
       <div style="margin-left: 0px" class="container bootstrap snippet col-md-offset-2">
         <h1 class="seguidors">The following people are subscribed to <%=user.username %></h1>
           <% if(followers.length == 0) { %>
-              <h4 style="text-align: center"><i><%=user.username %> has no followers yet.</i></h4>
+              <h4 style="padding-left:62px"><i><%=user.username %> has no followers yet.</i></h4>
           <% } else { %>
             <% for(var i = 0; i < followers.length; i++) { %>
               <% var inicial = followers[i].substring(0, 1);%>
