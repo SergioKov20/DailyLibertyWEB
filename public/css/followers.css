@@ -2,14 +2,29 @@ body{
  background:mintcream;
 }
 
-h1,h2,h3 {
-	margin:0 0 35px 0;
-	font-family: 'Roboto Condensed';
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing:1px;
-    text-align: center;
+
+
+
+.seguidors {
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    padding-left: 62px;
+    font-style: italic;
+    color: grey;
 }
+
+.seguidors:after {
+  margin-top: 10px;
+  display: block;
+  content: "";
+  width: 80% !important;
+  height: 2px;
+  background-color: grey;
+  vertical-align: super;
+}
+
+
 
 .user-profile-2 {
     text-align: center;
