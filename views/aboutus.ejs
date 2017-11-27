@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta charset='UTF-8'>
-        <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>
+        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/> 
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel='stylesheet' href='/css/busqueda.css'>
-   </head>
-    <body id="prueba" >
+        <link rel='stylesheet' href='/css/aboutus.css'>
+    </head>
+    <body>
         <header  class="capsaHeader">
             <ul class="barraSuperior">
                 <li id="btnMostrarNav" class="imgMenu">
@@ -41,16 +41,16 @@
                              <div style="left: -60%" class="dropContingut">
                                 <a href="/login" >Sign In</a>
                                 <a href="/register">Register</a>
+								<a href="/about">About Us</a>
                             </div>
                         <% } %>
                     </div>
                 </li>
             </ul>
         </header>
-
         <section id ="cajasArticulos" class="cajas">
-            <div id="divFondo"></div>
-            <nav>
+        <div id="divFondo"></div>
+        <nav>
 
             <ul class="menu">
                 <li><a href="/index">Inici</a></li>
@@ -59,62 +59,63 @@
                   <div id="collapse1" class="collapse">
                       <div class="panel-body">
                           <a href="/index">Política</a>
+
+
                           <a href="/index">Esports</a>
                           <a href="/index">Ciència</a>
                         <a href="/index">Tecnologia</a>
+
+
+
                         <a href="/index">Altres</a>
                       </div>
                   </div>
                   <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
-        <h1 class="busqueda">
-            Resultats de la cerca
-        </h1>
-        <% if (tendencies.length > 0) {
-                for (var i = 0; i < tendencies.length; i++){%>
-                    <div onclick="location.href = '/index'" class="divImgArt">
-                        <div><img src="<%=tendencies[i].portada%>"/></div>
-                        <article class="cajaArticle">
-							<div class="Content">
-								<header>
-									<h1><%=tendencies[i].title%></h1>
-								</header>
-								<section>
-									<h2><%=tendencies[i].subtitle%></h2>
-								</section>
-							</div>
-							<div class="footer">
-								<div class="viewsDiv">
-									<div id="views" class="visites">14599</div>
-									<span class="nom">&nbsp;views</span>
-								</div>							
+        <div class="fons_principal css-marginT css-marginB">
+            <div class="m-content">
+                <div class="m-title">About us</div>
+                <h2  class="text">DailyLiberty es un diari independent que s'ha creat amb l'objectiu d'informar a tots els lectors d'aquesta pàgina web amb notícies de qualsevol mena de temes, com pot ser política, esports, cultura, etc. DailyLiberty ha estat creada en el 2017 per quatre persones: Adrià Carrera, Edgar Lorenzo, Sergio Rodríguez i Marc Català. Permet pujar notícies a qualsevol usuari essent així, una pàgina web que viu de la participació dels usuaris, ja siguin periodistes contrastats o no.
 
-								<div>
-									<div class="intLike">
-										<p><%=tendencies[i].category%></p>
-										<span id="muteGreen" class="like" >
-											<button id="nogreen" class="likegreen"></button>
-										</span>
-										<span class="likes">12</span>
-										<span id="muteRed" class="dislike" >
-											<button id="nored" class="dislikered"></button>
-										</span>
-										
-										<span class="dislikes">2</span>
-										
-									</div>
-								
-									<p class="pHidden" ><%=tendencies[i].category%></p>
-									<small><%=tendencies[i].author%></small>
-								</div>
-							</div>
-                        </article>
-                    </div>
-            <%} }%>
+                    </h2>
+                <div class="m-section">
+                    <article>
+                        <header>DailyLiberty</header>
+                        <section>
+                            Barcelona
+                            <br>
+                            T: +34 93 333 33 33
+                            <br>
+                            e-mail: dailyliberty@gmail.com
+                        </section>
+                        <footer>
+                            <a rel="nofollow" onclick="window.open(
+'http://twitter.com/intent/tweet?text=Coneix DailyLiberty, un diari independent per a tots via @DailyLiberty - aquí pots trobar el link ' +location.href,
+'popupwindow',
+'scrollbars=yes,width=800,height=450');
+popUp.focus();
+return false"  href=""><img style="width:20px; height:20px; margin-right:5px;" src="/img/twitter.png"/>Share us on Twitter</a>
+                        </footer>
+                    </article>
+                    <article class="slogan">
+                        <header>
+                            <img height="60" src="img/newspaper.png" alt=""/>
+                        </header>
+                        <section><strong>Good</strong> News</section>
+                    </article>
+                    <article class="slogan">
+                        <header>
+                            <img src="img/ideasg.png" alt=""/>
+                        </header>
+                        <section><strong>Work</strong> With Us</section>
+                    </article>
+                </div>
+            </div>
+        </div>
         </section>
-        <script src="/js/mostrarNav.js"></script>
-        <% if (isLoggedIn == true) { %>
+        <script src="js/mostrarNav.js"></script>
+		<% if (isLoggedIn == true) { %>
           <script>
             document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
