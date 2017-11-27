@@ -319,6 +319,7 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike
   width: 20px;
   height: 20px;
   margin-right: 15px;
+  cursor: pointer;
 }
 html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .twitterVisites .visites {
   width: auto;
