@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="/js/subscritsaTU.js"></script>
         <link rel='stylesheet' href='/css/followers.css'>
    </head>
     <body id="prueba" >
@@ -68,76 +67,42 @@
                   <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
-             <div class="col-md-offset-2">
-                
-            <h1 class="seguidors">You have the following subscribers</h1>
-                
-            </div>
-    <div class="container bootstrap snippet col-md-offset-2">
-     <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
 
-                 <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar"onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-
-
-</div>
+      <div style="margin-left: 0px" class="container bootstrap snippet col-md-offset-2">
+        <h1 class="seguidors">The following people are subscribed to <%=user.username %></h1>
+          <% if(followers.length == 0) { %>
+              <h4 style="text-align: center"><i><%=user.username %> has no followers yet.</i></h4>
+          <% } else { %>
+            <% for(var i = 0; i < followers.length; i++) { %>
+              <% var inicial = followers[i].substring(0, 1);%>
+               <div class="col-lg-3 col-md-4 col-sm-6">
+              	<!-- Begin user profile -->
+              	<div class="box-info text-center user-profile-2" >
+              		<div class="user-profile-inner">
+                    <input id="<%=followers[i] %>" style="display:none"></input>
+              			<div id="pointerfoto" class="test img-circle profile-avatar" alt="User avatar" onclick="myFunction<%=i%>()"><p class="letra"><%=inicial %></p></div>
+                          <h4 class="black"><%=followers[i] %></h4>
+              		</div>
+              	</div>
+              </div>
+              <script>
+                  function myFunction<%=i%>() {
+                      var usuario = document.getElementById('<%=followers[i] %>').id;
+                      window.location.href = '/user?v=' + usuario;
+                  }
+              </script>
+            <% } %>
+        <% } %>
+      </div>
 
              </section>
         <script src="/js/mostrarNav.js"></script>
         <% if (isLoggedIn == true) { %>
           <script>
-            document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";
+            document.getElementById("dropBoton").style.background = "url(<%=me.fotourl %>)";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
           </script>
         <% } %>
-
     </body>
 </html>

@@ -45,6 +45,17 @@ module.exports = function(app,passport,newspaper) {
         require('./search.js').followUser(req,res);
     });
 
+    app.get('/following', isLoggedIn, function(req, res) {
+        res.render('following.ejs', {
+            user : req.user,
+            following : req.user.following
+        } );
+    });
+
+    app.get('/followers', function(req, res) {
+        require('./search.js').getUserFollowers(req,res);
+    });
+
 	app.get('/article', isLoggedIn, function(req, res) {
         var articleID = req.param('e');
         if (articleID == null) res.render('./article.ejs', {
@@ -78,6 +89,13 @@ module.exports = function(app,passport,newspaper) {
         var category = req.param('c');
         if (category == null) res.render('error/wrongCategory.ejs');
         else  newspaper.getCategory(req,res);
+    });
+
+    app.get('/about', function(req, res) {
+        res.render('about.ejs', {
+            user : req.user,
+            isLoggedIn: req.isAuthenticated()
+        } );
     });
 }
 

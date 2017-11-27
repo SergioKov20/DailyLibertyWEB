@@ -16,7 +16,8 @@ exports.getUser = function (req,res) {
 	        if (user){
 						var siguiendo = "notloggedin";
 						if(req.isAuthenticated()) {
-								var index = user.followers.indexOf(req.user.username);
+								var followed = req.user.username;
+								var index = user.followers.indexOf(followed);
 								if (index > -1) siguiendo = "yes";
 								else siguiendo = "no";
 						}
@@ -50,14 +51,16 @@ exports.followUser = function (req,res) {
 		        }
 		        if (user){
 
+							var follower = me.username;
+							var followed = user.username;
 							if(action == "follow") {
-									var index = user.followers.indexOf(me.username);
+									var index = user.followers.indexOf(follower);
 									if(index < 0) { //No le sigo
-										 user.followers.push(me.username);
+										 user.followers.push(follower);
 											user.save(function(err) {
 													if (err) res.render('error/500.ejs');
 											});
-											me.following.push(user.username);
+											me.following.push(followed);
 											me.save(function(err) {
 													if (err) res.render('error/500.ejs');
 											});
@@ -65,13 +68,13 @@ exports.followUser = function (req,res) {
 									}
 							}
 							else if(action == "unfollow") {
-									var index = user.followers.indexOf(me.username);
+									var index = user.followers.indexOf(follower);
 									if(index > -1) { // Le sigo
 											user.followers.splice(index, 1);
 											user.save(function(err) {
 													if (err) res.render('error/500.ejs');
 											});
-											var index2 = me.following.indexOf(user.username);
+											var index2 = me.following.indexOf(followed);
 											me.following.splice(index2, 1);
 											me.save(function(err) {
 													if (err) res.render('error/500.ejs');
@@ -82,6 +85,44 @@ exports.followUser = function (req,res) {
 		        }
 			});
 		}
+}
+
+exports.getUserFollowers = function (req,res) {
+
+	var username = req.query.v;
+	if (req.isAuthenticated() && username == req.user.username) {
+		res.render('followers.ejs', {
+				user : req.user, // get the user out of session and pass to template
+				me: req.user, //para tener mi foto en la barra de arriba
+				followers: req.user.followers,
+				isLoggedIn : req.isAuthenticated()
+		});
+	}
+	else {
+		var User = require('./models/user');
+		User.findOne({ 'username' :  username }, function(err, user) {
+			if (err) {
+				res.render('error/500.ejs');
+			}
+	        // if no user is found, return the message
+	        if (!user){
+	        	res.render('error/wrongUser.ejs');
+	        }
+	        if (user){
+							res.render('followers.ejs', {
+									user : user, // get the user out of session and pass to template
+									me: req.user, //para tener mi foto en la barra de arriba
+									followers: user.followers,
+									isLoggedIn : req.isAuthenticated()
+							});
+	        }
+			});
+		}
+}
+function getUsersQuery(user){
+		var User = require('./models/user');
+   var query = User.findOne({'username' :  user});
+   return query;
 }
 
 exports.editArticle = function (req,res) {

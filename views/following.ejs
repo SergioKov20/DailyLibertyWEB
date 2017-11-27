@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="/js/subscripcions.js"></script>
         <link rel='stylesheet' href='/css/subscripcions.css'>
    </head>
     <body id="prueba" >
@@ -29,22 +28,13 @@
                 </li>
                 <li class="login">
                     <div class="dropLogin">
-                        <% if (isLoggedIn == true) { %>
                             <button id="dropBoton" class="dropBoton"></button>
                             <div class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
-								<a href="/about">About Us</a>
+								                <a href="/about">About Us</a>
                                 <a href="/logout">Log Out</a>
                             </div>
-                        <%} else {%>
-                            <button id="dropBoton2" class="dropBoton"></button>
-                            <div class="dropContingut">
-                                <a href="/login" >Sign In</a>
-                                <a href="/register">Register</a>
-								<a href="/about">About Us</a>
-                            </div>
-                        <% } %>
                     </div>
                 </li>
             </ul>
@@ -65,74 +55,44 @@
                         <a href="/index">Altres</a>
                       </div>
                   </div>
-                  <li><a href="#">Subscripcions</a></li>
+                  <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
-            <div class="container bootstrap snippet col-md-offset-1">
-     <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
 
-                 <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar"onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-                  <div class="col-lg-3 col-md-4 col-sm-6">
-    	<!-- Begin user profile -->
-    	<div class="box-info text-center user-profile-2" >
-    		<div class="user-profile-inner">
-    			<img src="/img/user_male2-512.png" id="pointerfoto" class="img-circle profile-avatar" alt="User avatar" onclick="myFunction()">
-                <h4 class="black">Marc Català</h4>
-    			<h5>info.marc32@gmail.com</h5>
-    		</div>
-    	</div>
-    </div>
-
-
-</div>
+      <div style="margin-left: 0px" class="container bootstrap snippet col-md-offset-2">
+        <h1 class="seguidors">These are your current subscriptions:</h1>
+          <% if(following.length == 0) { %>
+              <h4 style="text-align: center"><i>You are not following anybody right now.</i></h4>
+          <% } else { %>
+            <% for(var i = 0; i < following.length; i++) { %>
+              <% var inicial = following[i].substring(0, 1);%>
+               <div class="col-lg-3 col-md-4 col-sm-6">
+              	<!-- Begin user profile -->
+              	<div class="box-info text-center user-profile-2" >
+              		<div class="user-profile-inner">
+                    <input id="<%=following[i] %>" style="display:none"></input>
+              			<div id="pointerfoto" class="test img-circle profile-avatar" alt="User avatar" onclick="myFunction<%=i%>()"><p class="letra"><%=inicial %></p></div>
+                          <h4 class="black"><%=following[i] %></h4>
+              		</div>
+              	</div>
+              </div>
+              <script>
+                  function myFunction<%=i%>() {
+                      var usuario = document.getElementById('<%=following[i] %>').id;
+                      window.location.href = '/user?v=' + usuario;
+                  }
+              </script>
+            <% } %>
+        <% } %>
+      </div>
 
              </section>
         <script src="/js/mostrarNav.js"></script>
-        <% if (isLoggedIn == true) { %>
           <script>
-            document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";
+            document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
           </script>
-        <% } %>
 
     </body>
 </html>

@@ -58,19 +58,46 @@ body{
 .user-profile-2 .user-profile-inner {
     z-index: 2;
     position: relative;
+    display: inline-block;
 }
 
 .user-profile-2 .user-profile-inner h4.white {
     color: #fff;
 }
 
-.user-profile-2 .user-profile-inner img.profile-avatar {
-    box-shadow: 0 0 0 5px rgba(255,255,255,1);
-    -moz-box-shadow: 0 0 0 5px rgba(255,255,255,1);
-    -webkit-box-shadow: 0 0 0 5px rgba(255,255,255,1);
-    border: none;
-    width:100px;
-    height:100px;
+.test {
+  background: #d84f13;
+  box-shadow: 0 0 0 5px rgba(255,255,255,1);
+  -moz-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+  -webkit-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+  border: none;
+  width:100px;
+  height:100px;
+  transition: background-color 0.4s;
+}
+.letra {
+  font-family: arial;
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: white;
+  padding: 15px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.test:hover {
+  background-color: #9c0606;
+  -webkit-transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+.letra:hover {
+  font-size: 55px;
+  padding: 12px;
 }
 
 .user-button {
@@ -207,8 +234,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   font-size: 19px;
   border: none;
   cursor: pointer;
-  background: url(img/user_male2-512.png);
-  background-size: cover;
   width: 40px;
   height: 40px;
 }
@@ -416,16 +441,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin {
 }
 html body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
   display: block;
-}
-html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
-  color: #afa1a1;
-  font-size: 19px;
-  border: none;
-  cursor: pointer;
-  background: url(../img/user_male2-512.png);
-  background-size: cover;
-  width: 40px;
-  height: 40px;
 }
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   display: none;
