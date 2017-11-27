@@ -119,11 +119,6 @@ exports.getUserFollowers = function (req,res) {
 			});
 		}
 }
-function getUsersQuery(user){
-		var User = require('./models/user');
-   var query = User.findOne({'username' :  user});
-   return query;
-}
 
 exports.editArticle = function (req,res) {
 
