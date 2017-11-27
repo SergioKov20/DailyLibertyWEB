@@ -12,6 +12,8 @@ var userSchema = mongoose.Schema({
 	aboutme      : String,
 	rating      : Number,
 	articles      : Number,
+	following      : [String],
+	followers      : [String],
     fotourl      : String
 
 });

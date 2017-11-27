@@ -41,10 +41,14 @@ module.exports = function(app,passport,newspaper) {
         require('./search.js').getUser(req,res);
     });
 
+    app.post('/user', function(req,res){
+        require('./search.js').followUser(req,res);
+    });
+
 	app.get('/article', isLoggedIn, function(req, res) {
         var articleID = req.param('e');
         if (articleID == null) res.render('./article.ejs', {
-          user: req.user, 
+          user: req.user,
           article: null
         });
         else  require('./search.js').editArticle(req,res);
