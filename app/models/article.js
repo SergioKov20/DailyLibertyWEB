@@ -8,6 +8,9 @@ var articleSchema = mongoose.Schema({
     subtitle	: String,
     content		: String,
     author	: String,
+		data : Date,
+		likes : [String],
+		dislikes : [String],
     views : Number
 });
 

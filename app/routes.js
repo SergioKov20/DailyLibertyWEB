@@ -78,6 +78,9 @@ module.exports = function(app,passport,newspaper) {
     app.get('/read', function(req,res){
         require('./search.js').getArticle(req,res);
     });
+    app.post('/read', function(req,res){
+        require('./search.js').likeArticle(req,res);
+    });
 
     app.get('/tendencies', function(req, res) {
         res.render('tendencies.ejs', {
