@@ -3,8 +3,6 @@ body{
 }
 
 
-
-
 .seguidors {
     font-size: 12px;
     text-align: left;
@@ -14,16 +12,16 @@ body{
     color: grey;
 }
 
+
 .seguidors:after {
   margin-top: 10px;
   display: block;
   content: "";
-  width: 80% !important;
+  width: 90% !important;
   height: 2px;
   background-color: grey;
   vertical-align: super;
 }
-
 
 
 .user-profile-2 {
@@ -31,6 +29,7 @@ body{
     position: relative;
     margin-top:10px;
 }
+
 
 .box-info {
     position: relative;
@@ -44,6 +43,7 @@ body{
     /*border-bottom:4px solid #DDDDDD;*/
     border-radius: 25px;
 }
+
 
 .user-profile-2 .header-cover {
     position: absolute;
