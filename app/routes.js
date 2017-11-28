@@ -5,7 +5,10 @@ module.exports = function(app,passport,newspaper) {
     });
 
     app.get('/login', function(req, res) {
-        res.render('login.ejs', { message: req.flash('loginMessage') });
+        if(req.isAuthenticated()) {
+            res.redirect('/profile');
+        }
+        else res.render('login.ejs', { message: req.flash('loginMessage') });
     });
     app.post('/login', passport.authenticate('login', {
         successRedirect : '/profile', // redirect to the secure profile section
@@ -14,7 +17,10 @@ module.exports = function(app,passport,newspaper) {
     }));
 
     app.get('/register', function(req, res) {
-        res.render('register.ejs', { message: req.flash('signupMessage') });
+      if(req.isAuthenticated()) {
+          res.redirect('/profile');
+      }
+      else res.render('register.ejs', { message: req.flash('signupMessage') });
     });
     app.post('/register', passport.authenticate('signup', {
         successRedirect : '/profile', // redirect to the secure profile section
