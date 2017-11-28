@@ -84,7 +84,7 @@
 								<div id="views" class="visites">1223</div>
 								<span class="nom">&nbsp;views</span>
 							</div>
-							
+
 							<div class="footerArticle">
 								<p><%=articles[i].category %></p>
 								<small><%=articles[i].author %></small>
@@ -101,8 +101,8 @@
                 d=p(10,true);
                 x-=x%3;
                 return Math.round(n*d/p(10,x))/d+" kMGTPE"[x/3];
-            }   
-            
+            }
+
             function intToString (value) {
                 var suffixes = ["", "K", "M", "B","t"];
                 var suffixNum = Math.floor((""+value).length/3);
@@ -110,14 +110,14 @@
                 if (shortValue % 1 != 0) {
                     var shortNum = shortValue.toFixed(1);
                 }
-                return shortValue+suffixes[suffixNum];   
+                return shortValue+suffixes[suffixNum];
             }
 
                 document.getElementById("views1").innerHTML = numberto(document.getElementById("views1").innerHTML);
             function oneDot(input) {
 				var value = input.value,
 					value = plainNumber(value);
-				
+
 				if (value.length > 3) {
 				  value = value.substring(0, value.length - 3) + '.' + value.substring(value.length - 3, value.length);
 				}
@@ -127,7 +127,7 @@
         </script>-->
         <% if (isLoggedIn == true) { %>
           <script>
-            document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";
+            document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
           </script>
