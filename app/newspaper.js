@@ -104,50 +104,98 @@ exports.getTendencies = function() {
 }
 
 exports.newArticle = function(req, res) {
+  var formidable = require('formidable');
+  var fs = require('fs');
+  var form = new formidable.IncomingForm();
 
-  var newArticle = new Article();
-  newArticle._id = require("randomstring").generate(7);
-  newArticle.category = req.body.category;
-  newArticle.title = req.body.title;
-  newArticle.subtitle = req.body.subtitle;
-  newArticle.content = req.body.content;
-  newArticle.author = req.user.username;
-  newArticle.data = new Date();
-  newArticle.views = 0;
+  form.parse(req, function(err, fields, files) {
+    var Article = require('./models/article');
+    var newArticle = new Article();
+    newArticle._id = require("randomstring").generate(7);
+    newArticle.title = fields.title;
+    newArticle.subtitle = fields.subtitle;
+    newArticle.content = fields.content;
+    newArticle.author = req.user.username;
+    newArticle.data = new Date();
+    newArticle.category = fields.category;
+    newArticle.views = 0;
 
-  //use schema.create to insert data into the db
-  Article.create(newArticle, function(err) {
-    if (err) {
-      return next(err);
-  } else {
-      return res.redirect('/')
-  }
-});
+    if (files.filetoupload.size != 0) {
+        var oldpath = files.filetoupload.path;
+        var extension = "";
+        if (files.filetoupload.type == 'image/png') extension = ".png";
+        else if (files.filetoupload.type == 'image/jpeg') extension = ".jpg";
+        else {
+            res.render('error/wrongFileExt.ejs');
+            return;
+        }
+        var newpath = './public/multimedia/articles/' + newArticle._id + extension;
+        fs.rename(oldpath, newpath, function(err) {
+            if (err) res.render('error/500.ejs');
+        });
+        newArticle.fotourl = '/multimedia/articles/' + newArticle._id + extension;
+    }
+    else newArticle.fotourl = "/multimedia/articles/default.jpg";
+
+    //use schema.create to insert data into the db
+    Article.create(newArticle, function(err) {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect('/');
+      }
+    });
+  });
 }
 
 exports.editArticle = function(req, res) {
   var articleID = req.param('e');
+  var formidable = require('formidable');
+  var fs = require('fs');
+  var form = new formidable.IncomingForm();
+  var Article = require('./models/article');
+
   Article.findById(articleID, function(err, article) {
     if (err) res.render('error/500.ejs');
     else if (!article) res.render('error/wrongArticle.ejs');
     if (article) {
       if (article.author != req.user.username) res.render('error/forbidden.ejs');
       else {
-        article.category = req.body.category;
-        article.title = req.body.title;
-        article.subtitle = req.body.subtitle;
-        article.content = req.body.content;
-        article.author = req.user.username;
-        article.views = 0;
+        form.parse(req, function(err, fields, files) {
+          article.category = fields.category;
+          article.title = fields.title;
+          article.subtitle = fields.subtitle;
+          article.content = fields.content;
 
-        article.save(function(err, updatedArticle) {
-          if (err) res.render('error/500.ejs');
-          else res.redirect('/profile');
-      });
+          if(fields.nocambiar != "nocambiar") {
+            if (files.filetoupload.size != 0) {
+                var oldpath = files.filetoupload.path;
+                var extension = "";
+                if (files.filetoupload.type == 'image/png') extension = ".png";
+                else if (files.filetoupload.type == 'image/jpeg') extension = ".jpg";
+                else {
+                    res.render('error/wrongFileExt.ejs');
+                    return;
+                }
+                var newpath = './public/multimedia/articles/' + article._id + extension;
+                fs.rename(oldpath, newpath, function(err) {
+                    if (err) res.render('error/500.ejs');
+                });
+                article.fotourl = '/multimedia/articles/' + article._id + extension;
+            }
+            else {
+              article.fotourl = "/multimedia/articles/default.jpg";
+            }
+          }
+
+          article.save(function(err, updatedArticle) {
+            if (err) res.render('error/500.ejs');
+            else res.redirect('/');
+          });
+        });
+      }
     }
-}
-
-});
+  });
 }
 
 exports.editProfile = function(req, res) {
@@ -243,7 +291,7 @@ exports.likeArticle = function(req, res) {
                         article.likes.push( {_id : userID, like : (like==1)} );
                     }
                     else { //existing like
-                        article.likes[index].like = (like == 1); 
+                        article.likes[index].like = (like == 1);
                     }
                 }
                 else { //unlike

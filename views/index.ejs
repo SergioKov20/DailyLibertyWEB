@@ -33,7 +33,7 @@
                             <button id="dropBoton" class="dropBoton"></button>
                              <div style="left: -190%" class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
-                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/article">Escriure Article</a>
 								<a href="/about">About Us</a>
                                 <a href="/logout">Log Out</a>
                             </div>
@@ -69,11 +69,10 @@
             </ul>
         </nav>
             <% if (articles.length > 0) {
-                for (var i = 0; i < articles.length; i++){%>
+                for (var i = articles.length-1; i > -1; i--){%>
                     <a class="articulo" href="/read?a=<%=articles[i]._id%>"><article class="cajaI">
                         <header>
-                            <!--<img src="<%=articles[i].portada%>"/>-->
-                            <img src="/img/ciencia.jpg">
+                            <img src="<%=articles[i].fotourl %>">
                         </header>
                         <section>
 							<div class="titulos">

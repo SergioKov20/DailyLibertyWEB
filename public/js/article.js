@@ -1,13 +1,13 @@
 function myFunction() {
-                window.open('./vista_previa_article.ejs','_blank')              
+                window.open('./vista_previa_article','_blank')
 }
 
 
 function cancel(){
-    
+
                 alert("Are you sure to discard all the content?")
-                window.open('./index.ejs',"_self")
-    
+                window.open('./',"_self")
+
 }
 
 var getFile = new selectFile;
@@ -16,7 +16,7 @@ getFile.targets('choose','selected');
 
 
 // the selector will match all input controls of type :checkbox
-// and attach a click event handler 
+// and attach a click event handler
 $("input:checkbox").on('click', function() {
   // in the handler, 'this' refers to the box clicked on
   var $box = $(this);

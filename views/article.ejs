@@ -19,12 +19,14 @@
       var subtitle = "";
       var content = "";
       var category = "";
+      var artfoto = "";
       if ( article ) {
         id = article.id;
         title = article.title;
         subtitle = article.subtitle;
         content = article.content;
         category = article.category;
+        artfoto = article.fotourl;
       }%>
         <header  class="capsaHeader">
             <ul class="barraSuperior">
@@ -46,7 +48,7 @@
                             <button id="dropBoton" class="dropBoton"></button>
                             <div style="left: -190%" class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
-                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/article">Escriure Article</a>
 								                <a href="/about">About Us</a>
                                 <a href="/logout">Log Out</a>
                             </div>
@@ -80,10 +82,14 @@
         <div class="contact-section">
             <div class="container">
               <h2>DailyLiberty</h2>
-              <p>Edit your articles here </p>
+              <% if(id != 0) { %>
+                <p>Edit your article </p>
+              <% } else { %>
+                <p>Create a new article </p>
+              <% } %>
               <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                  <form class="form-horizontal" method="POST" action="article?e=<%=id%>">
+                  <form class="form-horizontal" enctype='multipart/form-data'method="POST" action="article?e=<%=id%>">
                     <div class="form-group">
                       <label for="title">Title</label>
                         <pre><textarea name="title" id="texte" class="form-control" rows="1" placeholder="Pick up a title" required><%=title%></textarea></pre>
@@ -101,19 +107,39 @@
                         <label for="category">Category</label><br><br>
                             <fieldset>
                                 <label class="espacio">
-                                  <input type="radio" name="color" value="politica"> Política
+                                  <% if(category == "politica") { %>
+                                    <input type="radio" name="category" value="politica" checked required> Política
+                                  <% } else { %>
+                                    <input type="radio" name="category" value="politica" required> Política
+                                  <% } %>
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="esports"> Esports
+                                  <% if(category == "esports") { %>
+                                    <input type="radio" name="category" value="esports" checked> Esports
+                                  <% } else { %>
+                                    <input type="radio" name="category" value="esports"> Esports
+                                  <% } %>
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="cultura"> Ciència
+                                  <% if(category == "ciencia") { %>
+                                    <input type="radio" name="category" value="cultura" checked> Ciència
+                                  <% } else { %>
+                                    <input type="radio" name="category" value="cultura"> Ciència
+                                  <% } %>
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="tecnologia"> Tecnologia
+                                  <% if(category == "tecnologia") { %>
+                                    <input type="radio" name="category" value="tecnologia" checked> Tecnologia
+                                  <% } else { %>
+                                    <input type="radio" name="category" value="tecnologia"> Tecnologia
+                                  <% } %>
                                 </label>
                                 <label class="espacio">
-                                    <input type="radio" name="color" value="altres"> Altres
+                                  <% if(category == "altres") { %>
+                                    <input type="radio" name="category" value="altres" checked> Altres
+                                  <% } else { %>
+                                    <input type="radio" name="category" value="altres"> Altres
+                                  <% } %>
                                 </label>
                             </fieldset>
                     </div>
@@ -121,7 +147,10 @@
                       <div>
                         <br><label for="image">Image</label><br><br>
                           <div class="centrarboto">
-                            <input type=file  accept='image/jpeg, image/jpg, image/png' id=choose name=choose>
+                            <input type="file"  accept='image/jpeg, image/png' id=choose name=filetoupload>
+                            <% if(id != 0) { %>
+                                <input type="checkbox" value="nocambiar" name="nocambiar" checked> Don't change the photo.
+                            <% } %>
                           </div>
                     </div>
                       <br><br>

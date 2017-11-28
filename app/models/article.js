@@ -11,15 +11,16 @@ var articleSchema = mongoose.Schema({
     author		: { type:String, es_indexed:true },
     views 		: { type:Number, es_indexed:true },
 	data 		: Date,
+	fotourl : String,
 	likes 		: [{
 					_id : String,
 					like : Boolean
 				  }]
 });
 
-articleSchema.plugin(mongoosastic); 
+articleSchema.plugin(mongoosastic);
 
-var Article = mongoose.model('Article', articleSchema), stream = Article.synchronize(), count = 0; 
+var Article = mongoose.model('Article', articleSchema), stream = Article.synchronize(), count = 0;
 
 stream.on('data', function(err, doc){
   count++;

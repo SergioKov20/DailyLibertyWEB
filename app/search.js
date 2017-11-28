@@ -190,34 +190,3 @@ exports.searchArticles = function(req,res) {
     	});
 	});
 }
-
-exports.likeArticle = function (req,res) {
-
-	/*TO DO: Al següent commit
-	var articleID = req.param('a');
-	var action = req.body.action;
-	var user = req.user;
-	var Article = require('./models/article');
-	Article.findOne({ '_id' :  articleID }, function(err, article) {
-		if (err) {
-			res.render('error/500.ejs');
-		}
-        if (!article){
-        	res.render('error/wrongArticle.ejs');
-        }
-        if (article){
-        	article.views++;
-
-	        article.save(function(err, updatedArticle) {
-	        	if (err) res.render('error/500.ejs');
-	        	else {
-	          		res.render('read.ejs', {
-		            	article : updatedArticle,
-									user : user,
-		            	isLoggedIn : req.isAuthenticated()
-	        		});
-	          	}
-	        });
-        }
-	});*/
-}

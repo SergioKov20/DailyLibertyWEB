@@ -19,6 +19,7 @@
         var category = article.category;
         var author = article.author;
         var views = article.views;
+        var fotoart = article.fotourl;
 
         var dd = article.data.getDate();
         var mm = article.data.getMonth()+1;
@@ -140,7 +141,7 @@ return false" class="imgtwitter"  src="/img/twitter.png"/>
 
                             </div>
 						</div>
-                        <img class="imgPrincipal" src="/img/puigdemont.jpg"/>
+                        <img class="imgPrincipal" src="<%=fotoart%>"/>
                     </div>
                     <div>
                     <pre><%=content%></pre>
