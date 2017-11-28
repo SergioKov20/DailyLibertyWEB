@@ -17,6 +17,7 @@ require('./config/passport')(passport);
 app.use(session({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(flash());
 
 app.use(morgan('dev')); // log every request to the console

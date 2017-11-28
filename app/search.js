@@ -73,3 +73,21 @@ exports.getArticle = function (req,res) {
         }
 	});
 }
+
+exports.searchArticles = function(req,res) {
+	var Article = require('./models/article');
+	var query = req.param('q');
+	console.log(query);
+	Article.search({
+		query_string: {
+			query: query
+		}
+	},{hydrate: true}, function(err, results) {
+		console.log(results.hits.hits);
+		res.render('index.ejs', {
+	    	user: req.user,
+	    	articles: results.hits.hits,
+	    	isLoggedIn: req.isAuthenticated()
+    	});
+	});
+}

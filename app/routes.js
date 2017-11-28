@@ -67,7 +67,8 @@ module.exports = function(app,passport,newspaper) {
     });
 
     app.get('/results', function(req,res) {
-        //Elastic search
+        if (req.param('q') == null) res.redirect('/');
+        else require('./search.js').searchArticles(req,res);
     });
 
     app.get('/category', function(req,res){

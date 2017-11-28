@@ -31,6 +31,14 @@ exports.getCategory = function(req,res) {
 
 exports.getTendencies = function() {
 
+  /*Article.esSearch({
+    from : 0,
+    size : 25,
+    sort : { "views" : {"order" : "asc"}},
+    query : { match_all : {} }
+    }, function(err, articles){
+      return articles;
+  });*/
   var t1 = "El Girona Futbol Club fa història davant del tot poderós Reial Madrid";
   var s1 = "El Reial Madrid perd tres punts i comença a dir adéu a la lliga";
   var t2 = "Puigdemont i part del seu govern són a Brussel·les";

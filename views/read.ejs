@@ -96,7 +96,7 @@
                 <section>
                     
                     <div class="divImg">
-					<% if (user.username == author) { %>
+					<% if (isLoggedIn && user.username == author) { %>
 						<img onclick="location.href = '/article?e=<%=id%>'" style="cursor:pointer" class="pencil" src="/img/pencil-icon.png"/>
                     <% } %>
 						<div class="preImagen"><div class="autor">
