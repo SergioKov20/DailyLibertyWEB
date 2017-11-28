@@ -34,6 +34,7 @@
                              <div style="left: -190%" class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
+								<a href="/about">About Us</a>
                                 <a href="/logout">Log Out</a>
                             </div>
                         <%} else {%>
@@ -41,6 +42,7 @@
                              <div style="left: -60%" class="dropContingut">
                                 <a href="/login" >Sign In</a>
                                 <a href="/register">Register</a>
+								<a href="/about">About Us</a>
                             </div>
                         <% } %>
                     </div>
@@ -85,7 +87,7 @@
 								<div class="viewsDiv">
 									<div id="views" class="visites">14599</div>
 									<span class="nom">&nbsp;views</span>
-								</div>							
+								</div>
 
 								<div>
 									<div class="intLike">
@@ -97,11 +99,11 @@
 										<span id="muteRed" class="dislike" >
 											<button id="nored" class="dislikered"></button>
 										</span>
-										
+
 										<span class="dislikes">2</span>
-										
+
 									</div>
-								
+
 									<p class="pHidden" ><%=tendencies[i].category%></p>
 									<small><%=tendencies[i].author%></small>
 								</div>
@@ -113,7 +115,7 @@
         <script src="/js/mostrarNav.js"></script>
         <% if (isLoggedIn == true) { %>
           <script>
-            document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";
+            document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
           </script>

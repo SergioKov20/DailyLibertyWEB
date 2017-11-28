@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/> 
+        <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='css/aboutus.css'>
+    </head>
+    <body>
+        <header  class="capsaHeader">
+            <ul class="barraSuperior">
+                <li id="btnMostrarNav" class="imgMenu">
+                    <img src="img/menuBlanco.png"/>
+                </li>
+                <li class="cajaLogo">
+                    <a class="logo" href="/">DailyLiberty</a>
+                </li>
+                <li id="buscador" class="buscador">
+                    <form action="results" method="GET">
+                        <input id="search" type="search" placeholder="Buscar" name="search"></input>
+                        <button id="botonSearch" class="botonSearch">
+                            <img src="img/lupaBuscador.png"/>
+                        </button>
+                    </form>
+                </li>
+                <li class="login">
+                    <div class="dropLogin">
+                        <button class="dropBoton"></button>
+                        <div style="left: -190%" class="dropContingut">
+                            <a href="login.html" >Veure Perfil</a>
+                            <a href="register.html">Escriure Article</a>
+                            <a href="register.html">About Us</a>
+                            <a href="../Pagina-principal/principal.html">Sortir</a>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+        </header>
+        <section id ="cajasArticulos" class="cajas">
+        <div id="divFondo"></div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Inici</a></li>
+                <li><a href="../Tendencies/tendencies.html">Tendències</a></li>
+                <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
+                <div id="collapse1" class="collapse">
+                    <div class="panel-body">
+                        <a href="principal.html">Política</a>
+                        <a href="principal.html">Esports</a>
+                        <a href="principal.html">Ciència</a>
+        	            <a href="principal.html">Tecnologia</a>
+        	            <a href="principal.html">Altres</a>   
+                    </div>
+                </div>   
+                <li><a href="#">Subscripcions</a></li>
+            </ul>
+        </nav>
+        <div class="fons_principal css-marginT css-marginB">
+            <div class="m-content">
+                <div class="m-title">About us</div>
+                <h2  class="text">DailyLiberty es un diari independent que s'ha creat amb l'objectiu d'informar a tots els lectors d'aquesta pàgina web amb notícies de qualsevol mena de temes, com pot ser política, esports, cultura, etc. DailyLiberty ha estat creada en el 2017 per quatre persones: Adrià Carrera, Edgar Lorenzo, Sergio Rodríguez i Marc Català. Permet pujar notícies a qualsevol usuari essent així, una pàgina web que viu de la participació dels usuaris, ja siguin periodistes contrastats o no.
+
+                    </h2>
+                <div class="m-section">
+                    <article>
+                        <header>DailyLiberty</header>
+                        <section>
+                            Barcelona
+                            <br>
+                            T: +34 93 333 33 33
+                            <br>
+                            e-mail: dailyliberty@gmail.com
+                        </section>
+                        <footer>
+                            <a rel="nofollow" onclick="window.open(
+'http://twitter.com/intent/tweet?text=Coneix DailyLiberty, un diari independent per a tots via @DailyLiberty - aquí pots trobar el link ' +location.href,
+'popupwindow',
+'scrollbars=yes,width=800,height=450');
+popUp.focus();
+return false"  href=""><img style="width:20px; height:20px; margin-right:5px;" src="img/twitter.png"/>Share us on Twitter</a>
+                        </footer>
+                    </article>
+                    <article class="slogan">
+                        <header>
+                            <img height="60" src="img/newspaper.png" alt=""/>
+                        </header>
+                        <section><strong>Good</strong> News</section>
+                    </article>
+                    <article class="slogan">
+                        <header>
+                            <img src="img/ideasg.png" alt=""/>
+                        </header>
+                        <section><strong>Work</strong> With Us</section>
+                    </article>
+                </div>
+            </div>
+        </div>
+        </section>
+        <script src="js/mostrarNav.js"></script>
+    </body>
+</html>

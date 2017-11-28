@@ -16,7 +16,7 @@ exports.getCategory = function(req,res) {
     req.param('c') != "esports" &&
     req.param('c') != "ciencia" &&
     req.param('c') != "tecnologia" &&
-    req.param('c') != "altres" 
+    req.param('c') != "altres"
   ) res.render('error/wrongCategory.ejs');
   else {
     Article.find({category: req.param('c')}, function(err, articles) {
@@ -112,6 +112,7 @@ exports.newArticle = function(req, res) {
   newArticle.subtitle = req.body.subtitle;
   newArticle.content = req.body.content;
   newArticle.author = req.user.username;
+  newArticle.data = new Date();
   newArticle.views = 0;
 
   //use schema.create to insert data into the db

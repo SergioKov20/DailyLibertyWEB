@@ -32,6 +32,7 @@
                             <div class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
                                 <a href="/newarticle">Escriure Article</a>
+								<a href="/about">About Us</a>
                                 <a href="/logout">Log Out</a>
                             </div>
                         <%} else {%>
@@ -39,6 +40,7 @@
                             <div class="dropContingut">
                                 <a href="/login" >Sign In</a>
                                 <a href="/register">Register</a>
+								<a href="/about">About Us</a>
                             </div>
                         <% } %>
                     </div>
@@ -76,7 +78,11 @@
                     <img id="fotoperfil" width="150px" height="150px" style="border-radius: 100px" alt="pic">
                   </div>
                   <div class="form-group ft">
-                    <button id="seguir" class="follow" onclick="follow()">Follow</button>
+                    <form id="followform" method="post">
+                      <input id="usuari" type="hidden" name="user" value="">
+                      <input id="accion" type="hidden" name="action" value="">
+                      <button type="button" id="seguir" class="follow" onclick="follow()">Follow</button>
+                    </form>
                   </div>
                 </div>
                <div id="cajaperfil" class="col-lg-7">
@@ -106,7 +112,7 @@
                   <h4><b>Total Rating:</b></h4>
                   <p>This user's rating is: <%=user.rating %>.</p>
                   <h4><b>Followers:</b></h4>
-                  <p><a href="/followers?u=<%=user.username %>">Click here to check <%=user.firstName %>'s followers!</a></p>
+                  <p><a href="/followers?v=<%=user.username %>">Click here to check <%=user.firstName %>'s followers!</a></p>
                 </div>
 
                 <div class="row kov tabcontent" id="Articles" class="tabcontent" style="display: none">
@@ -122,13 +128,47 @@
          </section>
 
         <script src="/js/mostrarNav.js"></script>
-        <script src="/js/follow.js"></script>
+        <% if(isFollowing == "no") { %>
+          <script>
+              document.getElementById('seguir').innerHTML = "Follow";
+              document.getElementById('seguir').style.backgroundColor = "#3f51b5";
+              function follow() {
+                document.getElementById('seguir').innerHTML = "Unfollow";
+                document.getElementById('seguir').style.backgroundColor = "#CC0000";
+                document.getElementById('usuari').value = '<%=user.username %>';
+                document.getElementById('accion').value = 'follow';
+                document.getElementById('followform').action = "/user?v=<%=user.username %>";
+                document.getElementById('followform').submit();
+              }
+          </script>
+        <% } else if(isFollowing == "yes") { %>
+          <script>
+              document.getElementById('seguir').innerHTML = "Unfollow";
+              document.getElementById('seguir').style.backgroundColor = "#CC0000";
+              function follow() {
+                document.getElementById('seguir').innerHTML = "Follow";
+                document.getElementById('seguir').style.backgroundColor = "#3f51b5";
+                document.getElementById('usuari').value = '<%=user.username %>';
+                document.getElementById('accion').value = 'unfollow';
+                document.getElementById('followform').action = "/user?v=<%=user.username %>";
+                document.getElementById('followform').submit();
+              }
+          </script>
+        <% } else { %>
+          <script>
+              document.getElementById('seguir').innerHTML = "Follow";
+              document.getElementById('seguir').style.backgroundColor = "#3f51b5";
+              function follow() {
+                document.getElementById('usuari').value = 'notloggedin';
+                document.getElementById('accion').value = 'notloggedin';
+                document.getElementById('followform').action = "/user?v=<%=user.username %>";
+                document.getElementById('followform').submit();
+              }
+          </script>
+        <% } %>
+
         <script>
         document.getElementById("fotoperfil").src = '<%=user.fotourl %>';
-
-        document.getElementById("dropBoton").style.background = 'url(<%=user.fotourl %>)';
-        document.getElementById("dropBoton").style.backgroundSize = 'cover';
-        document.getElementById("dropBoton").style.borderRadius = '100px';
 
           function openTab(evt, TabName) {
             var i, tabcontent, tablinks;
@@ -146,7 +186,7 @@
         </script>
         <% if (isLoggedIn == true) { %>
           <script>
-            document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";;
+            document.getElementById("dropBoton").style.background = 'url(<%=me.fotourl %>)';
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
           </script>

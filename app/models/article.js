@@ -10,6 +10,9 @@ var articleSchema = mongoose.Schema({
     content		: { type:String, es_indexed:true },
     author		: { type:String, es_indexed:true },
     views 		: { type:Number, es_indexed:true },
+	data : Date,
+	likes : [String],
+	dislikes : [String]
 });
 
 articleSchema.plugin(mongoosastic); 
@@ -24,6 +27,7 @@ stream.on('close', function(){
 });
 stream.on('error', function(err){
   console.log(err);
+
 });
 
 // create the model for articles and expose it to our app

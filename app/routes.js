@@ -5,7 +5,10 @@ module.exports = function(app,passport,newspaper) {
     });
 
     app.get('/login', function(req, res) {
-        res.render('login.ejs', { message: req.flash('loginMessage') });
+        if(req.isAuthenticated()) {
+            res.redirect('/profile');
+        }
+        else res.render('login.ejs', { message: req.flash('loginMessage') });
     });
     app.post('/login', passport.authenticate('login', {
         successRedirect : '/profile', // redirect to the secure profile section
@@ -14,7 +17,10 @@ module.exports = function(app,passport,newspaper) {
     }));
 
     app.get('/register', function(req, res) {
-        res.render('register.ejs', { message: req.flash('signupMessage') });
+      if(req.isAuthenticated()) {
+          res.redirect('/profile');
+      }
+      else res.render('register.ejs', { message: req.flash('signupMessage') });
     });
     app.post('/register', passport.authenticate('signup', {
         successRedirect : '/profile', // redirect to the secure profile section
@@ -41,10 +47,25 @@ module.exports = function(app,passport,newspaper) {
         require('./search.js').getUser(req,res);
     });
 
+    app.post('/user', function(req,res){
+        require('./search.js').followUser(req,res);
+    });
+
+    app.get('/following', isLoggedIn, function(req, res) {
+        res.render('following.ejs', {
+            user : req.user,
+            following : req.user.following
+        } );
+    });
+
+    app.get('/followers', function(req, res) {
+        require('./search.js').getUserFollowers(req,res);
+    });
+
 	app.get('/article', isLoggedIn, function(req, res) {
         var articleID = req.param('e');
         if (articleID == null) res.render('./article.ejs', {
-          user: req.user, 
+          user: req.user,
           article: null
         });
         else  require('./search.js').editArticle(req,res);
@@ -56,6 +77,9 @@ module.exports = function(app,passport,newspaper) {
 
     app.get('/read', function(req,res){
         require('./search.js').getArticle(req,res);
+    });
+    app.post('/read', function(req,res){
+        require('./search.js').likeArticle(req,res);
     });
 
     app.get('/tendencies', function(req, res) {
@@ -75,6 +99,13 @@ module.exports = function(app,passport,newspaper) {
         var category = req.param('c');
         if (category == null) res.render('error/wrongCategory.ejs');
         else  newspaper.getCategory(req,res);
+    });
+
+    app.get('/about', function(req, res) {
+        res.render('about.ejs', {
+            user : req.user,
+            isLoggedIn: req.isAuthenticated()
+        } );
     });
 }
 

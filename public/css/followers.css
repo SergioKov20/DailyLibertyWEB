@@ -2,20 +2,34 @@ body{
  background:mintcream;
 }
 
-h1,h2,h3 {
-	margin:0 0 35px 0;
-	font-family: 'Roboto Condensed';
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing:1px;
-    text-align: center;
+
+.seguidors {
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    padding-left: 62px;
+    font-style: italic;
+    color: grey;
 }
+
+
+.seguidors:after {
+  margin-top: 10px;
+  display: block;
+  content: "";
+  width: 90% !important;
+  height: 2px;
+  background-color: grey;
+  vertical-align: super;
+}
+
 
 .user-profile-2 {
     text-align: center;
     position: relative;
     margin-top:10px;
 }
+
 
 .box-info {
     position: relative;
@@ -30,6 +44,7 @@ h1,h2,h3 {
     border-radius: 25px;
 }
 
+
 .user-profile-2 .header-cover {
     position: absolute;
     left: 0;
@@ -43,19 +58,46 @@ h1,h2,h3 {
 .user-profile-2 .user-profile-inner {
     z-index: 2;
     position: relative;
+    display: inline-block;
 }
 
 .user-profile-2 .user-profile-inner h4.white {
     color: #fff;
 }
 
-.user-profile-2 .user-profile-inner img.profile-avatar {
-    box-shadow: 0 0 0 5px rgba(255,255,255,1);
-    -moz-box-shadow: 0 0 0 5px rgba(255,255,255,1);
-    -webkit-box-shadow: 0 0 0 5px rgba(255,255,255,1);
-    border: none;
-    width:100px;
-    height:100px;
+.test {
+  background: #d84f13;
+  box-shadow: 0 0 0 5px rgba(255,255,255,1);
+  -moz-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+  -webkit-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+  border: none;
+  width:100px;
+  height:100px;
+  transition: background-color 0.4s;
+}
+.letra {
+  font-family: arial;
+  font-weight: bold;
+  font-size: 50px;
+  text-transform: uppercase;
+  color: white;
+  padding: 15px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.test:hover {
+  background-color: #9c0606;
+  -webkit-transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+.letra:hover {
+  font-size: 55px;
+  padding: 12px;
 }
 
 .user-button {
@@ -192,8 +234,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
   font-size: 19px;
   border: none;
   cursor: pointer;
-  background: url(img/user_male2-512.png);
-  background-size: cover;
   width: 40px;
   height: 40px;
 }
@@ -401,16 +441,6 @@ html body .capsaHeader .barraSuperior .login .dropLogin {
 }
 html body .capsaHeader .barraSuperior .login .dropLogin:hover .dropContingut {
   display: block;
-}
-html body .capsaHeader .barraSuperior .login .dropLogin .dropBoton {
-  color: #afa1a1;
-  font-size: 19px;
-  border: none;
-  cursor: pointer;
-  background: url(../img/user_male2-512.png);
-  background-size: cover;
-  width: 40px;
-  height: 40px;
 }
 html body .capsaHeader .barraSuperior .login .dropLogin .dropContingut {
   display: none;
