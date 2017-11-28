@@ -7,8 +7,8 @@ exports.getIndex = function(req,res) {
       user: req.user,
       articles: articles,
       isLoggedIn: req.isAuthenticated()
-    });
   });
+});
 }
 
 exports.getCategory = function(req,res) {
@@ -17,16 +17,16 @@ exports.getCategory = function(req,res) {
     req.param('c') != "ciencia" &&
     req.param('c') != "tecnologia" &&
     req.param('c') != "altres"
-  ) res.render('error/wrongCategory.ejs');
-  else {
-    Article.find({category: req.param('c')}, function(err, articles) {
-      res.render('category.ejs', {
-        user: req.user,
-        articles: articles,
-        isLoggedIn: req.isAuthenticated()
+    ) res.render('error/wrongCategory.ejs');
+      else {
+        Article.find({category: req.param('c')}, function(err, articles) {
+          res.render('category.ejs', {
+            user: req.user,
+            articles: articles,
+            isLoggedIn: req.isAuthenticated()
+        });
       });
-    });
-  }
+    }
 }
 
 exports.getTendencies = function() {
@@ -49,56 +49,56 @@ exports.getTendencies = function() {
       title: t1,
       subtitle: s1,
       author: "Edgar Lorenzo"
-    },
-    {
+  },
+  {
       portada: "/img/puigdemont.jpg",
       category: "POLITICA",
       title: t2,
       subtitle: s2,
       author: "Edgar Lorenzo"
-    },
-    {
+  },
+  {
       portada: "/img/ciencia.jpg",
       category: "ESPORTS",
       title: t1,
       subtitle: s1,
       author: "Edgar Lorenzo"
-    },
-    {
+  },
+  {
       portada: "/img/puigdemont.jpg",
       category: "POLITICA",
       title: t2,
       subtitle: s2,
       author: "Edgar Lorenzo"
-    },
-    {
+  },
+  {
       portada: "/img/ciencia.jpg",
       category: "ESPORTS",
       title: t1,
       subtitle: s1,
       author: "Edgar Lorenzo"
-    },
-    {
+  },
+  {
       portada: "/img/puigdemont.jpg",
       category: "POLITICA",
       title: t2,
       subtitle: s2,
       author: "Edgar Lorenzo"
-    },
-    {
+  },
+  {
       portada: "/img/ciencia.jpg",
       category: "ESPORTS",
       title: t1,
       subtitle: s1,
       author: "Edgar Lorenzo"
-    },
-    {
+  },
+  {
       portada: "/img/puigdemont.jpg",
       category: "POLITICA",
       title: t2,
       subtitle: s2,
       author: "Edgar Lorenzo"
-    }
+  }
   ];
   return articles;
 }
@@ -119,10 +119,10 @@ exports.newArticle = function(req, res) {
   Article.create(newArticle, function(err) {
     if (err) {
       return next(err);
-    } else {
+  } else {
       return res.redirect('/')
-    }
-  });
+  }
+});
 }
 
 exports.editArticle = function(req, res) {
@@ -143,11 +143,11 @@ exports.editArticle = function(req, res) {
         article.save(function(err, updatedArticle) {
           if (err) res.render('error/500.ejs');
           else res.redirect('/profile');
-        });
-      }
+      });
     }
+}
 
-  });
+});
 }
 
 exports.editProfile = function(req, res) {
@@ -162,63 +162,98 @@ exports.editProfile = function(req, res) {
     //COMPROVACIÓ DE CONFLICTE I VALIDESA DE MAILS:
     var mail = fields.mail.substring(0, 35);
     User.findOne({'email': mail}, function(err, found) {
-	      if (found && (found.username != req.user.username)) {
-	        	return res.redirect('/profile');
-	      }
-				else {
-		        if (mail.indexOf('@') < 1) {
-		          return res.redirect('/profile');
-		        }
-		        User.findOne({'username': req.user.username}, function(err, user) {
-			          //COMPROVAR NAME VALID
-			          var name = fields.fullname1.substring(0, 10);
-			          var surname = fields.fullname2.substring(0, 24);
-			          if (name.length > 1) user.firstName = name;
-			          else return res.redirect('/profile');
-			          if (surname.length > 1) user.lastName = surname;
-			          else return res.redirect('/profile');
-			          user.email = mail;
+     if (found && (found.username != req.user.username)) {
+      return res.redirect('/profile');
+  }
+  else {
+      if (mail.indexOf('@') < 1) {
+        return res.redirect('/profile');
+    }
+    User.findOne({'username': req.user.username}, function(err, user) {
+                      //COMPROVAR NAME VALID
+                      var name = fields.fullname1.substring(0, 10);
+                      var surname = fields.fullname2.substring(0, 24);
+                      if (name.length > 1) user.firstName = name;
+                      else return res.redirect('/profile');
+                      if (surname.length > 1) user.lastName = surname;
+                      else return res.redirect('/profile');
+                      user.email = mail;
 
-			          //COMPROVAR DATA VALID
-			          var data = fields.birth.substring(0, 10);
-			          var comp = data.split('/');
-			          var d = parseInt(comp[0], 10);
-			          var m = parseInt(comp[1], 10);
-			          var y = parseInt(comp[2], 10);
-			          var date = new Date(y, m - 1, d);
-			          if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
-			            	user.birthdate = data;
-			          } else user.birthdate = "";
+                      //COMPROVAR DATA VALID
+                      var data = fields.birth.substring(0, 10);
+                      var comp = data.split('/');
+                      var d = parseInt(comp[0], 10);
+                      var m = parseInt(comp[1], 10);
+                      var y = parseInt(comp[2], 10);
+                      var date = new Date(y, m - 1, d);
+                      if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
+                        user.birthdate = data;
+                    } else user.birthdate = "";
 
-			          //COMPROVAR ABOUT
-			          var about = fields.aboutme.substring(0, 300);
-			          user.aboutme = about;
+                      //COMPROVAR ABOUT
+                      var about = fields.aboutme.substring(0, 300);
+                      user.aboutme = about;
 
-			          //COMPROVAR FOTO
-			          if (fields.calborrar == "1") {
-			            user.fotourl = "/multimedia/profilepics/default.png";
-			          }
-								else if (files.filetoupload.size != 0) {
-				            var oldpath = files.filetoupload.path;
-				            var extension = "";
-				            if (files.filetoupload.type == 'image/png') extension = ".png";
-				            else if (files.filetoupload.type == 'image/jpeg') extension = ".jpg";
-				            else {
-					              res.render('error/wrongFileExt.ejs');
-					              return;
-				            }
-				            var newpath = './public/multimedia/profilepics/' + fields.username + extension;
-				            fs.rename(oldpath, newpath, function(err) {
-				              	if (err) res.render('error/500.ejs');
-				            });
-				            user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
-			          }
-			          user.save(function(err) {
-				            if (err) res.render('error/500.ejs');
-				            else res.redirect('/profile');
-			          });
-		        });
-	      }
-    });
-  });
+                      //COMPROVAR FOTO
+                      if (fields.calborrar == "1") {
+                     user.fotourl = "/multimedia/profilepics/default.png";
+                 }
+                 else if (files.filetoupload.size != 0) {
+                    var oldpath = files.filetoupload.path;
+                    var extension = "";
+                    if (files.filetoupload.type == 'image/png') extension = ".png";
+                    else if (files.filetoupload.type == 'image/jpeg') extension = ".jpg";
+                    else {
+                     res.render('error/wrongFileExt.ejs');
+                     return;
+                 }
+                 var newpath = './public/multimedia/profilepics/' + fields.username + extension;
+                 fs.rename(oldpath, newpath, function(err) {
+                     if (err) res.render('error/500.ejs');
+                 });
+                 user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
+             }
+             user.save(function(err) {
+                if (err) res.render('error/500.ejs');
+                else res.redirect('/profile');
+            });
+         });
+}
+});
+});
+}
+
+exports.likeArticle = function(req, res) {
+    var articleID = req.param('a');
+    var userID = req.param('u');
+    var like = req.param('l');
+    if (articleID == null || userID == null || like == null) res.send(false);
+    else {
+        Article.findById(articleID, function(err, article){
+            if (err) res.send(false);
+            else if (!article) res.send(false);
+            else {
+                var index = article.likes.findIndex(function(element) {
+                    return (element._id == userID);
+                });
+                //var index = article.likes.find(o => o._id === userID);
+                //var index = article.likes.indexOf({ _id: userID, like:false});
+                if ( like != 0 ){ //like or dislike
+                    if (index < 0) { //New like
+                        article.likes.push( {_id : userID, like : (like==1)} );
+                    }
+                    else { //existing like
+                        article.likes[index].like = (like == 1); 
+                    }
+                }
+                else { //unlike
+                    if (index > -1) article.likes.splice(index, 1);
+                }
+                article.save(function(err) {
+                    if (err) res.send(false);
+                    else res.send(true);
+                });
+            }
+        });
+    }
 }

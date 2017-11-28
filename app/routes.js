@@ -105,7 +105,14 @@ module.exports = function(app,passport,newspaper) {
         res.render('about.ejs', {
             user : req.user,
             isLoggedIn: req.isAuthenticated()
-        } );
+        });
+    });
+    app.get('/like', function(req,res) {
+        if ( !res.isAuthenticated() ) res.send(false);
+        else {
+            if (req.user.username != req.param('u') ) res.send(false); //Filter user not allowed)
+            else newspaper.likeArticle(req,res);
+        }
     });
 }
 

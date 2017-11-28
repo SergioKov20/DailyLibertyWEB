@@ -10,9 +10,11 @@ var articleSchema = mongoose.Schema({
     content		: { type:String, es_indexed:true },
     author		: { type:String, es_indexed:true },
     views 		: { type:Number, es_indexed:true },
-	data : Date,
-	likes : [String],
-	dislikes : [String]
+	data 		: Date,
+	likes 		: [{
+					_id : String,
+					like : Boolean
+				  }]
 });
 
 articleSchema.plugin(mongoosastic); 

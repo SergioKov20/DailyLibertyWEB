@@ -12,23 +12,13 @@
 		<script src="/js/likes.js"></script>
    </head>
    <%
-      var id = "";
-      var title = "";
-      var subtitle = "";
-      var content = "";
-      var category = "";
-      var author = "";
-      var data = "";
-      var views = "";
-
-      if ( article ) {
-        id = article.id;
-        title = article.title;
-        subtitle = article.subtitle;
-        content = article.content;
-        category = article.category;
-        author = article.author;
-        views = article.views;
+        var id = article.id;
+        var title = article.title;
+        var subtitle = article.subtitle;
+        var content = article.content;
+        var category = article.category;
+        var author = article.author;
+        var views = article.views;
 
         var dd = article.data.getDate();
         var mm = article.data.getMonth()+1;
@@ -41,8 +31,11 @@
         if(mm < 10) {
             mm = '0' + mm;
         }
-        data = dd + '/' + mm + '/' + yyyy;
-    }%>
+        var data = dd + '/' + mm + '/' + yyyy;
+
+        var likes = article.likes.filter(function(element) { return element.like; }).length;
+        var dislikes = article.likes.length - likes;
+    %>
     <body id="prueba" >
         <header  class="capsaHeader">
             <ul class="barraSuperior">
@@ -136,11 +129,11 @@ return false" class="imgtwitter"  src="/img/twitter.png"/>
 										<span id="muteGreen" class="like" >
 											<button id="nogreen" class="likenogreen"></button>
 										</span>
-										<span class="likes"><%=article.likes.length%></span>
+										<span class="likes"><%=likes%></span>
 										<span id="muteRed" class="dislike" >
 											<button id="nored" class="dislikenored"></button>
 										</span>
-										<span class="dislikes"><%=article.dislikes.length%></span>
+										<span class="dislikes"><%=dislikes%></span>
 									</div>
 								</div>
 
@@ -180,7 +173,7 @@ return false" class="imgtwitter"  src="/img/twitter.png"/>
             click: function (value, l, d, event) {
                 var likes = $(this.element).find('.likes');
                 var dislikes = $(this.element).find('.dislikes');
-
+                $.get( "/like?a=<%=id%>&u=<%=user.username%>&l="+value );
                 likes.text(parseInt(likes.text()) + l);
                 dislikes.text(parseInt(dislikes.text()) + d);
             }
