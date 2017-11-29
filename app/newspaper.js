@@ -23,6 +23,7 @@ exports.getCategory = function(req,res) {
           res.render('category.ejs', {
             user: req.user,
             articles: articles,
+            categoria: req.param('c'),
             isLoggedIn: req.isAuthenticated()
         });
       });

@@ -58,32 +58,36 @@
                 <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
                 <div id="collapse1" class="collapse">
                     <div class="panel-body">
-                        <a href="/politica">Política</a>
-                          <a href="/esports">Esports</a>
-                          <a href="#">Ciència</a>
-                        <a href="/tecnologies">Tecnologia</a>
-                        <a href="/altres">Altres</a>
+                        <a href="/category?c=politica">Política</a>
+                          <a href="/category?c=esports">Esports</a>
+                          <a href="/category?c=ciencia">Ciència</a>
+                        <a href="/category?c=tecnologia">Tecnologia</a>
+                        <a href="/category?c=altres">Altres</a>
                     </div>
                 </div>
                 <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
             <% if (articles.length > 0) {
-                for (var i = 0; i < articles.length; i++){%>
+                for (var i = articles.length-1; i > -1; i--){%>
                     <a class="articulo" href="/read?a=<%=articles[i]._id%>"><article class="cajaI">
                         <header>
-                            <!--<img src="<%=articles[i].portada%>"/>-->
-                            <img src="/img/ciencia.jpg">
+                            <img src="<%=articles[i].fotourl %>">
                         </header>
                         <section>
-                            <h1><%=articles[i].title %></h1>
-                            <h2><%=articles[i].subtitle %></h2>
+							<div class="titulos">
+								<h1><%=articles[i].title %></h1>
+								<h2><%=articles[i].subtitle %></h2>
+							</div>
+							<div class="viewsDiv">
+								<div id="views" class="visites"><%=articles[i].views%></div>
+								<span class="nom">&nbsp;views</span>
+							</div>
 
-                            <div>
-                                <p><%=articles[i].category %></p>
-
-                                <small><%=articles[i].author %></small>
-                            </div>
+							<div class="footerArticle">
+								<p><%=articles[i].category %></p>
+								<small><%=articles[i].author %></small>
+							</div>
                         </section>
                     </article></a>
                 <%} }%>
