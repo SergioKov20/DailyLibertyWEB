@@ -505,7 +505,7 @@ html body .cajas .articuloCompleto article section {
   width: 100%;
   padding-top: 40px;
   justify-content: center;
-  display: grid;
+  display: flex;
   flex-wrap: wrap;
 }
 html body .cajas .articuloCompleto article section .divImg {

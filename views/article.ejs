@@ -93,8 +93,8 @@
                               <p id="datapreview"></p>
                           </div>
                         </div>
+                        <img id="fotopreview" class="imgPrincipal" src=""/>
                       </div>
-                      <img id="fotopreview" class="imgPrincipal" src=""/>
                       <div>
                         <pre id="contentpreview">No content detected</pre>
                       </div>
@@ -175,7 +175,7 @@
                           <div class="centrarboto">
                             <input type="file"  accept='image/jpeg, image/png' id=choose name=filetoupload onchange="cambiarfotoarticle(this)">
                             <% if(id != 0) { %>
-                                <input type="checkbox" value="nocambiar" name="nocambiar" checked> Don't change the photo.
+                                <input id="check" type="checkbox" value="nocambiar" name="nocambiar" checked> Don't change the photo.
                             <% } %>
                           </div>
                     </div>
@@ -193,47 +193,97 @@
 
 
         <script src="/js/mostrarNav.js"></script>
+
         <script>
           document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
           document.getElementById("dropBoton").style.backgroundSize = 'cover';
           document.getElementById("dropBoton").style.borderRadius = '100px';
           var hahabidocambios = false;
+        </script>
+        <% if(id != 0) { %>
+            <script>
+              var quieto = false;
 
-          function preview() {
-            document.getElementById('previa').style.display = 'block';
-            document.getElementById('edition').style.display = 'none';
+              function preview() {
+                if(document.getElementById('check').checked) quieto = true;
+                else quieto = false;
+                console.log(quieto + " " + hahabidocambios);
+                document.getElementById('previa').style.display = 'block';
+                document.getElementById('edition').style.display = 'none';
 
-            var prevititol = document.getElementById('texte').value;
-            if(prevititol != "") document.getElementById('titolpreview').innerHTML = prevititol;
-            var previsubtitol = document.getElementById('texte2').value;
-            if(previsubtitol != "") document.getElementById('subtitolpreview').innerHTML = previsubtitol;
-            var previcontent = document.getElementById('texte3').value;
-            if(previcontent != "") document.getElementById('contentpreview').innerHTML = previcontent;
-            document.getElementById('datapreview').innerHTML = getDataPrevia();
+                var prevititol = document.getElementById('texte').value;
+                if(prevititol != "") document.getElementById('titolpreview').innerHTML = prevititol;
+                var previsubtitol = document.getElementById('texte2').value;
+                if(previsubtitol != "") document.getElementById('subtitolpreview').innerHTML = previsubtitol;
+                var previcontent = document.getElementById('texte3').value;
+                if(previcontent != "") document.getElementById('contentpreview').innerHTML = previcontent;
+                document.getElementById('datapreview').innerHTML = getDataPrevia();
 
-            var previcategoria = "altres";
-            if(document.querySelector('input[name="category"]:checked').value != null) {
-              previcategoria = document.querySelector('input[name="category"]:checked').value;
-            }
-            document.getElementById('categorypreview').innerHTML = previcategoria;
-            if(!hahabidocambios) document.getElementById('fotopreview').src = "/multimedia/articles/default.jpg"
-          }
+                var previcategoria = "altres";
+                if(document.querySelector('input[name="category"]:checked').value != null) {
+                  previcategoria = document.querySelector('input[name="category"]:checked').value;
+                }
+                document.getElementById('categorypreview').innerHTML = previcategoria;
+                if(quieto) document.getElementById('fotopreview').src = "<%=artfoto%>";
+                else if(!hahabidocambios && !quieto) document.getElementById('fotopreview').src = "/multimedia/articles/default.jpg"
 
-          function cambiarfotoarticle(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
+              }
 
-                reader.onload = function (e) {
-                    $('#fotopreview')
-                        .attr('src', e.target.result)
-                };
+                  function cambiarfotoarticle(input) {
+                    if (!quieto && input.files && input.files[0]) {
+                        var reader = new FileReader();
 
-                reader.readAsDataURL(input.files[0]);
-                hahabidocambios = true;
+                        reader.onload = function (e) {
+                            $('#fotopreview')
+                                .attr('src', e.target.result)
+                        };
 
-            }
-          }
+                        reader.readAsDataURL(input.files[0]);
+                        hahabidocambios = true;
 
+                    }
+                  }
+            </script>
+        <% } else { %>
+            <script>
+              function preview() {
+                document.getElementById('previa').style.display = 'block';
+                document.getElementById('edition').style.display = 'none';
+
+                var prevititol = document.getElementById('texte').value;
+                if(prevititol != "") document.getElementById('titolpreview').innerHTML = prevititol;
+                var previsubtitol = document.getElementById('texte2').value;
+                if(previsubtitol != "") document.getElementById('subtitolpreview').innerHTML = previsubtitol;
+                var previcontent = document.getElementById('texte3').value;
+                if(previcontent != "") document.getElementById('contentpreview').innerHTML = previcontent;
+                document.getElementById('datapreview').innerHTML = getDataPrevia();
+
+                var previcategoria = "altres";
+                if(document.querySelector('input[name="category"]:checked').value != null) {
+                  previcategoria = document.querySelector('input[name="category"]:checked').value;
+                }
+                document.getElementById('categorypreview').innerHTML = previcategoria;
+                if(!hahabidocambios) document.getElementById('fotopreview').src = "/multimedia/articles/default.jpg"
+              }
+
+                  function cambiarfotoarticle(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#fotopreview')
+                                .attr('src', e.target.result)
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                        hahabidocambios = true;
+
+                    }
+                  }
+            </script>
+        <% } %>
+
+      <script>
           function getDataPrevia() {
             var dataactual = new Date();
             var dd = dataactual.getDate();
