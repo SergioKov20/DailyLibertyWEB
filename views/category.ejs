@@ -10,7 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href='/css/index.css'>
    </head>
-    <body id="global" >
+    <body >
         <header  class="capsaHeader">
             <ul class="barraSuperior">
                 <li id="btnMostrarNav" class="imgMenu">
@@ -33,7 +33,7 @@
                             <button id="dropBoton" class="dropBoton"></button>
                              <div style="left: -190%" class="dropContingut">
                                 <a href="/profile" >Veure Perfil</a>
-                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/article">Escriure Article</a>
 								<a href="/about">About Us</a>
                                 <a href="/logout">Log Out</a>
                             </div>
@@ -74,7 +74,7 @@
                         <header>
                             <img src="<%=articles[i].fotourl %>">
                         </header>
-                        <section>
+                        <section id="global">
 							<div class="titulos">
 								<h1><%=articles[i].title %></h1>
 								<h2><%=articles[i].subtitle %></h2>

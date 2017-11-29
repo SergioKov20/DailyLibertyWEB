@@ -10,7 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href='/css/tendencies.css'>
    </head>
-    <body id="global" >
+    <body>
         <header  class="capsaHeader">
             <ul class="barraSuperior">
                 <li id="btnMostrarNav" class="imgMenu">
@@ -74,7 +74,7 @@
                 for (var i = 0; i < tendencies.length; i++){%>
                     <div onclick="location.href = '/index'" class="divImgArt">
                         <div><img src="<%=tendencies[i].portada%>"/></div>
-                        <article class="cajaArticle">
+                        <article class="cajaArticle"  id="global" >
 							<div class="Content">
 								<header>
 									<h1><%=tendencies[i].title%></h1>

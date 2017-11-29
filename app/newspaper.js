@@ -1,10 +1,10 @@
 var Article = require('./models/article');
 
 exports.getIndex = function(req,res) {
-
   Article.find({}, function(err, articles) {
     res.render('index.ejs', {
       user: req.user,
+      action: req.param('a'),
       articles: articles,
       isLoggedIn: req.isAuthenticated()
   });
