@@ -59,6 +59,14 @@
               </ul>
           </nav>
 
+          <%  var totalarticles = 0;
+              var vector = [];
+              for(var i = 0; i < articles.length; i++) {
+                if(articles[i].author == user.username) {
+                  ++totalarticles;
+                  vector.push(articles[i]);
+                }
+              } %>
           <!-- Sergio bootstrap -->
           <div id="perfil" class="container perso">
               <div class="row mb25">
@@ -108,7 +116,7 @@
 
                 <div class="row kov tabcontent" id="Statistics"style="display: none">
                   <h4><b>Total of articles:</b></h4>
-                  <p>You've written <%=user.articles %> articles.</p>
+                  <p>You've written <%=totalarticles %> articles.</p>
                   <h4><b>Total Rating:</b></h4>
                   <p>Your total rating is: <%=user.rating %>.</p>
                   <h4><b>Followers:</b></h4>
@@ -117,7 +125,13 @@
 
                 <div class="row kov tabcontent" id="Articles" class="tabcontent" style="display: none">
                   <h4><b>Articles written:</b></h4>
-                  <p><i>/*Aquí sortirien els articles que ha escrit.*/</i></p>
+                  <% if(vector.length == 0) { %>
+                    <p><i>You've not written any article yet.</i></p>
+                  <% } else { %>
+                    <% for(var x in vector) { %>
+                      <a href="/read?a=<%=vector[x].id%>">- <%=vector[x].title%></a><br>
+                    <% } %>
+                  <% } %>
                 </div>
 
                 <div class="row kov tabcontent" id="About me" class="tabcontent" style="display: none">

@@ -34,9 +34,14 @@ module.exports = function(app,passport,newspaper) {
 	});
 
 	app.get('/profile', isLoggedIn, function(req,res){
-		res.render('profile.ejs', {
-            user : req.user, // get the user out of session and pass to template
-        });
+    var Article = require('./models/article');
+    Article.find({}, function(err, articles) {
+      res.render('profile.ejs', {
+        user: req.user,
+        articles: articles, //Per obtenir estadistiques d'articles.
+        isLoggedIn: req.isAuthenticated()
+      });
+    });
 	});
 
     app.post('/profile', isLoggedIn, function(req, res) {

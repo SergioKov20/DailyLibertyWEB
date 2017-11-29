@@ -22,12 +22,16 @@ exports.getUser = function (req,res) {
 								else siguiendo = "no";
 						}
 
-	        	res.render('user.ejs', {
-		            user : user, // get the user out of session and pass to template
-								me: req.user, //para tener mi foto en la barra de arriba
-		            isLoggedIn: req.isAuthenticated(),
+						var Article = require('./models/article');
+				    Article.find({}, function(err, articles) {
+				      res.render('user.ejs', {
+								user: user,
+								me: req.user,
+				        articles: articles, //Per obtenir estadistiques d'articles.
+				        isLoggedIn: req.isAuthenticated(),
 								isFollowing: siguiendo
-	        	});
+				      });
+				    });
 	        }
 		});
 	}
