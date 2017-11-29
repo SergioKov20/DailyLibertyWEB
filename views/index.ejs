@@ -11,12 +11,13 @@
         <link rel='stylesheet' href='/css/index.css'>
         <title>DailyLiberty  |  Welcome!</title>
    </head>
-    <body id="prueba" ><div class="content3">
-        <img class="fotoinici" src="img/dailylibertyLogo.jpeg"/>
-    </div>
+    <body id="global" >
+        <div class="content3">
+            <img class="fotoinici" src="img/dailylibertyLogo.jpeg"/>
+        </div>
 
-    <div class="content" style="display:none;">
-    <header  class="capsaHeader">
+        <div class="content" style="display:none;">
+        <header  class="capsaHeader">
         <ul class="barraSuperior">
             <li id="btnMostrarNav" class="imgMenu">
                 <img src="img/menuBlanco.png"/>
@@ -98,6 +99,7 @@
                 <%} }%>
         </section>
         <script src="/js/mostrarNav.js"></script>
+        <script src="/js/correctorInsults.js"></script>
         <!--Script missatge inicial-->
         <script type="text/javascript">
         $(document).ready(function() {
@@ -111,37 +113,7 @@
                     $(".content3").delay(600).fadeOut(600);
             });
         </script>
-		<!--<script>
-            function numberto(n){
-                x=(''+n).length;
-                p=Math.pow;
-                d=p(10,true);
-                x-=x%3;
-                return Math.round(n*d/p(10,x))/d+" kMGTPE"[x/3];
-            }
-
-            function intToString (value) {
-                var suffixes = ["", "K", "M", "B","t"];
-                var suffixNum = Math.floor((""+value).length/3);
-                var shortValue = parseFloat((suffixNum != 0 ? (value / Math.pow(1000,suffixNum)) : value).toPrecision(2));
-                if (shortValue % 1 != 0) {
-                    var shortNum = shortValue.toFixed(1);
-                }
-                return shortValue+suffixes[suffixNum];
-            }
-
-                document.getElementById("views1").innerHTML = numberto(document.getElementById("views1").innerHTML);
-            function oneDot(input) {
-				var value = input.value,
-					value = plainNumber(value);
-
-				if (value.length > 3) {
-				  value = value.substring(0, value.length - 3) + '.' + value.substring(value.length - 3, value.length);
-				}
-				console.log(value);
-				input.value = value;
-			 }
-        </script>-->
+		
         <% if (isLoggedIn == true) { %>
           <script>
             document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";

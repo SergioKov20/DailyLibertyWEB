@@ -10,7 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href='/css/busqueda.css'>
    </head>
-    <body id="prueba" >
+    <body id="global" >
         <header  class="capsaHeader">
             <ul class="barraSuperior">
                 <li id="btnMostrarNav" class="imgMenu">
@@ -116,6 +116,7 @@
             <%} }%>
         </section>
         <script src="/js/mostrarNav.js"></script>
+        <script src="/js/correctorInsults.js"></script>
         <% if (isLoggedIn == true) { %>
           <script>
             document.getElementById("dropBoton").style.background = "url("+ <%=user.fotourl %>+ ")";

@@ -38,7 +38,7 @@
         var likes = article.likes.filter(function(element) { return element.like; }).length;
         var dislikes = article.likes.length - likes;
     %>
-    <body id="prueba" >
+    <body id="global" >
         <header  class="capsaHeader">
             <ul class="barraSuperior">
                 <li id="btnMostrarNav" class="imgMenu">
@@ -98,7 +98,7 @@
             </ul>
         </nav>
         <div class="articuloCompleto">
-            <article id="global">
+            <article>
                 <header>
                     <p><%=category%></p>
                     <h1><%=title%></h1>
