@@ -224,7 +224,8 @@ html body .cajas .articulo .cajaI section {
   max-height: 250px;
 }
 html body .cajas .articulo .cajaI section .titulos {
-  height: 90px;
+  height: 91px;
+  overflow: hidden;
 }
 html body .cajas .articulo .cajaI section .titulos h1 {
   font-size: 16px;
@@ -238,10 +239,11 @@ html body .cajas .articulo .cajaI section .titulos h1 {
 }
 html body .cajas .articulo .cajaI section .titulos h2 {
   font-weight: normal;
-  font-size: 10.5px;
+  font-size: 10px;
   line-height: inherit;
   color: dimgrey;
-  margin-top: 10px;
+  margin-top: 4px;
+  margin-bottom: 0px;
   padding-left: 6px;
   padding-right: 6px;
   word-wrap: break-word;
