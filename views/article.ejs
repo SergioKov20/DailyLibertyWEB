@@ -4,7 +4,7 @@
         <meta charset='UTF-8'>
         <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/>
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-        <title>DailyLiberty  |  Edit your article</title>
+        <title>DailyLiberty  |  Article edition</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -75,11 +75,37 @@
                   <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
-
-
-
         <section id="contact" class="content-section text-center">
-        <div class="contact-section">
+
+          <!-- VISTA PREVIA -->
+          <div id="previa" class="articuloCompleto" style="display:none">
+              <article>
+                  <header>
+                      <p style="color: orange; font-size: 14px;" id="categorypreview"></p>
+                      <h1 id="titolpreview">NO TITLE DETECTED</h1>
+                      <h2 style="font-size: 20px;" id="subtitolpreview">No subtitle detected</h2>
+                  </header>
+                  <section>
+                      <div class="divImg">
+  						          <div class="preImagen"><div class="autor">
+                              <small>per </small>
+                              <a><%=user.username%></a>
+                              <p id="datapreview"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <img id="fotopreview" class="imgPrincipal" src=""/>
+                      <div>
+                        <pre id="contentpreview">No content detected</pre>
+                      </div>
+                  </section><br><br>
+                  <button type="button" class="btn btn-default" onclick="quitpreview()">Back</button>
+              </article>
+            </div>
+              <!-- VISTA PREVIA FINAL -->
+
+
+        <div id="edition" class="contact-section">
             <div class="container">
               <h2>DailyLiberty</h2>
               <% if(id != 0) { %>
@@ -96,12 +122,12 @@
                     </div>
                     <div class="form-group">
                       <label for="subtitle">Subtitle</label>
-                       <pre><textarea  name="subtitle" class="form-control" rows="2" placeholder="Pick up a subtitle" required><%=subtitle%></textarea></pre>
+                       <pre><textarea id="texte2" name="subtitle" class="form-control" rows="2" placeholder="Pick up a subtitle" required><%=subtitle%></textarea></pre>
                     </div>
 
                     <div class="form-group">
                       <label for="description">Description</label>
-                        <pre><textarea  name="content" class="form-control" rows="15" placeholder="Describe your article" required><%=content%></textarea></pre>
+                        <pre><textarea id="texte3" name="content" class="form-control" rows="15" placeholder="Describe your article" required><%=content%></textarea></pre>
                       </div>
                       <div class="form-group">
                         <label for="category">Category</label><br><br>
@@ -135,7 +161,7 @@
                                   <% } %>
                                 </label>
                                 <label class="espacio">
-                                  <% if(category == "altres") { %>
+                                  <% if(category == "altres" || category == "") { %>
                                     <input type="radio" name="category" value="altres" checked> Altres
                                   <% } else { %>
                                     <input type="radio" name="category" value="altres"> Altres
@@ -147,7 +173,7 @@
                       <div>
                         <br><label for="image">Image</label><br><br>
                           <div class="centrarboto">
-                            <input type="file"  accept='image/jpeg, image/png' id=choose name=filetoupload>
+                            <input type="file"  accept='image/jpeg, image/png' id=choose name=filetoupload onchange="cambiarfotoarticle(this)">
                             <% if(id != 0) { %>
                                 <input type="checkbox" value="nocambiar" name="nocambiar" checked> Don't change the photo.
                             <% } %>
@@ -156,7 +182,7 @@
                       <br><br>
                       <button type="button" class="btn btn-default" onclick="cancel()">Cancel</button>
                     <button type="submit" class="btn btn-default">Save Changes</button>
-                    <button type="button" class="btn btn-default" onclick="myFunction()" target="_blank"> Preview</button>
+                    <button type="button" class="btn btn-default" onclick="preview()" target="_blank"> Preview</button>
                   </form>
                 </div>
               </div>
@@ -171,6 +197,64 @@
           document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
           document.getElementById("dropBoton").style.backgroundSize = 'cover';
           document.getElementById("dropBoton").style.borderRadius = '100px';
+          var hahabidocambios = false;
+
+          function preview() {
+            document.getElementById('previa').style.display = 'block';
+            document.getElementById('edition').style.display = 'none';
+
+            var prevititol = document.getElementById('texte').value;
+            if(prevititol != "") document.getElementById('titolpreview').innerHTML = prevititol;
+            var previsubtitol = document.getElementById('texte2').value;
+            if(previsubtitol != "") document.getElementById('subtitolpreview').innerHTML = previsubtitol;
+            var previcontent = document.getElementById('texte3').value;
+            if(previcontent != "") document.getElementById('contentpreview').innerHTML = previcontent;
+            document.getElementById('datapreview').innerHTML = getDataPrevia();
+
+            var previcategoria = "altres";
+            if(document.querySelector('input[name="category"]:checked').value != null) {
+              previcategoria = document.querySelector('input[name="category"]:checked').value;
+            }
+            document.getElementById('categorypreview').innerHTML = previcategoria;
+            if(!hahabidocambios) document.getElementById('fotopreview').src = "/multimedia/articles/default.jpg"
+          }
+
+          function cambiarfotoarticle(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#fotopreview')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+                hahabidocambios = true;
+
+            }
+          }
+
+          function getDataPrevia() {
+            var dataactual = new Date();
+            var dd = dataactual.getDate();
+            var mm = dataactual.getMonth()+1;
+            var yyyy = dataactual.getFullYear();
+
+            if(dd < 10) {
+                dd = '0' + dd;
+            }
+
+            if(mm < 10) {
+                mm = '0' + mm;
+            }
+            var data = dd + '/' + mm + '/' + yyyy;
+            return data;
+          }
+
+          function quitpreview() {
+            document.getElementById('previa').style.display = 'none';
+            document.getElementById('edition').style.display = 'block';
+          }
         </script>
 
     </body>

@@ -1,19 +1,9 @@
-function myFunction() {
-                window.open('./vista_previa_article','_blank')
-}
-
-
 function cancel(){
 
-                alert("Are you sure to discard all the content?")
+                alert("Really discard your article?")
                 window.open('./',"_self")
 
 }
-
-var getFile = new selectFile;
-getFile.targets('choose','selected');
-
-
 
 // the selector will match all input controls of type :checkbox
 // and attach a click event handler
