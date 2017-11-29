@@ -11,12 +11,16 @@
         <link rel='stylesheet' href='/css/index.css'>
         <title>DailyLiberty  |  Welcome!</title>
    </head>
-    <body id="prueba" >
-        <header  class="capsaHeader">
-            <ul class="barraSuperior">
-                <li id="btnMostrarNav" class="imgMenu">
-                    <img src="/img/menuBlanco.png"/>
-                </li>
+    <body id="prueba" ><div class="content3">
+        <img class="fotoinici" src="img/dailylibertyLogo.jpeg"/>
+    </div>
+
+    <div class="content" style="display:none;">
+    <header  class="capsaHeader">
+        <ul class="barraSuperior">
+            <li id="btnMostrarNav" class="imgMenu">
+                <img src="img/menuBlanco.png"/>
+            </li>
                 <li class="cajaLogo">
                     <a class="logo" href="/">DailyLiberty</a>
                 </li>
@@ -94,6 +98,19 @@
                 <%} }%>
         </section>
         <script src="/js/mostrarNav.js"></script>
+        <!--Script missatge inicial-->
+        <script type="text/javascript">
+        $(document).ready(function() {
+          $(document).ready(function() {
+                  $(".content").fadeIn(1200);
+          });
+        });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                    $(".content3").delay(600).fadeOut(600);
+            });
+        </script>
 		<!--<script>
             function numberto(n){
                 x=(''+n).length;
