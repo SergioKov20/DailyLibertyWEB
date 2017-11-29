@@ -187,10 +187,11 @@ exports.editArticle = function(req, res) {
               article.fotourl = "/multimedia/articles/default.jpg";
             }
           }
+          article.views = article.views - 1; //No és legal que et conti una més per editar haha
 
           article.save(function(err, updatedArticle) {
             if (err) res.render('error/500.ejs');
-            else res.redirect('/');
+            else res.redirect('/read?a='+article._id);
           });
         });
       }
