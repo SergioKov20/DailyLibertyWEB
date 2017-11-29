@@ -454,3 +454,7 @@ html body .mostrarDiv {
 html body .mostrarMenu {
   left: 0;
 }
+html body .marked {
+  font-weight: bold;
+  color: red;
+}
