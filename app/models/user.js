@@ -11,7 +11,6 @@ var userSchema = mongoose.Schema({
 	birthdate    : String,
 	aboutme      : String,
 	rating      : Number,
-	articles      : Number,
 	following      : [String],
 	followers      : [String],
     fotourl      : String
