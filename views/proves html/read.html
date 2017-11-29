@@ -24,7 +24,7 @@
                    <form action="results" method="GET">
                         <input id="search" type="search" placeholder="Buscar" name="search"></input>
                         <button id="botonSearch" class="botonSearch">
-                            <img src="img/lupaBuscador.png"/>
+                        <img src="img/lupaBuscador.png"/>
                         </button>
                     </form>
                 </li>
@@ -93,15 +93,35 @@ return false" class="imgtwitter"  src="img/twitter.png"/>
                                 </div>
                                 <div class="likesDislikes" id="rating">
                                 <div class="intLike">
-                                    <span id="muteGreen" class="like" >
-                                        <button id="nogreen" class="likenogreen"></button>
+                                  
+                                   <!------1--if like true---------Like & Undislike------------------
+                                    
+                                    <span id="muteGreen" class="like active" >
+                                        <button id="nogreen" class="likegreen"></button>
                                     </span>
                                     <span class="likes">12</span>
                                     <span id="muteRed" class="dislike" >
                                         <button id="nored" class="dislikenored"></button>
                                     </span>
-
-                                    <span class="dislikes">2</span>
+                                    <span class="dislikes">2</span>-->
+                                    <!-----2 else if like false----------Dislike & Unlike------------------
+                                    <span id="muteGreen" class="like" >
+                                        <button id="nogreen" class="likenogreen"></button>
+                                    </span>
+                                    <span class="likes">12</span>
+                                    <span id="muteRed" class="dislike active" >
+                                        <button id="nored" class="dislikered"></button>
+                                    </span>
+                                    <span class="dislikes">2</span>-->
+                                   <!------3 else----------Unlike & Undislike---------------
+                                    <span id="muteNoGreen" class="like">
+                                        <button id="nogreen" class="likenogreen"></button>
+                                    </span>
+                                    <span class="likes">12</span>
+                                    <span id="muteNoRed" class="dislike" >
+                                        <button id="nored" class="dislikenored"></button>
+                                    </span>
+                                    <span class="dislikes">2</span>-->
                                 </div>
                             </div>
 
@@ -149,7 +169,7 @@ Passades les vuit de la tarda, l'advocat belga Paul Bekaert ha difós a mitjans 
         <script>
             var insult1 = "putas";
             var insult2 = "mal parit";
-            var insult3 = "soplagaites"
+            var insult3 = "soplagaites";
             var str1 = "*****";
               var newhtml = $('.prueba').html().replace(insult1, '<span class="marked">' + str1 + '</span>');
                $('.prueba').html(newhtml);
@@ -166,7 +186,7 @@ Passades les vuit de la tarda, l'advocat belga Paul Bekaert ha difós a mitjans 
             click: function (value, l, d, event) {
                 var likes = $(this.element).find('.likes');
                 var dislikes = $(this.element).find('.dislikes');
-
+                document.writeln(value); 
                 likes.text(parseInt(likes.text()) + l);
                 dislikes.text(parseInt(dislikes.text()) + d);
             }
