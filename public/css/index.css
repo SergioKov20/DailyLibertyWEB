@@ -6,23 +6,6 @@
   src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(https://fonts.gstatic.com/s/raleway/v12/cbAbzEjxTdN5KKmS-gA0tSEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
   unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
 }
-
-.content3{
-    height: 100vh;
-    background-color: mintcream;
-    background-size: cover;
-    font-family: "Roboto";
-    font-size: 100px;
-    text-align: center;
-    margin-top: 100px;
-}
-
-.fotoinici{
-
-    width: 800px;
-    height: auto;
-
-}
 html {
   background-color: mintcream;
 }
@@ -32,6 +15,19 @@ html body {
   font-family: 'Roboto Slab', serif;
   font-family: 'Lora', Georgia, serif;
   height: 100%;
+}
+html body .content3 {
+  height: 100vh;
+  background-color: mintcream;
+  background-size: cover;
+  font-family: "Roboto";
+  font-size: 100px;
+  text-align: center;
+  margin-top: 100px;
+}
+html body .content3 .fotoinici {
+  width: 800px;
+  height: auto;
 }
 html body .capsaHeader {
   width: 100%;
