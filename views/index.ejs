@@ -12,7 +12,7 @@
         <title>DailyLiberty  |  Welcome!</title>
    </head>
     <body >
-      <% if (action == "wlcm") { %>
+      <% if (isLoggedIn && action == "wlcm") { %>
         <div class="content3">
             <img class="fotoinici" src="/img/dailylibertyLogo.jpeg"/>
         </div>
@@ -104,7 +104,7 @@
         </section>
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/correctorInsults.js"></script>
-        <% if (action == "wlcm") { %>
+        <% if (isLoggedIn && action == "wlcm") { %>
           <!--Script missatge inicial-->
           <script type="text/javascript">
           $(document).ready(function() {
