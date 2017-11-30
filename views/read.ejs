@@ -193,9 +193,11 @@
                   <% if (isLoggedIn == true) { %>
                       <div class="micomentario">
                       <form action="/read?a=<%=id%>&act=com" method="post">
+                        <div class="textandbutton">
                             <img width="40px" height="40px" src="<%=user.fotourl%>" style="vertical-align:top; border-radius:100px">
                             <textarea name="comentario" rows="3" cols="40" placeholder="Leave a comment" maxlength="280" class="comenta" required></textarea><br>
                             <button id="botocomentari" type="submit">Submit</button>
+                          </div>
                       </form>
                     </div>
                   <% } else { %>
@@ -218,7 +220,6 @@
                   <hr style="border-color: grey; margin-top: 35px">
                 </section>
 
-                <!-- DEIXO AXO OCULT FINS QUE ESTIGUI L'SCRIPT
                 <footer style="background:yellow">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     XYZ 336 x 280
@@ -231,7 +232,7 @@
                       (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                     GoogleAdsense(script incorporat)
-                </footer> -->
+                </footer>
             </article>
         </div>
 
@@ -240,18 +241,32 @@
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/changeColor.js"></script>
 		<script src="/js/correctorInsults.js"></script>
-    <script type="text/javascript">
-        $('#rating').likeDislike({
-            initialValue: 0,
-            click: function (value, l, d, event) {
-                var likes = $(this.element).find('.likes');
-                var dislikes = $(this.element).find('.dislikes');
-                //$ . get( "/like?a=<%=id%>&u= < % = ***user.username***% >&l="+value ); ***AIXO FA PETAR LA PAGINA
-                likes.text(parseInt(likes.text()) + l);
-                dislikes.text(parseInt(dislikes.text()) + d);
-            }
-        });
-    </script>
+    <% if (isLoggedIn == true) { %>
+        <script type="text/javascript">
+            $('#rating').likeDislike({
+                initialValue: 0,
+                click: function (value, l, d, event) {
+                    var likes = $(this.element).find('.likes');
+                    var dislikes = $(this.element).find('.dislikes');
+                    $.get("/like?a=<%=id%>&u=<%=user.username%>&l="+value );
+                    likes.text(parseInt(likes.text()) + l);
+                    dislikes.text(parseInt(dislikes.text()) + d);
+                }
+            });
+        </script>
+    <% } else { %>
+      <script type="text/javascript">
+          $('#rating').likeDislike({
+              initialValue: 0,
+              click: function (value, l, d, event) {
+                  var likes = $(this.element).find('.likes');
+                  var dislikes = $(this.element).find('.dislikes');
+                  likes.text(parseInt(likes.text()) + l);
+                  dislikes.text(parseInt(dislikes.text()) + d);
+              }
+          });
+      </script>
+      <% } %>
 		<% if (isLoggedIn == true) { %>
           <script>
             document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";

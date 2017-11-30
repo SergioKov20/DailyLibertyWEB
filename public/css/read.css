@@ -471,6 +471,7 @@ html body .marked {
   flex-wrap: wrap;
 }
 .comenta {
+  width: 385px;
   margin-left: 10px;
   resize:none;
   padding-left: 8px;
@@ -485,6 +486,20 @@ html body .marked {
   margin-top: 30px;
 }
 #botocomentari {
-  margin-left: 327px;
   margin-top: 5px;
+  margin-right: 60px;
+  float:right;
+}
+.textandbutton {
+  text-align:left !important;
+  overflow:auto !important;
+  width: 500px !important;
+}
+@media (max-width: 524px) {
+  .textandbutton {
+    width: auto !important;
+  }
+  .comenta {
+    width: auto !important;
+  }
 }
