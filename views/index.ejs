@@ -14,7 +14,7 @@
     <body >
       <% if (isLoggedIn && action == "wlcm") { %>
         <div class="content3">
-            <img class="fotoinici" src="/img/dailylibertyLogo.jpeg"/>
+            <img class="fotoinici" src="/img/DailyLiberty.png"/>
         </div>
 
         <div class="content" style="display:none;">
@@ -27,7 +27,9 @@
                 <img src="img/menuBlanco.png"/>
             </li>
                 <li class="cajaLogo">
-                    <a class="logo" href="/">DailyLiberty</a>
+                    <a class="logo" href="/">
+                        <img width="auto" height="40px" src="/img/DailyLiberty.png" alt="DailyLiberty">
+                    </a>
                 </li>
                 <li id="buscador" class="buscador">
                     <form action="results" method="GET">
@@ -115,7 +117,7 @@
           </script>
           <script type="text/javascript">
               $(document).ready(function() {
-                      $(".content3").delay(600).fadeOut(600);
+                      $(".content3").delay(800).fadeOut(600);
               });
           </script>
         <% } %>
