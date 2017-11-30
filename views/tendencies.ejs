@@ -56,7 +56,7 @@
             <nav>
 
             <ul class="menu">
-                <li><a href="/index">Inici</a></li>
+                <li><a href="/">Inici</a></li>
                   <li><a href="#">Tendències</a></li>
                   <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
                   <div id="collapse1" class="collapse">
@@ -73,20 +73,20 @@
         </nav>
         <% if (tendencies.length > 0) {
                 for (var i = 0; i < tendencies.length; i++){%>
-                    <div onclick="location.href = '/index'" class="divImgArt">
-                        <div><img src="<%=tendencies[i].portada%>"/></div>
+                    <div onclick="location.href = '/read?a=<%=tendencies[i]._id%>'" class="divImgArt">
+                        <div><img style="-moz-user-select: none; user-select: none;" src="<%=tendencies[i].fotourl%>"/></div>
                         <article class="cajaArticle"  id="global" >
 							<div class="Content">
 								<header>
-									<h1><%=tendencies[i].title%></h1>
+									<h1 style="-moz-user-select: none; user-select: none;" ><%=tendencies[i].title%></h1>
 								</header>
 								<section>
-									<h2><%=tendencies[i].subtitle%></h2>
+									<h2 style="-moz-user-select: none; user-select: none;" ><%=tendencies[i].subtitle%></h2>
 								</section>
 							</div>
 							<div class="footer">
 								<div class="viewsDiv">
-									<div id="views" class="visites">14599</div>
+									<div id="views" class="visites"><%=tendencies[i].views%></div>
 									<span class="nom">&nbsp;views</span>
 								</div>
 

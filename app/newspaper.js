@@ -7,8 +7,8 @@ exports.getIndex = function(req,res) {
       action: req.param('a'),
       articles: articles,
       isLoggedIn: req.isAuthenticated()
+    });
   });
-});
 }
 
 exports.getCategory = function(req,res) {
@@ -29,7 +29,7 @@ exports.getCategory = function(req,res) {
     }
 }
 
-exports.getTendencies = function() {
+exports.getTendencies = function(req, res) {
 
   /*Article.esSearch({
     from : 0,
@@ -39,68 +39,13 @@ exports.getTendencies = function() {
     }, function(err, articles){
       return articles;
   });*/
-  var t1 = "El Girona Futbol Club fa història davant del tot poderós Reial Madrid";
-  var s1 = "El Reial Madrid perd tres punts i comença a dir adéu a la lliga";
-  var t2 = "Puigdemont i part del seu govern són a Brussel·les";
-  var s2 = "El president de la Generalitat hi hauria anat per entrevistar-se amb dirigents flamencs";
-  var articles = [{
-      portada: "/img/ciencia.jpg",
-      category: "ESPORTS",
-      title: t1,
-      subtitle: s1,
-      author: "Edgar Lorenzo"
-  },
-  {
-      portada: "/img/puigdemont.jpg",
-      category: "POLITICA",
-      title: t2,
-      subtitle: s2,
-      author: "Edgar Lorenzo"
-  },
-  {
-      portada: "/img/ciencia.jpg",
-      category: "ESPORTS",
-      title: t1,
-      subtitle: s1,
-      author: "Edgar Lorenzo"
-  },
-  {
-      portada: "/img/puigdemont.jpg",
-      category: "POLITICA",
-      title: t2,
-      subtitle: s2,
-      author: "Edgar Lorenzo"
-  },
-  {
-      portada: "/img/ciencia.jpg",
-      category: "ESPORTS",
-      title: t1,
-      subtitle: s1,
-      author: "Edgar Lorenzo"
-  },
-  {
-      portada: "/img/puigdemont.jpg",
-      category: "POLITICA",
-      title: t2,
-      subtitle: s2,
-      author: "Edgar Lorenzo"
-  },
-  {
-      portada: "/img/ciencia.jpg",
-      category: "ESPORTS",
-      title: t1,
-      subtitle: s1,
-      author: "Edgar Lorenzo"
-  },
-  {
-      portada: "/img/puigdemont.jpg",
-      category: "POLITICA",
-      title: t2,
-      subtitle: s2,
-      author: "Edgar Lorenzo"
-  }
-  ];
-  return articles;
+  Article.find({}).sort({views: -1}).exec(function(err, articles) {
+    res.render('tendencies.ejs', {
+      user: req.user,
+      tendencies: articles,
+      isLoggedIn: req.isAuthenticated()
+    });
+  });
 }
 
 exports.newArticle = function(req, res) {

@@ -88,11 +88,7 @@ module.exports = function(app,passport,newspaper) {
     });
 
     app.get('/tendencies', function(req, res) {
-        res.render('tendencies.ejs', {
-            tendencies: newspaper.getTendencies(),
-            user : req.user,
-            isLoggedIn: req.isAuthenticated()
-        } );
+        newspaper.getTendencies(req,res);
     });
 
     app.get('/results', function(req,res) {
