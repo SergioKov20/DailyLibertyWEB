@@ -251,3 +251,20 @@ exports.likeArticle = function(req, res) {
         });
     }
 }
+
+exports.comentar = function(req, res) {
+  var user = req.user.username;
+  var comentari = req.body.comentario.substring(0, 280);
+  var usercoment = user + "&com=" + comentari;
+  var articleID = req.param('a');
+  Article.findById(articleID, function(err, article) {
+      if(article) {
+        article.comments.push(usercoment);
+        article.save(function(err) {
+            if (err) res.render('error/500.ejs');
+            else res.redirect('/read?a='+articleID);
+        });
+      }
+      else res.render('error/wrongArticle.ejs');
+  });
+}

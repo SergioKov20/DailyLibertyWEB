@@ -21,6 +21,7 @@
         var author = article.author;
         var views = article.views;
         var fotoart = article.fotourl;
+        var comentaris = article.comments;
 
         var dd = article.data.getDate();
         var mm = article.data.getMonth()+1;
@@ -109,31 +110,34 @@
 
                     <div class="divImg">
 					<% if (isLoggedIn && user.username == author) { %>
-						<img onclick="location.href = '/article?e=<%=id%>'" style="cursor:pointer" class="pencil" src="/img/pencil-icon.png"/>
+						<img title="Share on Twitter" onclick="location.href = '/article?e=<%=id%>'" style="cursor:pointer" class="pencil" src="/img/pencil-icon.png"/>
                     <% } %>
 						<div class="preImagen"><div class="autor">
                             <small>per </small>
                             <a href="/user?v=<%=author%>"><%=author%></a>
                             <p><%=data%></p>
+                            <p style="font-size: 14px">
+                              <img id="com" title="See the comments" style="cursor:pointer;"width="25px" height="auto" src="/img/comments.png">   <%=comentaris.length%>
+                            </p>
                         </div>
 							<div class="shareLike">
                                 <div class="twitterVisites">
-                                    <img rel="nofollow" onclick="window.open(
-'http://twitter.com/intent/tweet?text=Molt interessant la noticia escrita a DailyLiberty via @DailyLiberty - aquí pots trobar el link ' +location.href,
-'popupwindow',
-'scrollbars=yes,width=800,height=450');
-popUp.focus();
-return false" class="imgtwitter"  src="/img/twitter.png"/>
+                                    <img title="Share on Twitter" rel="nofollow" onclick="window.open(
+                                      'http://twitter.com/intent/tweet?text=Molt interessant la noticia escrita a DailyLiberty via @DailyLiberty - aquí pots trobar el link ' +location.href,
+                                      'popupwindow',
+                                      'scrollbars=yes,width=800,height=450');
+                                      popUp.focus();
+                                      return false" class="imgtwitter"  src="/img/twitter.png"/>
                                     <div id="views" style="color:green" class="visites"><%=views%></div><span>&nbsp;views</span>
                                 </div>
                                 <div class="likesDislikes" id="rating">
 									<div class="intLike">
 										<span id="muteGreen" class="like" >
-											<button id="nogreen" class="likenogreen"></button>
+											<button title="Like this article" id="nogreen" class="likenogreen"></button>
 										</span>
 										<span class="likes"><%=likes%></span>
 										<span id="muteRed" class="dislike" >
-											<button id="nored" class="dislikenored"></button>
+											<button title="Dislike this article" id="nored" class="dislikenored"></button>
 										</span>
 										<span class="dislikes"><%=dislikes%></span>
 
@@ -180,10 +184,39 @@ return false" class="imgtwitter"  src="/img/twitter.png"/>
                     <pre><%=content%></pre>
                 </div>
                 </section>
+                <hr style="width: 60%; border-color: grey;">
+                <section class="section2">
+                    <div class="divImg cajacomentarios">
+                      <div class="comentariotitulo" style="text-align: left">
+                          <p style="color:darkred; font-family:arial; margin-bottom:20px"><b><u>COMMENTS:</b></u></p>
+                      </div>
+                      <div class="micomentario">
+                      <form action="/read?a=<%=id%>&act=com" method="post">
+                        <img width="40px" height="auto" src="<%=user.fotourl%>" style="vertical-align:top; border-radius:100px">
+                          <textarea name="comentario" rows="3" cols="40" placeholder="Leave a comment" maxlength="280" class="comenta" required></textarea><br>
+                          <button id="botocomentari" type="submit">Submit</button>
+                      </form>
+                    </div><hr style="border-color: darkgrey">
+                    <% if(comentaris.length == 0) { %>
+                      <p style="font-family:arial; margin-top:30px; margin-bottom:30px"><b><i>There are no comments in this article yet.</b></i></p>
+                    <% } else {%>
+                        <% for(var i = comentaris.length-1; i > -1; --i) {
+                              var usercoment = comentaris[i].split("&com=");
+                              var usuar = usercoment[0];
+                              var comentari = usercoment[1];%>
+                            <div class="othercomments">
+                              <a href="/user?v=<%=usuar%>"><b><%=usuar%></b></a>
+                              <p><%=comentari %></p>
+                            </div>
+                        <% } %>
+                    <% } %>
+                  <hr style="border-color: grey; margin-top: 35px">
+                </section>
 
+                <!-- DEIXO AXO OCULT FINS QUE ESTIGUI L'SCRIPT
                 <footer style="background:yellow">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                    <!-- XYZ 336 x 280 -->
+                    XYZ 336 x 280
                     <ins   class="adsbygoogle"
                      style="display:inline-block;width:336px;height:280px"
                      data-ad-client="ca-pub-XXXXXXXXXXXXX"
@@ -193,7 +226,7 @@ return false" class="imgtwitter"  src="/img/twitter.png"/>
                       (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                     GoogleAdsense(script incorporat)
-                </footer>
+                </footer> -->
             </article>
         </div>
 
@@ -222,6 +255,11 @@ return false" class="imgtwitter"  src="/img/twitter.png"/>
           </script>
         <% } %>
 		<script>
+            $("#com").click(function() {
+                $('html,body').animate({
+                    scrollTop: $(".cajacomentarios").offset().top},
+                    'slow');
+            });
             function numberto(n){
                 x=(''+n).length;
                 p=Math.pow;

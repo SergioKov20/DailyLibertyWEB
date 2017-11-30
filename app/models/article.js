@@ -11,6 +11,7 @@ var articleSchema = mongoose.Schema({
     author		: { type:String, es_indexed:true },
     views 		: { type:Number, es_indexed:true },
 	data 		: Date,
+	comments : [String],
 	fotourl : String,
 	likes 		: [{
 					_id : String,

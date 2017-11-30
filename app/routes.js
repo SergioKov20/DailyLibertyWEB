@@ -84,7 +84,8 @@ module.exports = function(app,passport,newspaper) {
         require('./search.js').getArticle(req,res);
     });
     app.post('/read', function(req,res){
-        require('./search.js').likeArticle(req,res);
+        if(req.param("act") == "com") newspaper.comentar(req,res);
+        else require('./search.js').likeArticle(req,res);
     });
 
     app.get('/tendencies', function(req, res) {

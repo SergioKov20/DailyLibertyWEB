@@ -318,7 +318,7 @@ html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike
 html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .twitterVisites .imgtwitter {
   width: 20px;
   height: 20px;
-  margin-right: 15px;
+  margin-right: 10px;
   cursor: pointer;
 }
 html body .cajas .articuloCompleto article section .divImg .preImagen .shareLike .twitterVisites .visites {
@@ -457,4 +457,34 @@ html body .mostrarMenu {
 html body .marked {
   font-weight: bold;
   color: red;
+}
+.cajacomentarios {
+  width: 50%;
+  text-align: left;
+}
+.section2 {
+  width: 100%;
+  padding-top: 10px !important;
+  margin-bottom: 30px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.comenta {
+  margin-left: 10px;
+  resize:none;
+  padding-left: 8px;
+  padding-top: 8px;
+  font-family: arial;
+}
+.micomentario {
+  text-align: left !important;
+}
+.othercomments {
+  text-align: left !important;
+  margin-top: 30px;
+}
+#botocomentari {
+  margin-left: 327px;
+  margin-top: 5px;
 }
