@@ -202,20 +202,18 @@ return false" class="imgtwitter"  src="/img/twitter.png"/>
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/changeColor.js"></script>
 		<script src="/js/correctorInsults.js"></script>
-    <% if (isLoggedIn == true) { %>
-        <script type="text/javascript">
-            $('#rating').likeDislike({
-                initialValue: 0,
-                click: function (value, l, d, event) {
-                    var likes = $(this.element).find('.likes');
-                    var dislikes = $(this.element).find('.dislikes');
-                    $.get( "/like?a=<%=id%>&u=<%=user.username%>&l="+value );
-                    likes.text(parseInt(likes.text()) + l);
-                    dislikes.text(parseInt(dislikes.text()) + d);
-                }
-            });
-		    </script>
-    <% } %>
+    <script type="text/javascript">
+        $('#rating').likeDislike({
+            initialValue: 0,
+            click: function (value, l, d, event) {
+                var likes = $(this.element).find('.likes');
+                var dislikes = $(this.element).find('.dislikes');
+                //$.get( "/like?a=<%=id%>&u=<%=user.username%>&l="+value ); AIXO FA PETAR LA PAGINA
+                likes.text(parseInt(likes.text()) + l);
+                dislikes.text(parseInt(dislikes.text()) + d);
+            }
+        });
+    </script>
 		<% if (isLoggedIn == true) { %>
           <script>
             document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
