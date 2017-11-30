@@ -190,13 +190,18 @@
                       <div class="comentariotitulo" style="text-align: left">
                           <p style="color:darkred; font-family:arial; margin-bottom:20px"><b><u>COMMENTS:</b></u></p>
                       </div>
+                  <% if (isLoggedIn == true) { %>
                       <div class="micomentario">
                       <form action="/read?a=<%=id%>&act=com" method="post">
-                        <img width="40px" height="40px" src="<%=user.fotourl%>" style="vertical-align:top; border-radius:100px">
-                          <textarea name="comentario" rows="3" cols="40" placeholder="Leave a comment" maxlength="280" class="comenta" required></textarea><br>
-                          <button id="botocomentari" type="submit">Submit</button>
+                            <img width="40px" height="40px" src="<%=user.fotourl%>" style="vertical-align:top; border-radius:100px">
+                            <textarea name="comentario" rows="3" cols="40" placeholder="Leave a comment" maxlength="280" class="comenta" required></textarea><br>
+                            <button id="botocomentari" type="submit">Submit</button>
                       </form>
-                    </div><hr style="border-color: darkgrey">
+                    </div>
+                  <% } else { %>
+                    <a href="/login" style="color: darkblue"><i><b>You must Log in to comment articles.</b></i></a>
+                  <% } %>
+                  <hr style="border-color: darkgrey">
                     <% if(comentaris.length == 0) { %>
                       <p style="font-family:arial; margin-top:30px; margin-bottom:30px"><b><i>There are no comments in this article yet.</b></i></p>
                     <% } else {%>
@@ -241,7 +246,7 @@
             click: function (value, l, d, event) {
                 var likes = $(this.element).find('.likes');
                 var dislikes = $(this.element).find('.dislikes');
-                //$.get( "/like?a=<%=id%>&u=<%=user.username%>&l="+value ); AIXO FA PETAR LA PAGINA
+                //$ . get( "/like?a=<%=id%>&u= < % = ***user.username***% >&l="+value ); ***AIXO FA PETAR LA PAGINA
                 likes.text(parseInt(likes.text()) + l);
                 dislikes.text(parseInt(dislikes.text()) + d);
             }
