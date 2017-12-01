@@ -81,7 +81,8 @@ module.exports = function(app,passport,newspaper) {
     });
 
     app.get('/read', function(req,res){
-        require('./search.js').getArticle(req,res);
+        if(req.param("act") == "del") newspaper.deleteArticle(req, res);
+        else require('./search.js').getArticle(req,res);
     });
     app.post('/read', function(req,res){
         if(req.param("act") == "com") newspaper.comentar(req,res);

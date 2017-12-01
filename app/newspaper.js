@@ -93,6 +93,17 @@ exports.newArticle = function(req, res) {
   });
 }
 
+exports.deleteArticle = function(req, res) {
+  var articleID = req.param('a');
+
+  Article.findByIdAndRemove(articleID, function(err, articles) {
+      articles.save(function(err) {
+         if (err) res.render('error/500.ejs');
+         else res.redirect('/');
+     });
+  });
+}
+
 exports.editArticle = function(req, res) {
   var articleID = req.param('e');
   var formidable = require('formidable');

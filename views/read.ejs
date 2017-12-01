@@ -113,6 +113,7 @@
                     <div class="divImg">
 					<% if (isLoggedIn && user.username == author) { %>
 						<img title="Edit your article" onclick="location.href = '/article?e=<%=id%>'" style="cursor:pointer" class="pencil" src="/img/pencil-icon.png"/>
+            <img title="Delete article" onclick="reallydelete()" style="cursor:pointer; float:right" class="pencil" src="/img/trash.png"/>
                     <% } %>
 						<div class="preImagen"><div class="autor">
                             <small>per </small>
@@ -274,6 +275,12 @@
             document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
+
+            function reallydelete() {
+              if (confirm("Do you rally want to delete your article?") == true) {
+                  window.location.href = "/read?a=<%=id%>&act=del";
+              }
+            }
           </script>
         <% } %>
 		<script>
