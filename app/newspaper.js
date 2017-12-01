@@ -1,7 +1,7 @@
 var Article = require('./models/article');
 
 exports.getIndex = function(req,res) {
-  Article.find({}, function(err, articles) {
+    Article.find({}).sort({data: -1}).exec(function(err, articles) {
     res.render('index.ejs', {
       user: req.user,
       action: req.param('a'),
