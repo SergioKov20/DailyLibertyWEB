@@ -1,27 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>DailyLiberty  |  Log in</title>
-  <link rel='stylesheet' href='/css/login.css'>
-</head>
-<body>
-    <div class="boxlogo">
-        <img class="kov" src="/img/logo_dliberty.png" alt="KOV">
-    </div>
-  <div class="box">
-    <p class="subt">To continue, please log in with your credentials:</p>
-    <form action="/login" class="form" method="POST">
-      <input id="us" class="usu" type="text" name="username" value="" placeholder="Username" maxlength="14" required><br><br>
-      <input id="pw" class="pass" type="password" name="password" value="" placeholder="Password" maxlength="14" required><br><br>
-      <button class="but" type="submit" name="button">LOG IN</button>
-      <p class="create">Don't have an account? Create one <a href="/register">here</a>.</p>
-    </form>
-     <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
-  </div>
-</body>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- Website CSS style -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='/css/login.css'>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+		<title>DailyLiberty  |  Log In</title>
+
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="row main">
+
+				<div class="main-login main-center">
+                    <div class="kovcaja" style="text-align:center;">
+                        <img class="kov" src="/img/DailyLiberty.png" alt="DailyLiberty">
+                    </div>
+
+					<form class="" method="post" action="#" style="margin-top: 7px">
+
+
+                        <div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="username" id="us"  placeholder="Enter your Username" required/><span class="erroruserpass" hidden>ERROR: Username already in use.</span>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" id="pw"  placeholder="Enter your Password" required/>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="form-group">
+                            <button type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" name="button">Log in</button>
+						</div>
+
+                        <div class="form-group">
+                             <p class="create">Don't have an account? Create one <a href="/register">here</a>.</p>
+						</div>
+
+					</form>
+                     <% if (message.length > 0) { %>
+                        <div class="alert alert-danger"><%= message %></div>
+                    <% } %>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

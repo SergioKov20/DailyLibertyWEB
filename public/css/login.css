@@ -1,111 +1,165 @@
-body {
-  background-origin: content-box;
-  background-position: -100 top;
-  background-repeat: no-repeat;
-  background-color:mintcream;
+#playground-container {
+    height: 500px;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: touch;
 }
-.box {
-  width: 398px;
-  height: 275px;
-  padding-top: 10px;
-  background-color: beige;
-  border-radius: 10px;
-  margin: auto;
-  margin-top: 50px;
-  border-style: solid;
-  border-color: #802b00;
-  border-width: 1px;
-  overflow: auto;
-}/*test*/
-@media (max-width: 398px) {
-  .box{
+body, html{
+     height: 100%;
+     margin-top: 5vh;
+ 	background-repeat: no-repeat;
+ 	background-color: mintcream !important;
+ 	font-family: 'Oxygen', sans-serif;
+	    background-size: cover;
+}
+
+.main{
+ 	margin:50px 15px;
+}
+
+h1.title {
+	font-size: 50px;
+	font-family: 'Passion One', cursive;
+	font-weight: 400;
+}
+
+h3{
+    text-align: -webkit-center;
+}
+
+hr{
+	width: 10%;
+	color: #fff;
+}
+
+.form-group{
+	margin-bottom: 15px;
+}
+
+label{
+	margin-bottom: 15px;
+  color: grey !important;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 11px;
+    padding-top: 3px;
+}
+.row-main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+}
+.main-login{
+ 	background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+@media (max-width: 400px) {
+  .main-login {
     width: auto !important;
     height: auto !important;
   }
 }
-@media (max-width: 398px) {
-  .box{
-    width: auto !important;
-    height: auto !important;
-  }
+.form-control {
+    height: auto!important;
+padding: 8px 12px !important;
 }
-@media (max-width: 285px) {
-  .usu{
-    width: auto !important;
-  }
-  .pass{
-    width: auto !important;
-  }
+.input-group {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
 }
+#button {
+    border: 1px solid #ccc;
+    margin-top: 28px;
+    padding: 6px 12px;
+    color: #666;
+    text-shadow: 0 1px #fff;
+    cursor: pointer;
+    -moz-border-radius: 3px 3px;
+    -webkit-border-radius: 3px 3px;
+    border-radius: 3px 3px;
+    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;
+    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;
 
-.boxlogo {
-  width: 598px;
-  height: 150px;
-  padding-top: 50px;
-  background-color: white;
-  border-radius: 10px;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  border-style: solid;
-  border-color: #ffffff;
-  border-width: 1px;
+    transition: background, 0.2s;
+    box-shadow: 0 1px #fff inset, 0 1px #ddd;
+    background: #f5f5f5;
+    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
 }
-.kov {
-  width: 500px;
-  height: auto;
-  margin-left: 70px;
-  /*margin-top: 60px;*/
-
-}
-.subt {
-  color: black;
-  font-family: arial;
-  padding-left: 15px;
-  margin-left: 20px;
-  font-size: 12px;
-}
-.form {
-  margin-left: 20px;
-}
-.usu {
-  font-family: arial;
-  width: 75%;
-  height: 30px;
-  margin-left: 15px;
-  padding: 10px 20px;
-  border-color: lightgrey;
-  border-radius: 5px;
-}
-.pass {
-  font-family: arial;
-  width: 75%;
-  height: 30px;
-  margin-left: 15px;
-  padding: 10px 20px;
-  border-color: lightgrey;
-  border-radius: 5px;
-}
-.but {
-  width: 87%;
-  height: 50px;
-  margin-left: 15px;
-  padding: 10px 20px;
-  background-color: #802b00;
-  color: white;
+button:hover {
+  background: white !important;
   font-weight: bold;
-  border-radius: 5px;
-  transition: background-color, 0.25s;
+  transition: background, 0.2s;
 }
-.but:hover {
-  background-color: #662200;
+button:active {
+  background: lightgrey !important;
 }
-.but:active {
-  background-color: #4d1a00;
+
+.main-center{
+ 	margin-top: 30px;
+ 	margin: 0 auto;
+ 	max-width: 400px;
+    padding: 10px 40px;
+	background: #efefef;
+	    color: #FFF;
+    text-shadow: none;
+	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+
 }
+span.input-group-addon i {
+    color: #737373;
+    font-size: 17px;
+}
+
+.login-button{
+	margin-top: 5px;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+}
+
+ .login2 {
+    font-size: 13px;
+    font-family: arial;
+     text-align: right;
+  }
+
+.erroruserpass {
+    margin-left: 12px;
+    color: red;
+    font-size: 12px;
+    font-family: arial;
+  }
+
 .create {
-  color: grey;
+  color: black;
   font-size: 11px;
   font-family: arial;
   margin-left: 15px;
+}
+
+.kov {
+  width: 100%;
+  height: auto;
+  /*margin-top: 60px;*/
+
 }
