@@ -41,21 +41,22 @@ module.exports = function(passport) {
     function(req, username, password, done) {
       process.nextTick(function() {
         console.log("inside signup!");
+        if (req.body.password != req.body.confirm) return done(null, false, req.flash('signupMessage', 'Passwords do not match.'));
         User.findOne({ 'username': username }, function(err, user) {
           if (err) return done(err);
           // check to see if theres already a user with that email
-          if (user) return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+          if (user) return done(null, false, req.flash('signupMessage', 'Username already taken.'));
           else {
             var email = req.body.email;
             User.findOne({'email': email }, function(err,found) {
               if (err) return done(err);
-              if (found) return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+              if (found) return done(null, false, req.flash('signupMessage', 'Email already taken.'));
               else {
                 var newUser = new User();
-                newUser.firstName = req.body.firstName;
-                newUser.lastName = req.body.lastName;
+                newUser.firstName = req.body.firstName.substring(0, 10);
+                newUser.lastName = req.body.lastName.substring(0, 24);
                 newUser.username = username;
-                newUser.email    = email;
+                newUser.email    = email.substring(0,35);
                 newUser.birthdate    = "";
                 newUser.aboutme    = "";
                 newUser.rating    = 0;
