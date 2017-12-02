@@ -108,6 +108,22 @@
                      <p id="oldta3"><%=user.birthdate %></p>
                    </span>
                  </div>
+                 <div class="form-group perf">
+
+                   <% if (error == "name") { %>
+                      <div id="error" style="text-align:center; width:50%"><div class="alert alert-danger" style="margin-top:15px;">Invalid name.</div></div>
+                  <% } else if (error == "surname") { %>
+                     <div id="error" style="text-align:center; width:50%"><div class="alert alert-danger" style="margin-top:15px;">Invalid surname.</div></div>
+                   <% } else if (error == "mail") { %>
+                    <div id="error" style="text-align:center; width:50%"><div class="alert alert-danger" style="margin-top:15px;">Mail already exists.</div></div>
+                  <% } else if (error == "maili") { %>
+                     <div id="error" style="text-align:center; width:50%"><div class="alert alert-danger" style="margin-top:15px;">Invalid mail address.</div></div>
+                 <% } else if (error == "date") { %>
+                    <div id="error" style="text-align:center; width:50%"><div class="alert alert-danger" style="margin-top:15px;">Invalid birth date.</div></div>
+                <% } else if (error == "ext") { %>
+                   <div id="error" style="text-align:center; width:50%"><div class="alert alert-danger" style="margin-top:15px;">Invalid file extension.</div></div>
+                   <% } %>
+                 </div>
                </div>
              </div>
                <div class="row kov" style="background: #f1f1f1;">
@@ -225,6 +241,7 @@
           function switchtoedit() {
             document.getElementById('perfil').style.display = 'none';
             document.getElementById('editar').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
             document.getElementById("fotoselect").src = '<%=user.fotourl %>';
           }
           function switchtoprofilenoedit() {

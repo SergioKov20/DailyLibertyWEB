@@ -168,20 +168,20 @@ exports.editProfile = function(req, res) {
     var mail = fields.mail.substring(0, 35);
     User.findOne({'email': mail}, function(err, found) {
      if (found && (found.username != req.user.username)) {
-      return res.redirect('/profile');
+      return res.redirect('/profile?err=mail');
   }
   else {
       if (mail.indexOf('@') < 1) {
-        return res.redirect('/profile');
+        return res.redirect('/profile?err=maili');
     }
     User.findOne({'username': req.user.username}, function(err, user) {
                       //COMPROVAR NAME VALID
                       var name = fields.fullname1.substring(0, 10);
                       var surname = fields.fullname2.substring(0, 24);
                       if (name.length > 1) user.firstName = name;
-                      else return res.redirect('/profile');
+                      else return res.redirect('/profile?err=name');
                       if (surname.length > 1) user.lastName = surname;
-                      else return res.redirect('/profile');
+                      else return res.redirect('/profile?err=surname');
                       user.email = mail;
 
                       //COMPROVAR DATA VALID
@@ -193,7 +193,7 @@ exports.editProfile = function(req, res) {
                       var date = new Date(y, m - 1, d);
                       if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
                         user.birthdate = data;
-                    } else user.birthdate = "";
+                    } else return res.redirect('/profile?err=date');
 
                       //COMPROVAR ABOUT
                       var about = fields.aboutme.substring(0, 300);
@@ -209,15 +209,14 @@ exports.editProfile = function(req, res) {
                     if (files.filetoupload.type == 'image/png') extension = ".png";
                     else if (files.filetoupload.type == 'image/jpeg') extension = ".jpg";
                     else {
-                     res.render('error/wrongFileExt.ejs');
-                     return;
+                     return res.redirect('/profile?err=ext');
+                   }
+                   var newpath = './public/multimedia/profilepics/' + fields.username + extension;
+                   fs.rename(oldpath, newpath, function(err) {
+                       if (err) res.render('error/500.ejs');
+                   });
+                   user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
                  }
-                 var newpath = './public/multimedia/profilepics/' + fields.username + extension;
-                 fs.rename(oldpath, newpath, function(err) {
-                     if (err) res.render('error/500.ejs');
-                 });
-                 user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
-             }
              user.save(function(err) {
                 if (err) res.render('error/500.ejs');
                 else res.redirect('/profile');

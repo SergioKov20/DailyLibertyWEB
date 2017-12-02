@@ -35,9 +35,11 @@ module.exports = function(app,passport,newspaper) {
 
 	app.get('/profile', isLoggedIn, function(req,res){
     var Article = require('./models/article');
+    var error = req.param('err');
     Article.find({}, function(err, articles) {
       res.render('profile.ejs', {
         user: req.user,
+        error: error,
         articles: articles, //Per obtenir estadistiques d'articles.
         isLoggedIn: req.isAuthenticated()
       });
