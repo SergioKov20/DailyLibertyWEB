@@ -89,7 +89,11 @@ module.exports = function(app,passport,newspaper) {
     });
     app.post('/read', function(req,res){
         if(req.param("act") == "com") newspaper.comentar(req,res);
-        else res.render('error/wrongArticle.ejs');
+        else {
+          res.render('error.ejs', {
+            error: "404 Article Not Found"
+          });
+        }
     });
 
     app.get('/tendencies', function(req, res) {
@@ -103,7 +107,11 @@ module.exports = function(app,passport,newspaper) {
 
     app.get('/category', function(req,res){
         var category = req.param('c');
-        if (category == null) res.render('error/wrongCategory.ejs');
+        if (category == null) {
+          res.render('error.ejs', {
+            error: "404 Category Not Found"
+          });
+        }
         else  newspaper.getCategory(req,res);
     });
 

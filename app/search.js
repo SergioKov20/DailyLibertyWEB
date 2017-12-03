@@ -7,11 +7,15 @@ exports.getUser = function (req,res) {
 		var User = require('./models/user');
 		User.findOne({ 'username' :  username }, function(err, user) {
 			if (err) {
-				res.render('error/500.ejs');
+				res.render('error.ejs', {
+					error: "500 Internal Server Error"
+				});
 			}
 	        // if no user is found, return the message
 	        if (!user){
-	        	res.render('error/wrongUser.ejs');
+						res.render('error.ejs', {
+							error: "404 User Not Found"
+						});
 	        }
 	        if (user){
 						var siguiendo = "notloggedin";
@@ -47,11 +51,15 @@ exports.followUser = function (req,res) {
 			var User = require('./models/user');
 			User.findOne({ 'username' :  username }, function(err, user) {
 				if (err) {
-					res.render('error/500.ejs');
+					res.render('error.ejs', {
+						error: "500 Internal Server Error"
+					});
 				}
 		        // if no user is found, return the message
 		        if (!user){
-		        	res.render('error/wrongUser.ejs');
+							res.render('error.ejs', {
+								error: "404 User Not Found"
+							});
 		        }
 		        if (user){
 
@@ -62,11 +70,15 @@ exports.followUser = function (req,res) {
 									if(index < 0) { //No le sigo
 										 user.followers.push(follower);
 											user.save(function(err) {
-													if (err) res.render('error/500.ejs');
+													if (err) res.render('error.ejs', {
+													  error: "500 Internal Server Error"
+													});
 											});
 											me.following.push(followed);
 											me.save(function(err) {
-													if (err) res.render('error/500.ejs');
+													if (err) res.render('error.ejs', {
+													  error: "500 Internal Server Error"
+													});
 											});
 											res.redirect('/user?v=' + user.username);
 									}
@@ -76,12 +88,20 @@ exports.followUser = function (req,res) {
 									if(index > -1) { // Le sigo
 											user.followers.splice(index, 1);
 											user.save(function(err) {
-													if (err) res.render('error/500.ejs');
+													if (err) {
+														res.render('error.ejs', {
+															error: "500 Internal Server Error"
+														});
+													}
 											});
 											var index2 = me.following.indexOf(followed);
 											me.following.splice(index2, 1);
 											me.save(function(err) {
-													if (err) res.render('error/500.ejs');
+													if (err) {
+														res.render('error.ejs', {
+															error: "500 Internal Server Error"
+														});
+													}
 											});
 											res.redirect('/user?v=' + user.username);
 									}
@@ -106,11 +126,15 @@ exports.getUserFollowers = function (req,res) {
 		var User = require('./models/user');
 		User.findOne({ 'username' :  username }, function(err, user) {
 			if (err) {
-				res.render('error/500.ejs');
+				res.render('error.ejs', {
+				  error: "500 Internal Server Error"
+				});
 			}
 	        // if no user is found, return the message
 	        if (!user){
-	        	res.render('error/wrongUser.ejs');
+						res.render('error.ejs', {
+							error: "404 User Not Found"
+						});
 	        }
 	        if (user){
 							res.render('followers.ejs', {
@@ -130,11 +154,15 @@ exports.editArticle = function (req,res) {
 	var Article = require('./models/article');
 	Article.findOne({ '_id' :  articleID }, function(err, article) {
 		if (err) {
-			res.render('error/500.ejs');
+			res.render('error.ejs', {
+			  error: "500 Internal Server Error"
+			});
 		}
         // if no user is found, return the message
         if (!article){
-        	res.render('error/wrongArticle.ejs');
+					res.render('error.ejs', {
+						error: "404 Article Not Found"
+					});
         }
         if (article){
         	if (article.author == req.user.username){
@@ -143,7 +171,11 @@ exports.editArticle = function (req,res) {
 		            article : article, // get the user out of session and pass to template
 	        	});
 	        }
-	        else res.render('error/forbidden.ejs');
+	        else {
+						res.render('error.ejs', {
+							error: "Forbidden: Access Denied"
+						});
+					}
         }
 	});
 }
@@ -155,10 +187,14 @@ exports.getArticle = function (req,res) {
 	var likestatus = "notloggedin";
 	Article.findOne({ '_id' :  articleID }, function(err, article) {
 		if (err) {
-			res.render('error/500.ejs');
+			res.render('error.ejs', {
+			  error: "500 Internal Server Error"
+			});
 		}
         if (!article){
-        	res.render('error/wrongArticle.ejs');
+					res.render('error.ejs', {
+						error: "404 Article Not Found"
+					});
         }
         if (article){
         	article.views++;
@@ -174,7 +210,9 @@ exports.getArticle = function (req,res) {
 					}
 
 	        article.save(function(err, updatedArticle) {
-	        	if (err) res.render('error/500.ejs');
+	        	if (err) res.render('error.ejs', {
+						  error: "500 Internal Server Error"
+						});
 	        	else {
 	          		res.render('read.ejs', {
 		            	article : updatedArticle,

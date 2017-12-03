@@ -17,7 +17,9 @@ exports.getCategory = function(req,res) {
     req.param('c') != "ciencia" &&
     req.param('c') != "tecnologia" &&
     req.param('c') != "altres"
-    ) res.render('error/wrongCategory.ejs');
+    ) res.render('error.ejs', {
+        error: "404 Category Not Found"
+    });
       else {
         Article.find({category: req.param('c')}, function(err, articles) {
           res.render('category.ejs', {
@@ -71,12 +73,18 @@ exports.newArticle = function(req, res) {
         if (files.filetoupload.type == 'image/png') extension = ".png";
         else if (files.filetoupload.type == 'image/jpeg') extension = ".jpg";
         else {
-            res.render('error/wrongFileExt.ejs');
+            res.render('error.ejs', {
+              error: "Wrong File Extension"
+            });
             return;
         }
         var newpath = './public/multimedia/articles/' + newArticle._id + extension;
         fs.rename(oldpath, newpath, function(err) {
-            if (err) res.render('error/500.ejs');
+            if (err) {
+              res.render('error.ejs', {
+                error: "500 Internal Server Error"
+              });
+            }
         });
         newArticle.fotourl = '/multimedia/articles/' + newArticle._id + extension;
     }
@@ -98,7 +106,11 @@ exports.deleteArticle = function(req, res) {
 
   Article.findByIdAndRemove(articleID, function(err, articles) {
       articles.save(function(err) {
-         if (err) res.render('error/500.ejs');
+         if (err) {
+           res.render('error.ejs', {
+             error: "500 Internal Server Error"
+           });
+         }
          else res.redirect('/');
      });
   });
@@ -112,10 +124,22 @@ exports.editArticle = function(req, res) {
   var Article = require('./models/article');
 
   Article.findById(articleID, function(err, article) {
-    if (err) res.render('error/500.ejs');
-    else if (!article) res.render('error/wrongArticle.ejs');
+    if (err) {
+        res.render('error.ejs', {
+          error: "500 Internal Server Error"
+        });
+    }
+    else if (!article) {
+      res.render('error.ejs', {
+        error: "404 Article Not Found"
+      });
+    }
     if (article) {
-      if (article.author != req.user.username) res.render('error/forbidden.ejs');
+      if (article.author != req.user.username) {
+        res.render('error.ejs', {
+          error: "Forbidden: Access Denied"
+        });
+      }
       else {
         form.parse(req, function(err, fields, files) {
           article.category = fields.category;
@@ -130,12 +154,18 @@ exports.editArticle = function(req, res) {
                 if (files.filetoupload.type == 'image/png') extension = ".png";
                 else if (files.filetoupload.type == 'image/jpeg') extension = ".jpg";
                 else {
-                    res.render('error/wrongFileExt.ejs');
+                    res.render('error.ejs', {
+                      error: "Wrong File Extension"
+                    });
                     return;
                 }
                 var newpath = './public/multimedia/articles/' + article._id + extension;
                 fs.rename(oldpath, newpath, function(err) {
-                    if (err) res.render('error/500.ejs');
+                    if (err) {
+                      res.render('error.ejs', {
+                        error: "500 Internal Server Error"
+                      });
+                    }
                 });
                 article.fotourl = '/multimedia/articles/' + article._id + extension;
             }
@@ -146,7 +176,11 @@ exports.editArticle = function(req, res) {
           article.views = article.views - 1; //No és legal que et conti una més per editar haha
 
           article.save(function(err, updatedArticle) {
-            if (err) res.render('error/500.ejs');
+            if (err) {
+              res.render('error.ejs', {
+                error: "500 Internal Server Error"
+              });
+            }
             else res.redirect('/read?a='+article._id);
           });
         });
@@ -213,12 +247,20 @@ exports.editProfile = function(req, res) {
                    }
                    var newpath = './public/multimedia/profilepics/' + fields.username + extension;
                    fs.rename(oldpath, newpath, function(err) {
-                       if (err) res.render('error/500.ejs');
+                       if (err) {
+                         res.render('error.ejs', {
+                           error: "500 Internal Server Error"
+                         });
+                       }
                    });
                    user.fotourl = '/multimedia/profilepics/' + fields.username + extension;
                  }
              user.save(function(err) {
-                if (err) res.render('error/500.ejs');
+                if (err) {
+                  res.render('error.ejs', {
+                    error: "500 Internal Server Error"
+                  });
+                }
                 else res.redirect('/profile');
             });
          });
@@ -278,17 +320,29 @@ exports.likeArticle = function(req, res) {
                     }
                   }
                   article.save(function(err) {
-                      if (err) res.render('error/500.ejs');
+                      if (err) {
+                        res.render('error.ejs', {
+                          error: "500 Internal Server Error"
+                        });
+                      }
                       else {
                         autor.save(function(err) {
-                            if (err) res.render('error/500.ejs');
+                            if (err) {
+                              res.render('error.ejs', {
+                                error: "500 Internal Server Error"
+                              });
+                            }
                             else res.redirect('/read?a='+articleID);
                         });
                       }
                   });
               });
             }
-            else res.render('error/wrongArticle.ejs');
+            else {
+              res.render('error.ejs', {
+  							error: "404 Article Not Found"
+  						});
+            }
         });
     }
 }
@@ -302,10 +356,18 @@ exports.comentar = function(req, res) {
       if(article) {
         article.comments.push(usercoment);
         article.save(function(err) {
-            if (err) res.render('error/500.ejs');
+            if (err) {
+              res.render('error.ejs', {
+                error: "500 Internal Server Error"
+              });
+            }
             else res.redirect('/read?a='+articleID);
         });
       }
-      else res.render('error/wrongArticle.ejs');
+      else {
+        res.render('error.ejs', {
+          error: "404 Article Not Found"
+        });
+      }
   });
 }
