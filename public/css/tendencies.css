@@ -203,7 +203,7 @@ html body .cajas .divImgArt div {
 }
 html body .cajas .divImgArt div img {
   width: 100%;
-  height: 120px;
+  height: 130px;
 }
 html body .cajas .divImgArt article {
   position: relative;
@@ -215,17 +215,24 @@ html body .cajas .divImgArt article .Content {
   width: 100%;
   height: auto;
 }
-html body .cajas .divImgArt article .Content header h1 {
+html body .cajas .divImgArt article .Content .header {
+  width: 100%;
+  overflow: hidden;
+  height: 89px;
+}
+html body .cajas .divImgArt article .Content .header h1 {
   font-family: 'Lora', Georgia, serif;
   margin-top: 3px;
   font-weight: 500;
   font-size: 20px;
+  margin-bottom: 0px;
 }
-html body .cajas .divImgArt article .Content section h2 {
+html body .cajas .divImgArt article .Content .header h2 {
   word-break: break-word;
   display: block;
-  margin-top: 10px;
+  margin-top: 7px;
   font-size: 14px;
+  line-height: 1.4;
 }
 html body .cajas .divImgArt article .footer {
   position: absolute;
@@ -321,10 +328,13 @@ html body .cajas .divImgArt article .footer div small {
   html body .cajas .divImgArt article {
     margin-left: 15px;
   }
-  html body .cajas .divImgArt article .Content header h1 {
+  html body .cajas .divImgArt article .Content .header {
+    height: 87px;
+  }
+  html body .cajas .divImgArt article .Content .header h1 {
     font-size: 16px;
   }
-  html body .cajas .divImgArt article .Content section h2 {
+  html body .cajas .divImgArt article .Content .header h2 {
     font-size: 11px;
   }
 }
@@ -341,10 +351,14 @@ html body .cajas .divImgArt article .footer div small {
   html body .cajas .divImgArt article {
     margin-left: 15px;
   }
-  html body .cajas .divImgArt article .Content header h1 {
+  html body .cajas .divImgArt article .Content .header {
+    height: 103px;
+    overflow: hidden;
+  }
+  html body .cajas .divImgArt article .Content .header h1 {
     font-size: 16px;
   }
-  html body .cajas .divImgArt article .Content section h2 {
+  html body .cajas .divImgArt article .Content .header h2 {
     font-size: 11px;
   }
   html body .cajas .divImgArt article .footer .viewsDiv {
@@ -369,8 +383,8 @@ html body .cajas .divImgArt article .footer div small {
     margin-left: 0px;
   }
   html body .cajas .divImgArt div img {
-    min-width: 182px;
-    height: 100%;
+    min-width: 200px;
+    height: 120px;
   }
   html body .cajas .divImgArt article {
     margin-left: 5px;
@@ -378,11 +392,23 @@ html body .cajas .divImgArt article .footer div small {
   html body .cajas .divImgArt article .Content {
     min-width: 200px;
   }
-  html body .cajas .divImgArt article .Content header h1 {
+  html body .cajas .divImgArt article .Content .header {
+    height: 120px;
+    overflow: hidden;
+  }
+  html body .cajas .divImgArt article .Content .header h1 {
     font-size: 13px;
   }
-  html body .cajas .divImgArt article .Content section h2 {
+  html body .cajas .divImgArt article .Content .header h2 {
     font-size: 9px;
+  }
+  html body .cajas .divImgArt article .footer div {
+    height: auto;
+  }
+  html body .cajas .divImgArt article .footer div p {
+    font-size: 10px;
+    width: 30%;
+    display: none !important;
   }
 }
 @media (max-width: 403px) {
@@ -394,7 +420,7 @@ html body .cajas .divImgArt article .footer div small {
   }
   html body .cajas .divImgArt div img {
     min-width: 182px;
-    height: 100%;
+    height: 130px;
   }
   html body .cajas .divImgArt article {
     margin-left: 2px;
@@ -402,10 +428,13 @@ html body .cajas .divImgArt article .footer div small {
   html body .cajas .divImgArt article .Content {
     min-width: 160px;
   }
-  html body .cajas .divImgArt article .Content header h1 {
+  html body .cajas .divImgArt article .Content .header {
+    height: 130px;
+  }
+  html body .cajas .divImgArt article .Content .header h1 {
     font-size: 13px;
   }
-  html body .cajas .divImgArt article .Content section h2 {
+  html body .cajas .divImgArt article .Content .header h2 {
     font-size: 9px;
   }
   html body .cajas .divImgArt article .footer {
@@ -417,6 +446,7 @@ html body .cajas .divImgArt article .footer div small {
   html body .cajas .divImgArt article .footer div p {
     font-size: 10px;
     width: 30%;
+    display: none !important;
   }
   html body .cajas .divImgArt article .footer div small {
     width: -webkit-fill-available;
@@ -432,8 +462,8 @@ html body .cajas .divImgArt article .footer div small {
     margin-bottom: 30px;
   }
   html body .cajas .divImgArt div img {
-    min-width: 132px;
-    height: 100%;
+    min-width: 170px;
+    height: 110px;
   }
   html body .cajas .divImgArt article {
     margin-left: 2px;
@@ -441,13 +471,15 @@ html body .cajas .divImgArt article .footer div small {
   html body .cajas .divImgArt article .Content {
     min-width: 140px;
   }
-  html body .cajas .divImgArt article .Content header h1 {
+  html body .cajas .divImgArt article .Content .header {
+    height: 110px !important;
+    overflow: hidden;
+  }
+  html body .cajas .divImgArt article .Content .header h1 {
     font-size: 13px;
   }
-  html body .cajas .divImgArt article .Content section h2 {
-    display: none;
+  html body .cajas .divImgArt article .Content .header h2 {
     font-size: 9px;
-    margin: 0;
   }
   html body .cajas .divImgArt article .footer {
     top: 3px;
@@ -458,6 +490,7 @@ html body .cajas .divImgArt article .footer div small {
   html body .cajas .divImgArt article .footer div p {
     font-size: 10px;
     width: 30%;
+    display: none !important;
   }
   html body .cajas .divImgArt article .footer div small {
     display: none;
