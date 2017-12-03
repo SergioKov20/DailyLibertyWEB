@@ -152,6 +152,7 @@ exports.getArticle = function (req,res) {
 
 	var articleID = req.param('a');
 	var Article = require('./models/article');
+	var likestatus = "notloggedin";
 	Article.findOne({ '_id' :  articleID }, function(err, article) {
 		if (err) {
 			res.render('error/500.ejs');
@@ -162,14 +163,25 @@ exports.getArticle = function (req,res) {
         if (article){
         	article.views++;
 
+					if(req.isAuthenticated()) {
+							var index = article.likes.indexOf(req.user.username);
+							if(index < 0) {
+									index = article.dislikes.indexOf(req.user.username);
+									if(index > -1) likestatus = "dislike";
+									else likestatus = "none";
+							}
+							else likestatus = "like";
+					}
+
 	        article.save(function(err, updatedArticle) {
 	        	if (err) res.render('error/500.ejs');
 	        	else {
 	          		res.render('read.ejs', {
 		            	article : updatedArticle,
-						user : req.user,
+									user : req.user,
+									likestatus: likestatus,
 		            	isLoggedIn : req.isAuthenticated()
-	        		});
+	        			});
 	          	}
 	        });
         }
@@ -183,9 +195,10 @@ exports.searchArticles = function(req,res) {
 	console.log(query);
 	Article.search({
 		query_string: {
-			query: query
+			query: query+"~"
 		}
-	},{hydrate: true}, function(err, results) {
+	},
+	{from:0, size:25, hydrate: true}, function(err, results) {
 		console.log(results.hits.hits);
 		res.render('index.ejs', {
 	    	user: req.user,
