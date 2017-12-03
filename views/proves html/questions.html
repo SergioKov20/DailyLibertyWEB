@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>    
+        <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href='css/questions.css'>
+        <title>DailyLiberty  |  Frequently Asked Questions</title>
+   </head>
+   
+    <body style="background-color: mintcream">
+                <header  class="capsaHeader">
+            <ul class="barraSuperior">
+                <li id="btnMostrarNav" class="imgMenu">
+                    <img src="/img/menuBlanco.png"/>
+                </li>
+                <li class="cajaLogo">
+                  <a class="logo" href="/">
+                      <img width="auto" height="40px" src="/img/DailyLiberty.png" alt="DailyLiberty">
+                  </a>
+                </li>
+                <li id="buscador" class="buscador">
+                    <form action="results" method="GET">
+                        <input id="search" type="search" placeholder="Buscar" name="search"></input>
+                        <button id="botonSearch" class="botonSearch">
+                            <img src="/img/lupaBuscador.png"/>
+                        </button>
+                    </form>
+                </li>
+                <li class="login">
+                    <div class="dropLogin">
+                        <% if (isLoggedIn == true) { %>
+                            <button id="dropBoton" class="dropBoton"></button>
+                             <div style="left: -190%" class="dropContingut">
+                                <a href="/profile" >Veure Perfil</a>
+                                <a href="/newarticle">Escriure Article</a>
+                                <a href="/logout">Log Out</a>
+                            </div>
+                        <%} else {%>
+                            <button id="dropBoton2" class="dropBoton"></button>
+                             <div style="left: -60%" class="dropContingut">
+                                <a href="/login" >Sign In</a>
+                                <a href="/register">Register</a>
+								<a href="/about">About Us</a>
+                            </div>
+                        <% } %>
+                    </div>
+                </li>
+            </ul>
+        </header>
+        <section id ="cajasArticulos" class="cajas">
+        <div id="divFondo"></div>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Inici</a></li>
+                  <li><a href="/tendencies">Tendències</a></li>
+                  <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
+                  <div id="collapse1" class="collapse">
+                      <div class="panel-body">
+                          <a href="/category?c=politica">Política</a>
+                            <a href="/category?c=esports">Esports</a>
+                            <a href="/category?c=ciencia">Ciència</a>
+                          <a href="/category?c=tecnologia">Tecnologia</a>
+                          <a href="/category?c=altres">Altres</a>
+                      </div>
+                  </div>
+                  <li><a href="/following">Subscripcions</a></li>
+            </ul>
+        </nav>
+        
+        <div class="body">
+            <div class='centerplease'>
+              DailyLiberty - Frequently Asked Questions
+            </div>
+            <br>
+
+            <div class="content">
+            <div>
+              <input type="checkbox" id="question1" name="q"  class="questions">
+              <div class="plus">+</div>
+              <label for="question1" class="question">
+                Si tinc algun problema relacionat amb aquesta web, amb qui puc contactar?
+              </label>
+              <div class="answers">
+                Per qualsevol dubte o problema relacionat amb la web pots contactar amb nosaltres a través del telèfon: +34 93 333 33 33 en horari de 8h a 20h o 
+    enviant-nos un e-mail a l'adreça dailyliberty@gmail.com a qualsevol hora del dia i t'atendrem al més aviat possible.
+              </div>
+            </div>
+
+            <div>
+              <input type="checkbox" id="question2" name="q" class="questions">
+              <div class="plus">+</div>
+              <label for="question2" class="question">
+                En cas de pèrdua de la contrasenya, com puc recuperar-la?
+              </label>
+              <div class="answers">
+                Si no s'enrecorda de la contrasenya, pot enviar-nos un correu a l'email: dailyliberty@gmail.com informant-nos del oblit i obtindrà la resposta amb el procediment per a recuperar-la.
+              </div>
+            </div>
+
+            <div>
+              <input type="checkbox" id="question3" name="q" class="questions">
+              <div class="plus">+</div>
+              <label for="question3" class="question">
+                Si trobo contingut no decent a la pàgina, puc denunciar-ho?
+              </label>
+              <div class="answers">
+                Sí i recomanem que en aquests casos se'ns comuniqui al més aviat possible via telèfon o e-mail.
+              </div>
+
+            </div>
+              <div>
+              <input type="checkbox" id="question4" name="q" class="questions">
+              <div class="plus">+</div>
+              <label for="question4" class="question">
+                De quina manera puc obtenir la normativa de la pàgina web?
+              </label>
+              <div class="answers">
+                El procediment per a rebre la normativa de DailyLiberty, és enviant-nos un e-mail amb la vostra adreça d'usuari informant.nos de la sol·licitud i al més aviat possible li respondrem adjuntant la normativa general i específica de la web DailyLiberty.
+              </div>
+            </div>
+            </div>
+        </div> <!-- end of body !-->
+
+        </section>
+        <script src="js/mostrarNav.js"></script>
+		<% if (isLoggedIn == true) { %>
+          <script>
+            document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
+            document.getElementById("dropBoton").style.backgroundSize = 'cover';
+            document.getElementById("dropBoton").style.borderRadius = '100px';
+          </script>
+        <% } %>
+    </body>
+
+   
+</html>

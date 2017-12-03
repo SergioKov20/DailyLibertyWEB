@@ -21,7 +21,7 @@ html {
     font-family: 'Lora',Georgia,serif;
     //overflow-y:hidden;
     height: 100%;
-    .content3 {
+	.content3 {
         height: 100vh;
         background-color: mintcream;
         background-size: cover;
@@ -285,7 +285,8 @@ html {
                     max-height: 250px;
                     //position:relative;
                     .titulos {
-                        height: 90px;
+                        height: 91px;
+                        overflow: hidden;
                         h1 {
                             font-size: 16px;
                             font-weight:500;
@@ -298,21 +299,20 @@ html {
                             word-wrap: break-word;
 
                         }
-                        }
-                    .subtitulos {
                         h2 {
                             font-weight: normal;
-                            font-size: 10.5px;
+                            font-size: 10px;
                             line-height: inherit;
                             //font-family: 'Raleway', sans-serif;
                             color: dimgrey;
-                            margin-top: 10px;
+                            margin-top: 4px;
+                            margin-bottom: 0px;
                             padding-left: 6px;
                             padding-right: 6px;
                             word-wrap: break-word;
                             //height:80px;
-                    }
-                        
+
+                        }
                     }
                     .footerArticle {
                         width: 100%;
@@ -426,6 +426,11 @@ html {
                 //width:~'calc(100% - 300px/2)';
                 //margin: 40px;
                 min-width:350px; 
+                .cajaI {
+                    img {
+                        //height: auto;
+                    }
+                }
             }
             .articulo:nth-child(-n+5) {
                 margin-top: 0px;
