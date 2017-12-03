@@ -472,6 +472,14 @@ html body .marked {
   display: flex;
   flex-wrap: wrap;
 }
+.section3 {
+  width: 100%;
+  padding-top: 10px !important;
+  margin-bottom: 30px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
 .comenta {
   width: 385px;
   margin-left: 10px;
