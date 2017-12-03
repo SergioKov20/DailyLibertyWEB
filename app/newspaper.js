@@ -235,43 +235,57 @@ exports.likeArticle = function(req, res) {
         var likeaction = req.param('like');
         Article.findById(articleID, function(err, article) {
             if(article) {
-              if(likeaction == "1") { //None-Like
-                article.likes.push(username);
-                article.views--; //Això és per a que no conti una visita més al recarregar, no es just
-              }
-              else if(likeaction == "2") { //Like-None
-                var index = article.likes.indexOf(username);
-                if(index > -1) article.likes.splice(index, 1);
-                article.views--;
-              }
-              else if(likeaction == "3") { //None-Dislike
-                article.dislikes.push(username);
-                article.views--;
-              }
-              else if(likeaction == "4") { //Dislike-None
-                var index = article.dislikes.indexOf(username);
-                if(index > -1) article.dislikes.splice(index, 1);
-                article.views--;
-              }
-              else if(likeaction == "5") { //Like-Dislike
-                var index = article.likes.indexOf(username);
-                if(index > -1) {
-                    article.likes.splice(index, 1);
+              var User = require('./models/user');
+              User.findOne({'username': article.author}, function(err, autor) {
+                  if(likeaction == "1") { //None-Like
+                    article.likes.push(username);
+                    article.views--; //Això és per a que no conti una visita més al recarregar, no es just
+                    autor.rating++;
+                  }
+                  else if(likeaction == "2") { //Like-None
+                    var index = article.likes.indexOf(username);
+                    if(index > -1) article.likes.splice(index, 1);
+                    article.views--;
+                    autor.rating--;
+                  }
+                  else if(likeaction == "3") { //None-Dislike
                     article.dislikes.push(username);
                     article.views--;
-                }
-              }
-              else if(likeaction == "6") { //Dislike-Like
-                var index = article.dislikes.indexOf(username);
-                if(index > -1) {
-                    article.dislikes.splice(index, 1);
-                    article.likes.push(username);
+                    autor.rating--;
+                  }
+                  else if(likeaction == "4") { //Dislike-None
+                    var index = article.dislikes.indexOf(username);
+                    if(index > -1) article.dislikes.splice(index, 1);
                     article.views--;
-                }
-              }
-              article.save(function(err) {
-                  if (err) res.render('error/500.ejs');
-                  else res.redirect('/read?a='+articleID);
+                    autor.rating++;
+                  }
+                  else if(likeaction == "5") { //Like-Dislike
+                    var index = article.likes.indexOf(username);
+                    if(index > -1) {
+                        article.likes.splice(index, 1);
+                        article.dislikes.push(username);
+                        article.views--;
+                        autor.rating -= 2;
+                    }
+                  }
+                  else if(likeaction == "6") { //Dislike-Like
+                    var index = article.dislikes.indexOf(username);
+                    if(index > -1) {
+                        article.dislikes.splice(index, 1);
+                        article.likes.push(username);
+                        article.views--;
+                        autor.rating += 2;
+                    }
+                  }
+                  article.save(function(err) {
+                      if (err) res.render('error/500.ejs');
+                      else {
+                        autor.save(function(err) {
+                            if (err) res.render('error/500.ejs');
+                            else res.redirect('/read?a='+articleID);
+                        });
+                      }
+                  });
               });
             }
             else res.render('error/wrongArticle.ejs');
