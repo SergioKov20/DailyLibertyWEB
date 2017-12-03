@@ -1,7 +1,7 @@
 
 var express  = require('express');
 var app      = express();
-var port     = process.env.PORT || 8080;
+//var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
@@ -9,7 +9,8 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-
+var forceSsl = require('express-force-ssl');
+var fs = require('fs');
 
 require('./config/passport')(passport);
 
@@ -35,5 +36,20 @@ var newspaper = require('./app/newspaper.js');
 
 require('./app/routes.js')(app,passport,newspaper); // load our routes
 
-app.listen(port);
-console.log('Server started on port ' + port);
+//HTTPS/SSL
+var key = fs.readFileSync('encryption/private.key');
+var cert = fs.readFileSync( 'encryption/primary.crt' );
+var ca = fs.readFileSync( 'encryption/intermediate.crt' );
+var certOptions = {
+  key: key,
+  cert: cert,
+  ca: ca
+};
+
+var https = require('https');
+https.createServer(certOptions, app).listen(443);
+var http = require('http');
+http.createServer(app).listen(80);
+app.use(forceSsl);
+
+console.log('Server started on port ' + 80);
