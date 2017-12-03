@@ -75,8 +75,8 @@
         </nav>
         <% if (tendencies.length > 0) {
                 for (var i = 0; i < tendencies.length; i++){
-                    var likes = tendencies[i].likes.filter(function(element) { return element.like; }).length;
-                    var dislikes = tendencies[i].likes.length - likes;%>
+                    var likes = tendencies[i].likes.length;
+                    var dislikes = tendencies[i].dislikes.length;%>
                     <div onclick="location.href = '/read?a=<%=tendencies[i]._id%>'" class="divImgArt">
                         <div><img style="-moz-user-select: none; user-select: none;" src="<%=tendencies[i].fotourl%>"/></div>
                         <article class="cajaArticle"  id="global" >

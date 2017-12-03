@@ -228,36 +228,53 @@ exports.editProfile = function(req, res) {
 }
 
 exports.likeArticle = function(req, res) {
-    var articleID = req.param('a');
-    var userID = req.param('u');
-    var like = req.param('l');
-    if (articleID == null || userID == null || like == null) res.send(false);
+    if(!req.isAuthenticated()) res.redirect('/login');
     else {
-        Article.findById(articleID, function(err, article){
-            if (err) res.send(false);
-            else if (!article) res.send(false);
-            else {
-                var index = article.likes.findIndex(function(element) {
-                    return (element._id == userID);
-                });
-                //var index = article.likes.find(o => o._id === userID);
-                //var index = article.likes.indexOf({ _id: userID, like:false});
-                if ( like != 0 ){ //like or dislike
-                    if (index < 0) { //New like
-                        article.likes.push( {_id : userID, like : (like==1)} );
-                    }
-                    else { //existing like
-                        article.likes[index].like = (like == 1);
-                    }
+        var articleID = req.param('a');
+        var username = req.user.username;
+        var likeaction = req.param('like');
+        Article.findById(articleID, function(err, article) {
+            if(article) {
+              if(likeaction == "1") { //None-Like
+                article.likes.push(username);
+                article.views--; //Això és per a que no conti una visita més al recarregar, no es just
+              }
+              else if(likeaction == "2") { //Like-None
+                var index = article.likes.indexOf(username);
+                if(index > -1) article.likes.splice(index, 1);
+                article.views--;
+              }
+              else if(likeaction == "3") { //None-Dislike
+                article.dislikes.push(username);
+                article.views--;
+              }
+              else if(likeaction == "4") { //Dislike-None
+                var index = article.dislikes.indexOf(username);
+                if(index > -1) article.dislikes.splice(index, 1);
+                article.views--;
+              }
+              else if(likeaction == "5") { //Like-Dislike
+                var index = article.likes.indexOf(username);
+                if(index > -1) {
+                    article.likes.splice(index, 1);
+                    article.dislikes.push(username);
+                    article.views--;
                 }
-                else { //unlike
-                    if (index > -1) article.likes.splice(index, 1);
+              }
+              else if(likeaction == "6") { //Dislike-Like
+                var index = article.dislikes.indexOf(username);
+                if(index > -1) {
+                    article.dislikes.splice(index, 1);
+                    article.likes.push(username);
+                    article.views--;
                 }
-                article.save(function(err) {
-                    if (err) res.send(false);
-                    else res.send(true);
-                });
+              }
+              article.save(function(err) {
+                  if (err) res.render('error/500.ejs');
+                  else res.redirect('/read?a='+articleID);
+              });
             }
+            else res.render('error/wrongArticle.ejs');
         });
     }
 }

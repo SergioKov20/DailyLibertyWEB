@@ -1,10 +1,3 @@
-function cancel(){
-
-                alert("Really discard your article?")
-                window.open('./',"_self")
-
-}
-
 // the selector will match all input controls of type :checkbox
 // and attach a click event handler
 $("input:checkbox").on('click', function() {

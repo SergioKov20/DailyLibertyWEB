@@ -307,6 +307,11 @@
             document.getElementById('previa').style.display = 'none';
             document.getElementById('edition').style.display = 'block';
           }
+          function cancel() {
+            if (confirm("Do you really want to discard your article?") == true) {
+                window.location.href = "/";
+            }
+          }
         </script>
 
     </body>

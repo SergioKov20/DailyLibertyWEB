@@ -10,7 +10,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel='stylesheet' href='/css/read.css'>
-		<script src="/js/likes.js"></script>
    </head>
    <%
         var id = article.id;
@@ -36,8 +35,8 @@
         }
         var data = dd + '/' + mm + '/' + yyyy;
 
-        var likes = article.likes.filter(function(element) { return element.like; }).length;
-        var dislikes = article.likes.length - likes;
+        var likes = article.likes.length;
+        var dislikes = article.dislikes.length;
     %>
     <body >
         <header  class="capsaHeader">
@@ -136,50 +135,17 @@
                                 <div class="likesDislikes" id="rating">
 									<div class="intLike">
 										<span id="muteGreen" class="like" >
-											<button title="Like this article" id="nogreen" class="likenogreen"></button>
+											<button title="Like this article" id="nogreen" onclick="likeclick()" class="likenogreen"></button>
 										</span>
-										<span class="likes"><%=likes%></span>
+										<span id="pos" class="likes"><%=likes%></span>
 										<span id="muteRed" class="dislike" >
-											<button title="Dislike this article" id="nored" class="dislikenored"></button>
+											<button title="Dislike this article" id="nored" onclick="dislikeclick()" class="dislikenored"></button>
 										</span>
-										<span class="dislikes"><%=dislikes%></span>
-
-										  <!------1--if like true---------Like & Undislike------------------
-
-										<span id="muteGreen" class="like active" >
-											<button id="nogreen" class="likegreen"></button>
-										</span>
-										<span class="likes">12</span>
-										<span id="muteRed" class="dislike" >
-											<button id="nored" class="dislikenored"></button>
-										</span>
-										<span class="dislikes">2</span>-->
-
-										<!-----2 else if like false----------Dislike & Unlike------------------
-
-										<span id="muteGreen" class="like" >
-											<button id="nogreen" class="likenogreen"></button>
-										</span>
-										<span class="likes">12</span>
-										<span id="muteRed" class="dislike active" >
-											<button id="nored" class="dislikered"></button>
-										</span>
-										<span class="dislikes">2</span>-->
-
-									   <!------3 else----------Unlike & Undislike---------------
-
-										<span id="muteNoGreen" class="like">
-											<button id="nogreen" class="likenogreen"></button>
-										</span>
-										<span class="likes">12</span>
-										<span id="muteNoRed" class="dislike" >
-											<button id="nored" class="dislikenored"></button>
-										</span>
-										<span class="dislikes">2</span>-->
+										<span id="neg" class="dislikes"><%=dislikes%></span>
 
 									</div>
 								</div>
-                            </div>
+              </div>
 						</div>
                         <img class="imgPrincipal" src="<%=fotoart%>"/>
                     </div>
@@ -244,32 +210,66 @@
         <script src="/js/mostrarNav.js"></script>
         <script src="/js/changeColor.js"></script>
 		<script src="/js/correctorInsults.js"></script>
-    <% if (isLoggedIn == true) { %>
-        <script type="text/javascript">
-            $('#rating').likeDislike({
-                initialValue: 0,
-                click: function (value, l, d, event) {
-                    var likes = $(this.element).find('.likes');
-                    var dislikes = $(this.element).find('.dislikes');
-                    $.get("/like?a=<%=id%>&u=<%=user.username%>&l="+value );
-                    likes.text(parseInt(likes.text()) + l);
-                    dislikes.text(parseInt(dislikes.text()) + d);
-                }
-            });
-        </script>
-    <% } else { %>
-      <script type="text/javascript">
-          $('#rating').likeDislike({
-              initialValue: 0,
-              click: function (value, l, d, event) {
-                  var likes = $(this.element).find('.likes');
-                  var dislikes = $(this.element).find('.dislikes');
-                  likes.text(parseInt(likes.text()) + l);
-                  dislikes.text(parseInt(dislikes.text()) + d);
+
+      <!-- STATUS BUTTONS & FUNCTIONS -->
+      <% if (likestatus == "like") { %>
+          <script>
+              document.getElementById("nogreen").className = "likegreen";
+
+              function likeclick() {
+                  document.getElementById("nogreen").className = "likenogreen";
+                  document.getElementById("pos").innerHTML = "<%=likes-1%>";
+                  window.location.href = "/read?a=<%=id%>&like=2";
               }
-          });
-      </script>
+              function dislikeclick() {
+                  document.getElementById("nogreen").className = "likenogreen";
+                  document.getElementById("nored").className = "dislikered";
+                  document.getElementById("pos").innerHTML = "<%=likes-1%>";
+                  document.getElementById("neg").innerHTML = "<%=dislikes+1%>";
+                  window.location.href = "/read?a=<%=id%>&like=5";
+              }
+          </script>
+      <% } else if (likestatus == "dislike") { %>
+          <script>
+              document.getElementById("nored").className = "dislikered";
+
+              function likeclick() {
+                  document.getElementById("nogreen").className = "likegreen";
+                  document.getElementById("nored").className = "dislikenored";
+                  document.getElementById("pos").innerHTML = "<%=likes+1%>";
+                  document.getElementById("neg").innerHTML = "<%=dislikes-1%>";
+                  window.location.href = "/read?a=<%=id%>&like=6";
+              }
+              function dislikeclick() {
+                  document.getElementById("nored").className = "dislikenored";
+                  document.getElementById("neg").innerHTML = "<%=dislikes-1%>";
+                  window.location.href = "/read?a=<%=id%>&like=4";
+              }
+          </script>
+      <% } else if (likestatus == "none") { %>
+          <script>
+          function likeclick() {
+              document.getElementById("nogreen").className = "likegreen";
+              document.getElementById("pos").innerHTML = "<%=likes+1%>";
+              window.location.href = "/read?a=<%=id%>&like=1";
+          }
+          function dislikeclick() {
+              document.getElementById("nored").className = "dislikered";
+              document.getElementById("neg").innerHTML = "<%=dislikes+1%>";
+              window.location.href = "/read?a=<%=id%>&like=3";
+          }
+          </script>
+      <% } else { %>
+          <script>
+              function likeclick() {
+                  window.location.href = "/login";
+              }
+              function dislikeclick() {
+                  window.location.href = "/login";
+              }
+          </script>
       <% } %>
+
 		<% if (isLoggedIn == true) { %>
           <script>
             document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
