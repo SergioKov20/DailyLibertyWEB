@@ -13,10 +13,8 @@ var articleSchema = mongoose.Schema({
 	data 		: Date,
 	comments : [String],
 	fotourl : String,
-	likes 		: [{
-					_id : String,
-					like : Boolean
-				  }]
+	likes : [String],
+	dislikes : [String]
 });
 
 articleSchema.plugin(mongoosastic);

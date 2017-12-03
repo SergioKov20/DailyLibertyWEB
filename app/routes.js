@@ -84,11 +84,12 @@ module.exports = function(app,passport,newspaper) {
 
     app.get('/read', function(req,res){
         if(req.param("act") == "del") newspaper.deleteArticle(req, res);
+        else if(req.param("like") != null) newspaper.likeArticle(req, res);
         else require('./search.js').getArticle(req,res);
     });
     app.post('/read', function(req,res){
         if(req.param("act") == "com") newspaper.comentar(req,res);
-        else require('./search.js').likeArticle(req,res);
+        else res.render('error/wrongArticle.ejs');
     });
 
     app.get('/tendencies', function(req, res) {
@@ -111,13 +112,6 @@ module.exports = function(app,passport,newspaper) {
             user : req.user,
             isLoggedIn: req.isAuthenticated()
         });
-    });
-    app.get('/like', function(req,res) {
-        if ( !req.isAuthenticated() ) res.send(false);
-        else {
-            if (req.user.username != req.param('u') ) res.send(false); //Filter user not allowed)
-            else newspaper.likeArticle(req,res);
-        }
     });
 }
 
