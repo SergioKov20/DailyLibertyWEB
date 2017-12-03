@@ -190,7 +190,8 @@ exports.searchArticles = function(req,res) {
 		res.render('index.ejs', {
 	    	user: req.user,
 	    	articles: results.hits.hits,
-	    	isLoggedIn: req.isAuthenticated()
+	    	isLoggedIn: req.isAuthenticated(),
+	    	action: ""
     	});
 	});
 }

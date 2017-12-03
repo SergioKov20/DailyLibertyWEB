@@ -113,7 +113,7 @@ module.exports = function(app,passport,newspaper) {
         });
     });
     app.get('/like', function(req,res) {
-        if ( !res.isAuthenticated() ) res.send(false);
+        if ( !req.isAuthenticated() ) res.send(false);
         else {
             if (req.user.username != req.param('u') ) res.send(false); //Filter user not allowed)
             else newspaper.likeArticle(req,res);
