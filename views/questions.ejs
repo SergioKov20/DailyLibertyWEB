@@ -2,17 +2,18 @@
 <html>
     <head>
         <meta charset='UTF-8'>
-        <meta name='viewport'  content='width=device-width,initial-scale=1,maximum-scale=1'/>
+        <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'/>    
         <script src="https://code.jquery.com/jquery-3.2.1.js"  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel='stylesheet' href='/css/aboutus.css'>
-        <title>DailyLiberty  |  About Us</title>
-    </head>
-    <body>
-        <header  class="capsaHeader">
+        <link rel='stylesheet' href='/css/questions.css'>
+        <title>DailyLiberty  |  Frequently Asked Questions</title>
+   </head>
+   
+    <body style="background-color: mintcream">
+                <header  class="capsaHeader">
             <ul class="barraSuperior">
                 <li id="btnMostrarNav" class="imgMenu">
                     <img src="/img/menuBlanco.png"/>
@@ -54,7 +55,6 @@
         <section id ="cajasArticulos" class="cajas">
         <div id="divFondo"></div>
         <nav>
-
             <ul class="menu">
                 <li><a href="/">Inici</a></li>
                   <li><a href="/tendencies">Tendències</a></li>
@@ -71,48 +71,61 @@
                   <li><a href="/following">Subscripcions</a></li>
             </ul>
         </nav>
-        <div class="fons_principal css-marginT css-marginB">
-            <div class="m-content">
-                <div class="m-title">About us</div>
-                <h2  class="text">DailyLiberty es un diari independent que s'ha creat amb l'objectiu d'informar a tots els lectors d'aquesta pàgina web amb notícies de qualsevol mena de temes, com pot ser política, esports, cultura, etc. DailyLiberty ha estat creada en el 2017 per quatre persones: Adrià Carrera, Edgar Lorenzo, Sergio Rodríguez i Marc Català. Permet pujar notícies a qualsevol usuari essent així, una pàgina web que viu de la participació dels usuaris, ja siguin periodistes contrastats o no.
-
-                    </h2>
-                <div class="m-section">
-                    <article>
-                        <header>DailyLiberty</header>
-                        <section>
-                            Barcelona
-                            <br>
-                            T: +34 93 333 33 33
-                            <br>
-                            e-mail: dailyliberty@gmail.com
-                            <br>
-                            <a href="/questions" style="text-decoration:none;font:18px'FuturaLT',sans-serif; color:#afa1a1; cursor:pointer; font-size:16px;">FAQs</a>
-                        </section>
-                        <footer>
-                            <a rel="nofollow" onclick="window.open(
-'http://twitter.com/intent/tweet?text=Coneix DailyLiberty, un diari independent per a tots via @DailyLiberty - aquí pots trobar el link ' +location.href,
-'popupwindow',
-'scrollbars=yes,width=800,height=450');
-popUp.focus();
-return false"  href=""><img style="width:20px; height:20px; margin-right:5px;" src="/img/twitter.png"/>Share us on Twitter</a>
-                        </footer>
-                    </article>
-                    <article class="slogan">
-                        <header>
-                            <img height="60" src="img/newspaper.png" alt=""/>
-                        </header>
-                        <section><strong>Good</strong> News</section>
-                    </article>
-                    <article class="slogan">
-                        <header>
-                            <img src="img/ideasg.png" alt=""/>
-                        </header>
-                        <section><strong>Work</strong> With Us</section>
-                    </article>
-                </div>
+        
+        <div class="body">
+            <div class='centerplease'>
+              DailyLiberty - Frequently Asked Questions
             </div>
-        </div>
+            <br>
+
+            <div class="content">
+            <div>
+              <input type="checkbox" id="question1" name="q"  class="questions">
+              <div class="plus">+</div>
+              <label for="question1" class="question">
+                Si tinc algun problema relacionat amb aquesta web, amb qui puc contactar?
+              </label>
+              <div class="answers">
+                Per qualsevol dubte o problema relacionat amb la web pots contactar amb nosaltres a través del telèfon: +34 93 333 33 33 en horari de 8h a 20h o 
+    enviant-nos un e-mail a l'adreça dailyliberty@gmail.com a qualsevol hora del dia i t'atendrem al més aviat possible.
+              </div>
+            </div>
+
+            <div>
+              <input type="checkbox" id="question2" name="q" class="questions">
+              <div class="plus">+</div>
+              <label for="question2" class="question">
+                En cas de pèrdua de la contrasenya, com puc recuperar-la?
+              </label>
+              <div class="answers">
+                Si no s'enrecorda de la contrasenya, pot enviar-nos un correu a l'email: dailyliberty@gmail.com informant-nos del oblit i obtindrà la resposta amb el procediment per a recuperar-la.
+              </div>
+            </div>
+
+            <div>
+              <input type="checkbox" id="question3" name="q" class="questions">
+              <div class="plus">+</div>
+              <label for="question3" class="question">
+                Si trobo contingut no decent a la pàgina, puc denunciar-ho?
+              </label>
+              <div class="answers">
+                Sí i recomanem que en aquests casos se'ns comuniqui al més aviat possible via telèfon o e-mail.
+              </div>
+
+            </div>
+              <div>
+              <input type="checkbox" id="question4" name="q" class="questions">
+              <div class="plus">+</div>
+              <label for="question4" class="question">
+                De quina manera puc obtenir la normativa de la pàgina web?
+              </label>
+              <div class="answers">
+                El procediment per a rebre la normativa de DailyLiberty, és enviant-nos un e-mail amb la vostra adreça d'usuari informant.nos de la sol·licitud i al més aviat possible li respondrem adjuntant la normativa general i específica de la web DailyLiberty.
+              </div>
+            </div>
+            </div>
+        </div> <!-- end of body !-->
+
         </section>
         <script src="/js/mostrarNav.js"></script>
 		<% if (isLoggedIn == true) { %>
@@ -123,4 +136,6 @@ return false"  href=""><img style="width:20px; height:20px; margin-right:5px;" s
           </script>
         <% } %>
     </body>
+
+   
 </html>
