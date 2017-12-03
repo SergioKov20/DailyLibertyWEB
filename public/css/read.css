@@ -197,11 +197,13 @@ html body .cajas .articuloCompleto article header p {
 html body .cajas .articuloCompleto article header h1 {
   font-size: 40px;
   width: 100%;
+  word-break: break-word;
 }
 html body .cajas .articuloCompleto article header h2 {
   font-size: 20px;
   text-align: -webkit-center;
   text-align: -moz-center;
+  word-break: break-word;
 }
 html body .cajas .articuloCompleto article header h2:after {
   margin-top: 40px;
