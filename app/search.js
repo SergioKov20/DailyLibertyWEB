@@ -183,9 +183,10 @@ exports.searchArticles = function(req,res) {
 	console.log(query);
 	Article.search({
 		query_string: {
-			query: query
+			query: query+"~"
 		}
-	},{hydrate: true}, function(err, results) {
+	},
+	{from:0, size:25, hydrate: true}, function(err, results) {
 		console.log(results.hits.hits);
 		res.render('index.ejs', {
 	    	user: req.user,
