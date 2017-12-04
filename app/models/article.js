@@ -9,7 +9,7 @@ var articleSchema = mongoose.Schema({
     subtitle	: { type:String, es_indexed:true },
     content		: { type:String, es_indexed:true },
     author		: { type:String, es_indexed:true },
-    views 		: String,
+    views 		: Number,
 	data 		: Date,
 	comments : [String],
 	fotourl : String,

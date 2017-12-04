@@ -121,6 +121,13 @@ module.exports = function(app,passport,newspaper) {
             isLoggedIn: req.isAuthenticated()
         });
     });
+
+    app.get('/questions', function(req, res) {
+        res.render('questions.ejs', {
+            user : req.user,
+            isLoggedIn: req.isAuthenticated()
+        } );
+    });
 }
 
 function isLoggedIn(req, res, next) {
