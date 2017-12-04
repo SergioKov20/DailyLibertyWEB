@@ -63,12 +63,17 @@
 
           <%  var totalarticles = 0;
               var vector = [];
+              var diners = 0;
+              var totalviews = 0;
               for(var i = 0; i < articles.length; i++) {
                 if(articles[i].author == user.username) {
                   ++totalarticles;
                   vector.push(articles[i]);
+                  totalviews += articles[i].views;
                 }
-              } %>
+              }
+
+              diners = totalviews*0.001;%>
           <!-- Sergio bootstrap -->
           <div id="perfil" class="container perso">
               <div class="row mb25">
@@ -137,6 +142,8 @@
                   <p><a href="/followers?v=<%=user.username %>">Click to check your followers!</a></p>
                   <h4><b>Total Rating:</b></h4>
                   <p>Your total rating is: <%=user.rating %>.</p>
+                  <h4><b>Estimated earnings:</b></h4>
+                  <p>You earned <%=diners%> €.</p>
                   <h4><b>Total articles:</b></h4>
                   <p>You've written <%=totalarticles %> articles.</p>
                 </div>
