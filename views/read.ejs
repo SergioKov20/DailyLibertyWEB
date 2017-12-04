@@ -21,20 +21,16 @@
         var views = article.views;
         var fotoart = article.fotourl;
         var comentaris = article.comments;
-
         var dd = article.data.getDate();
         var mm = article.data.getMonth()+1;
         var yyyy = article.data.getFullYear();
-
         if(dd < 10) {
             dd = '0' + dd;
         }
-
         if(mm < 10) {
             mm = '0' + mm;
         }
         var data = dd + '/' + mm + '/' + yyyy;
-
         var likes = article.likes.length;
         var dislikes = article.dislikes.length;
     %>
@@ -189,7 +185,7 @@
                   <hr style="border-color: grey; margin-top: 35px">
                 </section>
                 <section class="section3">
-                  <div onclick="spam()" style="cursor:pointer; background:url('https://www.paidpicks1x2.com/wp-content/uploads/Bet365.gif'); background-size:contain; background-repeat:no-repeat; margin-bottom: 30px;">
+                  <footer onclick="spam()" style="background:url('https://www.paidpicks1x2.com/wp-content/uploads/Bet365.gif'); background-size:contain; background-repeat:no-repeat; margin-bottom: 30px;">
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- XYZ 336 x 280 -->
                     <ins  class="adsbygoogle"
@@ -200,7 +196,7 @@
                     <script>
                       (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
-              </div>
+                </footer>
               </section>
             </article>
         </div>
@@ -215,7 +211,6 @@
       <% if (likestatus == "like") { %>
           <script>
               document.getElementById("nogreen").className = "likegreen";
-
               function likeclick() {
                   document.getElementById("nogreen").className = "likenogreen";
                   document.getElementById("pos").innerHTML = "<%=likes-1%>";
@@ -232,7 +227,6 @@
       <% } else if (likestatus == "dislike") { %>
           <script>
               document.getElementById("nored").className = "dislikered";
-
               function likeclick() {
                   document.getElementById("nogreen").className = "likegreen";
                   document.getElementById("nored").className = "dislikenored";
@@ -275,7 +269,6 @@
             document.getElementById("dropBoton").style.background = "url(<%=user.fotourl %>)";
             document.getElementById("dropBoton").style.backgroundSize = 'cover';
             document.getElementById("dropBoton").style.borderRadius = '100px';
-
             function reallydelete() {
               if (confirm("Do you really want to delete your article?") == true) {
                   window.location.href = "/read?a=<%=id%>&act=del";
