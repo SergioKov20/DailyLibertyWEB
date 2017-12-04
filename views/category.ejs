@@ -24,7 +24,7 @@
                 </li>
                 <li id="buscador" class="buscador">
                     <form action="results" method="GET">
-                        <input id="search" type="search" placeholder="Buscar" name="search">
+                        <input id="search" type="search" placeholder="Search" name="search">
                         <button id="botonSearch" class="botonSearch">
                             <img src="/img/lupaBuscador.png"/>
                         </button>
@@ -35,8 +35,8 @@
                         <% if (isLoggedIn == true) { %>
                             <button id="dropBoton" class="dropBoton"></button>
                              <div style="left: -190%" class="dropContingut">
-                                <a href="/profile" >Veure Perfil</a>
-                                <a href="/article">Escriure Article</a>
+                                <a href="/profile" >View Profile</a>
+                                <a href="/article">Write Article</a>
 								<a href="/about">About Us</a>
                                 <a href="/logout">Log Out</a>
                             </div>
@@ -56,19 +56,19 @@
         <div id="divFondo"></div>
         <nav>
             <ul class="menu">
-                <li><a href="/">Inici</a></li>
-                <li><a href="/tendencies">Tendències</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/tendencies">Trendings</a></li>
                 <li><a data-toggle="collapse" href="#collapse1">Categories</a></li>
                 <div id="collapse1" class="collapse">
                     <div class="panel-body">
-                        <a href="/category?c=politica">Política</a>
-                          <a href="/category?c=esports">Esports</a>
-                          <a href="/category?c=ciencia">Ciència</a>
-                        <a href="/category?c=tecnologia">Tecnologia</a>
-                        <a href="/category?c=altres">Altres</a>
+                        <a href="/category?c=politica">Politics</a>
+                          <a href="/category?c=esports">Sports</a>
+                          <a href="/category?c=ciencia">Science</a>
+                        <a href="/category?c=tecnologia">Technology</a>
+                        <a href="/category?c=altres">Others</a>
                     </div>
                 </div>
-                <li><a href="/following">Subscripcions</a></li>
+                <li><a href="/following">Subscriptions</a></li>
             </ul>
         </nav>
             <% if (articles.length > 0) {
